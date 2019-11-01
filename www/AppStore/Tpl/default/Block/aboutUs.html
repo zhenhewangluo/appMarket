@@ -1,0 +1,48 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a>&nbsp;>&nbsp;关于我们
+</div>
+<!-- 面包屑导航 -->
+<!-- layout::$blockbar::0 -->
+<div class="content_box line_l">
+	<div class="content_box_title">
+		<ul class="switch_tab">
+			<li><a href="javascript:void(0);" class="switch_tab_current">{$contentTitle}</a></li>
+		</ul>
+		<ul class="order_btns">
+			<li>默认排序</li>
+			<li>发布时间</li>
+			<li>最新</li>
+			<li>最热</li>
+		</ul>
+	</div>
+	<div class="app_list_box">
+		<volist name="list" id="vo">
+			<dl class="app_dl">
+				<dt>
+					<a href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}">
+						<img alt ="" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" width="80" height="80" />
+					</a>
+				</dt>
+				<dt><a title="{$vo['app_name']}" href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}">{$vo['app_name']|mb_substr=0,8,'UTF-8'}</a></dt>
+				<dd>{$vo['author_name']|mb_substr=0,8,'UTF-8'}</dd>
+				<dd>
+					<span class="blue_grade">
+						<if condition="$vo['app_starcount'] gt 0">
+						<i style="width:{:round($vo['app_score_www']/$vo['app_starcount']) * 15}px;"></i>
+						<else/>
+						<i style="width:0px;"></i>
+						</if>
+					</span>
+					({:number_format($vo['app_downloads'])})
+				</dd>
+				<dd><a href="{:U('AppStore://Apps/appDownload?aid=' . $vo['app_id'])}"><img alt ="" src="../Public/images/installation.png" /></a></dd>
+			</dl>
+		</volist>
+		<div class="page" style="clear:both;">
+		{$page}
+		</div>
+		<p><a href="###" target="_blank">查看更多 <span> > </span></a></p>
+	</div>
+</div>
+<!--右侧主体-->

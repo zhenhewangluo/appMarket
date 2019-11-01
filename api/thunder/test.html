@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+
+ 
+  <title> Thunder Interface Test Page </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head><body>
+
+<a name="thunder"></a><br>
+  <b>Interface 2: 获取分类信息</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_menu_list.php">
+ proto : <input name="proto" value="2" type="text"><br>
+ mid   : <input name="mid" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" type="text"><br>
+ menu_id: <input name="menu_id" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+
+ <b>Interface 3: 获取某分类下应用信息</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_applist_bycate.php">
+ proto : <input name="proto" value="3" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ cate: <input name="cate" value="14" type="text"><br>
+ start_no: <input name="start_no" value="20" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 4: 获取某分类下应用列表---下载量排序</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_applist_favorite.php">
+ proto : <input name="proto" value="4" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ cate: <input name="cate" value="14" type="text"><br>
+ start_no: <input name="start_no" value="20" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+  <b>Interface 5: 获取某分类下应用列表---按时间排序</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_applist_date.php">
+ proto : <input name="proto" value="5" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ cate: <input name="cate" value="14" type="text"><br>
+ start_no: <input name="start_no" value="20" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 6: 按照关键词获取应用列表</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_applist_keyword.php">
+ proto : <input name="proto" value="6" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ word: <input name="word" value="游戏" type="text"><br>
+ start_no: <input name="start_no" value="20" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 7: 按 appids 获取应用列表</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_applist_byappids.php">
+ proto : <input name="proto" value="7" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ appids: <input name="applist" value="6000033,6000034,6000035,6000036,6000037,6000038,6000039" type="text"><br>
+ start_no: <input name="start_no" value="20" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 8: 获取广告专题应用列表</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_feature_applist.php">
+ proto : <input name="proto" value="8" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+  <b>Interface 9: 获取必备应用列表</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_top_applist.php">
+ proto : <input name="proto" value="9" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+  <b>Interface 10: 获取全部最热下载应用列表</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_applist_favor_all.php">
+ proto : <input name="proto" value="10" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ start_no: <input name="start_no" value="2" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+
+ <b>Interface 11: 获取全部最新下载应用列表</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_applist_date_all.php">
+ proto : <input name="proto" value="11" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ start_no: <input name="start_no" value="2" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 12: 获取应用详情</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_oneapp.php">
+ proto : <input name="proto" value="12" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ appid: <input name="appid" value="6000035" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+
+ <b>Interface 13: 获取应用评论</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="get_comments.php">
+ proto : <input name="proto" value="13" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ appid: <input name="appid" value="6000035" type="text"><br>
+ start_no: <input name="start_no" value="2" type="text"><br>
+ length: <input name="length" value="10" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 14: 下载应用</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="download_apk.php">
+ proto : <input name="proto" value="14" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ appid: <input name="appid" value="6000035" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 15: 下载应用icon</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="download_appicons.php">
+ proto : <input name="proto" value="15" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ appids: <input name="applist" value="6000035,6000036" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 16: 下载分类icon</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="download_cateicons.php">
+ proto : <input name="proto" value="16" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ catelist: <input name="catelist" value="" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+  <b>Interface 17: 下载应用截图</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="download_screeshots.php">
+ proto : <input name="proto" value="17" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ appid: <input name="appid" value="6000035" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+  <b>Interface 18: 评论评论评论</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="comment.php">
+ proto : <input name="proto" value="18" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ appid: <input type=text name="appid" value="6000035" /><br/>
+ rate: <input type=text name="rate" value="up" /><br/>
+ content:<textarea name="comment" cols=30 rows=5>评论评论评论</textarea>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 19: 更新下载成功记录</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_common" action="update_download_log.php">
+ proto : <input name="proto" value="19" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ list: <input type=text name="list" value="appid=6000035,download_id=2656,download_time=2010-06-23 11:57:14|appid=6000037,download_id=2653,download_time=2010-06-18 17:33:01" /><br/>
+ <input type="submit">
+ <br>
+ </form><br>
+
+ <b>Interface 20: Login</b><br>
+ <hr length="600/"><br>
+ <form method="POST" name="test_login" action="login.php">
+ proto : <input name="proto" value="20" type="text"><br>
+ mid   : <input name="mid" value="37" type="text"><br>
+ uid : <input name="uid" type="text"><br>
+ sid: <input name="sid" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ passwd: <input name="passwd" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ email: <input name="email" value="4u6l95j1nd68fn5k52nvit6vu3" type="text"><br>
+ <input type="submit">
+ <br>
+ </form><br>
+
+
+ </body></html>

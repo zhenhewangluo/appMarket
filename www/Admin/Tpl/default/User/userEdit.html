@@ -1,0 +1,119 @@
+<div class="headbar">
+	<div class="position"><span>用户</span><span>></span><span>用户管理</span><span>></span><span><if condition="isset($user['id'])">编辑用户<else/>添加用户</if></span></div>
+</div>
+<div class="content_box">
+	<div class="content form_content">
+		<form action="{:U('Admin://User/userSave')}" method="post" name="memberForm">
+			<table class="form_table">
+				<col width="150px" />
+				<col />
+				<tr>
+					<th>用户名：</th>
+					<td>
+						<if condition="isset($user['id'])">
+							{$user['name']}
+							<input name="name" value="{$user['name']}" type="hidden" />
+							<input name="id" value="{$user['id']}" type="hidden" />
+						<else/>
+							<input class="normal" name="name" type="text" value="{$user['name']}" pattern="required" alt="用户名不能为空" /><label>* 用户名称（必填）</label>
+						</if>
+					</td>
+				</tr>
+				<if condition="isset($user['registered_time'])">
+				<tr>
+					<th>注册时间：</th>
+					<td>{$user['registered_time']}</td>
+				</tr>
+				</if>
+				<if condition="isset($user['RegisteredUserHead']['path'])">
+				<tr>
+					<th>用户头像：</th>
+					<td>
+						{~$userFaceArr = explode(',', $user['RegisteredUserHead']['path'])}
+						<img src="__ROOT__/{$userFaceArr[1]}" />
+					</td>
+				</tr>
+				</if>
+				<tr>
+					<th>是否验证通过：</th>
+					<td>
+						<label><input name="status" type="radio" value="1" <if condition="$user['status'] eq 1">checked="checked"</if> />是</label>
+						<label><input name="status" type="radio" value="0" <if condition="$user['status'] eq 0">checked="checked"</if> />否</label>
+					</td>
+				</tr>
+				<tr>
+					<th>Email：</th>
+					<td>
+						<if condition="isset($user['email'])">
+						{$user['email']}
+						<input type="hidden" name="email" value="{$user['email']}"/>
+						<else/>
+						<input type="text" class="normal" name="email" pattern="email" alt="邮箱错误"/><label>* 邮箱不能为空</label>
+						</if>
+					</td>
+				</tr>
+				<tr>
+					<th>Email是否公开：</th>
+					<td>
+						<label><input name="email_ispublic" type="radio" value="1" <if condition="$user['email_ispublic'] eq 1">checked="checked"</if> />是</label>
+						<label><input name="email_ispublic" type="radio" value="0" <if condition="$user['email_ispublic'] eq 0">checked="checked"</if> />否</label>
+					</td>
+				</tr>
+				<tr>
+					<th>密码：</th>
+					<td>
+						<input class="normal" pattern="^\S{6,32}$" name="password" type="password" bind="repassword" empty  /><label><if condition="isset($user['id'])">不修改密码，请保持为空<else/>* 登录密码（必填）</if></label>
+					</td>
+				</tr>
+				<tr>
+					<th>确认密码：</th>
+					<td><input class="normal" pattern="^\S{6,32}$" name="repassword" type="password" bind="password" empty /><label>确认密码</label></td>
+				</tr>
+				<tr>
+					<th>手机：</th>
+					<td><input class="normal" name="phone" type="text" value="{$user['phone']}" empty pattern="mobi" alt="格式不正确" /><label>手机号码</label></td>
+				</tr>
+				<tr>
+					<th>手机是否公开：</th>
+					<td>
+						<label><input name="mobile_ispublic" type="radio" value="1" <if condition="$user['mobile_ispublic'] eq 1">checked="checked"</if> />是</label>
+						<label><input name="mobile_ispublic" type="radio" value="0" <if condition="$user['mobile_ispublic'] eq 0">checked="checked"</if> />否</label>
+					</td>
+				</tr>
+				<tr>
+					<th>QQ：</th><td><input class="normal" name="qq" type="text" value="{$user['qq']}" empty pattern="qq" alt="格式不正确" /><label>QQ号码</label></td>
+				</tr>
+				<tr>
+					<th>QQ是否公开：</th>
+					<td>
+						<label><input name="qq_ispublic" type="radio" value="1" <if condition="$user['qq_ispublic'] eq 1">checked="checked"</if> />是</label>
+						<label><input name="qq_ispublic" type="radio" value="0" <if condition="$user['qq_ispublic'] eq 0">checked="checked"</if> />否</label>
+					</td>
+				</tr>
+				<tr>
+					<th>微博地址：</th><td><input class="normal" name="weburl" type="text" value="{$user['weburl']}" empty pattern="url" alt="格式不正确" /><label>QQ号码</label></td>
+				</tr>
+				<tr>
+					<th>微博是否公开：</th>
+					<td>
+						<label><input name="weburl_ispublic" type="radio" value="1" <if condition="$user['weburl_ispublic'] eq 1">checked="checked"</if> />是</label>
+						<label><input name="weburl_ispublic" type="radio" value="0" <if condition="$user['weburl_ispublic'] eq 0">checked="checked"</if> />否</label>
+					</td>
+				</tr>
+				<tr>
+					<th>地址：</th><td><input class="normal" name="address" type="text" value="{$user['address']}" /><label>联系地址</label></td>
+				</tr>
+				<tr>
+					<th>选择快递方式：<br />（用于发送奖品）</th>
+					<td>
+						<label><input name="expressdelivery" type="radio" value="1" <if condition="$user['expressdelivery'] eq 1">checked="checked"</if> />是</label>
+						<label><input name="expressdelivery" type="radio" value="0" <if condition="$user['expressdelivery'] eq 0">checked="checked"</if> />否</label>
+					</td>
+				</tr>
+				<tr>
+					<td></td><td><button class="submit" type="submit" onclick="return check()"><span>确 定</span></button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>

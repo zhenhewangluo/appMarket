@@ -1,0 +1,10 @@
+[ 2013-02-06T02:34:58+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-06T02:35:38+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-06T14:49:03+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-06T15:18:54+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-06T15:22:28+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-06T16:13:47+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-06T16:19:37+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2013-02-06T17:16:03+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-06T17:16:17+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2013-02-06T19:02:40+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Topic/index.html]

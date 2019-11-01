@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#e4e4e4"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/loading_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="120dip"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/progressbar"
+            android:indeterminateOnly="true"
+            android:max="100"
+            android:progress="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dip"
+            android:layout_toRightOf="@id/progress"
+            android:text="@string/loading_bg_text"
+            android:textColor="#555555"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!--
+            <RelativeLayout
+                android:id="@+id/no_content"
+                android:layout_width="310dip"
+                android:layout_height="fill_parent"
+                android:background="#FF00FF00"
+                android:visibility="gone" >
+            </RelativeLayout>
+    -->
+
+    <LinearLayout
+        android:id="@+id/down_Desc"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="#e4e4e4"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="251dip"
+            android:layout_height="45dip"
+            android:layout_gravity="center"
+            android:background="@drawable/listview_item_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/downDesc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dip"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dip"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/refresh_app"
+                android:textColor="#b50001" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/contentList1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:dividerHeight="0dip"
+        android:horizontalSpacing="0dp"
+        android:listSelector="#00000000"
+        android:scrollbars="vertical"
+        android:scrollingCache="true"
+        android:verticalSpacing="0dp" />
+
+</LinearLayout>

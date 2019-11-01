@@ -1,0 +1,32 @@
+<div class="commentBody">
+	<volist name="appComment['appList']" id='vo'>
+		<div class="comments">
+			<div class="user">
+				<img class="market" src="__ROOT__/{$webUhead[2]}" alt="" /><br />
+				{$vo['user_name']}
+			</div>
+			<div class="bubble">
+				<div class="text">
+					<div class="stars whiteStars"><div class="RatingStarsWhite rating-{:round($grade_point * 2)}"></div></div>
+					<br/>
+					<span class="date">{$vo['create_time']|strtotime|date='Y年m月d日',###}</span>
+					<p>{:keyWordFilter($vo['content'])}</p>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</volist>
+</div>
+<div class="commentBottom"></div>
+<compare name="appComment['pageShow']|trim" value="" type="neq">
+<table class="pager" style="width:300px;" cellspacing="0">
+	<tr>
+		<td class="cl"></td>
+		<td>跳转至：</td>
+		<td>
+			{$appComment['pageShow']}
+		</td>
+		<td class="cr"></td>
+	</tr>
+</table>
+</compare>

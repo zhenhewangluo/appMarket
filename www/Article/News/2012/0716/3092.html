@@ -1,0 +1,687 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>三星辉煌之下现隐忧：过分依赖Android系统_***</title>
+<meta name="keywords" content="三星,依赖Android系统" />
+<meta name="description" content="国外媒体今天刊文称，三星电子是全球最大的智能手机厂商，也是谷歌Android系统最主要的用户。然而，这一现状给该公司带来了问题。" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E5%B9%BB%E6%83%B3/' target="_blank">幻想</a><a href='/Article/tags.php?/%E6%89%8B%E6%8C%87%E7%94%BB/' target="_blank">手指画</a><a href='/Article/tags.php?/%E5%8D%B3%E6%97%B6%E6%8B%8D%E6%91%84%E5%88%86%E4%BA%AB/' target="_blank">即时拍摄分享</a><a href='/Article/tags.php?/%E8%AE%A2%E8%B4%AD/' target="_blank">订购</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">三星辉煌之下现隐忧：过分依赖Android系统</h1>
+			<div class="articleInfo"><small>时间:</small>2012-05-03 20:15<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=3092&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p>
+	国外媒体今天刊文称，三星电子是全球最大的智能手机厂商，也是谷歌Android系统最主要的用户。然而，这一现状给该公司带来了问题。<br />
+以下为文章全文：
+</p>
+<p>
+	<br />
+</p>
+<p>
+	依赖Android系统
+</p>
+<p>
+	三星正在迅速崛起。2011年第一季度，三星的智能手机出货量低于苹果、诺基亚和RIM，然而目前已是智能手机市场的领先者。不过三星也有着自己的难题。近年 来，一些PC厂商成为廉价硬件的批发商，利润率受到严重挤压。三星是否也将步这些PC厂商的后尘，或是能够通过移动生态系统解决这一问题？
+</p>
+<p>
+	市场研究公司Ovum首席分析师托尼·克里普斯(Tony Cripps)表示：“问题在于他们希望成为什么样的公司。他们是否真的希望成为一家重量级厂商，或是乐于推动他人生态系统的发展？”
+</p>
+<p>
+	可以肯定的是，三星目前尚未遇到任何障碍，在短期之内也仍将顺利发展。本周四，三星将推出Galaxy S III旗舰级手机。Juniper Research预计，三星本季度仍将是全球排名第一的智能手机厂商，因为苹果的下一代iPhone预计将于第三季度推出。Gartner分析师安舒尔· 古普塔(Anshul Gupta)表示：“Android给他们带来了奇迹。”
+</p>
+<p>
+	然而，三星仍遭到了一些批评。批评人士认为，由于利用其他公司的操作系统来开发设备，三星仍未能解决一个核心问题。通过从谷歌处免费获得Android系统的授权，三星节约了上千万美元的软件开发成本和授权费用，但却因此非常依赖谷歌。
+</p>
+<p>
+	Asymco分析师霍拉斯·德迪乌(Horace Dediu)表示，在智能手机发展的早期，诺基亚也曾遇到类似问题。而微软已经证明，操作系统公司将成为主导，其他硬件厂商都将成为廉价产品生产商。他表 示：“三星仍继续使用其他公司控制的操作系统和生态系统，这对我来说是一个谜。”
+</p>
+<p>
+	三星并非唯一一家这样做的公司。诺基亚此前也放弃了自主的塞班系统，转而采用微软Windows Phone系统。对三星和其他Android厂商来说，尽管对Android系统的界面进行了订制，但这只是虚有其表，尤其是涉及到核心平台的应用时。
+</p>
+<p>
+	同质化问题
+</p>
+<p>
+	三星等厂商的订制也导致了Android系统的“碎片化”。在谷歌发布Android系统的最新版本之后，各家Android厂商必须针对各自 的订制界面进行测试，随后才能发布系统更新。这导致系统升级过程变得更慢，许多用户被迫使用版本较老的系统。例如，目前近2/3的Android设备仍使 用“姜饼”系统，该版本系统早在2010年下半年就已发布。
+</p>
+<p>
+	这一问题导致三星很难使产品实现差异化，除了外观和硬件参数。分析师指出，谷歌已在近期的Android版本中做出限制，试图解决碎片化的问题。三星因此面临更困难的局面。此外，随着智能手机全面从键盘操作转向触控操作，智能手机的外观也越来越同质化。
+</p>
+<p>
+	这些问题使得三星和谷歌之间存在利益冲突。在一些情况下，双方的矛盾有可能公开化。尽管三星表示，欢迎谷歌对摩托罗拉移动的收购，但三星也在采取措施，试图减小对谷歌的依赖。
+</p>
+<p>
+	例如，三星去年推出了自主Android软件商店三星Apps，其中约有4万款应用。上月，三星还宣布推出移动广告服务AdHub Market。这将与谷歌的广告发布网络形成直接竞争，而广告业务是谷歌主要的营收来源。
+</p>
+<p>
+	多平台战略
+</p>
+<p>
+	尽管三星目前大部分智能手机采用Android系统，但该公司已表示，将致力于开发不同操作系统的产品。这就是三星所说的多平台战略。但分析师表示，三星在执行这一战略时显得不够专注。
+</p>
+<p>
+	三星自主开发了名为Bada的操作系统。根据Canalys的数据，Bada智能手机去年在全球智能手机市场的份额不到3%，领先于 Windows Phone。不过与Android手机相比，这一市场份额显得微不足道。ABI Research分析师杰克·桑德斯(Jake Saunders)表示：“他们试图发展Bada，但并未取得太大进展。”
+</p>
+<p>
+	三星曾表示，将推出更多采用Bada系统的产品，但同时也提到有可能把Bada转型为另一个名为Tizen的操作系统，并发展一个生态系统，改 进两个系统之间的兼容性。实际上对三星来说，尽管Android非常重要，但Bada和Windows Phone也同样重要。在三星的手机出货总量中，Bada和Windows Phone手机不到5%，因此三星未来需要加强这两个平台。
+</p>
+<p>
+	不过考虑到三星对Android系统的依赖，这些举措的影响将不会很大。克里普斯表示，三星清楚地知道，应当制定更广的战略，去年三星内部也曾讨论过相关的发展方向。
+</p>
+<p>
+	发展生态系统
+</p>
+<p>
+	分析师指出，如果希望避免只在低端市场与华为和中兴竞争，那么三星必须发展包括软件、硬件和内容在内的生态系统。毫无疑问，这将使三星成为苹果、亚马逊、谷歌和微软的竞争对手。克里普斯表示，这些公司有着不同的业务模式，但目标非常一致，即“拥有消费者在线和移动体验的每一个方面”。
+</p>
+<p>
+	在某些领域，三星具有优势。Rethink Technology Research研究主管卡洛琳·加布里埃尔(Caroline Gabriel)表示：“三星并不是像HTC一样的手机厂商，因此有潜力开发向电视机、PC、手机和多媒体播放器提供内容和网络服务的平台，并使这些平台 互联起来。”
+</p>
+<p>
+	她表示，随着行业向HTML5等基于网络的技术转型，三星将获得竞争优势。这样的技术将减少产品对某一操作系统和平台，例如iOS和Android的依赖。应用将更类似于网页，能够在各种设备上运行。
+</p>
+<p>
+	加布里埃尔还表示，三星可以利用强大的供应链、制造能力以及研发设施来执行这一战略。不过三星需要避免系统过于封闭，并学习如何发展与外部世界 的关系。她表示：“三星并没有建立开发者生态系统的经验，这将是一场挑战。三星此前可能认为谷歌带来了解决方案，但谷歌对生态系统的控制权过大。”
+</p>
+<p>
+	克里普斯表示，三星需要进行深层的改变。三星作为一家韩国公司不仅需要在一个由美国公司主导的市场中获得一席之地，还需要在诺基亚、RIM和微软跌到之处爬起来。他表示：“我能理解他们对于如何推进业务发展的疑虑，因为这非常困难。”
+</p>
+<p>
+	三星已经迈出了试探性的步伐，例如三星已经与内容提供商合作，发展智能电视业务。新加坡一名开发者琼·皮特森(Jon Petersen)则表示，三星已经向外界伸出触角，希望第三方开发者协助开发应用。这表明三星已认识到自身的弱点。
+</p>
+<p>
+	到目前为止，无人能否认三星完成了杰出的工作。克里普斯表示：“目前的趋势有利于高端Android设备的发展，而三星很明显是领导者，因此我认为三星不会立刻遭遇危险。这一问题更多的是三星在5年后希望成为一家什么样的公司，以及将以什么样的计划去做。”
+</p>
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>新浪科技</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/3092.html">/Article/News/2012/0716/3092.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/3092.html";
+				var wumiiTitle = "三星辉煌之下现隐忧：过分依赖Android系统";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/3092.html">三星辉煌之下现隐忧：过分依赖Android系统</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/News/2012/0716/3476.html" target="_blank">三星Galaxy S II今日升级Android 4.0</a>(2012-03-10)</li>
+<li><a href="/Article/News/2012/0716/3473.html" target="_blank">原生Android 4.0系统 三星i9250售价2899元</a>(2012-03-10)</li>
+<li><a href="/Article/News/2012/0716/3456.html" target="_blank">三星Galaxy Notes可能将无缘Android 4.0的升级</a>(2012-03-08)</li>
+<li><a href="/Article/News/2012/0716/3430.html" target="_blank">三星否认将在今年四月发布Galaxy S III</a>(2012-03-05)</li>
+<li><a href="/Article/News/2012/0716/3421.html" target="_blank">CM9新增三星Galaxy Tab 10.1和华硕Transformer TF101、TF</a>(2012-03-05)</li>
+<li><a href="/Article/News/2012/0716/3417.html" target="_blank">四核高清屏 三星Galaxy S III即将发布</a>(2012-03-04)</li>
+<li><a href="/Article/News/2012/0716/3414.html" target="_blank">SAP将与三星合作改进Android移动设备安全性</a>(2012-03-04)</li>
+<li><a href="/Article/News/2012/0716/3376.html" target="_blank">三星GALAXY Nexus彻底崩盘 双核Android 4.0手机</a>(2012-03-19)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/3091.html'>美国开发者谈Android平台的6大挑战及应对措施</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/3093.html'>小米手机仓储探营：占地4200平方 将建新仓</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',3092)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',3092)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',3092)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(3092);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="3092" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=3092">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=3092&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '3092');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '3092');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:14pt;color:#6480d9">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:14pt;color:#666444">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:12pt;color:#6972a1">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:12pt;color:#536a4f">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:14pt;color:#b91d8a">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:pt;color:#b332b4">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:10pt;color:#885897">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:14pt;color:#f55d68">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:12pt;color:#2132e7">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:14pt;color:#c421d8">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:10pt;color:#c05ea1">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:10pt;color:#4b9c9">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:14pt;color:#18408c">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:pt;color:#9631dd">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:10pt;color:#b359dd">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:14pt;color:#ee353">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:10pt;color:#87b497">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:12pt;color:#165679">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:pt;color:#ea15ea">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:pt;color:#d8aac">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

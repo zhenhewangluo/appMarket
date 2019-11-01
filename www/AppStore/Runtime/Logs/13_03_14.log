@@ -1,0 +1,2 @@
+[ 2013-03-14T03:16:43+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-03-14T03:18:16+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0

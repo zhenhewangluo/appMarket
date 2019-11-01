@@ -1,0 +1,12 @@
+div.headSlider{overflow:hidden;}
+div#resultsPools{width:10000px;height:585px;position:relative;}
+div#resultsTests{width:10000px;height:585px;position:relative;}
+div.appList .itemHolder{overflow:hidden;position:relative;}
+div.blockPools{float:left;width:655px;height:585px;}
+div.blockTests{float:left;width:655px;height:585px;}
+div.itemHolderPools{width:655px;height:585px;}
+div.itemHolderTests{width:655px;height:585px;}
+div#paginationTab1{position:relative;bottom:5px;}
+div.screenshot .itemHolder{width:595px;height:259px;overflow:hidden;position:relative;}
+#resultTab1{width:4000px;height:242px;position:relative;}
+div.appList .itemHolder { height:585px;}

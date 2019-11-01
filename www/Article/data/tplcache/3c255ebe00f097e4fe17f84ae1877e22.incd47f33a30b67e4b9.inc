@@ -1,0 +1,45 @@
+<?php
+$z[0]=Array("sppage","<div class=\"pagebreak\">[内容]</div>",0,96);
+$z[0][4]['sptype']="full";
+$z[0][4]['srul']="1";
+$z[0][4]['erul']="5";
+$z[1]=Array("previewurl","http://www.dedecms.com/knowledge/web-based/html/2009/0929/880.html",98,199);
+$z[2]=Array("keywordtrim","",201,238);
+$z[3]=Array("descriptiontrim","",240,285);
+$z[4]=Array("item","\n   {dede:match}<title>[内容]_织梦CMS</title>{/dede:match}\n   \n   {dede:function}{/dede:function}\n",287,455);
+$z[4][4]['field']="title";
+$z[4][4]['value']="";
+$z[4][4]['isunit']="";
+$z[4][4]['isdown']="";
+$z[5]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",455,591);
+$z[5][4]['field']="writer";
+$z[5][4]['value']="";
+$z[5][4]['isunit']="";
+$z[5][4]['isdown']="";
+$z[6]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",591,727);
+$z[6][4]['field']="source";
+$z[6][4]['value']="";
+$z[6][4]['isunit']="";
+$z[6][4]['isdown']="";
+$z[7]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",727,864);
+$z[7][4]['field']="pubdate";
+$z[7][4]['value']="";
+$z[7][4]['isunit']="";
+$z[7][4]['isdown']="";
+$z[8]=Array("item","\n   {dede:match}<div class=\"content\">[内容]<div class=\"pagebreak\">{/dede:match}\n   {dede:trim replace=\"\"}<a([^>]*)>(.*)</a>{/dede:trim}\r\n{dede:trim replace=\"\"}<script([^>]*)>(.*)</script>{/dede:trim}\r\n{dede:trim replace=\"\"}<!--(.*)-->{/dede:trim}\r\n{dede:trim replace=\"\"}<object([^>]*)>(.*)</object>{/dede:trim}\r\n{dede:trim replace=\"\"}<div([^.]*)>{/dede:trim}\r\n{dede:trim replace=\"\"}</div>{/dede:trim}\n   {dede:function}{/dede:function}\n",864,1369);
+$z[8][4]['field']="body";
+$z[8][4]['value']="";
+$z[8][4]['isunit']="1";
+$z[8][4]['isdown']="1";
+$z[9]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",1369,1511);
+$z[9][4]['field']="download_url";
+$z[9][4]['value']="";
+$z[9][4]['isunit']="";
+$z[9][4]['isdown']="";
+$z[10]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",1511,1647);
+$z[10][4]['field']="app_id";
+$z[10][4]['value']="";
+$z[10][4]['isunit']="";
+$z[10][4]['isdown']="";
+
+?>

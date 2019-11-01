@@ -1,0 +1,42 @@
+[ 2013-02-12T02:07:08+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-12T02:07:10+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-12T02:08:02+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-12T02:08:28+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-12T02:09:17+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-12T02:12:16+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-12T02:14:54+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2013-02-12T02:19:03+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T02:19:05+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T02:19:08+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2013-02-12T02:58:33+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T03:01:09+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T03:03:17+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T03:03:32+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T07:06:39+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Topic/index.html]
+[ 2013-02-12T14:33:09+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T14:34:18+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T14:35:46+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2013-02-12T14:39:50+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T14:41:45+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T14:42:54+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T16:48:09+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T16:48:45+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T18:23:52+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T18:23:52+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T18:24:22+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T18:27:00+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T20:42:41+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T20:42:47+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T20:44:35+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-12T20:56:54+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T21:02:52+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T21:04:28+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T21:05:08+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T21:07:13+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T21:08:48+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T21:22:31+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T22:42:26+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T22:43:49+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T22:43:54+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-12T22:44:40+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2013-02-12T23:46:32+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0

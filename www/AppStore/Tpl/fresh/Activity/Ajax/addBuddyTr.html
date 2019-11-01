@@ -1,0 +1,63 @@
+<volist name="buddyList" id="vo">
+	<tr id="buddy_id_{:deMaskPhone($vo['phone'], false)}">
+		<td>
+			<input name="buddyPhone[]" type="checkbox" value="{:deMaskPhone($vo['phone'], false)}" />
+		</td>
+		<td class="buddy_name_td">{$vo['name']}</td>
+		<td class="buddy_phone_td">{:deMaskPhone($vo['phone'], false)}</td>
+		<td>
+			<?php
+				if($vo['astatus'] == 0)echo '邀请好友支持我！';
+				else echo'已邀请';
+			?>/
+			<?php
+				if($vo['vstatus'] == 0)
+					echo '支持该好友';
+				else
+				{
+					if($vo['vstatus'] == 1)echo'已投票！';
+					else echo '未注册';
+				}	
+			?>
+		</td>
+		<td><a href="javascript:void(0);" class="buddy_edit orange">编辑</a></td>
+		<td>
+			<a href="javascript:void(0);" class="buddy_del">
+				<img src="../Public/activity/image/del.gif" width="24" height="19" border="0" />
+			</a>
+		</td>
+		<td>
+			<a href="javascript:void(0);" class="buddy_vote"></a>
+		</td>
+		<td>
+			<a href="javascript:void(0);" class="buddy_invite"></a>
+		</td>
+	</tr>
+	<tr style="display: none;">
+		<td>
+			<input type="checkbox" value="{:deMaskPhone($vo['phone'], false)}" />
+			<input name="buddyPhone" type="hidden" value="{:deMaskPhone($vo['phone'], false)}" />
+		</td>
+		<td><input type="text" class="buddy_edit_input" name="buddyName" value="{$vo['name']}"/></td>
+		<td><input type="text" class="buddy_edit_input" name="buddyNewphone" value="{:deMaskPhone($vo['phone'], false)}"/></td>
+		<td>
+			<?php
+				if($vo['astatus'] == 0)echo '邀请好友支持我！';
+				else echo'已邀请';
+			?>/
+			<?php
+				if($vo['vstatus'] == 0)
+					echo '支持该好友';
+				else
+				{
+					if($vo['vstatus'] == 1)echo'已投票！';
+					else echo '未注册';
+				}	
+			?>
+		</td>
+		<td><a href="javascript:void(0);" class="buddy_save green">保存</a></td>
+		<td><a href="javascript:void(0);" class="buddy_cancel"><img src="../Public/activity/image/del.gif" width="24" height="19" border="0" title="取消" /></a></td>
+		<td></td>
+		<td></td>
+	</tr>
+</vo>

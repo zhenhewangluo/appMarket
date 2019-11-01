@@ -1,0 +1,841 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>《课堂外词场四/六级》：轻松掌握四六级单词_***</title>
+<meta name="keywords" content="教育,学习" />
+<meta name="description" content="《课堂外词场四/六级》是旨在用最简单的方式让你掌握大学英语四六级词汇的一款教育应用类软件。它可以实现离线背单词、单词测验和在线课外娱乐等功能。用一种简单方便又寓教于乐的方" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E4%B9%90%E5%8A%A8%E8%88%9E%E6%8C%87/' target="_blank">乐动舞指</a><a href='/Article/tags.php?/%E9%A2%84%E8%AE%A2/' target="_blank">预订</a><a href='/Article/tags.php?/%E5%B0%8F%E9%B8%A1%E7%88%86%E8%9B%8B/' target="_blank">小鸡爆蛋</a><a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank">触屏</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href=''>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a class='cut' href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href=''>***</a>>><a href='/Article/plus/list.php?tid=2'>评测</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">《课堂外词场四/六级》：轻松掌握四六级单词</h1>
+			<div class="articleInfo"><small>时间:</small>2012-08-16 09:40<small>来源:</small><a href="/" target="_blank">***</a> <small>作者:</small>张秀丽 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=4850&mid=27" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p>
+	<span style="font-size: 12px"><img src="/Article/uploads/allimg/120811/27-120Q1145GBc.png" style="width: 100px; float: left; height: 100px; margin-right: 10px" /><img src="/Article/uploads/allimg/120811/27-120Q1145IGa.png" style="width: 100px; float: left; height: 100px; margin-right: 10px" /></span><span style="font-size: 12px">《课堂外词场四/六级》是旨在用最简单的方式让你掌握大学英语四六级词汇的一款教育应用类软件。它可以实现离线背单词、单词测验和在线课外娱乐等功能。用一种简单方便又寓教于乐的方式来轻松掌握让人头疼的英语单词，何乐而不为呢？</span></p>
+
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<table align="center" border="1" cellpadding="0">
+	<tbody>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">中文名称</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">课堂外词场六级</span></span></td>
+			<td rowspan="9" style="text-align: center; width: 208px">
+				<span style="font-size: 12px"><span style="font-size: 12px"><img src="/Article/uploads/allimg/120810/3-120Q009335I47.png" /></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">英文名称</span></span></td>
+			<td style="width: 227px">
+				<div style="text-align: center; clear: both">
+					&nbsp;</div>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">版本</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">2.0.2.23</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">发布时间</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">2012-07-16</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">开发者</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px"><font size="2">上海惜时科技公司</font></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">所属分类</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">教育学习</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">支持语言</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">简体中文</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">程序包大小</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">3.001932MB</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">运行环境</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">&nbsp;2.2以上</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">硬件环境</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">MT15i索爱</span></span></td>
+			<td style="text-align: center; width: 208px">
+				<span style="font-size: 12px"><span style="font-size: 12px">二维码下载&nbsp;&nbsp;&nbsp;<a href="000/006/021/810/apk/auto/2012042015004712933.apk">下载二维码工具</a></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">硬件参数</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">CPU：高通 snapdragon MSM8255 1024MHz<br />
+				RAM:521MB<br />
+				ROM:521MB<br />
+				分辨率：480&times;854</span></span></td>
+			<td style="text-align: center; width: 208px">
+				<span style="font-size: 12px"><span style="font-size: 12px"><a href="/App/Apps/detail/aid/511142325.html" target="_blank">点击下载</a></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">插件情况</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">无</span></span></td>
+			<td style="text-align: center; width: 208px">
+				<span style="font-size: 12px"><span style="font-size: 12px">点击收藏</span></span></td>
+		</tr>
+	</tbody>
+</table>
+<div style="clear: both">
+	<span style="font-size: 12px">&nbsp;</span></div>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<table align="center" border="1" cellpadding="0">
+	<tbody>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">中文名称</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">课堂外词场四级</span></span></td>
+			<td rowspan="9" style="text-align: center; width: 208px">
+				<span style="font-size: 12px"><span style="font-size: 12px"><img src="/Article/uploads/allimg/120810/3-120Q009335I47.png" /></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">英文名称</span></span></td>
+			<td style="width: 227px">
+				<div style="text-align: center; clear: both">
+					<span style="font-size: 12px">&nbsp;</span></div>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">版本</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">2.0.2.8</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">发布时间</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">2012-7-14</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">开发者</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px"><font size="2">上海惜时科技公司</font></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">所属分类</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px"><span style="font-size: 12px">教育学习</span></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">支持语言</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">简体中文</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">程序包大小</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">2917K</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">运行环境</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">&nbsp;2.2以上</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">硬件环境</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">MT15i索爱</span></span></td>
+			<td style="text-align: center; width: 208px">
+				<span style="font-size: 12px"><span style="font-size: 12px">二维码下载&nbsp;&nbsp;&nbsp;<a href="000/006/021/810/apk/auto/2012042015004712933.apk">下载二维码工具</a></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">硬件参数</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">CPU：高通 snapdragon MSM8255 1024MHz<br />
+				RAM:521MB<br />
+				ROM:521MB<br />
+				分辨率：480&times;854</span></span></td>
+			<td style="text-align: center; width: 208px">
+				<span style="font-size: 12px"><span style="font-size: 12px"><a href="/App/Apps/detail/aid/511142321.html" target="_blank">点击下载</a></span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				<span style="font-size: 12px"><span style="font-size: 12px">插件情况</span></span></td>
+			<td style="text-align: center; width: 227px">
+				<span style="font-size: 12px"><span style="font-size: 12px">无</span></span></td>
+			<td style="text-align: center; width: 208px">
+				<span style="font-size: 12px"><span style="font-size: 12px">点击收藏</span></span></td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	<span style="font-size: 12px">&nbsp;</span></p>
+<p>
+	&nbsp;</p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 本软件是专门针对大学英语四六级的单词，当然对于需要考级的大学生们是非常实用的。另外，对于像小编这样英文欠佳偶尔也会一时发奋想要学习的人来说，也是一个不错的选择。</span></p>
+<p style="text-align: center">
+	<span style="font-size: 12px"><img alt="" src="/Article/uploads/allimg/120811/27-120Q115034GU.jpg" style="width: 240px; height: 400px" /><br />
+	开始页面</span><br />
+	&nbsp;</p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 像所有的英语学习软件一样，它也有最基本的单词初记以及攻城、抽查之类的小测验，在最初的记忆基础上重复练习加深印象，对于难点更是反复出现，重点记忆。每日一句和课外娱乐是需要在线完成的，学习统计是以坐标轴的形式对近期一段时间内学习的大体展示。</span></p>
+<p style="text-align: center">
+	<span style="font-size: 12px"><img alt="" src="/Article/uploads/allimg/120811/27-120Q11505331F.jpg" style="width: 240px; height: 400px" /><br />
+	单元选择</span><br />
+	&nbsp;</p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 在单词初记中，它共分为104个单元，只有上一个单元完成后才能解锁下一个，每一个单元共有20个单词。这样，就把2080个单词分成的不同的部分，每次分段进行，小目标比较好实现，就会让大家觉得不是那么困难啦。</span></p>
+<p style="text-align: center">
+	<span style="font-size: 12px"><img alt="" src="/Article/uploads/allimg/120811/27-120Q1150639225.jpg" style="width: 240px; height: 400px" /><img alt="" src="/Article/uploads/allimg/120811/27-120Q115125I32.jpg" style="width: 240px; height: 400px" /><br />
+	单词学习</span><br />
+	&nbsp;</p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 在单词初记的第一个环节，我们可以看到单词、词义和读音，这是最初的记忆过程。当从头到尾背诵几遍觉得大体上记住的时候就可以来单词闯关了。单词闯关是软件自带的一个检测系统，会从读音、词义、单词拼写等方面来考察，这样的过程来几次，基本上一单元的单词也就会读会写知道意思了。</span></p>
+<p style="text-align: center">
+	<span style="font-size: 12px"><img alt="" src="/Article/uploads/allimg/120811/27-120Q11514321A.jpg" style="width: 240px; height: 400px" /><br />
+	难点攻城</span></p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 难点攻城，应该是等词汇量累计到一定程度的时候的一次综合测验。对于只能记住第一单元单词的我，系统总是提示当前的难度单词太少，得等多累计一段时间再来攻城吧。</span></p>
+<p style="text-align: center">
+	<span style="font-size: 12px"><img alt="" src="/Article/uploads/allimg/120811/27-120Q115231O31.jpg" style="width: 240px; height: 400px" /><img alt="" src="/Article/uploads/allimg/120811/27-120Q1152423116.jpg" style="width: 240px; height: 400px" /><br />
+	单次抽查</span><br />
+	&nbsp;</p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 已学抽查中也是对之前单词的一个回顾复习，它也是根据一个单元一个来的。你选择你要回顾的单元，它会把这个单元的一些单词随机抽取测验，对于错的也会反复出现，最后会根据你的测验情况给出一个统计率和小小的建议。</span></p>
+<p style="text-align: center">
+	<span style="font-size: 12px"><img alt="" src="/Article/uploads/allimg/120811/27-120Q115260cL.jpg" style="width: 240px; height: 400px" /><br />
+	每日E句</span><br />
+	&nbsp;</p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 每日E句和课外娱乐都是需要在线完的,在不担心 上网流量的情况下，个人觉得还是一个不错的体验。这样优美的句子既给人一种精神上愉悦的享受又能学习到一些知识。寓教于乐有时更容易事半功倍。</span></p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 《课堂外词场》是上海惜时科技公司自主开发的一款免费纯净无广告,自由选择离线与在线学习的背单词软件,它根据不同的需要分了几个独立的类别，就比如大学英语四级版和六级版。这样的分类对有不同需求的人更有针对性，也节约了手机用户的内存和流量。简洁美观的用户界面、真人发音、集趣味性与娱乐性于一体，这款课外词场的软件的确是一个不错的选择。</span></p>
+<p>
+	<span style="font-size: 12px">&nbsp;&nbsp;&nbsp;&nbsp; 但是，小编还有一个小小的困惑，就是在单词初记里面，如果多次点击单词的发音，到后面的单词就不能发音了，这个时候需要退出重新进入界面。似乎每个单元的发音次数是有固定限制的呢，不知道你那边会不会也遇到这种情况，试试看吧！</span></p>
+
+				<!--<p>本文链接：<a href="/Article/PingCe/2012/0811/4850.html">/Article/PingCe/2012/0811/4850.html</a>--><br />关键字：<a href='/Article/tags.php?/%E6%95%99%E8%82%B2/'>教育</a> <a href='/Article/tags.php?/%E5%AD%A6%E4%B9%A0/'>学习</a> <br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.***.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/PingCe/2012/0811/4850.html";
+				var wumiiTitle = "《课堂外词场四/六级》：轻松掌握四六级单词";
+				var wumiiTags = "教育,学习,";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/PingCe/2012/0811/4850.html">《课堂外词场四/六级》：轻松掌握四六级单词</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/PingCe/2012/0808/4845.html" target="_blank">《简单学英语》：一个简单实用的单词学习软件</a>(2012-08-14)</li>
+<li><a href="/Article/PingCe/2012/0803/4834.html" target="_blank">《BBC有声双语新闻》：向Chinglish宣战的时刻到啦!</a>(2012-08-07)</li>
+<li><a href="/Article/PingCe/2012/0803/4833.html" target="_blank">《全国大学名录》：考生报考的终极利器</a>(2012-08-07)</li>
+<li><a href="/Article/PingCe/2012/0731/4825.html" target="_blank">《词语联想2》：有趣的词语游戏</a>(2012-08-01)</li>
+<li><a href="/Article/PingCe/2012/0727/4821.html" target="_blank">《我要当学霸》：有手机依赖症童鞋的福音</a>(2012-08-03)</li>
+<li><a href="/Article/PingCe/2012/0722/4817.html" target="_blank">《金山词霸》：英语的百科全书</a>(2012-07-30)</li>
+<li><a href="/Article/PingCe/2012/0717/4807.html" target="_blank">《英语词汇的奥秘》：学习英语词汇的武林秘籍</a>(2012-07-18)</li>
+<li><a href="/Article/PingCe/2012/0717/4804.html" target="_blank">《囧记单词》：懒人轻松学英语</a>(2012-07-17)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：直江兼续</div>
+				<div id="ckepop" class="edi2">关键字：<a href='/Article/tags.php?/%E6%95%99%E8%82%B2/'>教育</a> <a href='/Article/tags.php?/%E5%AD%A6%E4%B9%A0/'>学习</a> </div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/PingCe/2012/0811/4849.html'>《国歌钢琴》：非主流钢琴模拟游戏</a> </li>
+					<li>下一篇：<a href='/Article/PingCe/2012/0811/4851.html'>《蚂蚁回家》：童真童趣同挑战</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',4850)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',4850)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',4850)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(4850);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="4850" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=4850">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=4850&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '4850');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '4850');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/PingCe/2012/0811/4849.html" target="_blank" title="《国歌钢琴》：非主流钢琴模">《国歌钢琴》：非主流钢琴模</a></li>
+<li><a href="/Article/PingCe/2012/0811/4851.html" target="_blank" title="《蚂蚁回家》：童真童趣同挑">《蚂蚁回家》：童真童趣同挑</a></li>
+<li><a href="/Article/PingCe/2012/0808/4845.html" target="_blank" title="《简单学英语》：一个简单实">《简单学英语》：一个简单实</a></li>
+<li><a href="/Article/PingCe/2012/0811/4848.html" target="_blank" title="《可爱战争》：将可爱进行到">《可爱战争》：将可爱进行到</a></li>
+<li><a href="/Article/PingCe/2012/0810/4847.html" target="_blank" title="《我爱记歌词》：音乐、歌词">《我爱记歌词》：音乐、歌词</a></li>
+<li><a href="/Article/PingCe/2012/0809/4846.html" target="_blank" title="《小鸡向前冲》:励志鸡到来啦">《小鸡向前冲》:励志鸡到来啦</a></li>
+<li><a href="/Article/PingCe/2012/0808/4844.html" target="_blank" title="《蜜蜂读书》：一个实用性强">《蜜蜂读书》：一个实用性强</a></li>
+<li><a href="/Article/PingCe/2012/0808/4843.html" target="_blank" title="《涂鸦反射》：涂鸦类游戏小">《涂鸦反射》：涂鸦类游戏小</a></li>
+<li><a href="/Article/PingCe/2012/0807/4841.html" target="_blank" title="《涂鸦格鲁布》：颠覆重生的">《涂鸦格鲁布》：颠覆重生的</a></li>
+<li><a href="/Article/PingCe/2012/0808/4842.html" target="_blank" title="《特工跑酷》：全3D的次世代">《特工跑酷》：全3D的次世代</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E6%95%99%E8%82%B2/' target="_blank" style="font-size:10pt;color:#24c185">教育</a>  <a href='/Article/tags.php?/%E8%8B%B1%E5%8C%96/' target="_blank" style="font-size:pt;color:#921596">英化</a>  <a href='/Article/tags.php?/%E8%B0%9A%E8%AF%AD/' target="_blank" style="font-size:12pt;color:#8ca520">谚语</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:12pt;color:#bdb07d">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#14bdf4">休闲</a>  <a href='/Article/tags.php?/%E6%95%99%E8%82%B2%E8%BD%AF%E4%BB%B6/' target="_blank" style="font-size:pt;color:#5c4385">教育软件</a>  <a href='/Article/tags.php?/%E7%89%A9%E7%90%86/' target="_blank" style="font-size:10pt;color:#ff53b4">物理</a>  <a href='/Article/tags.php?/%E7%AD%96%E7%95%A5/' target="_blank" style="font-size:pt;color:#84641b">策略</a>  <a href='/Article/tags.php?/%E7%9F%BF%E7%89%A9/' target="_blank" style="font-size:14pt;color:#7e7b6e">矿物</a>  <a href='/Article/tags.php?/%E6%96%87%E5%8C%96/' target="_blank" style="font-size:10pt;color:#bc47c">文化</a>  <a href='/Article/tags.php?/%E8%AE%BA%E5%9D%9B/' target="_blank" style="font-size:12pt;color:#dd7898">论坛</a>  <a href='/Article/tags.php?/%E7%AE%80%E5%8D%95/' target="_blank" style="font-size:14pt;color:#82101e">简单</a>  <a href='/Article/tags.php?/%E6%97%A5%E8%AF%AD/' target="_blank" style="font-size:14pt;color:#cf82">日语</a>  <a href='/Article/tags.php?/%E5%85%A5%E9%97%A8/' target="_blank" style="font-size:12pt;color:#6b59b">入门</a>  <a href='/Article/tags.php?/%E8%BD%AF%E4%BB%B6/' target="_blank" style="font-size:12pt;color:#733d57">软件</a>  <a href='/Article/tags.php?/%E4%BA%A4%E6%B5%81/' target="_blank" style="font-size:pt;color:#d258a1">交流</a>  <a href='/Article/tags.php?/%E5%AD%A6%E4%B9%A0/' target="_blank" style="font-size:12pt;color:#13c60">学习</a>  <a href='/Article/tags.php?/%E6%A8%A1%E6%8B%9F/' target="_blank" style="font-size:pt;color:#16aa17">模拟</a>  <a href='/Article/tags.php?/%E9%9F%B3%E4%B9%90/' target="_blank" style="font-size:pt;color:#7a878e">音乐</a>  <a href='/Article/tags.php?/%E5%AE%9E%E7%94%A8/' target="_blank" style="font-size:pt;color:#c58593">实用</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

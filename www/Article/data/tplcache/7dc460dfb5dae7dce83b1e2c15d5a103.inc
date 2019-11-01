@@ -1,0 +1,10 @@
+{dede:field name='keywords'}卡巴斯基Android版,腾讯合作{/dede:field}
+{dede:field name='description'}DoNews 3月9日消息 卡巴斯基与腾讯无线事业部日前在手机病毒样本分析领域达成合作，同时腾讯将作为卡巴斯基手机安全软件（KMS9）中文Android版互联网首发合作伙伴，用户在腾讯应用中心下载，可享受6个月的免费服务。{/dede:field}
+{dede:field name='title'}卡巴斯基Android版杀软与腾讯合作 6个月免费使用{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

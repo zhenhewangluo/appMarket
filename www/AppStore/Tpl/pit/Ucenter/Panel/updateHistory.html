@@ -1,0 +1,29 @@
+<table class="table_app_list">
+	<col />
+	<col width="190px" />
+	<thead>
+		<tr>
+			<th class="t_c">名称</th>
+			<th class="t_c">下载时间</th>
+			<th class="t_c">更新时间</th>
+			<th class="t_c">最新版本</th>
+		</tr>
+	</thead>
+	<tbody>
+	<volist name="list" id="vo">
+		<tr>
+			<td class="t_l"><a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}"  title="{$vo['app_name']}">{$vo['app_name']|mb_substr=0,20,'UTF-8'}</a></td>
+			<td class="t_c">{$vo['create_time']}</td>
+			<td class="t_c">{$vo['app_update_date']}</td>
+			<td class="t_c">{$vo['app_version']}</td>
+		</tr>
+	</volist>
+</tbody>
+</table>
+<compare name="page|trim" value="" type="neq">
+	<div class="page" style="clear:both;">
+		<div class="page_list">
+			{$page}
+		</div>
+	</div>
+</compare>

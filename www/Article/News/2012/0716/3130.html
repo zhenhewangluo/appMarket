@@ -1,0 +1,807 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>流畅度翻N倍 浅谈Android系统优化策略_***</title>
+<meta name="keywords" content="Android,优化策略,智能手机" />
+<meta name="description" content="智能手机的两大阵营iOS和Android已经逐渐显现出优势，并且已经形成了对立的阵营，Android用户并不理会iOS用户所谓的体验好 应用好是怎么个好法，而iOS用户则更不理解Android用户刷机重启" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E7%96%AF%E7%8B%82%E8%8B%B1%E8%AF%AD/' target="_blank">疯狂英语</a><a href='/Article/tags.php?/%E6%A3%8B%E7%89%8C/' target="_blank">棋牌</a><a href='/Article/tags.php?/%E6%84%A4%E6%80%92/' target="_blank">愤怒</a><a href='/Article/tags.php?/%E8%8B%B1%E9%9B%84/' target="_blank">英雄</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">流畅度翻N倍 浅谈Android系统优化策略</h1>
+			<div class="articleInfo"><small>时间:</small>2012-04-05 17:15<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=3130&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p>
+	智能手机的两大阵营iOS和Android已经逐渐显现出优势，并且已经形成了对立的阵营，Android用户并不理会iOS用户所谓的体验好 
+应用好是怎么个好法，而iOS用户则更不理解Android用户刷机重启抠电池的乐趣。在iOS用户眼中，Android的形象几乎可以用一个“卡”字来 
+代替。其实Android经过了这几年的发展，硬件水平已经有了很大的提高，再加上目前的优化，Android卡的情况已经有了很大程度的缓解，目前的双 
+核机型硬件配置十分强大，如果还要说卡，也就是因为厂商定制ROM的优化原因。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/1342422423F3F-12Q45.jpg" /><br />
+浅谈Android系统优化策略
+</p>
+<p>
+	其实Android的“卡”，可以得到彻底的解决，这就关系到了Android的优化问题，而今天我们就探讨下如何优化我们手中的 
+Android机型。在这里笔者也要提醒大家，选购Android机型一定要选择热门机型，只有热门机型才有足够丰富的优化资源供我们选择，切忌为了个性 
+选择偏门机型，Android热门机型再是街机，也不会比iPhone还街吧？
+</p>
+<p>
+	<strong>刷机重启抠电池</strong> 
+</p>
+<p>
+	刷机是Android用户的一大乐趣，部分用户刷机是为了得到更好的易用性，比如小米的MIUI 
+ROM，非常符合中国人的使用习惯，也有着足够丰富的个性化设定，是图省事的朋友刷机的好选择，不过对于追求高性能的朋友来说，MIUI的优化还有很大提 
+升空间，人们纷纷选择了对于ROM优化更加出色的CyanogenMod作为刷机的第一选择。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/1342422424J330-13J00.jpg" /><br />
+MIUI ROM特色
+</p>
+<p>
+	CyanogenMod系列目前主打的ROM有CM 7.2和CM 9两个，CM 7.2基于Android 2.3.7，而CM 9则基于Android 
+4.0.4，其中CM 7.2已经基本成熟，完美支持的机型很多，是大部分机友刷机的第一选择，CM 
+9官方的ROM支持机型并不多，民间高手也都进行了各个机型的移植，官方支持的机型兼容性相当不错，而移植情况并不乐观。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242242519130-144E7.jpg" /><br />
+CyanogenMod的LOGO
+</p>
+<p>
+	CM系列ROM忠实于AOSP，在底层驱动方面做了很多努力，刷入之后就会感觉手机流畅了许多，同时也支持了更多的美化和手机自定义能力，比如 
+我们可以对手机的震动回馈做细致的调整，包括按下震动的强度，抬起震动的强度等，让手机虚拟按键给我们更为真实的回馈，在CM ROM中，类似的设定非常多。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/1342422425KJ0-15bE.jpg" /><br />
+CM9 ROM截图
+</p>
+<p>
+	目前大部分的ROM都是使用CM进行定制的，还有一部分是对官方原版ROM进行修改，仅有少部分的ROM是修改的AOSP的源码，这些ROM指 
+向都是谷歌Nexus系列的机型，比如GALAXY Nexus和Nexus S上的Codename和AOKP，就针对源码做了很多修改，让手机变得更流畅。
+</p>
+<p>
+	<br />
+</p>
+<p>
+	<strong>刷内核效果很好</strong> 
+</p>
+<p>
+	仅仅刷手机的ROM是不够的，虽然多了很多自定义的功能，流畅度已经高于官方的ROM，但依旧有很大提升的空间，这时候我们就需要通过刷内核来进一步优化，刷内核所能带来的提升是相当明显的，但是对于刷内核大家还是要谨慎。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242242640520-1C254.jpg" /><br />
+国外著名论坛的内核发布区
+</p>
+<p>
+	刷内核相比刷ROM，是一个很小的工程，你的手机不必要Wipe，也就是说不用删除手机内部的数据，刷一下也就几分钟的功夫，所以刷内核的时 
+候，大家完全可以多下几个内核，逐个进行测试，看看哪个内核更适合自己，就保留哪个内核。同时刷内核时我们要注意，内核需对应自己的手机版本，对应自己所 
+刷的ROM，否则会造成手机无法启动的现象，如果遇到无法启动的现象，再刷其他可用内核就可以恢复。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242242E5640-1O201.jpg" /><br />
+Android机器人
+</p>
+<p>
+	大家会问了，说了这么半天，刷内核到底都有什么作用呢？首先就是超频，大部分内核会默认提供降压超频，并拥有多种超频策略，来保证超频的情况下 
+更省电。其次，还提供更多调整，比如内存虚拟机的大小，颜色管理等等，甚至一个内核可以包括一些新的Linux的补丁，比如最新的Linux 
+3.3所集成的CPU频率补丁等等。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242242L2550-1YK0.jpg" /><br />
+刷内核工具
+</p>
+<p>
+	事实上，一般的第三方ROM已经修改了手机的内核，达到了更流畅的目的，但ROM的制作速度远远比不上内核的调整速度，有时候一个ROM适用的 
+内核在一天之内可能多次更新，所以我们可以尝试不同的新内核，看看他们的超频是不是能给我们带来性能上质的提升，是不是能更省电，是不是能通过颜色调整让 
+我们看到更棒的画面等等。
+</p>
+<p>
+	<br />
+<br />
+<strong></strong> 
+</p>
+<p>
+	<strong>精简内置应用</strong> 
+</p>
+<p>
+	我相信Android用户通过不断的更换ROM和刷内核已经在流畅度上有了质的飞跃了，如果这时候你的手机已经比iPhone更流畅、更省电， 
+那么我们就可以收手了，如果你还不满意，我们还有其他的路可选，精简内置应用，就是一个可以大幅度提升流畅度的方法。像Google的服务就是大部分人精 
+简的对象。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242242PcP-1cL3.jpg" /><br />
+跑分是性能的体现
+</p>
+<p>
+	Android系统和iOS与Windows 
+Phone不同，这个系统拥有真正的后台运行能力，虽然iOS在推送方面做得很好，弥补了后台方面的不足，但是仍然无法与Android的真后台相比，但 
+是由于Android的程序优先级并不像iOS和Windows 
+Phone那样，为了流畅让当前界面拥有最高优先级，所以我们就要把Android手机后台不必要的进程关掉，以获得最佳的性能。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242242VMZ-203538.jpg" /><br />
+RE管理器截图
+</p>
+<p>
+	那么精简内部应用就是很好的选择，因为在我们使用过程中，有许多Android内部应用程序是不必要的，而这些程序会在我们不用的时候悄悄的后台打开，对我们的使用造成影响。在精简时，我们需要用到root文件管理器，同时需要保证手机已经开启root权限。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242242922220-21PJ.jpg" /><br />
+RE管理器截图
+</p>
+<p>
+	进入system/app就可以进行精简了，我们需要把root管理器的当前权限设置成读写，并且修改需要删除的软件权限，打开软件执行操作的 
+权限，就可以对删除内置软件了，在精简前，大家需要对软件进行备份，或者备份整个ROM，如果你精简掉系统程序，可能会造成无法开机的情况，重刷ROM可 
+以解决，所以大家最好找到该机型、该ROM的精简列表，以避免重复劳动。
+</p>
+<p>
+	<strong>还有其他优化</strong> 
+</p>
+<p>
+	经过以上多方面的优化，我相信大家都已经得到了一个较为干净、运行流畅的Android了，不过在很多程序中，我们还是会遇到卡顿的情况，对于一个极端追求流畅度的玩家来说，这样的情况是绝对不允许发生的，因为我们还有进一步优化的空间。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242242cK60-22S55.jpg" /><br />
+CM超频选项
+</p>
+<p>
+	之前我们介绍了CM系列ROM，而CM的ROM中有两个选项的勾选可以进一步的提高流畅度，但是会损失一些画面这些选项是贴图差值抖动和16位 
+透明度，贴图差值抖动这个选项需要关闭，这个选项关闭后可以提高流畅度，但是在滑动菜单时会有不容易被发现的画面损失，而16位透明度这个选项开启会大幅 
+度提高流畅度，但是一些纯色的透明效果画质会下降，比如Android滑动到边缘的越界效果。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/1342422430413Z-23W30.jpg" /><br />
+CM性能设置选项
+</p>
+<p>
+	在Android 
+4.0的ROM中，也有不少选项可以提高程序的流畅度，比如程序的GPU加速，使用GPU对2D程序的界面进行渲染，有效减轻界面滑动对于CPU的负担， 
+同时还能让界面得到更好地渲染效果，不过这个选项会让有些程序出现兼容性问题，而Android也不能单独为某个程序开关GPU加速，所以GPU加速这个 
+功能让人又爱又恨。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/1342422431002Z-2494F.jpg" /><br />
+Android 
+4.0强制GPU加速
+</p>
+<p>
+	在提到刷内核时，我们也提到了超频内核，超频内核在刷完后，会在ROM设置中提供给你多种内核超频策略选择，在大部分机型中，超频不会增加 
+CPU的耗电，因为厂商在CPU出厂前，为了保证CPU的稳定，为CPU设置了很安全的电压和频率，这显得过于保守，而在同等的电压下，CPU根据体质不 
+同或多或少还有可以压榨的空间，所以我们在保证稳定运行的情况下，还可以继续对CPU进行超频。
+</p>
+<p>
+	<br />
+<br />
+<strong></strong> 
+</p>
+<p>
+	<strong>优化策略总结</strong> 
+</p>
+<p>
+	本文我们从刷ROM开始提到了一些Android系统的优化，对于Android系统来说，流畅度是它相比其他系统最大的短板，其实 
+Android的大部分手机有着相当好的硬件，所以流畅度大幅度提升完全不是难事，而各个厂商在Android手机出厂前给手机定制的ROM并没有达到最 
+优的优化效果，或多或少都有可提升的空间。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅秒杀iOS?Android 4.0 GPU加速测试 " src="/uploads/allimg/c120716/1342422431552P-2535G.jpg" /><br />
+三星 GALAXY 
+Nexus
+</p>
+<p>
+	所以我们也可以根据自己用手机的需要对手机进行彻头彻尾的优化，从ROM开始让手机变得彻底流畅起来，这里要跟大家嘱咐的，也是我们多次重申的 
+一点：一定要选择普及率较高的Android机型，尤其是在国外的高普及度，像谷歌的Nexus系列手机被誉为亲儿子，也是因为它开放了源代码，在其他手 
+机为第三方ROM挠头的时候，Nexus系列已经早早的开始各种优化了。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/134242243203C0-263414.jpg" /><br />
+ClockworkMod的LOGO
+</p>
+<p>
+	其次，除了ROM资源，我们也要考虑到其他资源，比如内核，各大手机厂商的热门机型，内核资源也是不一样的，早期摩托罗拉的里程碑很开放，所以 
+有着大量可刷的内核，而到了后来摩托罗拉机型很封闭，可刷的内核资源就相当匮乏，虽然ROM很多，但刷来刷去都大同小异，刷机的乐趣锐减。这里谷歌的 
+Nexus系列再一次做了表率。
+</p>
+<p align="center">
+	<img style="border-bottom:black 1px solid;border-left:black 1px solid;border-top:black 1px solid;border-right:black 1px solid;" alt="流畅度翻N倍 浅谈Android系统优化策略 " src="/uploads/allimg/c120716/1342422432514F-2O195.jpg" /><br />
+AOSP网页截图
+</p>
+<p>
+	再加上一些精简和设置操作，你会发现，你的手机流畅度完全可以翻几番，即使是官方有新的升级你可能都懒得去理，因为你知道，官方的升级不可能带 
+来刷机所给你的流畅度。这也是iOS玩家所不理解的刷机重启扣电池的乐趣。他们更不理解的是Android的流畅度怎么能超越iOS呢？实际上，这样的事 
+已经悄悄的发生了。
+</p>
+<p>
+	<br />
+</p>
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>手机中国</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/3130.html">/Article/News/2012/0716/3130.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/3130.html";
+				var wumiiTitle = "流畅度翻N倍 浅谈Android系统优化策略";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/3130.html">流畅度翻N倍 浅谈Android系统优化策略</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/News/2012/0716/3499.html" target="_blank">Android开发资源免费横溢 开发商利润不足5%</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3498.html" target="_blank">Sony（索尼）是否被Android完全Hold住了？</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3497.html" target="_blank">2012第10周国内Android应用下载排行榜</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3496.html" target="_blank">著名游戏开发商称将放弃Android平台</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3495.html" target="_blank">报告称65%的Android反病毒软件不可靠</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3494.html" target="_blank">点评：Android系统优化重于升级</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3490.html" target="_blank">卡巴斯基再掀起Android市场安全狂潮</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3489.html" target="_blank">Battleheart开发商放弃Android平台游戏开发</a>(2012-03-12)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/3129.html'>Android系统市场占有率已经过半</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/3131.html'>谷歌CEO佩奇：乔布斯憎恨Android只是作秀</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',3130)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',3130)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',3130)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(3130);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="3130" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=3130">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=3130&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '3130');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '3130');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:10pt;color:#8466a1">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:14pt;color:#5e973">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:pt;color:#8c981">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:pt;color:#e319b5">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:14pt;color:#70919d">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:14pt;color:#2832bf">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:14pt;color:#83187a">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:14pt;color:#b350be">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:10pt;color:#ed49be">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:12pt;color:#24953a">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:14pt;color:#ce9085">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:14pt;color:#dd2d49">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:12pt;color:#f8b19">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:10pt;color:#289bd6">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:14pt;color:#ea3d4b">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:14pt;color:#b97d5">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:14pt;color:#6972f3">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#56233f">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:10pt;color:#e997d7">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:pt;color:#01914">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

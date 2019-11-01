@@ -1,0 +1,10 @@
+{dede:field name='keywords'}诺基亚CEO,改变决策{/dede:field}
+{dede:field name='description'}随着iOS平台和Android平台的兴起，众多老牌手机巨人的日子都变得不太好过。芬兰手机巨头诺基亚的境况可谓是风雨飘摇，塞班系统早已没落，而其孤注一掷的WP系统也前途未卜。近日，诺基亚CEO对公司近期所做的决定表示遗憾和后悔。{/dede:field}
+{dede:field name='title'}诺基亚CEO：假如时光能倒流将改变决策{/dede:field}
+{dede:field name='writer'}鹏哥哥{/dede:field}
+{dede:field name='source'}安卓哥{/dede:field}
+{dede:field name='pubdate'}2012-7-2 17:49:01{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

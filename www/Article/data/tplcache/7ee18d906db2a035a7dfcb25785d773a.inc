@@ -1,0 +1,10 @@
+{dede:field name='keywords'}CM9,三星Galaxy Tab 10.1,华硕{/dede:field}
+{dede:field name='description'}CyanogenMod团队一直在努力开发CyanogenMod 9 Nightlies Build，近日，又新增了三星平板电脑Galaxy Tab 10.1和华硕平板电脑Transformer TF101、Transformer Prime TF201。不过要注意的是，Nightlies Build是由Server自行编译，并非正式版，虽然经过测试，不过还是可能存在问题。除了这三款平板电脑，摩托罗拉的Xoom wifi版在之前也得到{/dede:field}
+{dede:field name='title'}CM9新增三星Galaxy Tab 10.1和华硕Transformer TF101、TF201{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

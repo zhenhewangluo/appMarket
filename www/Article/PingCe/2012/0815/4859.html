@@ -1,0 +1,708 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>《百科常识》：口袋里的十万个为什么_***</title>
+<meta name="keywords" content="教育软件" />
+<meta name="description" content="采取一问一答的方式介绍各类科学知识，深入浅出，非常符合青少年读者的认知方式和阅读特点。具体内容包含了一些常识，动植物，健康，人体，宇宙，科技，数理化，文化，艺术，体育，国" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E6%8E%8C%E4%B8%8A%E8%BD%A6%E5%B1%95/' target="_blank">掌上车展</a><a href='/Article/tags.php?/%E4%BA%91%E4%B8%AD%E4%B9%A6%E5%9F%8E/' target="_blank">云中书城</a><a href='/Article/tags.php?/%E6%83%8A%E9%99%A9/' target="_blank">惊险</a><a href='/Article/tags.php?/%E6%A1%8C%E9%9D%A2/' target="_blank">桌面</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href=''>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a class='cut' href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href=''>***</a>>><a href='/Article/plus/list.php?tid=2'>评测</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">《百科常识》：口袋里的十万个为什么</h1>
+			<div class="articleInfo"><small>时间:</small>2012-08-16 14:11<small>来源:</small><a href="/" target="_blank">***</a> <small>作者:</small>坂本聋马 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=4859&mid=28" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<h3>
+	<img src="/Article/uploads/allimg/120815/28-120Q515251I17.png" style="width: 100px; float: left; height: 100px; margin-right: 10px" /></h3>
+<p>
+	<span style="line-height: 22px; font-family: 微软雅黑, Arial; color: rgb(76,76,76); font-size: 14px">采取一问一答的方式介绍各类科学知识，深入浅出，非常符合青少年读者的认知方式和阅读特点。具体内容包含了一些常识，动植物，健康，人体，宇宙，科技，数理化，文化，艺术，体育，国家，历史等方面的众多常见知识。</span></p>
+<table align="center" border="1">
+	<tbody>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				中文名称</td>
+			<td style="text-align: center; width: 227px">
+				百科常识</td>
+			<td rowspan="9" style="text-align: center; width: 208px">
+				<img alt="" src="/Article/uploads/allimg/120816/3-120Q614144KB.png" style="width: 123px; height: 123px" /></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				英文名称</td>
+			<td style="text-align: center; width: 227px">
+				&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				版本</td>
+			<td style="text-align: center; width: 227px">
+				V1.3.4&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				发布时间</td>
+			<td style="text-align: center; width: 227px">
+				2012-06-07&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				开发者</td>
+			<td style="text-align: center; width: 227px">
+				TIE</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				所属分类</td>
+			<td style="text-align: center; width: 227px">
+				教育软件</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				支持语言</td>
+			<td style="text-align: center; width: 227px">
+				简体中文</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				程序包大小</td>
+			<td style="text-align: center; width: 227px">
+				4.50MB&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				运行环境</td>
+			<td style="text-align: center; width: 227px">
+				Android&nbsp;&nbsp;1.6及以上&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				硬件环境</td>
+			<td style="text-align: center; width: 227px">
+				ME722</td>
+			<td style="text-align: center; width: 208px">
+				二维码下载&nbsp;&nbsp;&nbsp;<a href="000/006/021/810/apk/auto/2012042015004712933.apk">下载二维码工具</a></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				硬件参数</td>
+			<td style="text-align: center; width: 227px">
+				CPU：IT&nbsp;OMAP3630&nbsp;1GB<br />
+				RAM:521MB<br />
+				ROM:8GB<br />
+				分辨率：480&times;854</td>
+			<td style="text-align: center; width: 208px">
+				<a href="/App/Apps/detail/aid/720105145.html" target="_blank">点击下载</a></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px">
+				插件情况</td>
+			<td style="text-align: center; width: 227px">
+				无</td>
+			<td style="text-align: center; width: 208px">
+				点击收藏</td>
+		</tr>
+	</tbody>
+</table>
+&nbsp; &nbsp; &nbsp; &nbsp;小编始终觉得，小编童年里最难忘的记忆就是抱着一本《十万个为什么》（小编现在还留着一套，日本什么社编的，还有插图）蹲厕所。插图有哆啦A梦的风格，诙谐幽默，讲解深入浅出，完全没有教科书般的说教口吻。那时候觉得看书真带劲，倒是上了十几年学，到现在整天手机不离身，反而变得不愿碰书本了。根据小编了解，似乎很多人跟小编有相同的境况，现在小编就推荐一款弥补这个缺憾的软件&mdash;&mdash;《百科常识》。既然再难以碰触书本，就把书本变成程序安在手机，放进口袋。
+<div style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120815/28-120Q51J003220.png" style="width: 240px; height: 400px" />&nbsp; &nbsp;<img alt="" src="/Article/uploads/allimg/120815/28-120Q51J0422O.png" style="width: 240px; height: 400px" /><br />
+	主界面和主菜单</div>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp;软件界面设计似乎借鉴了安卓4.0的元素，所有几何形都有一个统一特点，棱角分明而且可触控面大，使视觉和操作上的简洁得以实现。主界面当中对于百科分类比较详尽，用户可以根据自己喜好专门分类阅读。如果想专门看某一条百科，用户可以在搜索栏中输入关键字检索，更是大大加快了使用效率。在主界面的菜单里小编发现了一件相当可喜的事情，点击去除广告，软件居然提醒是去广告版，小编心里那个爽啊，再用这个软件感觉像是占了啥便宜。</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120815/28-120Q51P4545E.png" style="width: 240px; height: 400px" /><br />
+	提醒很亲切</p>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; 软件首次运行会自动弹出使用说明，说明界面制作相当精美。冰蓝色手写风格文本，淡出淡入切换效果，使整体视觉效果提高不少，也体现出软件制作者的诚意。在阅读界面里，屏幕右下角有一个不起眼的按钮，点击后会弹出二级菜单，注意是&ldquo;弹出&rdquo;哦，质感十足。这个设计应当是借鉴自著名的社交软件&ldquo;Path&rdquo;。全屏、取消全屏、字码大小、字体颜色，四个选项都是不冗杂不单薄的实用项，算得上麻雀虽小五脏俱全了。同样是阅读界面，右上角的星号点击就可以点亮，用以收藏当前百科条目。重要信息方便取用，人性化十足。</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120815/28-120Q5192143623.png" style="width: 240px; height: 400px" /><br />
+	看起来就舒服的颜色</p>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; 不过小编在使用这款软件的过程中居然发现了几个错别字，可能是作者疏忽造成的。要是误导了我们成年人，得怪我们文化水平不够；但要是误导了小朋友多不好，误导花花草草也是不对的啊......<br />
+	&nbsp; &nbsp; &nbsp; &nbsp; 总之，小编还是觉得书就要看纸质的好。手机携带的确方便，但没有了书本特有的油墨香和纸张轻轻摩挲手指尖的感触，书便不再是书了，又谈什么读书的乐趣？</p>
+<br />
+
+				<!--<p>本文链接：<a href="/Article/PingCe/2012/0815/4859.html">/Article/PingCe/2012/0815/4859.html</a>--><br />关键字：<a href='/Article/tags.php?/%E6%95%99%E8%82%B2%E8%BD%AF%E4%BB%B6/'>教育软件</a> <br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.***.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/PingCe/2012/0815/4859.html";
+				var wumiiTitle = "《百科常识》：口袋里的十万个为什么";
+				var wumiiTags = "教育软件,";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/PingCe/2012/0815/4859.html">《百科常识》：口袋里的十万个为什么</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/PingCe/2012/0727/4821.html" target="_blank">《我要当学霸》：有手机依赖症童鞋的福音</a>(2012-08-03)</li>
+<li><a href="/Article/PingCe/2012/0612/952.html" target="_blank">新启蒙教育软件系列：《交通总动员》《水族贝贝》</a>(2012-06-12)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：直江兼续</div>
+				<div id="ckepop" class="edi2">关键字：<a href='/Article/tags.php?/%E6%95%99%E8%82%B2%E8%BD%AF%E4%BB%B6/'>教育软件</a> </div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/PingCe/2012/0815/4858.html'>《喂我石油》：重口味版小鳄鱼，有工具的鸭嘴兽</a> </li>
+					<li>下一篇：没有了 </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',4859)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',4859)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',4859)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(4859);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="4859" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=4859">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=4859&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '4859');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '4859');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/PingCe/2012/0813/4853.html" target="_blank" title="《日语初学者》：初学者简单">《日语初学者》：初学者简单</a></li>
+<li><a href="/Article/PingCe/2012/0813/4852.html" target="_blank" title="《家长移动台》:一个家长们互">《家长移动台》:一个家长们互</a></li>
+<li><a href="/Article/PingCe/2012/0811/4850.html" target="_blank" title="《课堂外词场四/六级》：轻松">《课堂外词场四/六级》：轻松</a></li>
+<li><a href="/Article/PingCe/2012/0811/4849.html" target="_blank" title="《国歌钢琴》：非主流钢琴模">《国歌钢琴》：非主流钢琴模</a></li>
+<li><a href="/Article/PingCe/2012/0814/4856.html" target="_blank" title="《引力大作战》：上下翻飞的">《引力大作战》：上下翻飞的</a></li>
+<li><a href="/Article/PingCe/2012/0811/4851.html" target="_blank" title="《蚂蚁回家》：童真童趣同挑">《蚂蚁回家》：童真童趣同挑</a></li>
+<li><a href="/Article/PingCe/2012/0815/4858.html" target="_blank" title="《喂我石油》：重口味版小鳄">《喂我石油》：重口味版小鳄</a></li>
+<li><a href="/Article/PingCe/2012/0808/4845.html" target="_blank" title="《简单学英语》：一个简单实">《简单学英语》：一个简单实</a></li>
+<li><a href="/Article/PingCe/2012/0811/4848.html" target="_blank" title="《可爱战争》：将可爱进行到">《可爱战争》：将可爱进行到</a></li>
+<li><a href="/Article/PingCe/2012/0810/4847.html" target="_blank" title="《我爱记歌词》：音乐、歌词">《我爱记歌词》：音乐、歌词</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E6%95%99%E8%82%B2/' target="_blank" style="font-size:12pt;color:#675cb7">教育</a>  <a href='/Article/tags.php?/%E8%8B%B1%E5%8C%96/' target="_blank" style="font-size:pt;color:#c21cf5">英化</a>  <a href='/Article/tags.php?/%E8%B0%9A%E8%AF%AD/' target="_blank" style="font-size:14pt;color:#783014">谚语</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:14pt;color:#554ea5">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#6b8f4d">休闲</a>  <a href='/Article/tags.php?/%E6%95%99%E8%82%B2%E8%BD%AF%E4%BB%B6/' target="_blank" style="font-size:pt;color:#fd59d9">教育软件</a>  <a href='/Article/tags.php?/%E7%89%A9%E7%90%86/' target="_blank" style="font-size:14pt;color:#6a4dd6">物理</a>  <a href='/Article/tags.php?/%E7%AD%96%E7%95%A5/' target="_blank" style="font-size:12pt;color:#b910ed">策略</a>  <a href='/Article/tags.php?/%E7%9F%BF%E7%89%A9/' target="_blank" style="font-size:10pt;color:#8d7efa">矿物</a>  <a href='/Article/tags.php?/%E6%96%87%E5%8C%96/' target="_blank" style="font-size:12pt;color:#c9b8fc">文化</a>  <a href='/Article/tags.php?/%E8%AE%BA%E5%9D%9B/' target="_blank" style="font-size:12pt;color:#2ece5">论坛</a>  <a href='/Article/tags.php?/%E7%AE%80%E5%8D%95/' target="_blank" style="font-size:14pt;color:#776a12">简单</a>  <a href='/Article/tags.php?/%E6%97%A5%E8%AF%AD/' target="_blank" style="font-size:pt;color:#4549d6">日语</a>  <a href='/Article/tags.php?/%E5%85%A5%E9%97%A8/' target="_blank" style="font-size:12pt;color:#d486f6">入门</a>  <a href='/Article/tags.php?/%E8%BD%AF%E4%BB%B6/' target="_blank" style="font-size:10pt;color:#149daf">软件</a>  <a href='/Article/tags.php?/%E4%BA%A4%E6%B5%81/' target="_blank" style="font-size:pt;color:#e278ed">交流</a>  <a href='/Article/tags.php?/%E5%AD%A6%E4%B9%A0/' target="_blank" style="font-size:12pt;color:#41b2c0">学习</a>  <a href='/Article/tags.php?/%E6%A8%A1%E6%8B%9F/' target="_blank" style="font-size:10pt;color:#d8914c">模拟</a>  <a href='/Article/tags.php?/%E9%9F%B3%E4%B9%90/' target="_blank" style="font-size:10pt;color:#cd268a">音乐</a>  <a href='/Article/tags.php?/%E5%AE%9E%E7%94%A8/' target="_blank" style="font-size:12pt;color:#bc7826">实用</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

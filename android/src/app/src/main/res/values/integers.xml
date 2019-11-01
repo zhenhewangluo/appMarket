@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<integer name="text_view_min_lines_num">10</integer>
+	<integer name="hot_activity_max_item_num">10</integer>
+	<integer name="fix_top_main_bug_delay">500</integer>
+</resources>

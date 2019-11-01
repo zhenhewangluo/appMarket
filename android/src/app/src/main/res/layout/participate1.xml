@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1" >
+
+        <LinearLayout
+            android:id="@+id/my_Score"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dip" >
+
+            <TextView
+                android:id="@+id/myScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_grade" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lay_unland"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dip"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/unland"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unland_alert" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dip"
+        android:cacheColorHint="#00000000"
+        android:divider="#cccccccc"
+        android:dividerHeight="2px"
+        android:listSelector="#e4e4e4" />
+
+</LinearLayout>

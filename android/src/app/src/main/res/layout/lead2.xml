@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#efefef"
+    android:orientation="vertical" >
+ <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+    <!-- Content -->
+
+<!-- android:layout_height="@dimen/lead2activity_framelayout_layout_height"
+        android:layout_marginTop="@dimen/lead2activity_framelayout_layout_marginTop"  -->
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:id="@+id/linearlayout_1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/move_bg"
+                 >
+                <LinearLayout
+                    android:id="@+id/linrearlayout_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/suggestion_hint_1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                    	android:layout_weight="1"
+                    	android:layout_marginTop="2px"
+                    	  android:layout_marginBottom="2px"
+                        android:text="@string/xingqu_text1"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/suggestion_hint2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                         android:layout_marginTop="2px"
+                  		  android:layout_marginBottom="2px"
+                        android:text="@string/xingqu_text2"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearlayout_3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginBottom="5dip"
+                android:orientation="vertical">
+
+                <GridView
+                    android:id="@+id/interest_sorts"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:cacheColorHint="#00000000"
+                    android:divider="#00000000"
+                    android:dividerHeight="1dip"
+                    android:horizontalSpacing="2dp"
+                    android:listSelector="@null"
+                    android:scrollbars="vertical"
+                    android:scrollingCache="true"
+                    android:background="#eaeaea"
+                    android:verticalSpacing="2dp" >
+                </GridView>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_9"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="5dip"
+        android:orientation="horizontal" >
+
+        <include
+            android:id="@+id/submit"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="15dip"
+            layout="@layout/long_button" />
+
+        <include
+            android:id="@+id/jump"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="20dip"
+            layout="@layout/long_button" />
+    </LinearLayout>
+
+</LinearLayout>

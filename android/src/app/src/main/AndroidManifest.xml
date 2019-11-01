@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.market.hjapp"
+    android:versionCode="20120627"
+    android:versionName="2.0.2.627">
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+
+
+    <application
+        android:name="AppStoreApplication"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar">
+
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.activity.BrowseSuggestedAppListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.BrowseSuggestedAppListActivityal"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AppDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.LeadActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.Lead2Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.SelectFavoriteCateActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.SearchedAppListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="search"
+                    android:scheme="market" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".tyxl.DuiJiangHistory" />
+        <activity android:name=".tyxl.UpdateAddress" />
+        <activity
+            android:name=".tyxl.AdP"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tyxl.InviteFriend"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tyxl.SupportFriend"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tyxl.Registration"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tyxl.Land"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SearchedResultActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.BrowseCommentListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.LoginDialogActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.LoginDialogActivity1"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.RegisterDialogActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".ui.activity.EditUserInfoDialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <activity
+            android:name=".ui.activity.EditPhoneDialogActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".ui.activity.EditNickNameDialogActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".ui.activity.ChangePasswordDialogActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".ui.activity.BrowseCategoryListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.CategoryAppListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.MyDownloadsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.activity.LoginAccountActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.SuggestionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.MyAccountActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.ViewScreenshotsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".ui.activity.CommentActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name=".ui.activity.GradeActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".ui.activity.LeadLoginActivity"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <service
+            android:name=".service.AppService"
+            android:exported="true" />
+        <service
+            android:name=".service.UpdateDataService"
+            android:exported="true" />
+        <service
+            android:name=".service.UploadLocalAppService"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.activity.MidwareActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.market.hjapp.action.REQUEST_BUY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.activity.PayActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.AuthenticateActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.ChargeDialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <activity
+            android:name=".ui.activity.ChargeListDialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".ui.activity.AboutSilverActivity"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <activity
+            android:name=".ui.activity.FindPasswordDialogActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".ui.activity.RSATestActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.ChooseShareOptionDialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <activity
+            android:name=".ui.activity.AboutActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".ui.activity.SettingActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.UpdateActivity"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <activity
+            android:name=".ui.activity.InviteInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.MyAccountDialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <activity
+            android:name=".ui.activity.BrowseRankListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
+        <!-- rank  -->
+        <activity
+            android:name=".ui.activity.RankAppListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
+        <!--today recommend -->
+        <activity
+            android:name=".ui.activity.RecommendActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- backup app list  -->
+        <activity
+            android:name=".ui.activity.BackupAppListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
+        <!-- recovery app list  -->
+        <activity
+            android:name=".ui.activity.RecoveryAppListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
+        <!-- menu manage app -->
+        <activity
+            android:name=".ui.activity.BrowseManageListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
+
+
+        <receiver android:name=".receiver.SystemBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+
+                <category android:name="android.intent.category.HOME" />
+
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+                <!-- android:scheme is very important. Otherwise, broadcast can't be received.-->
+            </intent-filter>
+        </receiver>
+    </application>
+
+    <uses-sdk android:minSdkVersion="4" />
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+</manifest> 

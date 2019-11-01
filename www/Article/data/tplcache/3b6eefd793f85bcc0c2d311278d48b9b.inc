@@ -1,0 +1,10 @@
+{dede:field name='keywords'}盛大手机,4.3寸双核{/dede:field}
+{dede:field name='description'}盛大前不久发布了手机操作系统乐众ROM，同时也有消息说要出手机。然而今天XDA智能手机网的关系网得来消息，盛大手机真的要来了！配置方面跟之前流传的有点相似，1GHz双核处理器，分辨率为960540屏的4.3寸屏幕，8G内存，乐众ROM的Andriod 4.0操作系统，但是售价为1199元，大家没看错，就是1199元！{/dede:field}
+{dede:field name='title'}传盛大手机为4.3寸双核 售价不是999元而是1199元{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

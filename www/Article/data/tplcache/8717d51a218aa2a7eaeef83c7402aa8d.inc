@@ -1,0 +1,10 @@
+{dede:field name='keywords'}金山手机卫士,金山安全中{/dede:field}
+{dede:field name='description'}金山移动安全中心最新捕获到一款SP扣费病毒：Android.Troj.Randen.b。该款病毒通过发送扣费短信牟利，并能根据手机位置信息选择不同SP服务商。金山手机卫士已第一时间能够对其检测及查杀。{/dede:field}
+{dede:field name='title'}金山手机卫士第一时间捕获最新SP扣费病毒{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

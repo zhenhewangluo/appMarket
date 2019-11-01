@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- 有上面选项卡时的列表高度 -->
+	<dimen name="has_title_list_height">306dip</dimen>
+	<!-- 有上面选项卡时的页面高度 -->
+	<dimen name="has_title_list_layout_height">276dip</dimen>
+	<!-- 排行二级页面中列表的高度 -->
+	<dimen name="has_title_no_bottom_list_height">364dip</dimen>
+	<dimen name="has_title_no_bottom_list_layout_height">398dip</dimen>
+	
+	<dimen name="simple_title_list_height">308dip</dimen>
+	<dimen name="simple_title_list_layout_height">341dip</dimen>
+	
+	<dimen name="simple_title_no_bottom_list_height">409dip</dimen>
+	<dimen name="simple_title_no_bottom_list_layout_height">409dip</dimen>
+	
+	<!-- 分类页面二级界面列表高度 -->
+	<dimen name="no_title_list_height">376dip</dimen>
+	<dimen name="no_title_list_layout_height">425dip</dimen>
+	
+	<!-- 搜索页面列表高度 --> 
+	<dimen name="search_list_height">231dip</dimen>
+	<!-- 搜索页面的高度 -->
+	<dimen name="search_list_layout_height">242dip</dimen> 
+	
+	<!-- 搜索结果页面列表高度 -->
+	<dimen name="search_result_list_layout_height">417dip</dimen>  
+	
+	<dimen name="backup_list_height">252dip</dimen>
+	<!-- 管理-备份界面高度 -->
+	<dimen name="backup_list_layout_height">290dip</dimen>
+	
+	<!-- "my_account_activity中底部布局的边距 -->
+	<dimen name="my_account_bottomLinearLayout_layout_marginTop">10dip</dimen>
+	<!-- 今日推荐界面高度  未测试 -->
+	<dimen name="recommend_height">270dip</dimen>
+	
+	<!-- 意见反馈中提交按钮距离顶部大小 -->
+	<dimen name="suggestion_buttom">13dip</dimen>
+	
+	<!-- 应用详情页面第二页列表高度 -->
+	<dimen name="appdetailactivity_twopage_height">235dip</dimen>
+	<!-- 应用详情页面第三页列表高度 -->
+	<dimen name="appdetailactivity_threepage_height">280dip</dimen>
+	
+	<!--carmack add splash_activity progress 428-->
+	<!--format as:activity_widgetName_elementName  -->
+	<dimen name="splashactivity_progress_layout_width">162dip</dimen>
+	<dimen name="splashactivity_progress_layout_height">20dip</dimen>
+	<dimen name="splashactivity_progress_layout_marginLeft">79dip</dimen>
+	<dimen name="splashactivity_progress_layout_marginTop">340dip</dimen>
+	<!--carmack add lead2activity  -->
+	<dimen name="lead2activity_framelayout_layout_height">340dip</dimen>
+	<dimen name="lead2activity_framelayout_layout_marginTop">1dip</dimen>
+	
+	<dimen name="lead2activity_linearlayout_1_layout_width">320dip</dimen>
+	<dimen name="lead2activity_linearlayout_1_layout_height">70dip</dimen>
+	<dimen name="lead2activity_linearlayout_1_paddingLeft">10dip</dimen>
+	<dimen name="lead2activity_linearlayout_1_paddingTop">2dip</dimen>
+	
+	<dimen name="lead2activity_linearlayout_2_layout_width">300dip</dimen>
+	<dimen name="lead2activity_linearlayout_2_layout_height">60dip</dimen>
+	<dimen name="lead2activity_linearlayout_2_paddingLeft">10dip</dimen>
+	<dimen name="lead2activity_linearlayout_2_paddingRight">5dip</dimen>
+	
+	<dimen name="lead2activity_linearlayout_3_layout_width">320dip</dimen>
+	<dimen name="lead2activity_linearlayout_3_layout_height">265dip</dimen>
+	<dimen name="lead2activity_linearlayout_3_paddingLeft">10dip</dimen>
+	
+	<dimen name="lead2activity_suggestion_hint_1_paddingTop">10dip</dimen>
+	
+	<dimen name="lead2activity_imageview_1_layout_width">300dip</dimen>
+	<dimen name="lead2activity_imageview_1_layout_height">7dip</dimen>
+	
+	<dimen name="lead2activity_linearlayout_4_layout_width">300dip</dimen>
+	<dimen name="lead2activity_linearlayout_4_layout_height">260dip</dimen>
+	<dimen name="lead2activity_linearlayout_4_paddingLeft">10dip</dimen>
+	<dimen name="lead2activity_linearlayout_4_paddingRight">5dip</dimen>
+	
+	<dimen name="lead2activity_linearlayout_5_layout_width">300dip</dimen>
+	<dimen name="lead2activity_linearlayout_5_layout_height">260dip</dimen>
+	
+	<dimen name="lead2activity_linearlayout_row_layout_width">300dip</dimen>
+	<dimen name="lead2activity_linearlayout_row_layout_height">85dip</dimen>
+	
+	<dimen name="lead2activity_layout_col_layout_width">80dip</dimen>
+	<dimen name="lead2activity_layout_col_layout_height">80dip</dimen>
+	<dimen name="lead2activity_layout_col_marginLeft">10dip</dimen>
+	<dimen name="lead2activity_layout_col_marginTop">5dip</dimen>
+	
+	<dimen name="lead2activity_image_layout_width">56dip</dimen>
+	<dimen name="lead2activity_image_layout_height">56dip</dimen>
+	<dimen name="lead2activity_image_marginLeft">13dip</dimen>
+	<dimen name="lead2activity_image_marginTop">4dip</dimen>
+	
+	<dimen name="lead2activity_linearlayout_9_layout_height">60dip</dimen>
+	
+	<dimen name="lead2activity_submit_layout_width">133dip</dimen>
+	<dimen name="lead2activity_submit_layout_height">42dip</dimen>
+	<dimen name="lead2activity_submit_marginLeft">16dip</dimen>
+	<dimen name="lead2activity_submit_marginTop">8dip</dimen>
+		
+	<dimen name="lead2activity_jump_layout_width">133dip</dimen>
+	<dimen name="lead2activity_jump_layout_height">42dip</dimen>
+	<dimen name="lead2activity_jump_marginLeft">21dip</dimen>
+	<dimen name="lead2activity_jump_marginTop">8dip</dimen>
+	
+	<!--carmack 引导页至用户注册或是显示推荐  leadactivity -->
+	<dimen name="leadactivity_linearlayout_1_layout_height">120dip</dimen>
+	<dimen name="leadactivity_linearlayout_1_layout_marginLeft">10dip</dimen>
+	<dimen name="leadactivity_linearlayout_1_layout_marginRight">10dip</dimen>
+	<dimen name="leadactivity_linearlayout_1_layout_marginTop">42dip</dimen>
+	<dimen name="leadactivity_linearlayout_1_paddingLeft">10dip</dimen>
+	<dimen name="leadactivity_linearlayout_1_paddingRight">5dip</dimen>
+	
+	<dimen name="leadactivity_textview_1_paddingTop">26dip</dimen>
+	<dimen name="leadactivity_textview_2_paddingTop">10dip</dimen>
+	<dimen name="leadactivity_textview_3_paddingTop">10dip</dimen>
+	
+	<dimen name="leadactivity_linearlayout_2_layout_height">200dip</dimen>
+	<dimen name="leadactivity_linearlayout_2_paddingLeft">10dip</dimen>
+	<dimen name="leadactivity_linearlayout_2_paddingRight">5dip</dimen>
+	<dimen name="leadactivity_linearlayout_2_paddingTop">20dip</dimen>
+	
+	<dimen name="leadactivity_imageview_1_layout_height">7dip</dimen>
+	<dimen name="leadactivity_imageview_1_layout_marginRight">5dip</dimen>
+	
+	<dimen name="leadactivity_linearlayout_3_layout_height">170dip</dimen>
+	<dimen name="leadactivity_linearlayout_3_layout_marginRight">5dip</dimen>
+	
+	<dimen name="leadactivity_suggested_software_layout_width">170dip</dimen>
+	<dimen name="leadactivity_suggested_software_layout_hight">36dip</dimen>
+	<dimen name="leadactivity_suggested_software_layout_marginTop">20dip</dimen>
+	
+	<dimen name="leadactivity_register_layout_width">170dip</dimen>
+	<dimen name="leadactivity_register_layout_hight">36dip</dimen>
+	<dimen name="leadactivity_register_layout_marginTop">10dip</dimen>
+	
+	<dimen name="leadactivity_use_layout_width">170dip</dimen>
+	<dimen name="leadactivity_use_layout_hight">36dip</dimen>
+	<dimen name="leadactivity_use_layout_marginTop">10dip</dimen>
+	
+	<dimen name="leadactivity_imageview_2_layout_height">7dip</dimen>
+	<dimen name="leadactivity_imageview_2_layout_marginRight">5dip</dimen>
+	
+	<!-- 搜索相关适配 -->
+	<dimen name="search_topFrameLayout_layout_height">66dip</dimen>
+	
+	<dimen name="search_search_inputbox_layout_height">37dip</dimen>
+	<dimen name="search_search_inputbox_layout_marginRight">30dip</dimen>
+	<dimen name="search_search_inputbox_layout_marginLeft">30dip</dimen>
+	<dimen name="search_search_inputbox_layout_marginTop">22dip</dimen>
+	
+	<dimen name="search_progress_layout_marginLeft">100dip</dimen>
+	
+	<dimen name="search_hotkey1_layout_marginLeft">108dip</dimen>
+	<dimen name="search_hotkey1_layout_marginTop">0dip</dimen>
+	<dimen name="search_hotkey1_textSize">35dip</dimen>
+	
+	<dimen name="search_hotkey2_layout_marginLeft">198dip</dimen>
+	<dimen name="search_hotkey2_layout_marginTop">53dip</dimen>
+	<dimen name="search_hotkey2_textSize">14dip</dimen>
+	
+	<dimen name="search_hotkey3_layout_marginLeft">41dip</dimen>
+	<dimen name="search_hotkey3_layout_marginTop">66dip</dimen>
+	<dimen name="search_hotkey3_textSize">20dip</dimen>
+	
+	<dimen name="search_hotkey4_layout_marginLeft">184dip</dimen>
+	<dimen name="search_hotkey4_layout_marginTop">95dip</dimen>
+	<dimen name="search_hotkey4_textSize">26dip</dimen>
+	
+	<dimen name="search_hotkey5_layout_marginLeft">65dip</dimen>
+	<dimen name="search_hotkey5_layout_marginTop">106dip</dimen>
+	<dimen name="search_hotkey5_textSize">13dip</dimen>
+	
+	<dimen name="search_hotkey6_layout_marginLeft">181dip</dimen>
+	<dimen name="search_hotkey6_layout_marginTop">123dip</dimen>
+	<dimen name="search_hotkey6_textSize">13dip</dimen>
+	
+	<dimen name="search_hotkey7_layout_marginLeft">107dip</dimen>
+	<dimen name="search_hotkey7_layout_marginTop">139dip</dimen>
+	<dimen name="search_hotkey7_textSize">11dip</dimen>
+	
+	<dimen name="search_hotkey8_layout_marginLeft">38dip</dimen>
+	<dimen name="search_hotkey8_layout_marginTop">158dip</dimen>
+	<dimen name="search_hotkey8_textSize">19dip</dimen>
+	
+	<dimen name="search_hotkey9_layout_marginLeft">202dip</dimen>
+	<dimen name="search_hotkey9_layout_marginTop">150dip</dimen>
+	<dimen name="search_hotkey9_textSize">19dip</dimen>
+	
+	<dimen name="search_hotkey10_layout_marginLeft">142dip</dimen>
+	<dimen name="search_hotkey10_layout_marginTop">173dip</dimen>
+	<dimen name="search_hotkey10_textSize">17dip</dimen>
+		
+	<dimen name="search_longbutton_layout_height">40dip</dimen>
+	<dimen name="search_longbutton_layout_marginLeft">30dip</dimen>
+	<dimen name="search_longbutton_layout_marginRight">30dip</dimen>
+	<dimen name="search_longbutton_layout_marginTop">200dip</dimen>
+	<!-- 登陆页面login-dialog1.xml -->
+	<dimen name="login_dialog1_bottomLinearLayout_layout_height">45dip</dimen>
+	<dimen name="login_dialog1_bottomLinearLayout_layout_marginTop">2dip</dimen>
+	
+	<dimen name="login_dialog1_bottomLinearLayout_paddingTop">2dip</dimen>
+	<dimen name="login_dialog1_bottomLinearLayout2_layout_marginTop">2dip</dimen>
+	
+	<dimen name="login_dialog1_topLinearLayout_layout_height">40dip</dimen>
+	<dimen name="login_dialog1_topLinearLayout_paddingTop">2dip</dimen>
+	
+	<dimen name="login_dialog1_centerLinearLayout_layout_height">220dip</dimen>
+	
+	<!-- 登陆页面login_account_acitvity.xml -->
+	<dimen name="login_account_activity_topLinearLayout_layout_height">50dip</dimen>
+	<dimen name="login_account_activity_topLinearLayout_paddingTop">2dip</dimen>
+	
+	<dimen name="login_account_activity_centerLinearLayout_layout_height">200dip</dimen>
+	
+	<dimen name="login_account_activity_bottomLinearLayout_layout_height">55dip</dimen>
+	<dimen name="login_account_activity_bottomLinearLayout_paddingTop">3dip</dimen>
+	
+	<dimen name="login_account_activity_centerLinearLayout_paddingTop">2dip</dimen>
+	<dimen name="login_account_activity_bottomLinearLayout_marginTop">3dip</dimen>
+	<!-- 意见反馈 suggestion.xml -->
+	<dimen name="suggestion_topLinearLayout_layout_height">80dip</dimen>
+	<dimen name="suggestion_topLinearLayout_marginTop">3dip</dimen>
+	
+	<dimen name="suggestion_centerLinearLayout_layout_height">200dip</dimen>
+	<dimen name="suggestion_centerLinearLayout_marginTop">5dip</dimen>
+	
+	<dimen name="suggestion_bottomLinearLayout_layout_height">80dip</dimen>
+	<dimen name="suggestion_bottomLinearLayout_marginTop">5dip</dimen>
+	<dimen name="suggestion_bottomLongButton_marginLeftOrRight">50dip</dimen>
+	
+		
+</resources>

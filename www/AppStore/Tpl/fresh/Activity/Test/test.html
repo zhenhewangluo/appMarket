@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+		<script type='text/javascript' src="__PUBLIC__/js/artdialog/jquery.artDialog.js?skin=default"></script>
+	</head>
+	<body>
+		
+		<a class="btn">
+			<img src="../Public/activity/image/ftp.gif" width="136" height="48" border="0" />
+		</a>
+		<button class="btn"></button>
+		<script type="text/javascript">
+			function selectPhoneBook()
+			{
+				$.dialog.open('{:U("Activity-Test/guestPhoneBook")}',{id:'guest_phone_book',title:'上传好友列表'});
+			}
+			$('.btn').click(function(){
+				$.dialog.open(
+					'{:U("Activity-Test/guestPhoneBook")}',
+					{id:'guest_phone_book',title:'上传好友列表'}
+				);
+			});
+		</script>
+	</body>
+</html>

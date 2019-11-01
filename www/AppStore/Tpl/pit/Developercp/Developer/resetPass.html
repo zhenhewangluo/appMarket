@@ -1,0 +1,38 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css">
+<script type="text/javascript" src="__PUBLIC__/js/autovalidate/validate.js"></script>
+<div class="position">
+	<a href ="__APP__">首页</a>&nbsp;>&nbsp;开发者重置密码&nbsp;>&nbsp;
+</div>
+<link rel="stylesheet" type="text/css" href="../Public/css/dev.css" />
+<script type="text/javascript">
+	function fleshVerify(){
+		//重载验证码
+		var timenow = new Date().getTime();
+		document.getElementById('verifyImg').src= "{:U('AppStore://App-RegisterUser/verify?random=')}"+timenow;
+	} 
+</script>
+<div class="simple_box">
+	<div class="simple_box_t"></div>
+	<div class="simple_box_c">
+		<div class="pencil"></div>
+		<h6>发送重置邮件</h6>
+		<form method="post" action="{:U('AppStore://App-Developer/resetPassAction')}" id="resetPassword">
+			<table>
+				<tr>
+					<th class="t_r">账户邮箱：</th>
+					<td><label><input class="long" type="text" name="email" value=""  pattern="email" alt="请输入账户邮箱"/></label></td>
+				</tr>
+
+				<tr>
+					<th class="t_r">验证码：</th>
+					<td><label><input class="middle" type="text" name="verifyCard" value=""  pattern="required" alt="请输入验证码" />
+							<img style='cursor:pointer' title='刷新验证码' src="{:U('AppStore://App-RegisterUser/verify')}"  id='verifyImg' onClick="fleshVerify()" /></label></td>
+				</tr>
+				<tr>
+					<th class="t_r"></th><td><label><input type="submit" class="user_submit"  value="发送重置邮件"/></label></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="simple_box_b"></div>
+</div>

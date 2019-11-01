@@ -1,0 +1,39 @@
+<table class="app_score_table f_l t_c">
+	<colgroup>
+		<col width="10px">
+		<col width="15px">
+		<col width="150px">
+		<col width="30px">
+	</colgroup>
+	<volist name="appScore" id="vo">
+		<if condition="$key neq 0">
+			<tr>
+				<td class="point_list">{$key}</td>
+				<td class="point_star"><span></span></td>
+				<td class="point_chart">
+					<span class="green_grade">
+						<if condition="$approw['app_starcount'] gt 0">
+							<i style="width:{:round($appScore[$key]/$approw['app_starcount'], 2) *150}px;"></i>
+							<else/>
+							<i style="width:0px;"></i>
+						</if>
+					</span>
+				</td>
+				<td>{$appScore[$key]}</td>
+			</tr>
+		</if>
+	</volist>
+</table>
+<dl class="app_grade_view f_r t_c">
+	<dt>平均评分：</dt>
+	<dd class="app_avg_point">
+		{~$grade_point = ($approw['app_starcount'] > 0 ) ? round($approw['app_score_www']/$approw['app_starcount'], 2) : 0}
+		{:$grade_point}
+	</dd>
+	<dd>
+		<span class="blue_grade">
+			<i style="width:{$grade_point*15}px;"></i>
+		</span>
+	</dd>
+	<dd>{$approw['app_starcount']}</dd>
+</dl>

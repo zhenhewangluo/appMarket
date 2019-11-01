@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/setting_cate_market">   
+        <com.market.hjapp.ui.view.MyDialogPreference
+        		android:key="clear_memory"
+				android:title="@string/setting_clear_memory_title"
+				android:dialogMessage="@string/setting_clear_memory_content"/>
+                
+        <CheckBoxPreference   
+	             android:key="download_icon"  
+	             android:title="@string/setting_download_icon"  
+	             android:summary="@string/setting_download_icon_summary"
+	             android:defaultValue="true" />  
+ 
+         <CheckBoxPreference   
+	             android:key="recommend_notification"
+	             android:title="@string/setting_recommend_notification"  
+	             android:summary="@string/setting_recommend_notification_summary"
+	             android:defaultValue="true" />
+	             
+	     <CheckBoxPreference   
+	             android:key="voice_notification"
+	             android:title="@string/setting_voice_notification"  
+	             android:summary="@string/setting_voice_notification_summary"
+	             android:defaultValue="true" />  
+	             
+	     <PreferenceScreen    
+	             android:key="my_favor_cate"
+	             android:title="@string/my_favor_cate"  
+	             android:summary="@string/my_favor_cate_summary"> 
+		     	 <intent
+	            	android:action="android.intent.action.SelectFavoriteCateActivity"
+		            android:targetPackage="com.market.hjapp"
+		            android:targetClass="com.market.hjapp.ui.activity.SelectFavoriteCateActivity" />
+	            
+	      </PreferenceScreen>
+	       
+	             
+     </PreferenceCategory> 
+	  
+</PreferenceScreen>  

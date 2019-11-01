@@ -1,0 +1,45 @@
+
+<form id="common_login" method="post" action="{:U('AppStore://Common-Index/loginAct')}" autocomplete="off" style="display:block;margin:0 auto;">
+	<input type="hidden" name='callbackUrl' value="{$callbackUrl}">
+	<input type="hidden" name="acttype" value="{$acttype}">
+	<table style="margin: 0 auto;">
+		<tr>
+			<th>
+				手机号/E-mail：
+			</th>
+			<td>
+				<input type="text" name="username" value="" />
+			</td>
+		</tr>
+		<tr>
+			<th>
+				密码：
+			</th>
+			<td>
+				<input type="password" name="password" value="" />
+			</td>
+		</tr>
+		<tr>
+			<th>
+				验证码：
+			</th>
+			<td>
+				<input type="text" name="verifyCard" value="" /><img style="cursor:pointer;" title="刷新验证码" src="{:U('AppStore://Base/verify')}" id="verifyImg" />
+			</td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>
+				<input type="submit" name="submit" value="登录" /><a href="{:U('AppStore://Common-Index/forgotPass', array('acttype' => $acttype))}">重置密码</a>
+			</td>
+		</tr>
+	</table>
+</form>
+<script type="text/javascript">
+	$(function(){
+		$('#verifyImg').click(function(){
+			var timenow = new Date().getTime();
+			$(this).attr('src', "{:U('AppStore://Base/verify?random=')}"+timenow);
+		});
+	});
+</script>

@@ -1,0 +1,1315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>“3.15”特辑：Android病毒应用那些事儿_***</title>
+<meta name="keywords" content="3.15,Android病毒应用" />
+<meta name="description" content="据专业机构调查称，目前Android系统美国市场占有率已高达46.3%，成为最受欢迎的智能操作系统，搭载Android系统的智能手机、平板电脑现如今堪称是人日常生活中必不可少的重要物品。与" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/Tiki+Towers/' target="_blank">Tiki Towers</a><a href='/Article/tags.php?/%E6%9A%B4%E8%B5%B0/' target="_blank">暴走</a><a href='/Article/tags.php?/%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB/' target="_blank">飞行射击</a><a href='/Article/tags.php?/%E9%97%A8/' target="_blank">门</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">“3.15”特辑：Android病毒应用那些事儿</h1>
+			<div class="articleInfo"><small>时间:</small>2012-03-15 11:55<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=3322&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			　　据专业机构调查称，目前Android系统美国市场占有率已高达46.3%，成为最受欢迎的智能操作系统，搭载Android系统的智能手机、平板电脑现如今堪称是人日常生活中必不可少的重要物品。与之相辅相成的是，Android系统应用也如雨后春笋般蓬勃发展着，2011年第四季度中Android Market更以每月9.3%的应用增长速度首次超越苹果App Store。<br />
+<br />
+　　Android系统应用爆发式的增长却也令我们不得不面对这样一个问题应用整体质量下降、充斥垃圾应用以及病毒应用广泛传播，众多缺乏有效监管的第三方Android应用市场的涌现更是病毒应用滋生的沃土。对于私自下载流氓软件、发送恶意扣费短信、窃取用户隐私等病毒应用恶意行为，相信很多用户早已深恶痛绝。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img height="407" alt="" src="/uploads/allimg/c120716/1342422Ic94Z-11412.jpg" width="500" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">手机病毒早已令广大消费者们深恶痛绝</span> 
+
+<br />
+　　因此蚕豆网联合安全管家推出《蚕豆网不推荐的Android应用》系列文章，通过专业检测尽力帮助广大用户们免受Android系统病毒应用侵害。此值“国际消费者权益日”之际，我们在此也将为您奉上本篇不推荐Android应用特辑，让我们一起关注手机安全、共同创造更安全、更稳定、更高质量的Android系统应用环境。<br />
+<br />
+　　<strong>隐私窃取类病毒应用（一）</strong><br />
+<br />
+　　“隐私窃取”顾名思义，即是在无任何提示的情况下私自联网，将我们手机之中所保存的通讯录、短信甚至照片等隐私资料上传至病毒服务器。因此用户们对于此类病毒应用须要严加防范，不仅时常收到因通讯录被窃取而产生的垃圾广告信息就已经足够令我们头疼，甚至我们还有可能不小心成为下一个“陈老师”。<br />
+<br />
+　　<strong>应用名称：《便捷设置》</strong><br />
+<br />
+　　MD5：0122ACD4CE8C20E4248B96950D7FA1E8<br />
+<br />
+　　版本号：2.9.7<br />
+<br />
+　　应用大小：516KB<br />
+<br />
+　　病毒名称：MLC.yb.A<br />
+<br />
+　　样本类型：系统工具<br />
+<br />
+　　病毒类型/不推荐理由：伪装系统组件、隐私窃取<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　联网下载安装恶意子包“Android System Service Entry”，此恶意子包安装后无应用图标且伪装系统组件于后台运行，将用户的短信内容和通讯记录上传病毒服务器，窃取用户隐私。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　1.便捷设置：<br />
+<br />
+　　无提示强制联网<br />
+<br />
+　　2.Android System Service Entry：<br />
+<br />
+　　无提示私自发送短信<br />
+<br />
+　　无提示强制联网<br />
+<br />
+　　无法关闭开机自启动<br />
+<br />
+　　窃取用户隐私<br />
+<br />
+　　<strong>应用名称：《坦克大战》</strong><br />
+<br />
+　　MD5：FD1F199B4966BC2BA5157122F40A7BDA<br />
+<br />
+　　应用大小：420KB<br />
+<br />
+　　病毒别名：MSP.tz.A<br />
+<br />
+　　样本类型：游戏<br />
+<br />
+　　病毒类型/不推荐理由：隐私窃取<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　用户接收短信和接打电话时触发病毒程序。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　病毒记录用户的短信内容和通话记录以及手机信息，联网上传病毒服务器，窃取用户隐私。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无提示强制联网<br />
+<br />
+　　无法关闭开机自启动<br />
+<br />
+　　窃取用户隐私资料<br />
+<br />
+　　<strong>隐私窃取类病毒应用（二）</strong><br />
+<br />
+　　<strong>应用名称：《摩托勇士》</strong><br />
+<br />
+　　MD5：DBE1FCCCC2E0B4C097EDDB6F03A0C40<br />
+<br />
+　　应用大小：3.26MB<br />
+<br />
+　　病毒别名：MSP.my.A<br />
+<br />
+　　样本类型：游戏<br />
+<br />
+　　病毒类型/不推荐理由：隐私窃取<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　用户接收短信和接打电话时触发病毒程序。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　病毒记录用户的短信内容和通话记录以及手机信息，联网上传病毒服务器，窃取用户隐私。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无提示强制联网<br />
+<br />
+　　无法关闭开机自启动<br />
+<br />
+　　窃取用户隐私资料<br />
+<br />
+　　<strong>应用名称：《魔力占星》</strong><br />
+<br />
+　　MD5：BBD6C921596C603EA9B2284059135F18<br />
+<br />
+　　应用大小：1.55MB<br />
+<br />
+　　样本类型：游戏<br />
+<br />
+　　病毒类型/不推荐理由：窃取隐私、传播流氓软件<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自启动、电话状态发生变化触发恶意代码。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　记录用户短信、通讯录等隐私资料，联网上传到木马服务器；下载安装恶意程序。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　该软件开机自启动无法关闭；<br />
+<br />
+　　窃取用户的隐私资料；<br />
+<br />
+　　私自联网下载安装流氓软件。<br />
+<br />
+　　<strong>隐私窃取类病毒应用（三）</strong><br />
+<br />
+　　<strong>应用名称：《重力感应球》</strong><br />
+<br />
+　　MD5：5ACDD421180CF6C25035DF40E8319E86<br />
+<br />
+　　版本号：2.0.09<br />
+<br />
+　　应用大小：3.09MB<br />
+<br />
+　　样本类型：游戏<br />
+<br />
+　　病毒类型/不推荐理由：窃取隐私<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自启动，用户电话状态发生变化时触发恶意代码。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　记录用户手机通讯录、短信等隐私资料，无提示私自强制联网上传到木马服务器；以及下载安装恶意程序。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　手机开机自启动；<br />
+<br />
+　　窃取用户隐私资料；<br />
+<br />
+　　无提示私自强制联网；<br />
+<br />
+　　下载安装恶意程序。<br />
+<br />
+　　<strong>应用名称：《电源管理》</strong><br />
+<br />
+　　MD5：3F8893D01505DB6B57E941E11C250CC3<br />
+<br />
+　　版本号：1.6<br />
+<br />
+　　应用大小：136KB<br />
+<br />
+　　样本类型：工具<br />
+<br />
+　　病毒类型/不推荐理由：窃取隐私<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自启动，用户接听拨打电话、收发短信时触发执行恶意行为。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件冒充Android系统组件，开机自启动，拦截指定号码的信息、监听电话通话状态，窃取用户隐私资料。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无法关闭开机自启动；<br />
+<br />
+　　窃取用户的隐私资料。<br />
+<br />
+　　<strong>恶意扣费类病毒应用（一）</strong><br />
+<br />
+　　相信很多朋友都有过这样的经历：通过智能手机下载几个自己喜爱的应用后，就接收到网络流量不足的提示；亦或是此前不久刚刚缴纳话费、充值，不久后即提示余额不足或者干脆已被停机；又或查询到自己在不知情的情况下“被订制”各种各样的收费服务。我们也不难想象，这些都是“恶意扣费”类病毒应用在背后搞鬼的缘故。<br />
+<br />
+　　<strong>应用名称：《变形金刚桌面闹钟（盗版）》</strong><br />
+<br />
+　　MD5：342B62F38E3E44C4F02481E8F370D903<br />
+<br />
+　　版本号：1.1.9<br />
+<br />
+　　应用大小：3.52MB<br />
+<br />
+　　样本类型：美化<br />
+<br />
+　　病毒类型/不推荐理由：恶意传播、恶意扣费、隐私窃取<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发方式：<br />
+<br />
+　　该软件安装后即致使LBE隐私卫士无法正常运行，且伪装成正常更新下载流氓软件。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件安装后即致使LBE隐私卫士无法正常运行，且伪装成正常更新下载流氓软件“Touch Screen”。“Touch Screen”安装后无提示私自发SP定制业务短信、无提示私自联网、窃取用户隐私资料。两个软件共存时，LBE隐卫士会频繁被停止。<br />
+<br />
+　　<strong>应用名称：至酷壁纸</strong><br />
+<br />
+　　MD5：A1157188AD1E66300816ECBD683F747E<br />
+<br />
+　　版本号：1.0<br />
+<br />
+　　应用大小：1.05MB<br />
+<br />
+　　样本类型：主题美化<br />
+<br />
+　　病毒类型/不推荐理由：资费消耗<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发方式：<br />
+<br />
+　　该软件启动后，无提示自动向“13545150850”号码发送多条短信。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件启动后，在用户不知情的情况下，自动向“13545150850”号码发送多条短信，短信的内容为“1，1060，460008712118682，864400001165627”，由于多次发送短信，造成了手机用户资费的消耗。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无提示私自发短信；私自对外发送大量短信。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无提示私自联网；<br />
+<br />
+　　私自终止或删除其他程序；<br />
+<br />
+　　私自联网下载流氓软件。<br />
+<br />
+　　<strong>恶意扣费类病毒应用（二）</strong><br />
+<br />
+　　<strong>应用名称：《TDHOME》</strong><br />
+<br />
+　　MD5：3059E109DC5A29AC9E5B7DE630EA7019<br />
+<br />
+　　应用大小：2.4MB<br />
+<br />
+　　样本类型：主题美化<br />
+<br />
+　　病毒类型/不推荐理由：恶意扣费、隐私窃取<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　运行获取ROOT权限后即会执行恶意指令。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　运行后获取ROOT权限，私自下载安装程序；并发送扣费短信，订制SP服务，拦截掉回执的扣费确认短信，恶意消耗用户资费；窃取用户通讯录信息等隐私资料，并上传到服务器。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无提示私自发送短信；<br />
+<br />
+　　无提示私自扣费；<br />
+<br />
+　　私自联网下载流氓软件；<br />
+<br />
+　　窃取用户隐私资料；<br />
+<br />
+　　安装流氓软件。<br />
+<br />
+　　<strong>应用名称：《实用照相机》</strong><br />
+<br />
+　　MD5：C6E237BE0E334EB3E7C4367425D3666C<br />
+<br />
+　　应用大小：56KB<br />
+<br />
+　　病毒类型/不推荐理由：资费消耗<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　进入程序即触发恶意代码。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　启动应用（通过接收远程发送的控制指令）私自发送扣费短信，监控短信系统阻止接收扣费短信提示，造成资费消耗。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无提示私自发送扣费短信，造成资费的消耗。<br />
+<br />
+　　<strong>恶意扣费类病毒应用（三）</strong><br />
+<br />
+　　<strong>应用名称：《小球之星》</strong><br />
+<br />
+　　MD5：E87E21589A4AFD32441A78567FEC4057<br />
+<br />
+　　应用大小：64K<br />
+<br />
+　　病毒别名：fish<br />
+<br />
+　　病毒类型/不推荐理由：资费消耗<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　启动应用程序即触发恶意代码。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　启动应用（通过接收远程发送的控制指令）私自发送扣费短信，监控短信系统阻止接收扣费短信提示，造成资费消耗。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无提示私自发送扣费短信，造成资费的消耗。<br />
+<br />
+　　<strong>应用名称：《消彩球》</strong><br />
+<br />
+　　MD5：EBAD182FB9A5B26C22F23E4E62D740E5<br />
+<br />
+　　应用大小：468KB<br />
+<br />
+　　样本类型：游戏<br />
+<br />
+　　病毒类型/不推荐理由：恶意扣费<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自启动等条件触发病毒。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件手机开机自启动后，无提示私自发送短信定制SP服务、联网获取最新扣费指令，最终造成资费的大量消耗。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　手机开机自启动；<br />
+<br />
+　　无提示私自发送扣费短信。<br />
+<br />
+　　<strong>恶意扣费类病毒应用（四）</strong><br />
+<br />
+　　<strong>应用名称：《超级星座运势》</strong><br />
+<br />
+　　MD5：F63C7EEE951053D6278F565BA106E829<br />
+<br />
+　　版本号：V4.5.1<br />
+<br />
+　　应用大小：164KB<br />
+<br />
+　　样本类型：生活<br />
+<br />
+　　病毒类型/不推荐理由：隐私窃取、恶意扣费<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自启动，用户接收电话、短信时触发执行恶意代码。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件安装后开机自启动且无法关闭，无提示私自发送扣费短信、屏蔽扣费回执信息，造成用户资费消耗；同时窃取用户的隐私资料上传至病毒服务器。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　开机自启动；<br />
+<br />
+　　无提示私自发送扣费短信；<br />
+<br />
+　　屏蔽扣费回执信息；<br />
+<br />
+　　用户资费消耗；<br />
+<br />
+　　窃取用户隐私信息。<br />
+<br />
+　　<strong>应用名称：《安卓手机日历之热门电影日历》</strong><br />
+<br />
+　　MD5：23544A8021C1D70EE0C188E596218CB0<br />
+<br />
+　　版本号：V4.3.0<br />
+<br />
+　　应用大小：160KB<br />
+<br />
+　　样本类型：工具<br />
+<br />
+　　病毒类型/不推荐理由：恶意扣费<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自启动，用户收听拨打电话、收发短信时触发执行恶意行为。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件无法关闭开机自启动，私自发送扣费短信、屏蔽回执消息，造成用户资费消耗，同时窃取用户的隐私资料上传至服务器。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无法关闭开机自启动；<br />
+<br />
+　　私自发送短信扣费；<br />
+<br />
+　　窃取隐私资料。<br />
+<br />
+　　<strong>流氓软件类病毒应用（一）</strong><br />
+<br />
+　　对于“流氓软件”相信很多朋友们早已非常熟识，尽管相比恶意扣费、隐私窃取等恶意行为，传播流氓软件行为不过是“小巫见大巫”，但这些流氓软件对于手机日常使用而言却是有着极大的影响。与此同时，有些流氓软件同样具备无提示私自联网消耗我们的网络流量，变相造成我们手机资费的消耗，因此对于此类病毒应用我们仍不能够掉以轻心。<br />
+<br />
+　　<strong>应用名称：《YY语音交友》</strong><br />
+<br />
+　　MD5：CF36DF7863FD7ED522893E8DE5529974<br />
+<br />
+　　版本号：1.1.2<br />
+<br />
+　　应用大小：3.77MB<br />
+<br />
+　　样本类型：社交<br />
+<br />
+　　病毒类型/不推荐理由：流氓软件<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发方式：<br />
+<br />
+　　该软件启动后私自下载流氓软件。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件自启动后私自下载流氓软件并提示安装。若不安装，在下次运行该软件时依然会再次下载流氓软件，直到安装上为止。所下载的流氓软件为已知流氓，会发送大量短信，造成手机用户资费的消耗。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　私自联网下载流氓软件<br />
+<br />
+　　<strong>应用名称：《超级管理器（盗版RE管理器）》</strong><br />
+<br />
+　　MD5：81AFB7EAE29EA63EC453F17131A90412<br />
+<br />
+　　版本号：2.4.1<br />
+<br />
+　　应用大小：628KB<br />
+<br />
+　　样本类型：系统工具<br />
+<br />
+　　病毒类型/不推荐理由：恶意传播<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发方式：<br />
+<br />
+　　安装运行后，获取root权限，向手机ROM中植入木马软件。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件为一款盗版应用，界面与RE管理器相符。首次运行该软件后，软件会获取root权限，然后在某个时间联网下载名为“Google Update”的流氓软件，该软件冒充系统组件，并且静默安装进ROM中，该流氓软件安装后无图标，用户无法自行删除。且利用第三方软件删除“Google Update”后，“Google Update”极易再次自动安装。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　私自联网下载流氓软件；<br />
+<br />
+　　安装流氓软件；<br />
+<br />
+　　无法删除。<br />
+<br />
+　　<strong>流氓软件类病毒应用（二）</strong><br />
+<br />
+　　<strong>应用名称：《动物爱心学院》</strong><br />
+<br />
+　　MD5：A671785963EEADF2FE889DB814827D5C<br />
+<br />
+　　应用大小：4.71MB<br />
+<br />
+　　样本类型：游戏<br />
+<br />
+　　病毒类型/不推荐理由：资费消耗、恶意传播<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　该软件在用户使用过程中误导用户使其获取ROOT权限，然后执行恶意指令。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　该软件私自下载流氓软件并静默安装，且无法删除流氓软件，重复下载也造成了用户流量的消耗。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无法删除<br />
+<br />
+　　私自联网下载流氓软件<br />
+<br />
+　　安装流氓软件<br />
+<br />
+　　无提示大量消耗套餐流量等<br />
+<br />
+　　<strong>应用名称：《宅男必备》</strong><br />
+<br />
+　　MD5：6676AC0B53C9805CF650E65F3A778FD2<br />
+<br />
+　　应用大小：4.74MB<br />
+<br />
+　　病毒类型/不推荐理由：恶意下载流氓软件、资费消耗<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自动触发执行恶意行为。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　无提示私自联网，伪装系统更新从服务器下载流氓软件，静默安装并尝试获取Root权限；且无法正常关闭该应用。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无法关闭开机自启动；<br />
+<br />
+　　无提示私自联网；<br />
+<br />
+　　恶意传播流氓软件；<br />
+<br />
+　　无提示大量消耗套餐流量。<br />
+<br />
+　　<strong>流氓软件类病毒应用（三）</strong><br />
+<br />
+　　<strong>应用名称：《魔力占星》</strong><br />
+<br />
+　　MD5：BBD6C921596C603EA9B2284059135F18<br />
+<br />
+　　应用大小：1.55MB<br />
+<br />
+　　样本类型：游戏<br />
+<br />
+　　病毒类型/不推荐理由：窃取隐私、传播流氓软件<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自启动、电话状态发生变化触发恶意代码。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　记录用户短信、通讯录等隐私资料，联网上传到木马服务器；下载安装恶意程序。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　该软件开机自启动无法关闭；<br />
+<br />
+　　窃取用户的隐私资料；<br />
+<br />
+　　私自联网下载安装流氓软件。<br />
+<br />
+　　<strong>应用名称：《宅男摇摇》</strong><br />
+<br />
+　　MD5：F5CEEFF5B32C06FD090EEBE050FD29EF<br />
+<br />
+　　应用大小：7.52MB<br />
+<br />
+　　病毒类型/不推荐理由：恶意下载流氓软件、资费消耗<br />
+<br />
+　　感染系统：Android<br />
+<br />
+　　病毒危害级别:重度<br />
+<br />
+　　病毒触发机制：<br />
+<br />
+　　手机开机自动触发执行恶意行为。<br />
+<br />
+　　病毒描述：<br />
+<br />
+　　无提示私自联网，伪装系统更新从服务器下载流氓软件，静默安装并尝试获取Root权限；无法正常关闭该应用。<br />
+<br />
+　　病毒危害：<br />
+<br />
+　　无法关闭开机自启动；<br />
+<br />
+　　无提示私自联网；<br />
+<br />
+　　恶意传播流氓软件；<br />
+<br />
+　　无提示大量消耗套餐流量。<br />
+<br />
+　　<strong>聊聊Android病毒应用那些事儿</strong><br />
+<br />
+　　通过我们前面的专业检测结果可以看到，“隐私窃取”、“恶意扣费”、“传播流氓软件”无疑三个常见Android系统病毒应用种类，那么这些病毒应用又为何能够大行其道呢？这与目前第三方Android应用市场泛滥、盗版Android系统应用、Android系统天生具备的开源性有着密不可分的关系。<br />
+<br />
+
+	
+		<span style="font-size:12px;"></span>
+	
+<br />
+　　盗版Android系统应用显然是首当其冲的原因，加入恶意代码的盗版应用与原版应用有着几乎完全相同的应用图标、应用界面，鱼目混珠令普通用户难以区分，轻易上当受害也就在所难免。其次第三方应用市场泛滥，对于开发者上传至市场中的应用产品缺乏有力的监管，也加剧了Android系统病毒应用的传播。Android系统与生俱来的开源性，更是起到推波助澜的作用。<br />
+<br />
+
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img height="293" alt="" src="/uploads/allimg/c120716/1342422J240M0-21192.jpg" width="500" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">手机病毒主要传播途径</span> 
+
+<br />
+　　智能手机病毒爆发区域方面，由于北京、广东等国内主要城市人均生活水平较高、智能手机普及率不断增高，因此智能手机病毒感染率也明显高于其他地区。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img height="296" alt="" src="/uploads/allimg/c120716/1342422J30L10-3A03.jpg" width="500" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">手机病毒感染量区域分布</span> 
+
+<br />
+　　那么我们又该如何预防成为Android系统病毒应用受害者呢？在此我们也为您推荐几种方式。首先毫无疑问的即是通过Google官方应用商店Play Store（即Android Market）下载经过审核的正版应用；其次我们还可以尽量选择相关应用官方网站中所提供的下载链接；如果不可避免通过第三方应用市场或论坛等方式下载应用，那么我们则须要谨慎检验应用安装程序的MD5码与原版应用是否相同。<br />
+<br />
+　　最后借此次“国际消费者权益日”的机会，我们希望在这一天受关注的不仅仅是“关不上门的冰箱”、“辐射量超标的合资车”等等产品，与我们日常生活切身相关的智能操作系统应用质量也同样需要更多关注，最终让我们享受更安全、更安心的智能移动生活。
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>TechWe</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/3322.html">/Article/News/2012/0716/3322.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/3322.html";
+				var wumiiTitle = "“3.15”特辑：Android病毒应用那些事儿";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/3322.html">“3.15”特辑：Android病毒应用那些事儿</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/3321.html'>海豚回应UC俞永福质疑：无意义的概念性炒作</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/3323.html'>三星正考虑研发Android系统相机</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',3322)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',3322)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',3322)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(3322);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="3322" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=3322">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=3322&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '3322');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '3322');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:14pt;color:#7923d0">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:12pt;color:#823a4b">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:12pt;color:#a41fdc">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:12pt;color:#fdbadc">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:pt;color:#266be1">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:10pt;color:#7a12e">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:pt;color:#ba4245">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:10pt;color:#9f5fbe">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:10pt;color:#aa6e62">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:10pt;color:#da85a7">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:12pt;color:#d765e0">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:pt;color:#7590c7">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:14pt;color:#4882bf">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:pt;color:#abb794">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:12pt;color:#44a77a">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:pt;color:#562bfc">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:10pt;color:#c8492e">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#da422">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:pt;color:#5a1b9">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:pt;color:#be636b">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

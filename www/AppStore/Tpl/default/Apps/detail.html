@@ -1,0 +1,383 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a>&nbsp;>&nbsp;
+	<volist name="breadcrumbs" id="vo">
+		<a href ="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a>&nbsp;>&nbsp;
+	</volist>
+</div>
+<!-- 面包屑导航 -->
+<!-- 左边侧栏 -->
+<div class="appbar f_l">
+	<!-- 应用简介 -->
+	<div>
+		<!-- 应用logo -->
+		<img class="applogo" src="{:C('PICTURE_HOST')}{$approw['AppDeviceType'][0]['icon']}" />
+		<!-- 应用logo -->
+		<!-- 评分 -->
+		<p>
+			<span class="grade">
+				<if condition="$approw['app_starcount'] gt 0">
+				<i style="width:{:round($approw['app_score_www']/$approw['app_starcount'], 2) * 35}px;"></i>
+				<else/>
+				<i style="width:0px;"></i>
+				</if>
+			</span>
+		</p>
+		<!-- 评分 -->
+		<table class="table_appinfo">
+			<colgroup>
+				<col width="80px" />
+				<col />
+			</colgroup>
+			<tr>
+				<th class="t_l">当前版本：</th><td class="t_l">{$approw['app_version']}</td>
+			</tr>
+			<tr>
+				<th class="t_l">作者：</th><td class="t_l">{$approw['author_name']}</td>
+			</tr>
+			<tr>
+				<th class="t_l">最后更新：</th><td class="t_l">{$approw['app_update_date']|strtotime|date='Y-m-d',###}</td>
+			</tr>
+			<tr>
+				<th class="t_l">文件大小：</th><td class="t_l">{$approw['AppDeviceType'][0]['app_size']/1048576|round=1} MB</td>
+			</tr>
+			<tr>
+				<th class="t_l">适用系统：</th><td class="t_l">android 1.6</td>
+			</tr>
+			<tr>
+				<th class="t_l"></th><td class="t_l">android 2.3</td>
+			</tr>
+			<tr>
+				<th class="t_l">适用分辨率：</th><td class="t_l">480x800</td>
+			</tr>
+			<tr>
+				<th class="t_l"></th><td class="t_l">320x240</td>
+			</tr>
+			<tr>
+				<th class="t_l">下载次数：</th><td class="t_l">{$approw['app_downloads']|number_format}</td>
+			</tr>
+			<tr>
+				<th class="t_l">评分次数：</th><td class="t_l">{$approw['app_starcount']|number_format}</td>
+			<tr>
+				<th class="t_l">我来评分：</th><td class="t_l">请登录后评分</td>
+			</tr>
+		</table>
+		<!-- 下载 -->
+		<ul class="appbar_download">
+			<li>
+				<a href="{$downloadUrl}">
+					<img src="../Public/images/download_icon.png" />
+				</a>
+			</li>
+			<li>AppBao.com客户端下载</li>
+		</ul>
+		<!-- 下载 -->
+		<!-- 二维码 -->
+		<img class="prcode" src="http://hjapp.hjapp.com/global/qr/?url={:urlencode('http://' . $_SERVER['HTTP_HOST'] . $downloadUrl)}" />
+		<!-- 二维码 -->
+		<!-- 分享 -->
+		<div class="share clear">
+			<span class="f_l" style="padding-top:5px;">分享到：</span>
+			<a id="share_sina" href="javascript:void(0)" title="新浪微博">
+				新浪微博
+			</a>
+			<a id="share_renren" href="javascript:void(0)" title="人人网">
+				人人网
+			</a>
+			<a id="share_kaixin" href="javascript:void(0)" title="开心网">
+				开心网
+			</a>
+			<a id="share_qq" href="javascript:void(0)" title="腾讯微博">
+				腾讯微博
+			</a>
+		</div>
+		<!-- 分享 -->
+	</div>
+	<!-- 应用简介 -->
+	<!-- 相关推荐 -->
+	<div class="appbar_recommend clear">
+		<h6>
+			相关推荐
+		</h6>
+		<ul>
+		    <volist name="recommenlist" id="vo">
+				<li>
+				    <a name="rec_app_24" href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" target="_blank">
+						<img alt ="" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" width="50" height="50" />
+					</a>
+				</li>
+			</volist>
+		</ul>
+	</div>
+	<!-- 相关推荐 -->
+</div>
+<!-- 左边侧栏 -->
+<!-- 右边主体 -->
+<div class="app_detail_box f_r">
+	<!-- 右边顶部 -->
+	<div class="app_detail_top">
+		<ul class="app_detail_name">
+			<li class="download_icon"><span>下载</span></li>
+			<li>{$approw['app_name']}</li>
+		</ul>
+		<ul class="switch_tab">
+			<li><a href="javascript:void(0);" class="switch_tab_current">概览</a></li>
+		</ul>
+	</div>
+	<!-- 右边顶部 -->
+	
+	<div class="app_desc_box f_l clear">
+		<h6>说明</h6>
+		<p id="app_desc_short">
+			{$approw['app_desc']|mb_substr=0,100,'UTF-8'}
+		</p>
+		<p id="app_desc_full" style="display:none;">
+			{$approw['app_desc']}
+		</p>
+		<hr /> <span class="app_desc_button" id="show_app_desc">展开</span>
+		<a href="">访问开发人员网站</a>
+		<h6>应用程序屏幕截图</h6>
+		<div class="app_desc_image">
+			<a href="javascript:void(0);" class="slide_b_l"></a>
+			<ul>
+				{~$app_img_list = explode('|', $approw['AppDeviceType'][0]['screenshots'])}
+				<volist name="app_img_list" id="vo">
+				<li><img src="{:C('PICTURE_HOST')}{$vo}" /></li>
+				</volist>
+			</ul>
+			<a href="javascript:void(0);" class="slide_b_r"></a>
+		</div>
+		<h6>用户评论</h6>
+		<table class="app_score_table f_l t_c">
+			<colgroup>
+				<col width="10px">
+				<col width="15px">
+				<col width="150px">
+				<col width="30px">
+			</colgroup>
+			<volist name="appScore" id="vo">
+				<if condition="$key neq 0">
+					<tr>
+						<td class="point_list">{$key}</td>
+						<td class="point_star"><span></span></td>
+						<td class="point_chart">
+							<span class="green_grade">
+								<if condition="$approw['app_starcount'] gt 0">
+								<i style="width:{:round($appScore[$key]/$approw['app_starcount'], 2) *150}px;"></i>
+								<else/>
+								<i style="width:0px;"></i>
+								</if>
+							</span>
+						</td>
+						<td>{$appScore[$key]}</td>
+					</tr>
+				</if>
+			</volist>
+		</table>
+		<dl class="app_grade_view f_r t_c">
+			<dt>平均评分：</dt>
+			<dd class="app_avg_point">
+				{~$grade_point = ($approw['app_starcount'] > 0 ) ? round($approw['app_score_www']/$approw['app_starcount'], 2) : 0}
+				{:$grade_point}
+			</dd>
+			<dd>
+				<span class="blue_grade">
+					<i style="width:{$grade_point*15}px;"></i>
+				</span>
+			</dd>
+			<dd>{$approw['app_starcount']}</dd>
+		</dl>
+		<div class="user_comment_list clear">
+			<volist name="appComment" id='vo' >
+				<dl>
+					<dt>{$vo['user_name']} 评论日期：{$vo['create_time']|strtotime|date='Y年m月d日',###}</dt>
+					<dd>
+						<p>
+							<span class="blue_grade">
+								<i style="width:{$vo['score_www']*15}px;"></i>
+							</span>
+							<span>
+								{$vo['content']|keyWordFilter}
+							</span>
+						</p>
+					</dd>
+					<dd>
+						{:keyWordFilter($vo['content'])}
+					</dd>
+				</dl>
+			</volist>
+		</div>
+		<div>
+			<form method="post" action="">
+				<table class="user_comment_form">
+					<col width="100px;" />
+					<col />
+					<tr>
+						<th class="t_r">用户名：</th>
+						<td>
+							<if condition="$webUid gt 0">
+								{$webUname}
+							<else/>
+								<a href="{:U('AppStore://RegisterUser/login')}">请先登录</a>
+							</if>
+						</td>
+					</tr>
+					<tr>
+						<th class="t_r">星级：</th>
+						<td>
+							<if condition="$userCommentDone eq true">
+								<input type="hidden" name="act" id="act" value="2" />
+								此应用您已评过分了！
+							<else/>
+								<script type="text/javascript" src="__PUBLIC__/js/rater/jquery.rater.js"></script>
+								<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/rater/jquery.rater.css" />
+								<div id="star"></div>
+								<script type="text/javascript">
+									var options = {
+										'max'			: '5',
+										'value'			: '4',
+										'image'			: '__PUBLIC__/js/rater/star.gif',
+										'after_click'	: function(e){
+											$('#score').val(e.number);
+										}
+									};
+									$('#star').rater(options);
+								</script>
+								<input type="hidden" name="score" id="score" value="4" />
+								<input type="hidden" name="active" id="active" value="1" />
+							</if>
+						</td>
+					</tr>
+					<tr>
+						<th class="t_r">评论内容：</th>
+						<td><textarea name="content" id="comment_content"></textarea></td>
+					</tr>
+					<tr>
+						<th class="t_r"></th>
+						<td><input type="button" id="sub_comment" value="提交" /></td>
+					</tr>
+				</table>
+				<input type="hidden" name="app_id" id="app_id" value="{$approw['app_id']}" />
+			</form>
+		</div>
+		<p class="show_comment_all">
+			<a href="###">阅读所有“用户评论”</a>
+		</p>
+	</div>
+	<!-- 右侧边栏 -->
+	<div>
+		<div class="app_desc_hot">
+			<h6>
+				热门应用
+			</h6>
+			<ul>
+		    	<volist name="hotlist" id="vo">
+				<li>
+					<a name="rec_app_24" href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" target="_blank">
+						<img alt ="" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" />
+					</a>
+				</li>
+			</volist>
+			</ul> 
+		</div>
+		<div class="app_desc_download_rank">
+			<h6>
+				应用下载排行
+			</h6>
+			<p style="text-align:right;"> 周 月 总 </p>
+			<ul>
+			    <volist name="downloadlist" id="vo">
+				<li>
+				    <a name="rec_app_24" href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+						<img width="24" height="24" alt ="" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" />
+						{$vo['app_name']|mb_substr=0,8,'UTF-8'}
+					</a>
+				</li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+	<!-- 右侧边栏 -->
+</div>
+<!-- 右边主体 -->
+<script type="text/javascript">
+		$(function(){
+			//app说明隐藏展开操作
+			$('#show_app_desc').click(function(){
+				var shortNode = $('#app_desc_short');
+				var fullNode = $('#app_desc_full');
+							
+				if(shortNode.css('display') == 'none')
+				{
+					fullNode.hide();
+					shortNode.show();
+					$(this).html('展开');
+				}
+				else
+				{
+					shortNode.hide();
+					fullNode.show();
+					$(this).html('收起');
+				}
+			});
+			//图片滚动
+			$li1 = $(".app_desc_image li");
+			$window1 = $(".app_desc_image ul");
+			$left1 = $(".app_desc_image .slide_b_l");
+			$right1 = $(".app_desc_image .slide_b_r");
+			//alert($li1.length);
+
+			//$window1.css("width", $li1.length*166);
+			//alert($window1.attr('class'));
+			var lc1 = 0;
+			var rc1 = $li1.length-3;
+			$left1.click(function() {
+				if (lc1 < 1) {
+					alert("已经是第一张图片");
+					return;
+				}
+				lc1--;
+				rc1++;
+				$window1.animate({left:'+=166px'}, 1000);
+			});
+
+			$right1.click(function() {
+				if (rc1 < 1) {
+					alert("已经是最后一张图片");
+					return;
+				}
+				lc1++;
+				rc1--;
+				$window1.animate({left:'-=166px'}, 1000);
+			});
+			//提交评论
+			$('#sub_comment').click(function(){
+				var comment_content = $('#comment_content').val();
+				var score_value = parseInt($('#score').val());
+				var active = parseInt($('#active').val());
+				if($.trim(comment_content) == '')
+				{
+					alert('请填写评论内容');
+					return false;
+				}
+				if(active == 1 && (score_value <=0 || score_value > 5))
+				{
+					alert('评分只能是1-5分');
+					return false;
+				}
+				$.getJSON(
+					"{:U('AppStore://Ajax/app_comment')}", 
+					{'score':score_value,'comment_content':comment_content, 'app_id':$('#app_id').val(), 'active': active},
+					function(data){
+						alert(data.msg);
+						if(data.status == 1)
+						{
+							$('.user_comment_list').prepend(data.returnhtml);
+							$('.slide' + data.dlflag).slideDown('slow');
+						}
+
+					}
+				);
+			});
+		});
+</script>

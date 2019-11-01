@@ -1,0 +1,4 @@
+[ 2012-09-02T01:58:51+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/aboutUs.html]
+[ 2012-09-02T11:55:21+08:00 ] ERR: (ThinkException) Action:\"http您所请求的方法不存在！
+[ 2012-09-02T16:14:55+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/disclaimer.html]
+[ 2012-09-02T16:22:38+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/devNotes.html]

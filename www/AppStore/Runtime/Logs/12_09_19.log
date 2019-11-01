@@ -1,0 +1,6 @@
+[ 2012-09-19T03:34:33+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/disclaimer.html]
+[ 2012-09-19T03:46:30+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/devNotes.html]
+[ 2012-09-19T03:51:11+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/agreement.html]
+[ 2012-09-19T07:38:04+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/agreement.html]
+[ 2012-09-19T20:51:49+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/Activity/Index/index.html]
+[ 2012-09-19T23:28:50+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/Activity/Test/index.html]

@@ -1,0 +1,14 @@
+[ 2013-01-29T01:33:08+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T01:34:02+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T01:36:44+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/agreement.html]
+[ 2013-01-29T02:12:22+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T02:12:22+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T14:27:49+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T14:37:08+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T15:04:31+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2013-01-29T16:17:41+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T16:18:41+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T16:43:12+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/AjaxPage/login.html]
+[ 2013-01-29T17:35:01+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T17:36:24+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-29T17:37:14+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)

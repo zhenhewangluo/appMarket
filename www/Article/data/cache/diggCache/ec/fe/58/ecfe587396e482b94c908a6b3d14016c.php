@@ -1,0 +1,2 @@
+<?php exit('dedecms');?>
+a:2:{s:4:"data";a:6:{s:8:"likepost";s:1:"0";s:8:"goodpost";s:1:"0";s:11:"passingpost";s:1:"1";s:7:"badpost";s:1:"0";s:9:"cheatpost";s:1:"0";s:6:"scores";s:2:"-2";}s:7:"timeout";i:0;}

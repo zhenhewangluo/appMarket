@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="style/main.css" rel="stylesheet" type="text/css" />
+<link href="style/global.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.4.4.min.js"></script>
+<script src="js/slides.min.jquery.js"></script>
+
+<script type="text/javascript">
+document.oncontextmenu = function ()
+{
+	return false
+}
+</script>
+
+
+	<script>
+		$(function(){
+			$('#slides').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				play: 4000,
+				pause: 3000,
+				hoverPause: true,
+				animationStart: function(){
+					$('.caption').animate({
+						bottom:600
+					},100);
+				},
+				animationComplete: function(current){
+					$('.caption').animate({
+						bottom:0
+					},200);
+					if (window.console && console.log) {
+						// example return of current slide number
+						console.log(current);
+					};
+				}
+			});
+		});
+</script>
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="top" align="center">
+
+<img id="pic" src="images/logo.gif" alt="夺宝" width="150" height="71" />
+<div id="nav" align="center">	
+		<ul>
+        	<a href="#"><li class="hrefhover"><p>首页</p><p>Home</p></li></a>
+           	<a href="#"><li><p>奖品</p><p>Treasure</p></li></a>
+            <a href="#"><li><p>关于</p><p>About</p></li></a>
+            <a href="#"><li><p>***</p><p>Huanju</p></li></a>
+    </ul>
+	</div>
+    	
+    <!--登录退出开始  -->	
+	<div id="exit">
+			<dl><dt><strong>12345678910</dt><dd>退出</dd></dl>
+    </div>
+        
+    <!-- 登录退出结束 -->
+
+</div>
+
+
+<!--banner开始-->
+<div id="banner" align="center">
+
+	<div id="container" >
+		<div id="example">
+
+			<div id="slides">
+				<div class="slides_container">
+					<div>
+						<img src="images/flashbj.png" />
+						<div class="caption" style="bottom:0px">
+							<ul>
+								<li><a href="#"><img src="images/shouji.png"  border="0"/></a></li>
+								<li><a href="#"><img src="images/wenzi.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu1.png"  /></a></li>
+							</ul>
+					  </div>
+					</div>
+						<div>
+						<img src="images/flashbj.png" />
+						<div class="caption">
+							<ul>
+								<li><a href="#"><img src="images/shouji.png"  border="0"/></a></li>
+								<li><a href="#"><img src="images/wenzi.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu1.png"  /></a></li>
+							</ul>
+					  </div>
+					</div>
+						<div>
+						<img src="images/flashbj.png" />
+						<div class="caption">
+							<ul>
+								<li><a href="#"><img src="images/shouji.png"  border="0"/></a></li>
+								<li><a href="#"><img src="images/wenzi.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu1.png"  /></a></li>
+							</ul>
+					  </div>
+					</div>
+						<div>
+						<img src="images/flashbj.png" />
+						<div class="caption">
+							<ul>
+								<li><a href="#"><img src="images/shouji.png"  border="0"/></a></li>
+								<li><a href="#"><img src="images/wenzi.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu1.png"  /></a></li>
+							</ul>
+					  </div>
+					</div>
+						<div>
+						<img src="images/flashbj.png" />
+						<div class="caption">
+							<ul>
+								<li><a href="#"><img src="images/shouji.png"  border="0"/></a></li>
+								<li><a href="#"><img src="images/wenzi.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu1.png"  /></a></li>
+							</ul>
+					  </div>
+					</div>					
+						<div>
+						<img src="images/flashbj.png" />
+						<div class="caption">
+							<ul>
+								<li><a href="#"><img src="images/shouji.png"  border="0"/></a></li>
+								<li><a href="#"><img src="images/wenzi.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu.png"  border="0" /></a></li>
+								<li><a href="#"><img src="images/anniu1.png"  /></a></li>
+							</ul>
+					  </div>
+					</div>
+				</div>
+				<a href="#" class="prev"><img src="images/arrow-prev2.png" width="24" height="43" alt="Arrow Prev"></a>
+				<a href="#" class="next"><img src="images/arrow-next2.png" width="24" height="43" alt="Arrow Next"></a>			</div>
+	</div>
+</div>
+
+</div>
+
+
+<!--banner结束-->
+
+
+
+<!--content开始-->
+<div id="content" align="center">
+
+
+
+</div>
+<!--content结束-->
+<div style="clear:both"></div>
+<div id="footer">Copyright : 2010-2012 Hjapp Rights Reserved</div>
+</body>
+</html>

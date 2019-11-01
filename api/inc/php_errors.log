@@ -1,0 +1,6 @@
+[28-Mar-2018 10:17:26 Asia/Chongqing] PHP Warning:  require_once(/www/inc/error.eng.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /www/api.oi3g.com/inc/init.php on line 9
+[28-Mar-2018 10:17:26 Asia/Chongqing] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/www/inc/error.eng.php' (include_path='.:/usr/local/php-5.3.29/lib/php') in /www/api.oi3g.com/inc/init.php on line 9
+[28-Mar-2018 10:28:09 Asia/Chongqing] PHP Deprecated:  Assigning the return value of new by reference is deprecated in /www/api.oi3g.com/inc/functions.php on line 314
+[28-Mar-2018 10:28:09 Asia/Chongqing] PHP Notice:  Undefined offset: 14 in /www/api.oi3g.com/inc/interface_config.php on line 28
+[28-Mar-2018 10:30:23 Asia/Chongqing] PHP Deprecated:  Assigning the return value of new by reference is deprecated in /www/api.oi3g.com/inc/functions.php on line 314
+[28-Mar-2018 10:30:23 Asia/Chongqing] PHP Notice:  Undefined offset: 14 in /www/api.oi3g.com/inc/interface_config.php on line 28

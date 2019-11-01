@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.market.hjapp.ui.view.FancyProgressBar
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="162dip"
+	android:layout_height="fill_parent">
+	   
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="#c6c6c6" />
+	
+	<RelativeLayout
+		android:id="@+id/progress"
+		android:layout_width="0dip"
+		android:layout_height="fill_parent"
+		android:background="#32b1f0"
+		>
+	</RelativeLayout>
+	
+	<TextView
+		android:id="@+id/percent"
+		android:layout_width="0dip"
+		android:layout_height="fill_parent"
+		android:textSize="14sp"
+		android:textColor = "#ffff"
+		android:gravity="center" 
+		android:text="0%"/>
+	
+</com.market.hjapp.ui.view.FancyProgressBar>

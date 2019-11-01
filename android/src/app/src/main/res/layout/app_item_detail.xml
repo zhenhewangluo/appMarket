@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detail"
+    android:layout_width="fill_parent"
+    android:layout_height="255dip"
+    android:layout_weight="1" 
+    android:background="#e4e4e4"
+    >
+
+    <!-- Layer 1, in the back -->
+
+    <!-- Layer 2, in the front -->
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="188dip"
+                     android:layout_weight="1"
+                    android:layout_marginLeft="12dip"
+                    android:layout_marginTop="10dip" >
+
+                    <!-- Screen Shot Bg -->
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="182dip"
+                        android:src="@drawable/g4" />
+
+                    <!-- Screen Shot -->
+
+                    <ImageView
+                        android:id="@+id/screenshot"
+                        android:layout_width="fill_parent"
+                        android:layout_height="188dip"
+                        android:paddingBottom="4dip"
+                        android:paddingLeft="4dip"
+                        android:paddingRight="4dip"
+                        android:scaleType="fitXY" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="188dip"
+                     android:layout_weight="1"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginTop="10dip" >
+
+                    <!-- Screen Shot Bg -->
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="182dip"
+                        android:src="@drawable/g4" />
+
+                    <!-- Screen Shot -->
+
+                    <ImageView
+                        android:id="@+id/screenshot2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="188dip"
+                        android:paddingBottom="4dip"
+                        android:paddingLeft="4dip"
+                        android:paddingRight="4dip"
+                        android:scaleType="fitXY" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- ========================================= -->
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dip"
+                android:layout_marginRight="25dip"
+                android:layout_marginTop="10dip"
+                android:textColor="#357294" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dip"
+                    android:text="版本：  "
+                    android:textSize="14sp"
+                    android:textColor="#357294" />
+
+                <TextView
+                    android:id="@+id/size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:text="大小：  "
+                    android:textSize="14sp"
+                    android:textColor="#357294" />
+
+                <TextView
+                    android:id="@+id/language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:text="语言：  "
+                    android:textSize="14sp"
+                    android:textColor="#357294" />
+            </LinearLayout>
+            <!-- =============================== -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/rating_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dip"
+                    android:layout_marginTop="2dip"
+                    android:singleLine="true"
+                    android:text="已有    人参与评分,"
+                    android:textColor="#357294"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/comment_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dip"
+                    android:layout_marginTop="2dip"
+                    android:singleLine="true"
+                    android:textColor="#357294"
+                    android:autoLink="web"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Description -->
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginLeft="25dip"
+                android:layout_marginRight="25dip"
+                android:layout_marginTop="10dip"
+                android:autoLink="web"
+                android:textSize="16sp"
+                android:textColor="#357294" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

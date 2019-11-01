@@ -1,0 +1,455 @@
+<div class="breadcrumbBar">
+    <div class="breadcrumb">
+		You are here: <a href="/">AndroidPIT</a> &raquo; <a href="/en/android-market/recommendations">App recommendations</a> &raquo; Our Choices
+    </div>
+    <div id="swBar_0" class="socialBar">
+		<img src="/style/socialshareprivacy/dummy-f-t-l-p-g.png" alt="" style="float:right; width:265px; height:20px" onmouseover="showSocialShareButtons(0, 'http://www.androidpit.com/en/android-market/recommendations-list?rid=STAFF_CHOICE_DATE', 'en');"/>
+	</div>
+    <div class="breadcrumb" style="float:right;">
+		<a href="/en/android/market/apps" style="color:#bebebe">» Old version</a>
+    </div>
+    <div class="clear">&nbsp;</div>
+</div>
+<div class="containerAllApps">
+    <div class="sidebarAllApps">
+		<div class="top">
+			<a href="{:U('App-Index/index')}" class="backToOverview">« Back to overview</a>
+		</div>
+		<div class="sidebarInner" id="filterSidebar">
+			<ul class="favSortList" id="favSortList">
+				<li class="sponsored">
+					<a href="javascript:void(0);" onclick="return false;">特别推荐</a>
+				</li>
+				{~$appTypeTextCount = count($appTypeText);$firstClass='';$lastClass='';}
+				<volist name="appTypeText" id="vo">
+					<compare name="i" type="gt" value="1">
+						<if condition="$i eq 2">
+							<li class="first" id="fav_{$key}">
+								<a href="javascript:void(0);" onclick="return false;">{$vo['desc']}</a>
+								<ul class="options">
+									<li>
+										<span class="sortUp">up</span>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="moveDown('{$key}'); return false;" class="sortDown">down</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="removeFromFavs('{$key}'); return false;" class="sortRemove">remove</a>
+									</li>
+								</ul>
+							</li>
+							<elseif condition="$i eq $appTypeTextCount" />
+							<li class="last" id="fav_{$key}">
+								<a href="javascript:void(0);" onclick="return false;">{$vo['desc']}</a>
+								<ul class="options">
+									<li>
+										<a href="javascript:void(0);" onclick="moveUp('{$key}'); return false;" class="sortUp">up</a>
+									</li>
+									<li>
+										<span class="sortDown">down</span>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="removeFromFavs('{$key}'); return false;" class="sortRemove">remove</a>
+									</li>
+								</ul>
+							</li>
+							<else />
+							<li id="fav_{$key}">
+								<a href="javascript:void(0);" onclick="return false;">{$vo['desc']}</a>
+								<ul class="options">
+									<li>
+										<a href="javascript:void(0);" onclick="moveUp('{$key}'); return false;" class="sortUp">up</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="moveDown('{$key}'); return false;" class="sortDown">down</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="removeFromFavs('{$key}'); return false;" class="sortRemove">remove</a>
+									</li>
+								</ul>
+							</li>
+						</if>
+					</compare>
+				</volist>
+				{~$unassignArrCount = count($unassignArr);$addWidget = '';}
+				<compare name="unassignArrCount" type="elt" value="0">
+					{~$addWidget = 'style="display:none;"';}
+				</compare>
+				<li class="addWidget" {$addWidget}>
+					<div class="addFavListClosed">
+						<a href="javascript:void(0);" onclick="openAddWidget(); return false">Add widget</a>
+					</div>
+					<div class="addFavListOpen" id="addFavList">
+						<a href="javascript:void(0);" class="close" onclick="closeAddWidget(); return false">x</a>
+						<ul class="unassignedFavs" id="unassignedFavs">
+							<volist name="unassignArr" id="vo">
+								<li id="fav_{$key}">
+									<a href="javascript:void(0);" onclick="addToFavs('{$key}');  return false">{$vo['desc']}</a>
+								</li>
+							</volist>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<form action="" method="post" class="appFilter" id="appFilter">
+				<fieldset class="section">
+					<fieldset class="appCategoriesClosed" id="appCategoriesClosed">
+						<h3>应用分类<a href="#" onclick="toggleCategories(); return false" class="appCategoriesClosed">toggle</a></h3>
+						<fieldset>
+							<ul>
+								<li>
+									<h4><a href="#" onclick="toggleCategories(); return false">软件分类</a></h4>
+									{~$tmpShowAppCateInArray = false;}
+									<ul id="appsCategoryList">
+										<volist name="appCateTree[1]['_child']" id="vo">
+											<?php
+											if(isset($checkedCate) && in_array($vo['id'], $checkedCate))
+											{
+											$tmpShowAppCateInArray = ture;
+											break;
+											}
+											?>
+										</volist>
+										<?php
+										if(!$tmpShowAppCateInArray)
+										{
+										?>
+										<li>所有软件</li>
+										<?php
+										}
+										?>
+									</ul>
+								</li>
+								<li>
+									<h4><a href="#" onclick="toggleCategories(); return false">游戏分类</a></h4>
+									{~$tmpShowGameCateInArray = false;}
+									<ul id="gamesCategoryList">
+										<volist name="appCateTree[2]['_child']" id="vo">
+											<?php
+											if(isset($checkedCate) && in_array($vo['id'], $checkedCate))
+											{
+											$tmpShowGameCateInArray = ture;
+											break;
+											}
+											?>
+										</volist>
+										<?php
+
+										if(!$tmpShowGameCateInArray)
+										{
+										?>
+										<li>所有游戏</li>
+										<?php
+										}
+										?>
+									</ul>
+								</li>
+							</ul>
+						</fieldset>
+					</fieldset>
+					<fieldset class="appCategoriesOpen" id="appCategoriesOpen">
+						<h3>应用分类<a href="#" onclick="toggleCategories(); return false" class="appCategoriesOpen">toggle</a></h3>
+						<fieldset class="innerSection" id="appsCategoryListOpen">
+							<fieldset>
+								<input type="checkbox" value="*" id="appCategory_0" <?php if(!$tmpShowAppCateInArray)echo 'checked="checked"';?> /><label for="appCategory_0">所有软件</label>
+							</fieldset>
+							<volist name="appCateTree[1]['_child']" id="vo">
+								<fieldset>
+									{~$tmpInArray = 0;}
+									{~if(isset($checkedCate) && in_array($vo['id'], $checkedCate))$tmpInArray =1;}
+									<input type="checkbox" value="{$vo['id']}" id="appCategory_{$i}" <compare name="tmpInArray" type="eq" value="1">checked="checked"</compare> /><label for="appCategory_{$i}">{$vo['name']}</label>
+								</fieldset>
+							</volist>
+						</fieldset>
+						<hr />
+						<fieldset class="innerSection" id="gamesCategoryListOpen">
+							<fieldset>
+								<input type="checkbox" value="*" id="gameCategory_0" <?php if(!$tmpShowGameCateInArray)echo 'checked="checked"';?> /><label for="gameCategory_0">所有游戏</label>
+							</fieldset>
+							<volist name="appCateTree[2]['_child']" id="vo">
+								{~$tmpInArray = 0;}
+								{~if(isset($checkedCate) && in_array($vo['id'], $checkedCate))$tmpInArray =1;}
+								<fieldset>
+									<input type="checkbox" value="{$vo['id']}" id="gameCategory_{$i}" <compare name="tmpInArray" type="eq" value="1">checked="checked"</compare> /><label for="gameCategory_{$i}">{$vo['name']}</label>
+								</fieldset>
+							</volist>
+						</fieldset>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appRating" id="appRating">
+				<fieldset class="section">
+					<h3>评分筛选</h3>
+					<p>minimum:</p>
+					<?php
+					for($i = 5; $i > 0; $i--)
+					{
+					?>
+					<fieldset class="innerSection">
+						<input type="radio" name="minRating" id="minRating_{$i}stars" value="{$i}" <?php if(isset($checkedRate) && $i == $checkedRate)echo 'checked="checked"';?> />
+							   <label for="minRating_{$i}stars"><div class="stars smallStars"><div class="RatingStarsSmall rating-{:($i * 2)}"></div></div></label>
+					</fieldset>
+					<?php
+					}
+					?>
+					<fieldset class="innerSection">
+						<input type="radio" name="minRating" id="minRating_0stars" value="0" <?php if(!isset($checkedRate) || $checkedRate == 0 || $checkedRate == '')echo 'checked="checked"';?> />
+							   <label for="minRating_0stars"><div class="stars smallStars"><div class="RatingStarsSmall rating-0"></div></div></label>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appPeriod" id="appPeriod">
+				<fieldset class="section">
+					<h3>时间筛选</h3>
+					<!--								<fieldset class="innerSection">
+														<input type="radio" name="timeFilter" value="SINCE_LAST_LOGIN" id="timeFilter_SINCE_LAST_LOGIN" disabled="disabled" title="Not logged in - please log in or register."/>
+														<label for="timeFilter_SINCE_LAST_LOGIN" style="color:#aaa" title="Not logged in - please log in or register.">since last login</label>
+													</fieldset>-->
+					<volist name="dateArr" id="vo">
+						<fieldset class="innerSection">
+							<input type="radio" name="timeFilter" value="{$key}" id="timeFilter_{$key}" <?php if(isset($checkedDate) && $checkedDate == $key)echo 'checked="checked"';?> />
+								   <label for="timeFilter_{$key}">{$vo['desc']}</label>
+						</fieldset>
+					</volist>
+					<fieldset class="innerSection">
+						<input type="radio" name="timeFilter" value="LAST_365_DAYS" id="timeFilter_LAST_365_DAYS" <?php if(!isset($checkedDate) || $checkedDate == '' || $checkedDate == 'LAST_365_DAYS')echo 'checked="checked"';?> />
+							   <label for="timeFilter_LAST_365_DAYS">过去365天</label>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appInstallations" id="appInstalls">
+				<fieldset class="section">
+					<h3>下载量筛选</h3>
+					<fieldset class="innerSection">
+						<input type="radio" name="appInstalls" value="any" id="appInstalls_any" <?php if(!isset($checkedDownload) || ($checkedDownload['from'] == -1 && $checkedDownload['to'] == -1) || empty($checkedDownload))echo 'checked="checked"';?> />
+							   <label for="appInstalls_any">any</label>
+					</fieldset>
+					<fieldset class="innerSection" style="margin-top:2px">
+						<input type="radio" name="appInstalls" value="range" id="appInstalls_range"  <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] != -1)echo 'checked="checked"';?> />
+							   <table style="border:0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><label for="appInstalls_range">from:&nbsp;</label></td>
+								<td style="padding-bottom:1px">
+									<select id="appInstalls_min" name="appInstalls_min">
+										<option value="0" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] == 0)echo 'selected="selected"';?>>0</option>
+										<volist name="downloadArr" id="vo">
+											<option value="{$vo}" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] == $vo)echo 'selected="selected"';?>>{:number_format($vo)}</option>
+										</volist>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td><label for="appInstalls_max">to:&nbsp;</label></td>
+								<td>
+									<select id="appInstalls_max" name="appInstalls_max">
+										<volist name="downloadArr" id="vo">
+											<option value="{$vo}" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['to'] == $vo)echo 'selected="selected"';?>>{:number_format($vo)}</option>
+										</volist>
+										<option value="-1" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['to'] == -1)echo 'selected="selected"';?>>&gt; 100,000,000</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+				</fieldset>
+			</form>
+		</div>
+    </div>
+
+    <div class="contentContainerAllApps categoriesPage" id="contentTab">
+		<div class="rightColTop"></div>
+		<div class="top">
+			<h2>Our Choices</h2>
+			<ul>
+				<li id="contentTabbtn1" class="btn1A">
+					<a href="#" onclick="return false;">
+						<span>List view</span>
+					</a>
+				</li>
+				<li id="contentTabbtn2" class="btn2">
+					<a href="/en/android-market/recommendations-grid?rid=STAFF_CHOICE_DATE">
+						<span>Grid view</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="contentTabBody1" class="body">
+			<div class="categorySelectBar">
+				<fieldset style="float:right;">
+					<span>Apps per page:</span>
+					<select name="max" onchange="document.location.href='/en/android-market/recommendations-list?rid=STAFF_CHOICE_DATE&amp;max='+options[selectedIndex].value;">
+						<option value="5">5</option>
+						<option value="10" selected="selected">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+					</select>
+				</fieldset>
+			</div>
+			<div id="listviewApps" class="main" style="position:relative;">
+				<ul class="appsList">
+					<li>
+						<a href="/en/android/market/apps/app/com.mobitobi.android.gentlealarm/Gentle-Alarm" class="appIcon" id="appList-0---com-mobitobi-android-gentlealarm">
+							<img src="http://fs01.androidpit.info/ali/x13/4062213-1323090941117.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>Gentle Alarm</h3>
+							<p>*** Free TRIAL version available. ***  ** Buyers within the European Union: 19% VAT will be added to the sales price **  Languages: Български, Česky, Danske, Deutsch, English, (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-9"></div></div>
+							<div class="button_divided_3s">
+								<div class="number">$3.10</div>
+								<a href="/en/android/apps/shop/install?appId=com.mobitobi.android.gentlealarm" class="text">BUY</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/kr.aboy.tools/Smart-Tools" class="appIcon" id="appList-1---kr-aboy-tools">
+							<img src="http://fs02.androidpit.info/ali/x25/4054925-1322857544420.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>Smart Tools</h3>
+							<p>Smart Tools is a complete package of 5 app sets. It includes 5 Pro sets for a total of 15 tools. In a word, All-in-One.   Set 1: Length, Angle, Slope, Level - Smart Ruler Pro  Set 2: (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-9"></div></div>
+							<div class="button_divided_3s">
+								<div class="number">$2.84</div>
+								<a href="/en/android/apps/shop/install?appId=kr.aboy.tools" class="text">BUY</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/com.touchtype.swiftkey/SwiftKey-X-Keyboard" class="appIcon" id="appList-2---com-touchtype-swiftkey">
+							<img src="http://fs01.androidpit.info/ali/x95/4060995-1331689487367.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>SwiftKey X Keyboard</h3>
+							<p>* Global Mobile Awards Most Innovative App 2012 *  SwiftKey X Keyboard makes typing much easier on your phone, replacing your touchscreen keyboard with one powered by smarter (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-9"></div></div>
+							<div class="button_divided_3s">
+								<div class="number">$4.08</div>
+								<a href="/en/android/apps/shop/install?appId=com.touchtype.swiftkey" class="text">BUY</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/com.magmic.phase10/Phase-10" class="appIcon" id="appList-3---com-magmic-phase10">
+							<img src="http://fs02.androidpit.info/ali/x20/5310020-1332860432520.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>Phase 10</h3>
+							<p>Not sure you’re ready to buy? Check out Phase 10 Free.  The popular Phase 10 card game is now on Android! If you like rummy then you’ll love Phase 10. Race your opponents and (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-9"></div></div>
+							<div class="button_divided_3s">
+								<div class="number">$0.99</div>
+								<a href="/en/android/apps/shop/install?appId=com.magmic.phase10" class="text">BUY</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/com.path/Path" class="appIcon" id="appList-4---com-path">
+							<img src="http://fs01.androidpit.info/ali/x68/4098068-1322933907626.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>Path</h3>
+							<p>You can share your thoughts, the music you’re listening to, where you are, who you’re with, when you wake up and when you sleep, and beautiful high-quality photos.  And for those of (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-8"></div></div>
+							<a class="button_normal" href="/en/android/apps/shop/install?appId=com.path" rel="nofollow">INSTALL</a>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/com.ebay.mobile/Official-eBay-Android-App" class="appIcon" id="appList-5---com-ebay-mobile">
+							<img src="http://fs02.androidpit.info/ali/x69/4052869-1323090940969.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>Official eBay Android App</h3>
+							<p>Get the power of eBay in the palm of your hand. Easily browse, shop, sell and manage your eBay activity wherever you are.   Using eBay while you are on the go is fast and easy with (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-8"></div></div>
+							<a class="button_normal" href="/en/android/apps/shop/install?appId=com.ebay.mobile" rel="nofollow">INSTALL</a>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/com.omgpop.dstpaid/Draw-Something-by-OMGPOP" class="appIcon" id="appList-6---com-omgpop-dstpaid">
+							<img src="http://fs01.androidpit.info/ali/x06/5055106-1328274331709.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>Draw Something by OMGPOP</h3>
+							<p>***The #1 Free App, #1 Paid App and #1 Word Game in over 80 countries!***    Play the AD-FREE version of Draw Something, the most popular social drawing and guessing game on (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-7"></div></div>
+							<div class="button_divided_3s">
+								<div class="number">$0.99</div>
+								<a href="/en/android/apps/shop/install?appId=com.omgpop.dstpaid" class="text">BUY</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/com.rovio.angrybirdsspace.ads/Angry-Birds-Space" class="appIcon" id="appList-7---com-rovio-angrybirdsspace-ads">
+							<img src="http://fs02.androidpit.info/ali/x83/5291883-1332424342074.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>Angry Birds Space</h3>
+							<p>ALL NEW ANGRY BIRDS GAME FROM ROVIO -- the #1 mobile game of all time blasts off into space!   After a giant claw kidnaps their eggs, the Angry Birds chase it into a wormhole (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-9"></div></div>
+							<a class="button_normal" href="/en/android/apps/shop/install?appId=com.rovio.angrybirdsspace.ads" rel="nofollow">INSTALL</a>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/com.instagram.android/Instagram" class="appIcon" id="appList-8---com-instagram-android">
+							<img src="http://fs01.androidpit.info/ali/x61/5349161-1333470887808.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>Instagram</h3>
+							<p>Instagram – A beautiful way to share your world.  It's fast, free and fun! 
+
+								Pick from one of several gorgeous filtered effects to breathe a new life into your mobile photos.  Transform (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-9"></div></div>
+							<a class="button_normal" href="/en/android/apps/shop/install?appId=com.instagram.android" rel="nofollow">INSTALL</a>
+						</div>
+					</li>
+					<li>
+						<a href="/en/android/market/apps/app/com.whatsapp/WhatsApp-Messenger" class="appIcon" id="appList-9---com-whatsapp">
+							<img src="http://fs02.androidpit.info/ali/x18/4305618-1323087714171.png" style="width:78px; height:78px;" alt="Icon" />
+						</a>
+						<div class="appText">
+							<h3>WhatsApp Messenger</h3>
+							<p>WhatsApp Messenger is a smartphone messenger available for Android, BlackBerry, iPhone, Windows Phone and Nokia phones. WhatsApp uses your 3G or WiFi (when available) to (...)</p>
+						</div>
+						<div class="appInfo">
+							<div class="stars"><div class="RatingStarsDark rating-9"></div></div>
+							<a class="button_normal" href="/en/android/apps/shop/install?appId=com.whatsapp" rel="nofollow">INSTALL</a>
+						</div>
+					</li>
+				</ul>
+				<table class="pager" style="width:460px" cellspacing="0">
+					<tr>
+						<td class="cl"></td>
+						<td>Go to page:</td>
+						<td>
+							<span class="active">1</span>
+							<a href="#" onclick="loadRecommendationsList('STAFF_CHOICE_DATE', 10, '10'); return false;">2</a>
+							<a class="arrow" href="#" onclick="loadRecommendationsList('STAFF_CHOICE_DATE', 10, '10'); return false;">&raquo;</a>
+						</td>
+						<td class="cr"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+    </div>
+    <div style="clear:both;"></div>
+</div>

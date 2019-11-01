@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+      <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+	
+ 	<!-- Content list -->
+	<LinearLayout
+ 		android:layout_width="fill_parent"
+ 		android:layout_height="fill_parent"
+ 		android:layout_weight="1"
+ 		android:orientation="vertical"
+			android:background="#e4e4e4">
+ 		 <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/move_bg"
+            android:gravity="center"
+            android:text="恢复"
+            android:textColor="#ffffff"
+            android:textSize="18sp" >
+        </TextView>
+		<TextView
+			android:id="@+id/empty_text"
+	 		android:layout_width="fill_parent"
+	 		android:layout_height="fill_parent"
+			android:background="#e4e4e4"
+			android:gravity="center"
+			android:textColor="#000000"
+			android:textSize="16dip"
+			android:textStyle="bold"
+			android:visibility="gone" />
+			
+		
+	    <ListView
+	 		android:id="@+id/contentList"
+	 		android:layout_width="fill_parent"
+	 		android:layout_height="@dimen/backup_list_height"
+			android:divider="@color/transparent"
+			android:dividerHeight="0dip"
+			android:scrollbars="vertical"
+			android:scrollingCache="true"
+			android:cacheColorHint="#00000000"
+			android:listSelector="@color/transparent"
+            android:layout_marginTop="12dip"
+			/>
+	</LinearLayout>
+	
+	<RelativeLayout android:orientation="horizontal"
+ 		   android:layout_width="fill_parent"
+ 		   android:layout_height="36dip"
+ 		   android:background="#e4e4e4">
+ 		 <TextView android:id="@+id/count_text"
+ 		     android:layout_width="wrap_content"
+ 		     android:layout_height="wrap_content"
+ 		     android:layout_marginTop="8dip"
+ 		     android:layout_marginLeft="13dip"
+ 		     android:textSize="16dip"
+			 android:textColor="#000000"
+ 		     android:layout_alignParentLeft="true"/>
+ 		<ImageView android:id="@+id/all_selected_img"
+ 		     android:layout_width="wrap_content"
+ 		     android:layout_height="wrap_content"
+ 		     android:src="@drawable/checked_all_img"
+ 		     android:layout_alignParentRight="true"
+ 		     android:paddingRight="5dip"
+ 		     android:clickable="true"/>
+ 	  </RelativeLayout>
+    <!-- bottom  view-->
+     <FrameLayout
+        android:id="@+id/bottombar"
+        android:layout_width="fill_parent"
+        android:layout_height="46dip"
+        android:layout_gravity="center"
+        android:background="#e4e4e4" >
+
+        <!-- backup all button -->
+        <include
+            android:id="@+id/recovery_btn"
+            android:layout_width="118dip"
+            android:layout_height="36dip"
+            android:layout_gravity="center"
+            layout="@layout/long_button" />
+    </FrameLayout>
+</LinearLayout>
+

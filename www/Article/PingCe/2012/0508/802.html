@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>《手机QQ阅读》：微创新打动用户_***</title>
+<meta name="keywords" content="手机QQ阅读,QQ阅读Android版,评测" />
+<meta name="description" content="Type the text here 中文名称 手机QQ阅读 版本 2.2.1 发布时间 2012/4/26 开发者 腾讯 所属分类 动漫图书 支持语言 中文 程序包大小 2.70MB 运行环境 Android2.3.7 硬件环境 HTC Desir（G7|A8180） 二维码下载 下载" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E9%98%B2%E7%9B%97%E6%A8%A1%E5%BC%8F/' target="_blank">防盗模式</a><a href='/Article/tags.php?/%E8%BD%A6%E5%B1%95/' target="_blank">车展</a><a href='/Article/tags.php?/%E5%85%A8%E6%96%B0%E7%94%BB%E9%9D%A2/' target="_blank">全新画面</a><a href='/Article/tags.php?/%E8%A1%97%E6%9C%BA%E9%A3%8E%E6%A0%BC/' target="_blank">街机风格</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href=''>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a class='cut' href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href=''>***</a>>><a href='/Article/plus/list.php?tid=2'>评测</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">《手机QQ阅读》：微创新打动用户</h1>
+			<div class="articleInfo"><small>时间:</small>2012-05-08 12:14<small>来源:</small><a href="/" target="_blank">***</a> <small>作者:</small>吕行 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=802&mid=15" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<h3>
+	<img src="/Article/uploads/allimg/120508/15-12050QIF24F.png" style="width: 100px; float: left; height: 100px; margin-right: 10px" /></h3>
+<p>
+	今天为大家介绍的是腾讯APP家族的一员&mdash;&mdash;手机QQ阅读。阅读应用是装机必备的工具之一，一款贴心的阅读应用绝对是生活和工作的好助手。那么一起来跟随小编体验下手机QQ阅读的强大吧。</p>
+<table align="center" border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>中文名称</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				手机QQ阅读</td>
+			<td rowspan="8" style="text-align: center; width: 207px; height: 26px">
+				<img alt="" src="/Article/uploads/allimg/120516/3-120516101S4955.png" style="width: 160px; height: 160px; " /></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>版本</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				2.2.1</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>发布时间</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				2012/4/26</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>开发者</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				腾讯</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>所属分类</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				动漫图书</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>支持语言</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				中文</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>程序包大小</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				2.70MB</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>运行环境</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				Android2.3.7</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>硬件环境</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				HTC Desir（G7|A8180）</td>
+			<td style="text-align: center; width: 207px; height: 26px">
+				二维码下载&nbsp;&nbsp; <a href="/index.php?g=App&amp;m=Apps&amp;a=detail&amp;aid=6021810" target="_blank">下载二维码工具</a></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>硬件参数</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				CPU：1.0GHz<br />
+				RAM：574MB<br />
+				ROM:512MB<br />
+				分辨率：480&times;800</td>
+			<td style="text-align: center; width: 207px; height: 26px">
+				<a href="/index.php?s=/App/Apps/detail/aid/6055622" target="_blank">点击下载</a></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 26px">
+				<strong>插件情况</strong></td>
+			<td style="text-align: center; width: 226px; height: 26px">
+				无</td>
+			<td style="text-align: center; width: 207px; height: 26px">
+				点击收藏</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp; 随着移动互联网的火热，中国IT公司的巨鳄们在移动平台的布局上可谓是不遗余力。如腾讯仅在Android平台推出的应用就有20多个，恨不能把所有的产品都推出移动版。今天为大家介绍的是腾讯APP家族的一员&mdash;&mdash;手机QQ阅读。阅读应用是装机必备的工具之一，一款贴心的阅读应用绝对是生活和工作的好助手。那么一起来跟随小编体验下手机QQ阅读的强大吧。<br />
+	&nbsp;<br />
+	<strong>1.</strong><strong>安装</strong><br />
+	&nbsp;&nbsp;&nbsp;&nbsp; 手机QQ阅读2.2版本，安装包2.7 MB，较2.1版本的4.3M瘦身了不少。所需权限比同类阅读应用绿色，没有申请额外权限。安装到SD卡之后，占用空间1.09M。手机QQ阅读安装包仅包含了最基本的功能，其他功能如PDF支持、听书需要下载相应插件。小编下载所有的功能之后，手机QQ阅读占用空间7.51M，猛然觉得这才像企鹅微胖的身材嘛～</p>
+<p style="text-align: center">
+	&nbsp;<img alt="" src="/Article/uploads/allimg/120511/15-120511105233952.png" style="width: 240px; height: 400px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="" src="/Article/uploads/allimg/120511/15-120511105403431.png" style="width: 240px; height: 400px" /></p>
+<p style="text-align: center">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图1 软件所需权限&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图2 安装完成后占用内存</p>
+<p>
+	&nbsp;<br />
+	<strong>2.</strong><strong>用户界面</strong><br />
+	第一次打开软件，用户引导界面是小清新风格。正式载入界面后，发现整个软件的设计非常简洁，分3个部分：书架、书城、个人。书架是仿iphone风格，很有立体感。在线书城也是适合手机浏览的简洁风格。个人信息页面集合了&ldquo;阅光宝盒&rdquo;功能。</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120511/5-12051111344Lc.jpg" style="width: 500px; height: 268px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style="text-align: center">
+	图3 用户引导界面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;图4 载入界面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图5 默认界面</p>
+<p>
+	&nbsp;<br />
+	<strong>3.</strong><strong>电子书格式</strong><br />
+	&nbsp;&nbsp;&nbsp;&nbsp; 通过测试，手机QQ阅读支持TXT、UMD、HTML、EPUB、DOC、XLS、PPT等多种格式的电子书，通过下载插件，还可以浏览PDF文档。再也不用为看office文档而购买付费应用了，再也不用为了看pdf文件而安装庞大的Adobe Reader了。内牛满面～</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120511/15-120511110615546.png" style="width: 240px; height: 400px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img alt="" src="/Article/uploads/allimg/120511/15-12051111062a10.png" style="width: 240px; height: 400px" /></p>
+<p style="text-align: center">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图6 导入本地图书&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图7 PDF文件支持&nbsp;&nbsp;&nbsp;&nbsp;<br />
+	&nbsp;</p>
+<p>
+	<strong>4.</strong><strong>阅读体验<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>打开本地一本txt小说，整个阅读页面非常干净，页面下方是不起眼的音量、时间、阅读进度，让人想起iphone版熊猫看书。屏幕长按，可以呼出文字选择菜单。摁下Menu键，可以进行加书签，切换夜间模式，进行系统设置等操作。在护眼功能方面，与同类阅读软件一样，可以对亮度、阅读背景、字体的设置。这里小编想吐槽下，手机QQ阅读集成了4款免费字体，5款收费字体。每款收费200元宝=2元人民币。购买字体授权，免费给用户使用，以腾讯实力并不困难，不知道与方正是如何达成的协议。</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120511/15-120511110U5c3.png" style="width: 240px; height: 400px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt="" src="/Article/uploads/allimg/120511/15-120511110910Z1.png" style="width: 240px; height: 400px" /></p>
+<p style="text-align: center">
+	&nbsp;&nbsp;&nbsp;&nbsp; 图8 文字选择&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图9 设置菜单</p>
+<p>
+	&nbsp;<br />
+	<strong>5.</strong><strong>书城体验 </strong><br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 简洁的页面，清晰的分类，QQ书城手机页面浏览体验非常棒。用户可以将在线图书放入书架，下次阅读不需要再次打开商城。书城的资源非常丰富，有特色的专题如&ldquo;80后的青春与梦想&rdquo;，有特色的频道如&ldquo;女生频道&rdquo;，细化了用户需求，方便寻找喜欢的图书。当然其中一部分图书是收费的。</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120511/5-12051111363XV.jpg" style="width: 600px; height: 322px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style="text-align: center">
+	&nbsp;图10 书城首页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图11 特色专题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图12 特色频道&nbsp;</p>
+<p>
+	&nbsp;<br />
+	<strong>6.</strong><strong>特色功能体验</strong><br />
+	&nbsp;&nbsp;&nbsp;&nbsp; &ldquo;阅光宝盒&rdquo;集成了4大功能：QQ听书、QQ词典、字体设置、PDF支持。这些都需要额外下载插件，推荐在WIFI环境下载。QQ听书集成了有声书城，但书目资源并不太多，mp3文件不大，可是声音质量实在难以悦耳。QQ词典的插件可以实现对选择的文本进行中英文翻译。字体设置就是前文所述坑爹的付费字体。PDF支持下载后，可以阅读PDF格式电子书，这应该是&ldquo;阅光宝盒&rdquo;里面最实用的功能。</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120511/5-120511113H5226.jpg" style="width: 600px; height: 309px" />&nbsp;&nbsp; &nbsp;&nbsp;</p>
+<p style="text-align: center">
+	&nbsp;图13&ldquo;阅光宝盒&rdquo;界面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图14 有声书城&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 图15&nbsp;付费字体&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>
+	<br />
+	&nbsp;<br />
+	<strong>7.</strong><strong>评测总结</strong></p>
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="width: 83px">
+				用户界面</td>
+			<td style="width: 123px">
+				7分</td>
+			<td style="width: 95px">
+				特色功能</td>
+			<td style="width: 170px">
+				9分</td>
+		</tr>
+		<tr>
+			<td style="width: 83px">
+				支持格式</td>
+			<td style="width: 123px">
+				9分</td>
+			<td style="width: 95px">
+				资源平台</td>
+			<td style="width: 170px">
+				8分</td>
+		</tr>
+		<tr>
+			<td style="width: 83px">
+				阅读体验</td>
+			<td style="width: 123px">
+				8分</td>
+			<td style="width: 95px">
+				推荐指数</td>
+			<td style="width: 170px">
+				5星</td>
+		</tr>
+	</tbody>
+</table>
+&nbsp;<br />
+小编有话要说：腾讯的跟风抄袭一直被业界所诟病。但不可否认的是，腾讯通过吸收同类产品的精髓，不断从细节完善产品不足，整合更多满足用户需求的功能，真正提升了用户体验，从而超越了同类产品。如微信、QQ影音、手机QQ阅读，都是微创新的成功实验。先不对腾讯抄袭创意的行为置评，单从用户的角度出发，用更好的产品惠益用户，对用户而言无疑是有利的。再者，产品间的竞争，加快优胜劣汰的速度，促使产品向用户而不是向利益倾斜，对整个产品的生态链也是有好处的。所以，在骂&ldquo;狗日的企鹅&rdquo;的同时，反思自己的产品的不足，多去了解用户的需求，真正提升用户的体验才是与企鹅战斗的正途。毕竟，你的产品好与不好，用户的眼睛才是雪亮的。<br />
+。<br />
+&nbsp;<br />
+&nbsp;
+				<!--<p>本文链接：<a href="/Article/PingCe/2012/0508/802.html">/Article/PingCe/2012/0508/802.html</a>--><br />关键字：<a href='/Article/tags.php?/%E6%89%8B%E6%9C%BAQQ%E9%98%85%E8%AF%BB/'>手机QQ阅读</a> <a href='/Article/tags.php?/QQ%E9%98%85%E8%AF%BBAndroid%E7%89%88/'>QQ阅读Android版</a> <a href='/Article/tags.php?/%E8%AF%84%E6%B5%8B/'>评测</a> <br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.***.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/PingCe/2012/0508/802.html";
+				var wumiiTitle = "《手机QQ阅读》：微创新打动用户";
+				var wumiiTags = "手机QQ阅读,QQ阅读Android版,评测,";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/PingCe/2012/0508/802.html">《手机QQ阅读》：微创新打动用户</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/PingCe/2012/0629/982.html" target="_blank">《安兔兔评测》：非常专业的安卓系统跑分软件</a>(2012-07-02)</li>
+<li><a href="/Article/PingCe/2012/0323/635.html" target="_blank">《滑雪小子》：体验真实的滑雪运动</a>(2012-03-25)</li>
+<li><a href="/Article/PingCe/2012/0323/634.html" target="_blank">《僵尸快跑》：神速僵尸的旅程</a>(2012-03-25)</li>
+<li><a href="/Article/PingCe/2012/0323/633.html" target="_blank">《精灵诅咒》：像烟花一样的消减小游戏</a>(2012-03-25)</li>
+<li><a href="/Article/PingCe/2012/0323/632.html" target="_blank">《热门骰子》：会计算步数的骰子们</a>(2012-03-25)</li>
+<li><a href="/Article/PingCe/2012/0323/631.html" target="_blank">《忍者胡迪》：试试你抛飞镖的准确度</a>(2012-03-25)</li>
+<li><a href="/Article/PingCe/2012/0323/630.html" target="_blank">《豆豆杀手》：杀手豆豆的反攻</a>(2012-03-24)</li>
+<li><a href="/Article/PingCe/2012/0323/629.html" target="_blank">《双重读取SD卡》：支持手机和电脑同时读取SD卡</a>(2012-03-24)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：直江兼续</div>
+				<div id="ckepop" class="edi2">关键字：<a href='/Article/tags.php?/%E6%89%8B%E6%9C%BAQQ%E9%98%85%E8%AF%BB/'>手机QQ阅读</a> <a href='/Article/tags.php?/QQ%E9%98%85%E8%AF%BBAndroid%E7%89%88/'>QQ阅读Android版</a> <a href='/Article/tags.php?/%E8%AF%84%E6%B5%8B/'>评测</a> </div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/PingCe/2012/0508/801.html'>《航班管家》 ：中央十套推荐的专业软件</a> </li>
+					<li>下一篇：<a href='/Article/PingCe/2012/0508/803.html'>《Evernote》：神一般的便签软件</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',802)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',802)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',802)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(802);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="802" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=802">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=802&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '802');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '802');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/PingCe/2012/0715/2424.html" target="_blank" title="《生气的妈妈》：小朋友们好">《生气的妈妈》：小朋友们好</a></li>
+<li><a href="/Article/PingCe/2012/0715/2423.html" target="_blank" title="《狂热力学》：挑战智力的物">《狂热力学》：挑战智力的物</a></li>
+<li><a href="/Article/PingCe/2012/0713/1112.html" target="_blank" title="《儿童趣味触屏》：针对幼儿">《儿童趣味触屏》：针对幼儿</a></li>
+<li><a href="/Article/PingCe/2012/0716/4801.html" target="_blank" title="《谷歌翻译》：功能强大的在">《谷歌翻译》：功能强大的在</a></li>
+<li><a href="/Article/PingCe/2012/0713/2481.html" target="_blank" title="《变色龙的午餐时间》：用舌">《变色龙的午餐时间》：用舌</a></li>
+<li><a href="/Article/PingCe/2012/0712/2479.html" target="_blank" title="《大脑魔方》：不可小窥的电">《大脑魔方》：不可小窥的电</a></li>
+<li><a href="/Article/PingCe/2012/0712/2478.html" target="_blank" title="《星宝石》：需要快速反应和">《星宝石》：需要快速反应和</a></li>
+<li><a href="/Article/PingCe/2012/0712/2477.html" target="_blank" title="《地铁背单词》：轻松背单词">《地铁背单词》：轻松背单词</a></li>
+<li><a href="/Article/PingCe/2012/0711/2476.html" target="_blank" title="《3D趣味夹娃娃机》：讨好女">《3D趣味夹娃娃机》：讨好女</a></li>
+<li><a href="/Article/PingCe/2012/0711/2475.html" target="_blank" title="《小鸡快跑》：考验惯性和节">《小鸡快跑》：考验惯性和节</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:pt;color:#292c95">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:pt;color:#f2b16a">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:10pt;color:#eab853">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:pt;color:#78835d">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:14pt;color:#1a3280">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:pt;color:#c21971">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:pt;color:#f55a6">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:10pt;color:#c81527">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:pt;color:#5691d7">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:12pt;color:#a33365">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:14pt;color:#328e6e">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:14pt;color:#649d67">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:12pt;color:#db158">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:pt;color:#89bc1">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:pt;color:#d24f35">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:14pt;color:#84478d">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:pt;color:#194d23">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#a7694c">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:pt;color:#428f83">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:14pt;color:#86b425">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

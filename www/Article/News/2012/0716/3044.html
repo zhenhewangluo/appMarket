@@ -1,0 +1,1189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Android繁荣靠大家 厂商定制十大创新_***</title>
+<meta name="keywords" content="Android,厂商定制" />
+<meta name="description" content="Android的出现让许多活在苹果阴影中的厂商看到了光明，这些厂商联起手来，共同加入了OHA（开放手机联盟)，并对苹果的iOS实施反击。 虽然属于同一操作系统，但各家厂商不同的定制风" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E7%94%9F%E5%8C%96/' target="_blank">生化</a><a href='/Article/tags.php?/%E7%BD%91%E6%B8%B8/' target="_blank">网游</a><a href='/Article/tags.php?/skype/' target="_blank">skype</a><a href='/Article/tags.php?/%E5%85%A8%E8%81%8C/' target="_blank">全职</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">Android繁荣靠大家 厂商定制十大创新</h1>
+			<div class="articleInfo"><small>时间:</small>2012-04-25 12:11<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=3044&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			　Android的出现让许多活在苹果阴影中的厂商看到了光明，这些厂商联起手来，共同加入了OHA(开放手机联盟)，并对苹果的iOS实施反击。 虽然属于同一操作系统，但各家厂商不同的定制风格也让Android越来越个性化，并不像Android刚开始流行时同质化现象那么严重了，各大厂商对于 Android的定制都有所不同，而且区别也不仅仅停留在界面，在功能上也有着很大的差别。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/134242220Gb0-41P5.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">Android繁荣靠大家 厂商定制十大创新</span> 
+
+<br />
+　　今天我们就为大家介绍一下，各大国内外厂商在对Android进行深度定制时，为Android带来了不少新的玩法，其中不少玩法都很有创新。 这些定制内容也为谷歌Android团队未来的开发提供了不少建议，其中好的点子很有可能在下一代Android操作系统中成为标配，而今天我们就为大家 介绍几大Android厂商定制中的创意设计，看看哪个厂商的定制最符合您的口味。<br />
+<br />
+　　<strong>NO.10 索尼 TimeScape</strong><br />
+<br />
+　　在其他厂商都还在为Android做优化时，索尼(索尼爱立信)就在自己的手机上推出了TimeScape界面，TimeScape在当时以其华丽的3D效果让人感到相当震撼，这个设计也被索尼沿用到了现在。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="索尼的Timescape界面" src="/uploads/allimg/c120716/134242220VU60-5C25.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+<table align="center">
+	<tbody>
+		<tr>
+			<td>
+				
+					<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/1342422209B060-64I4.jpg" /> 
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	<span style="font-size:12px;">索尼的Timescape界面</span> 
+
+<br />
+　　TimeScape将大量的通知信息聚合在了一起，读起来更有趣味性，同时这个应用也支持了桌面小部件，不需要进入程序就可以将所有社交内容汇总，这也是TimeScape给我们带来最新鲜的玩法。<br />
+<br />
+
+	
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>
+						
+							<img alt="索尼的Timescape界面" src="/uploads/allimg/c120716/134242221046310-J1P.jpg" /> 
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/13424222111V40-R936.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">索尼的Timescape界面</span> 
+
+<br />
+　　时过境迁，TimeScape的形式并没有发生太大的变化，很多厂商效仿了这一新鲜的功能，这也让Android的桌面插件更为丰富。而TimeScape也慢慢的不再受人关注，也许这时候索尼真应该拿出点新鲜东西来了。<br />
+<br />
+　　<strong>NO.9 MOTOBLUR 社交</strong><br />
+<br />
+　　早在Android 1.5的时代，摩托罗拉就对Android操作系统进行了深度的定制，其中就包括了MOTOBLUR，这个在当时看来非常创新的概念，也让当时有着BLUR功能的手机成为了抢手货。<br />
+<br />
+
+	
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>
+						
+							<img alt="摩托罗拉MOTOBLUR插件" src="/uploads/allimg/c120716/13424222120G20-93411.jpg" /> 
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/134242221294230-10J39.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">摩托罗拉MOTOBLUR插件</span> 
+
+<br />
+　　MOTOBLUR让手机与社交网络深度融合，而不是简简单单的安装个社交应用，在绑定了自己的社交账号后，MOTOBLUR可以帮你把社交网络上的联系人导入通讯录，你也可以更方便的与朋友们进行互动，而社交网络上一有新信息就会第一时间推送到你的手机上。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="摩托罗拉的MOTOBLUR界面" src="/uploads/allimg/c120716/134242221353250-111Q4.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+<table align="center">
+	<tbody>
+		<tr>
+			<td>
+				
+					<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/1342422213a630-1230N.jpg" /> 
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	<span style="font-size:12px;">摩托罗拉的MOTOBLUR界面</span> 
+
+<br />
+　　MOTOBLUR带来了一股手机社交热，各大厂商也开始纷纷效仿，但谁的社交也没有MOTOBLUR那样深入整个系统。不过MOTOBLUR的 设计确实有些超前了，它也带来了不少负作用，比如流量和电量消耗过大，同时通讯录也比较杂乱，无法区分社交网络和通讯录的联系人，而摩托罗拉也在之后推出 的机型中逐渐改进了这些问题。<br />
+<br />
+　　<strong>NO.8 HTC Sense 天气</strong><br />
+<br />
+　　HTC在Android之前，智能机已经玩得烂熟，特别是对开放的智能机系统更是有着深刻的认识，所以自家的定制系统出来也比较早，HTC的Sense就是最好的证明，其中大家印象最深刻的一定是HTC Sense的天气插件。<br />
+<br />
+
+	
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>
+						
+							<img alt="Sense 2.1天气时钟" src="/uploads/allimg/c120716/1342422214522P-13c96.jpg" /> 
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/13424222150PF-149451.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">Sense 2.1天气时钟</span> 
+
+<br />
+　　Sense的时钟有逼真的翻页效果，同时天气也伴随着非常漂亮的动态效果，在当时Android刚刚兴起不久，人们对于Android的了解也不深，很多朋友都是被HTC的这一个小插件所吸引，最终选择了HTC品牌，开始了自己的Android之旅。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Sense 4.0天气时钟" src="/uploads/allimg/c120716/1342422215D920-1540D.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">Sense 4.0天气时钟</span> 
+
+<br />
+　　Sense的天气插件，直到现在也依旧是HTC的标志，这一设计几乎成为了HTC乃至Android的代名词，同时这个漂亮的插件设计也被各个 天气软件所模仿，相信现在不管是不是HTC的手机，都有着很多用户在使用这种款式的天气插件，可见Sense天气小工具对于HTC的重要性。<br />
+<br />
+　　<strong>NO.7 MOTOBLUR 智能操控</strong><br />
+<br />
+　　摩托罗拉在自己最新的高端机型上加入了不少新元素，界面效果更华丽这些就不必多说了，其中智能操控(Smart Action)这个功能在Android上算是一个突破，直到现在有且仅有摩托罗拉有着这样的功能。<br />
+<br />
+
+	
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>
+						
+							<img alt="智能操控截图" src="/uploads/allimg/c120716/134242221635460-161323.jpg" /> 
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/134242221D9610-1O2F.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">智能操控截图</span> 
+
+<br />
+　　智能操控有着一系列触发器和大量触发操作，使用起来也非常有意思，你需要为手机的行为制定一些条件和执行的操作，比如，在夜里12点-早上8点 之间，帮你关闭Wi-Fi、GPS、亮度调低、设置成静音，让你好好睡上一觉，并且还不能漏接电话，如果没有智能操控，我们每天进行这些操作就会很麻烦， 而有了智能操控一切变得简单了，还可以最大程度上省电。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="智能操控截图" src="/uploads/allimg/c120716/134242221J0130-1X4b.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+<table align="center">
+	<tbody>
+		<tr>
+			<td>
+				
+					<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/134242221QW60-1c222.jpg" /> 
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	<span style="font-size:12px;">智能操控截图</span> 
+
+<br />
+　　智能操控算是Android上一个很大的创新，只可惜这么好的创意目前只有摩托罗拉把它实现，这个功能的确可以帮我们省很多事儿，不过我相信， 即使很多朋友在使用XT910这样较新的摩托罗拉高端机型，也可能没有碰过这个功能，对于摩托罗拉来说，这样的功能确实需要去做个一个更友好的向导告诉人 家怎么用。<br />
+<br />
+　　<strong>NO.6 TouchWiz 下拉通知栏开关</strong><br />
+<br />
+　　Android与iOS最大的区别就是有着大量有意思的小插件，其中比较实用的就是各个功能的快捷开关插件，不过当时官方给出的这个插件在功能上比较单薄，而且以插件形式存在使用时也确实会有些不方便，毕竟滑动页面也会让插件滑跑。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="三星手机的下拉通知栏" src="/uploads/allimg/c120716/134242221VA60-203492.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">三星手机的下拉通知栏</span> 
+
+<br />
+　　怎么办？三星有办法，三星在自家的TouchWiz界面上把快接开关安装到了下拉通知栏里，这一下算是给快捷开关安了个家，虽然仅仅是一个小的换位，但还是看出了三星的用心，而这个小创新也逐渐成为了后来自制ROM的标配功能。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="TouchWiz界面" src="/uploads/allimg/c120716/134242221942H0-214R9.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+<table align="center">
+	<tbody>
+		<tr>
+			<td>
+				
+					<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/134242221b2R0-2242K.jpg" /> 
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	<span style="font-size:12px;">TouchWiz界面</span> 
+
+<br />
+　　三星的TouchWiz在功能上并没有太大的创新，但不断的优化也让三星的Android手机变得很好用，这也为三 星赚到了很多口碑，三星的市场份额就是这样一点点积累起来的，现在再看三星，依旧没有太多花哨的功能，却能在Android领域独占鳌头，这些不起眼的小 功能作用不小。<br />
+<br />
+　　<strong>NO.5 TouchWiz S-Pen</strong><br />
+<br />
+　　三星的跨界产品GALAXY Note的成功似乎有些出人意料，过于庞大的体型让这款手机本应成为另类，但Note在市场上的强劲表现让人看到了三星策略上的成功，而智能手机市场上也正缺少这样敢于创新的厂商和突破性的产品。<br />
+<br />
+
+	
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>
+						
+							<img alt="三星Galaxy Note的S-Pen" src="/uploads/allimg/c120716/13424222202L0-23UK.jpg" /> 
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/1342422220N560-244X7.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">三星Galaxy Note的S-Pen</span> 
+
+<br />
+　　三星GALAXY Note有一根点睛之笔，而自家定制的固件TouchWiz也针对这根笔做了很多优化，我们可以直接用笔在手机上写写画画，笔和手指的功能有了很大的区 别，或许其它手机厂商或者谷歌也可以因此作为参考，随着手机屏幕越来越大，我们也需要S-Pen这样的产品和与之相对应优化过的固件。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="三星GALAXY Note手写笔应用" src="/uploads/allimg/c120716/134242222133130-25B01.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+<table align="center">
+	<tbody>
+		<tr>
+			<td>
+				
+					<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/1342422221U530-2640Y.jpg" /> 
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	<span style="font-size:12px;">三星GALAXY Note手写笔应用</span> 
+
+<br />
+　　对于一款很有创意的产品只把他放到第五位可能会有人感到不满，但GALAXY Note作为第一代手写和触摸一体的产品还有这不少遗憾，手写笔不可以触摸虚拟按键就是个很大的遗憾，给用户带来了很多不方便，同时S-Pen也仅在一款 产品上出现，不具有普遍性，酌情考虑，第五这个位置还是比较适合S-Pen的。<br />
+<br />
+　　<strong>NO.4 索尼 Bravia Engine</strong><br />
+<br />
+　　智能手机对于索尼来说算不上擅长的领域，但你一定不要低估索尼的能力，无论在哪个行业，索尼都是一个强有力的竞争者，就拿LT26i来说，在拿到手机之前，我们并不认为这款各方面配置都不算领衔的手机能让我们震惊，但实际拿到手机后，我们的认识改变了。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Xperia S LT26i的显示设置" src="/uploads/allimg/c120716/1342422222321Z-2M042.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">Xperia S LT26i的显示设置</span> 
+
+<br />
+　　你很难想象TFT屏幕去与Super AMOLED屏幕比色彩，而索尼就敢，因为他们的手机用上了Bravia Engine，这个技术扩展了动态范围，平滑动态图像，调配色彩使其更加生动，同时还有过滤影像、降噪、黑色增强的功能，让照片和视频的显示更加清晰锐利。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="开启Mobile BRAVIA Engine(左)之后带来的改变相当明显" src="/uploads/allimg/c120716/1342422222RL0-2UW8.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">开启Mobile BRAVIA Engine(左)之后带来的改变相当明显</span> 
+
+<br />
+　　每一块手机的屏幕都有着它的优点和缺点，就拿TFT屏幕来说，从显示效果上讲，TFT屏幕相比AMOLED屏幕在色彩方面稍显暗淡，而黑色部分 更不用说，但Bravia Engine能大幅度的改善TFT屏幕的显示效果，扬长避短，甚至在综合表现上可以超过AMOLED屏幕，难怪索尼还敢大胆的启用TFT屏幕来与其他厂商 抗衡。<br />
+<br />
+　　<strong>NO.3 MIUI 在线主题</strong><br />
+<br />
+　　小米手机创造了一个国产手机的奇迹，从去年8月16日发布到现在，小米手机一直保持着超高的人气。昨天，小米再次放出15万台手机，在10多分钟的时间里又被抢光，而国产其他品牌手机也想效仿小米的低价模式却难以成功，究其原因，MIUI在这之中立了大功。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="小米手机界面" src="/uploads/allimg/c120716/1342422223550-294T4.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>
+						
+							<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/13424222240I20-30H08.jpg" /> 
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+
+
+	<span style="font-size:12px;">小米手机界面</span> 
+
+<br />
+　　MIUI作为小米所推出的ROM进行了100多项改进，而其中被用户用到最多的便是小米的在线个性化资源，小米手机 有着强大的在线主题库，用户可以更改自己手机的字体、主题、锁屏界面和图标等等，这个功能相比其他厂商提供的主题更换功能更加便捷，同时也有着大量米粉参 与，让MIUI的主题库迅速扩充起来。<br />
+<br />
+　　
+<table align="center">
+	<tbody>
+		<tr>
+			<td>
+				
+					<img alt="MIUI在线主题" src="/uploads/allimg/c120716/13424222244GF-315210.jpg" /> 
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Android繁荣靠大家 厂商定制十大创新" src="/uploads/allimg/c120716/1342422224T0-323U5.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">MIUI在线主题</span> 
+
+<br />
+　　MIUI可以说是国内最成功的第三方ROM，之所以有着这样的成功也因为MIUI有着过硬的团队，橙色的星期五，铁打不动的下午5点，MIUI都会带给米粉新的惊喜，有了这样可靠的ROM，小米手机不火都难。<br />
+<br />
+　　<strong>NO.2 HTC Sense 4.0 边摄边拍</strong><br />
+<br />
+　　当我们拿到HTC One X打开相机后发现，One X的相机界面有着两个快门键，拍照和拍摄分别占了一个，这样的设计的确很丑，但它却实现了一个不可思议的功能，边摄边拍。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="拍照界面" src="/uploads/allimg/c120716/134242222551N0-33c49.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">拍照界面</span> 
+
+<br />
+　　就像你从字面上的理解一样，在你摄像时，你还可以通过拍照键来完成照片的拍照，这个过程不会跟你的视频拍摄不产生任何冲突，编辑也曾误以为这个功能只是在录制视频的时候进行截图，而当我们看到照片时，却发现这个功能真的很神奇，一个摄像头真的可以同时干两件事。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="边摄边拍" src="/uploads/allimg/c120716/134242222605Z-341M3.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">边摄边拍</span> 
+
+<br />
+　　HTC One X可以在拍摄1080p视频的同时拍出800万像素的照片，不仅如此，HTC One X更是支持99张高速连拍功能，曾经拍照功能是HTC的软肋，人们普遍认为HTC的拍照是其最大的痛，看来我们都错了，HTC在拍照方面的造诣让佳能尼康感到羞愧。<br />
+<br />
+　　<strong>NO.1 空缺</strong><br />
+<br />
+　　Android定制的十大创新第一名，我们选择了空缺，在Android不断发展的今天，厂商定制固件时也越来越用心，索尼可能在 PlayStation游戏平台上发力，三星也可能让Android完成窗口化多任务，作为一个开放的Android，未来等于无限种可能。<br />
+<br />
+
+	<table align="center">
+		<tbody>
+			<tr>
+				<td>
+					
+						<img alt="Android机器人" src="/uploads/allimg/c120716/134242222C6220-356196.jpg" /> 
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<span style="font-size:12px;">Android机器人</span> 
+
+<br />
+　　或许这个第一名我们应该留给谷歌，看看谷歌的Android 5.0能给我们带来什么养的惊喜。谷歌的Android 4.0是非常成功的系统，不管你的手机是原生还是官方升级，到了Android 4.0你都会发现它获得了升华，操作也比之前流畅了很多，它让人们改变了对Android的印象，现在的Android 4.0缺的就是普及率。<br />
+<br />
+　　
+<table align="center">
+	<tbody>
+		<tr>
+			<td>
+				
+					<img alt="Android机器人" src="/uploads/allimg/c120716/134242222H9140-3C545.jpg" /> 
+				
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	<span style="font-size:12px;">Android机器人</span> 
+
+<br />
+　　又或许，这个第一名我们应该留给那些为Android不断定制ROM的民间团队，这些团队为了Android的优化贡献了很大的力量，对于已经 是Android 4.0的机型，他们在孜孜不倦的为之做优化解决这样那样的问题，并不断做出有新意的点子。而那些已经被官方判死刑的机型，也因民间团队获得了 Android 4.0的支持，Android的成功也有他们一份子。
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>手机中国</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/3044.html">/Article/News/2012/0716/3044.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/3044.html";
+				var wumiiTitle = "Android繁荣靠大家 厂商定制十大创新";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/3044.html">Android繁荣靠大家 厂商定制十大创新</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/News/2012/0716/3499.html" target="_blank">Android开发资源免费横溢 开发商利润不足5%</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3498.html" target="_blank">Sony（索尼）是否被Android完全Hold住了？</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3497.html" target="_blank">2012第10周国内Android应用下载排行榜</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3496.html" target="_blank">著名游戏开发商称将放弃Android平台</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3495.html" target="_blank">报告称65%的Android反病毒软件不可靠</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3494.html" target="_blank">点评：Android系统优化重于升级</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3490.html" target="_blank">卡巴斯基再掀起Android市场安全狂潮</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3489.html" target="_blank">Battleheart开发商放弃Android平台游戏开发</a>(2012-03-12)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/3043.html'>第七轮开放购买已结束：15万台小米手机12分钟</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/3045.html'>苹果CEO库克对Android诉讼：更希望和解而不是战争</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',3044)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',3044)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',3044)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(3044);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="3044" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=3044">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=3044&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '3044');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '3044');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:10pt;color:#c7b974">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:14pt;color:#82b6a9">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:10pt;color:#2c20ce">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:12pt;color:#64b31e">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:10pt;color:#106ff4">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:14pt;color:#aa1aa">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:14pt;color:#e88326">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:10pt;color:#99ae4c">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:12pt;color:#d394eb">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:12pt;color:#ae726e">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:pt;color:#bf2f34">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:10pt;color:#264039">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:10pt;color:#e423ea">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:pt;color:#ff7283">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:pt;color:#3f8211">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:pt;color:#8c483a">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:12pt;color:#1e1db6">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:pt;color:#bb1ca7">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:12pt;color:#62a99e">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:14pt;color:#2fa5bf">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

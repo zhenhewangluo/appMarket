@@ -1,0 +1,10 @@
+{dede:field name='keywords'}华硕,Android 5.0更新{/dede:field}
+{dede:field name='description'}在本届世界移动通信大会上，各种新型智能手机设备以及与之相关的新技术层出不穷令人眼花缭乱。但人们似乎还是更热衷于讨论那些有关谷歌新一代安卓操作系统的话题。近日，华硕公司就出面证实称，谷歌将会在年内推出下一代安卓操作系统，并将其命名为“Android 5.0 Jelly Bean（安卓5.0果冻豆）”。{/dede:field}
+{dede:field name='title'}华硕有望率先推出Android 5.0更新{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

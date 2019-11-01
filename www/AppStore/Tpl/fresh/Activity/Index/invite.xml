@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><![CDATA[
+<div class="popWin">
+	<form id="act_invite" autocomplete="off">
+		<table>
+			<col width="150px;">
+			<col />
+			<tr>
+				<th style="font-weight:normal;vertical-align:top;color:#333;font-size:12px;">
+					请输入好友手机号码：
+					<br />(每次最多邀请20名好友)
+				</th>
+				<td>
+					<textarea name="mobile" class="win_tarea" style="font-size:16px;" /></textarea><label>　</label>
+					<input type="submit" name="submit" value="发 送" class="win_submit_btn" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var mobilesNode = $('#act_invite textarea:[name="mobile"]');
+		$(document).mousemove(function(){			
+			var mobileVal = mobilesNode.val().replace(/\D+/g, '');
+			if(mobileVal.length > 11)
+			{
+				var newMobileVal = '';
+				var tmp = '';
+				var modTmp = parseInt(mathDiv(mobileVal.length, 11), 10);
+				for(var i = 0; i <= modTmp; i ++ )
+				{
+					tmp = mobileVal.substr(i*11, 11);
+					if(tmp.length == 11)
+						newMobileVal += tmp + '\r\n';
+					else
+						newMobileVal += tmp;
+				}
+				mobilesNode.val(newMobileVal);
+			}
+			
+		});
+		$('#act_invite input:[name="submit"]').click(function(){
+			var mobileVal = $.trim(mobilesNode.val()).replace(/\s+/g, '#');
+			var mobileArr = mobileVal.split('#');			
+			//mobileArr = $.unique(mobileArr);
+			if(mobileArr.length > 20)
+			{
+				getDialog('每次最多只能邀请20个好友', 'error', false);
+				return false;
+			}
+			for(var i = 0; i < mobileArr.length; i ++)
+			{
+				var pattern = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|147[0-9]{8}$/;
+				if(pattern.test(mobileArr[i]) == false)
+				{
+					var line = i+1;
+					getDialog(mobileArr[i] + '<br />此手机号不合法<br />请填写合法的手机号！', 'error', false, 5);
+					return false;
+				}
+			}
+			var sendObj = {
+				mobile : mobileVal,	
+				__hash__ : $('#act_invite input:[name="__hash__"]').val()
+			};
+			if(checkInfo(sendObj, 'act_invite') == true)
+			{
+				sendInfo('{:U("AppStore://Activity-Index/inviteAct")}', sendObj, false, 5);
+			}
+			return false;
+		});
+		$('#act_login input:[name="__hash__"]').val($('#act_invite input:[name="__hash__"]').val());
+		$('.win_submit_btn').hover(function(){
+			$(this).addClass('win_submit_btn_hover');
+		}, function(){
+			$(this).removeClass('win_submit_btn_hover');
+		});
+		/*加法函数，用来得到精确的加法结果
+		 *返回值：arg1加上arg2的精确结果
+		 */
+		function mathAdd(arg1,arg2)
+		{
+			var r1,r2,m;
+			try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+			try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+			m=Math.pow(10,Math.max(r1,r2));
+			return (arg1*m+arg2*m)/m;
+		}
+
+		/*减法函数
+		 *返回值：arg2减arg1的精确结果
+		 */
+		function mathSub(arg2,arg1)
+		{
+			var r1,r2,m,n;
+			try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+			try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+			m=Math.pow(10,Math.max(r1,r2));
+			//last modify by deeka
+			//动态控制精度长度
+			n=(r1>=r2)?r1:r2;
+			return ((arg2*m-arg1*m)/m).toFixed(n);
+		}
+
+		/*乘法函数，用来得到精确的乘法结果
+		 *返回值：arg1乘以arg2的精确结果
+		 */
+		function mathMul(arg1,arg2)
+		{
+			var m=0,s1=arg1.toString(),s2=arg2.toString();
+			try{m+=s1.split(".")[1].length}catch(e){}
+			try{m+=s2.split(".")[1].length}catch(e){}
+			return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m);
+		}
+
+		/*除法函数，用来得到精确的除法结果
+		 *返回值：arg1除以arg2的精确结果
+		 */
+		function mathDiv(arg1,arg2)
+		{
+			var t1=0,t2=0,r1,r2;
+			try{t1=arg1.toString().split(".")[1].length}catch(e){}
+			try{t2=arg2.toString().split(".")[1].length}catch(e){}
+			with(Math){
+				r1=Number(arg1.toString().replace(".",""));
+				r2=Number(arg2.toString().replace(".",""));
+				return (r1/r2)*pow(10,t2-t1);
+			}
+		}
+	});
+</script>]]></root>

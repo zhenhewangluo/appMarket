@@ -1,0 +1,380 @@
+<link href="../Public/css/{$css}recommendations.css" type="text/css" rel="stylesheet" />
+<script type='text/javascript' src="../Public/js/all.js"></script>
+<script type='text/javascript' src="../Public/js/in.js"></script>
+<script type='text/javascript' src="../Public/js/plusone.js"></script>
+<script type='text/javascript' src="../Public/js/social.js"></script>
+<script type='text/javascript' src="../Public/js/recommendations.js?v1"></script>
+<link href="../Public/css/socialshareprivacy.css" type="text/css" rel="stylesheet" />
+<link href="../Public/css/jcarousel.css" type="text/css" rel="stylesheet" />
+<link href="../Public/css/pagination.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../Public/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="../Public/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="../Public/js/shop.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/DD_belatedPNG.js"></script>
+<script type="text/javascript">
+	$(function(){
+		initRecommendations();
+		initShop();
+		$('.headerNav .menu').lavaLamp({fx:'easeOutBack',speed:700});
+	});
+</script>
+<script type="text/javascript">
+	var gl_localPrefix_saveAct = '{:U("App-Ajax/saveActOrder")}';
+	var gl_localPrefix_getApp = '{:U("App-Ajax/ajaxGetAppsList")}';
+	var gl_localPrefix_get3App = '{:U("App-Ajax/ajaxGet3AppsList")}';
+	var gl_localPrefix_layer = '{:U("App-Ajax/getPopupAppinfo")}';
+	var gl_fatalMsg = 'An unexpected error has occured.';
+	var text_recommendations_showAll = '显示全部';
+	var gl_localPrefix_recomm = '{:U("App-Ajax/ajaxGetMoreApps")}';
+</script>
+<compare name='isIe6' type='eq' value='true'>
+	<script type='text/javascript'>
+	$(function(){
+		DD_belatedPNG.fix('.overlayLeftSide,.overlayRightSide');
+	});
+	</script>
+</compare>
+<div class="breadcrumbBar">
+	<div class="breadcrumb">
+		您的位置： <a href="/">***</a>
+	</div>
+	<div class="clear">&nbsp;</div>
+</div>
+<div class="headSlider">
+    <div class="headerOverlayLeft clearfix"></div>
+    <div class="buttons">
+		<div class="prevBut"></div>
+		<div class="nextBut"></div>
+    </div>
+    <div class="headerOverlay"> </div>
+    <div class="overlayLeftSide"></div>
+    <div class="overlayRightSide"></div>
+    <div class="sliderWrapper">
+		<ul id="shopCarousel" class="jcarousel-skin-shop">
+			<volist name="slideList" id="vo">
+			<li><a href="{:urldecode($vo['url'])}" target="_blank" title="{$vo['name']}"><img src="__PUBLIC__{$vo['img']}" alt="{$vo[name]}" style="width:307px; height:150px" /></a></li>
+			</volist>
+		</ul>
+    </div>
+    <div class="headerOverlayRight"></div>
+</div>
+<div class="containerAllApps">
+	<div class="sidebarAllApps">
+		<div class="top">
+			<h2>应用筛选</h2>
+		</div>
+		<div class="sidebarInner" id="filterSidebar">
+			<ul class="favSortList" id="favSortList">
+				<li class="sponsored">
+					<a href="javascript:void(0);" onclick="return false;">特别推荐</a>
+				</li>
+				{~$appTypeTextCount = count($appTypeText);$firstClass='';$lastClass='';}
+				<volist name="appTypeText" id="vo">
+					<compare name="i" type="gt" value="1">
+						<if condition="$i eq 2">
+							<li class="first" id="fav_{$key}">
+								<a href="javascript:void(0);" onclick="return false;">{$vo['desc']}</a>
+								<ul class="options">
+									<li>
+										<span class="sortUp">up</span>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="moveDown('{$key}'); return false;" class="sortDown">down</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="removeFromFavs('{$key}'); return false;" class="sortRemove">remove</a>
+									</li>
+								</ul>
+							</li>
+							<elseif condition="$i eq $appTypeTextCount" />
+							<li class="last" id="fav_{$key}">
+								<a href="javascript:void(0);" onclick="return false;">{$vo['desc']}</a>
+								<ul class="options">
+									<li>
+										<a href="javascript:void(0);" onclick="moveUp('{$key}'); return false;" class="sortUp">up</a>
+									</li>
+									<li>
+										<span class="sortDown">down</span>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="removeFromFavs('{$key}'); return false;" class="sortRemove">remove</a>
+									</li>
+								</ul>
+							</li>
+							<else />
+							<li id="fav_{$key}">
+								<a href="javascript:void(0);" onclick="return false;">{$vo['desc']}</a>
+								<ul class="options">
+									<li>
+										<a href="javascript:void(0);" onclick="moveUp('{$key}'); return false;" class="sortUp">up</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="moveDown('{$key}'); return false;" class="sortDown">down</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="removeFromFavs('{$key}'); return false;" class="sortRemove">remove</a>
+									</li>
+								</ul>
+							</li>
+						</if>
+					</compare>
+				</volist>
+				{~$unassignArrCount = count($unassignArr);$addWidget = '';}
+				<compare name="unassignArrCount" type="elt" value="0">
+					{~$addWidget = 'style="display:none;"';}
+				</compare>
+				<li class="addWidget" {$addWidget}>
+					<div class="addFavListClosed">
+						<a href="javascript:void(0);" onclick="openAddWidget(); return false">添加分类</a>
+					</div>
+					<div class="addFavListOpen" id="addFavList">
+						<a href="javascript:void(0);" class="close" onclick="closeAddWidget(); return false">x</a>
+						<ul class="unassignedFavs" id="unassignedFavs">
+							<volist name="unassignArr" id="vo">
+								<li id="fav_{$key}">
+									<a href="javascript:void(0);" onclick="addToFavs('{$key}');  return false">{$vo['desc']}</a>
+								</li>
+							</volist>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<form action="" method="post" class="appFilter" id="appFilter">
+				<fieldset class="section">
+					<fieldset class="appCategoriesClosed" id="appCategoriesClosed">
+						<h3>应用分类<a href="#" onclick="toggleCategories(); return false" class="appCategoriesClosed">toggle</a></h3>
+						<fieldset>
+							<ul>
+								<li>
+									<h4><a href="#" onclick="toggleCategories(); return false">软件分类</a></h4>
+									{~$tmpShowAppCateInArray = false;}
+									<ul id="appsCategoryList">
+										<volist name="appCateTree[2]['_child']" id="vo">
+											<?php
+											if(isset($checkedCate) && in_array($vo['id'], $checkedCate))
+											{
+											$tmpShowAppCateInArray = ture;
+											break;
+											}
+											?>
+										</volist>
+										<?php
+										if(!$tmpShowAppCateInArray)
+										{
+										?>
+										<li>所有软件</li>
+										<?php
+										}
+										?>
+									</ul>
+								</li>
+								<li>
+									<h4><a href="#" onclick="toggleCategories(); return false">游戏分类</a></h4>
+									{~$tmpShowGameCateInArray = false;}
+									<ul id="gamesCategoryList">
+										<volist name="appCateTree[1]['_child']" id="vo">
+											<?php
+											if(isset($checkedCate) && in_array($vo['id'], $checkedCate))
+											{
+											$tmpShowGameCateInArray = ture;
+											break;
+											}
+											?>
+										</volist>
+										<?php
+
+										if(!$tmpShowGameCateInArray)
+										{
+										?>
+										<li>所有游戏</li>
+										<?php
+										}
+										?>
+									</ul>
+								</li>
+							</ul>
+						</fieldset>
+					</fieldset>
+					<fieldset class="appCategoriesOpen" id="appCategoriesOpen">
+						<h3>应用分类<a href="#" onclick="toggleCategories(); return false" class="appCategoriesOpen">toggle</a></h3>
+						<fieldset class="innerSection" id="appsCategoryListOpen">
+							<fieldset>
+								<input type="checkbox" value="*" id="appCategory_0" <?php if(!$tmpShowAppCateInArray)echo 'checked="checked"';?> /><label for="appCategory_0" class="categoryName">所有软件</label>
+							</fieldset>
+							<volist name="appCateTree[2]['_child']" id="vo">
+								<fieldset>
+									{~$tmpInArray = 0;}
+									{~if(isset($checkedCate) && in_array($vo['id'], $checkedCate))$tmpInArray =1;}
+									<input type="checkbox" value="{$vo['id']}" id="appCategory_{$i}" <compare name="tmpInArray" type="eq" value="1">checked="checked"</compare> /><label for="appCategory_{$i}" class="categoryName">{$vo['name']}</label>
+								</fieldset>
+							</volist>
+						</fieldset>
+						<hr />
+						<fieldset class="innerSection" id="gamesCategoryListOpen">
+							<fieldset>
+								<input type="checkbox" value="*" id="gameCategory_0" <?php if(!$tmpShowGameCateInArray)echo 'checked="checked"';?> /><label for="gameCategory_0" class="categoryName">所有游戏</label>
+							</fieldset>
+							<volist name="appCateTree[1]['_child']" id="vo">
+								{~$tmpInArray = 0;}
+								{~if(isset($checkedCate) && in_array($vo['id'], $checkedCate))$tmpInArray =1;}
+								<fieldset>
+									<input type="checkbox" value="{$vo['id']}" id="gameCategory_{$i}" <compare name="tmpInArray" type="eq" value="1">checked="checked"</compare> /><label for="gameCategory_{$i}" class="categoryName">{$vo['name']}</label>
+								</fieldset>
+							</volist>
+						</fieldset>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appRating" id="appRating">
+				<fieldset class="section">
+					<h3>评分筛选</h3>
+					<p>评分最少为:</p>
+					<?php
+					for($i = 5; $i > 0; $i--)
+					{
+					?>
+					<fieldset class="innerSection">
+						<input type="radio" name="minRating" id="minRating_{$i}stars" value="{$i}" <?php if(isset($checkedRate) && $i == $checkedRate)echo 'checked="checked"';?> /><label for="minRating_{$i}stars"><div class="smallStars"><div class="RatingStarsSmall rating-{:($i * 2)}"></div></div></label>
+					</fieldset>
+					<?php
+					}
+					?>
+					<fieldset class="innerSection">
+						<input type="radio" name="minRating" id="minRating_0stars" value="0" <?php if(!isset($checkedRate) || $checkedRate == 0 || $checkedRate == '')echo 'checked="checked"';?> /><label for="minRating_0stars"><div class="smallStars"><div class="RatingStarsSmall rating-0"></div></div></label>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appPeriod" id="appPeriod">
+				<fieldset class="section">
+					<h3>时间筛选</h3>
+					<!--								<fieldset class="innerSection">
+														<input type="radio" name="timeFilter" value="SINCE_LAST_LOGIN" id="timeFilter_SINCE_LAST_LOGIN" disabled="disabled" title="Not logged in - please log in or register."/>
+														<label for="timeFilter_SINCE_LAST_LOGIN" style="color:#aaa" title="Not logged in - please log in or register.">since last login</label>
+													</fieldset>-->
+					<volist name="dateArr" id="vo">
+						<fieldset class="innerSection">
+							<input type="radio" name="timeFilter" value="{$key}" id="timeFilter_{$key}" <?php if(isset($checkedDate) && $checkedDate == $key)echo 'checked="checked"';?> />
+								   <label for="timeFilter_{$key}">{$vo['desc']}</label>
+						</fieldset>
+					</volist>
+					<fieldset class="innerSection">
+						<input type="radio" name="timeFilter" value="LAST_365_DAYS" id="timeFilter_LAST_365_DAYS" <?php if(!isset($checkedDate) || $checkedDate == '' || $checkedDate == 'LAST_365_DAYS')echo 'checked="checked"';?> />
+							   <label for="timeFilter_LAST_365_DAYS">过去365天</label>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appInstallations" id="appInstalls">
+				<fieldset class="section">
+					<h3>下载量筛选</h3>
+					<fieldset class="innerSection">
+						<input type="radio" name="appInstalls" value="any" id="appInstalls_any" <?php if(!isset($checkedDownload) || ($checkedDownload['from'] == -1 && $checkedDownload['to'] == -1) || empty($checkedDownload))echo 'checked="checked"';?> />
+							   <label for="appInstalls_any">不限</label>
+					</fieldset>
+					<fieldset class="innerSection" style="margin-top:2px">
+						<input type="radio" name="appInstalls" value="range" id="appInstalls_range"  <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] != -1)echo 'checked="checked"';?> />
+							   <table style="border:0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><label for="appInstalls_range" class="installSelect">从:&nbsp;</label></td>
+								<td style="padding-bottom:1px">
+									<select id="appInstalls_min" name="appInstalls_min">
+										<option value="0" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] == 0)echo 'selected="selected"';?>>0</option>
+										<volist name="downloadArr" id="vo">
+											<option value="{$vo}" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] == $vo)echo 'selected="selected"';?>>{:number_format($vo)}</option>
+										</volist>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td><label for="appInstalls_max" class="installSelect">到:&nbsp;</label></td>
+								<td>
+									<select id="appInstalls_max" name="appInstalls_max">
+										<volist name="downloadArr" id="vo">
+											<option value="{$vo}" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['to'] == $vo)echo 'selected="selected"';?>>{:number_format($vo)}</option>
+										</volist>
+										<option value="-1" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['to'] == -1)echo 'selected="selected"';?>>&gt; 100,000,000</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="contentContainerAllApps">
+		<div class="rightColTop"></div>
+		<div class="top">
+			<h2 style="float:left;">***应用推荐</h2>
+			<div style="color:#fff;float:right;"></div>
+			<div class="clear">&nbsp;</div>
+		</div>
+		<div class="main" id="allAppsSliders">
+			<?php
+			foreach($appTypeText as $k => $v)
+			{
+			?>
+			<div class="references" id="row_{$k}">
+				<h3>{$v['desc']}<a href="{:U('App-Index/appList', array('rid' => $k))}">显示全部</a></h3>
+				<div id="catSlider_{$k}" class="sliderBox">
+					<ul class="slider" style="left: -656px; ">
+						<li class="prev">
+							<ul style="_width:656px;">
+								<volist name="actListArr[$v['order']]['prev']['list']" id="vo">
+									<li>
+										<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" class="appIcon" id="{$k}-{$vo['app_id']}">
+											<img src="{:C('PICTURE_HOST')}{$vo['icon']}" width="72" height="72" alt="Icon" />
+											<span>{$vo['app_name']}</span>
+										</a>
+									</li>
+								</volist>
+							</ul>
+						</li>
+						<li class="active">
+							<ul style="_width:656px;">
+								<volist name="actListArr[$v['order']]['active']['list']" id="vo">
+									<li>
+										<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" class="appIcon" id="{$k}-{$vo['app_id']}">
+											<img src="{:C('PICTURE_HOST')}{$vo['icon']}" width="72" height="72" alt="Icon" />
+											<span>{$vo['app_name']}</span>
+										</a>
+									</li>
+								</volist>
+							</ul>
+						</li>
+						<li class="next">
+							<ul style="_width:656px;">
+								<volist name="actListArr[$v['order']]['next']['list']" id="vo">
+									<li>
+										<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" class="appIcon" id="{$k}-{$vo['app_id']}">
+											<img src="{:C('PICTURE_HOST')}{$vo['icon']}" width="72" height="72" alt="Icon" />
+											<span>{$vo['app_name']}</span>
+										</a>
+									</li>
+								</volist>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<a href="javascript:void(0);" class="btnLeft" style="">&lt;</a>
+				<a href="javascript:void(0);" class="btnRight" style="">&gt;</a>
+				<div class="clear"></div>
+			</div>
+			<?php
+			}
+			?>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+</div>
+<div id="linkContent">
+	<h6 class="friend_link clearfix">友情链接：</h6>
+	<ul class="clearfix">
+		<volist name="linksList" id="vo">
+			<compare name="key" type="neq" value="0">
+			<li class="separator">|</li>
+			</compare>
+			<li><a href="{$vo['url']}" target="_blank" title="{$vo['name']}">{$vo['name']}</a></li>
+		</volist>
+	</ul>
+	<div class="clear">&nbsp;</div>
+</div>

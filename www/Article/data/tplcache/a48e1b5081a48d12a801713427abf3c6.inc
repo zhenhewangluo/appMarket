@@ -1,0 +1,1 @@
+ <a href='[field:link/]' class='tagc'>[field:tag /]</a> 

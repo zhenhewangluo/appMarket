@@ -1,0 +1,10 @@
+{dede:field name='keywords'}Google,计划用多平台“Goo{/dede:field}
+{dede:field name='description'}iOS 5的一大重要特性就是Siri助手，甚至有消息称Apple还将在Apple TV里集成Siri来通过语音控制并给你推荐好节目。Google也拥有出色的语音识别和数据挖掘能力，他们当然不会眼瞅着Siri变成人见人爱的个人助手，有消息称Google内部正在测试一个代号为Majel的Google助手。{/dede:field}
+{dede:field name='title'}Google 计划用多平台“Google 助手”跟 Siri 竞争上岗{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

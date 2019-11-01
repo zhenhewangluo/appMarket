@@ -1,0 +1,32 @@
+<div class="infoLayerContent">
+{~$app_img_list = explode(';', $app['AppDeviceType'][0]['screenshots'])}
+    <div class="appInfo">
+        <div class="appInfoHeader">
+            <a href="{:U('App-Apps/detail', array('aid' => $app['app_id']))}" class="appIcon">
+                <img src="{:C('PICTURE_HOST')}{$app['AppDeviceType'][0]['icon']}" style="width:78px; height:78px;" alt="Icon" />
+            </a>
+            <h3 class="infoLayerTitle"><a href="{:U('App-Apps/detail', array('aid' => $app['app_id']))}">{$app['app_name']}</a></h3>
+            <div class="stars darkStars"> <div class="RatingStarsDark rating-{:round($app['app_score_www']*2/($app['app_starcount']+1e-5))}" ></div>({$app['app_downloads']})</div>
+        </div>
+        <div class="appInfoText">
+            <p>{$app['app_desc']}</p>
+        </div>
+        <div style="margin-top:10px;">
+            <a class="roundButton" href="{:U('App-Apps/detail', array('aid' => $app['app_id']))}" ><span style="font-weight:normal">查看详情</span></a>
+        </div>
+    </div>
+    <div id="appScreens" class="appScreens" style="text-align:center">
+    	<volist name="app_img_list" id="vo">
+	<compare name="i" type="eq" value="1">
+         <img id="screenshot_{$i}" src="{:C('PICTURE_HOST')}{$vo}" alt="" style="width:140px; height:233px; " />
+              <else/>
+       <img id="screenshot_{$i}" src="{:C('PICTURE_HOST')}{$vo}" alt="" style="width:140px; height:233px;  display:none;" />			  
+	</compare>    
+       </volist>
+        <div class="options">
+            <a href="#" onclick="prevScreen(); return false" class="btn_left">&lt;</a><span class="screensPager"><span id="currentScreen">1</span> / <span id="maxScreens">{$app_img_list|count}</span></span><a href="#" onclick="nextScreen(); return false" class="btn_right">&gt;</a>
+        </div>
+    </div>
+</div>
+<img src="../Public/images/infoLayerArrowTop.png" alt="" id="infoLayerArrowTop" />
+<img src="../Public/images/infoLayerArrowBottom.png" alt="" id="infoLayerArrowBottom" />

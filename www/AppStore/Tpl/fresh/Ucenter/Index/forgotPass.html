@@ -1,0 +1,89 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+<form id="common_login" method="post" action="{:U('Ucenter-Index/forgotPassAct')}" autocomplete="off">
+	<input type="hidden" name='callbackUrl' value="{$callbackUrl}">
+	<input type="hidden" name="acttype" value="{$acttype}">
+	<table>
+		{~$realType = C('ACTIVITY_NAME');}
+		<compare name="acttype" value="$realType" type="eq">
+		<tr>
+			<th>
+				手机号：
+			</th>
+			<td>
+				<input type="text" name="mobile" value="" />
+			</td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>
+				<input type="button" name="sendVerify" value="发送手机验证码" id="sendVerify" />
+			</td>
+		</tr>
+		<tr>
+			<th>
+				填写手机验证码：
+			</th>
+			<td>
+				<input type="text" name="mobileVefiry" value="" />
+			</td>
+		</tr>
+		<tr>
+			<th>
+				新密码：
+			</th>
+			<td>
+				<input type="password" name="password" value="" bind="repassword" pattern="pass" /><label></label>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				确认新密码：
+			</th>
+			<td>
+				<input type="password" name="repassword" value="" bind="password" pattern="pass" /><label></label>
+			</td>
+		</tr>
+		<else/>
+		<tr>
+			<th>
+				填写注册E-mail：
+			</th>
+			<td>
+				<input type="text" name="email" value="" />
+			</td>
+		</tr>
+		</compare>
+		<tr>
+			<th>
+				验证码：
+			</th>
+			<td>
+				<input type="text" name="verifyCard" value="" /><img style="cursor:pointer;" title="刷新验证码" src="{:U('AppStore://Base/verify')}" id="verifyImg" />
+			</td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>
+				<input type="submit" name="submit" value="重置密码" />
+			</td>
+		</tr>
+	</table>
+</form>
+<script type="text/javascript">
+	$(function(){
+		$('#verifyImg').click(function(){
+			var timenow = new Date().getTime();
+			$(this).attr('src', "{:U('AppStore://Base/verify?random=')}"+timenow);
+		});
+		$('#sendVerify').click(function(){
+			$.getJSON('{:U("Ucenter-Ajax/sendVerify")}', {mobile : $('input:[name="mobile"]').val(), type : 'forgot'}, function(data){
+				if(data.status == 1)
+				{
+					//do something...
+				}
+				alert(data.msg)
+			});
+		});
+	});
+</script>

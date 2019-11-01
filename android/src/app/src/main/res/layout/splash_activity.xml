@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Background Layer -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <!-- Title Bar -->
+        <!-- <include layout="@layout/title_notext" /> -->
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/splash" />
+    </LinearLayout>
+
+    <!-- Fancy progress bar -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView
+            android:id="@+id/progress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dip"
+            android:background="@drawable/loading_00"/>
+
+	<!-- carmack modify the dimen instead of ***dip in different size screen -->
+        <!-- include
+            android:id="@+id/progress"
+            android:layout_width="@dimen/splashactivity_progress_layout_width"
+            android:layout_height="@dimen/splashactivity_progress_layout_height"
+            android:layout_marginLeft="@dimen/splashactivity_progress_layout_marginLeft"
+            android:layout_marginTop="@dimen/splashactivity_progress_layout_marginTop"
+            layout="@layout/fancy_progressbar" -->
+    </LinearLayout>
+</FrameLayout>

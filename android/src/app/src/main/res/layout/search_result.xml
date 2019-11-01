@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+    <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+    
+ 	<!-- Content list -->
+	<LinearLayout
+		android:orientation="horizontal"
+ 		android:layout_width="fill_parent"
+ 		android:layout_height="fill_parent"
+ 		android:background="#e8e8e8"
+ 		>
+ 		
+			
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+			
+			<ListView
+		 		android:id="@+id/contentList"
+		 		android:layout_width="fill_parent"
+		 		android:layout_height="fill_parent"
+				android:divider="#00000000"
+				android:dividerHeight="0dip"
+				android:scrollbars="vertical"
+				android:scrollingCache="true"
+				android:cacheColorHint="#00000000"
+				android:listSelector="#00000000"
+				/>	
+				
+		</LinearLayout>
+	 		 		
+	 		
+	</LinearLayout>
+	
+</LinearLayout>

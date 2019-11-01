@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ebebeb"
+    android:orientation="vertical" >
+
+    <!-- Title Bar -->
+
+    <LinearLayout
+        android:id="@+id/linearlayout_top"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|top"
+        android:orientation="vertical" >
+
+        <!-- Title Bar -->
+
+        <include layout="@layout/title_notext" />
+        <!-- android:paddingTop="@dimen/leadactivity_textview_1_paddingTop" -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="50dip"
+            android:gravity="center_horizontal|top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/big_logo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:src="@drawable/logo_big" />
+
+            <TextView
+                android:id="@+id/textview_1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dip"
+                android:layout_marginTop="20dip"
+                android:gravity="center"
+                android:text="欢迎来到欢聚宝！"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textview_2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:gravity="center"
+                android:text="根据您的手机提供适配的应用和游戏"
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/textview_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="欢聚宝还为注册会员提供"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textview_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备份/恢复"
+                    android:textColor="#4fa5d0"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textview_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="功能"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- android:layout_height="@dimen/leadactivity_linearlayout_2_layout_height" -->
+
+    <LinearLayout
+        android:id="@+id/linearlayout_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical|top"
+        android:paddingLeft="@dimen/leadactivity_linearlayout_2_paddingLeft"
+        android:paddingRight="@dimen/leadactivity_linearlayout_2_paddingRight" >
+
+        <!--
+             android:layout_height="@dimen/leadactivity_linearlayout_3_layout_height"
+            android:layout_marginRight="@dimen/leadactivity_linearlayout_3_layout_marginRight"
+        -->
+        <!--
+      android:layout_width="@dimen/leadactivity_suggested_software_layout_width"
+                android:layout_height="@dimen/leadactivity_suggested_software_layout_hight"
+                android:layout_marginTop="@dimen/leadactivity_suggested_software_layout_marginTop"
+        -->
+
+        <include
+            android:id="@+id/suggested_software"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dip"
+            android:layout_weight="1"
+            layout="@layout/long_button" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+             android:layout_marginBottom="10dip"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="15dip"
+                android:layout_weight="1"
+                android:background="@drawable/btn_ok_selector"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/use"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dip"
+                android:layout_weight="1"
+                android:background="@drawable/btn_cancel_selector"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

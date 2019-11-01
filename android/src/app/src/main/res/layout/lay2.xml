@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/has_title_list_layout_height"
+        android:orientation="vertical" 
+        android:background="#e1e1e1">
+			
+			<!-- ImageView
+				android:layout_width="fill_parent"
+				android:layout_height="4dip"
+				android:scaleType="fitXY"
+				android:src="@drawable/c4"-->
+			
+			<RelativeLayout
+				android:id="@+id/loading_bg"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:background="#e1e1e1"
+				android:visibility="gone">
+				
+       			<ProgressBar
+               		android:id="@+id/progress"
+               		android:layout_width="wrap_content"
+               		android:layout_height="wrap_content"
+               		android:layout_marginLeft="120dip"
+               		android:layout_centerVertical="true"
+               		android:progress="0"
+                    android:max="100"
+                    android:indeterminateDrawable="@drawable/progressbar"
+               		style="?android:attr/progressBarStyle"
+               		android:indeterminate="true"
+               		android:indeterminateBehavior="cycle" />
+               
+       			<TextView
+               		android:layout_width="wrap_content"
+               		android:layout_height="wrap_content"
+               		android:layout_centerVertical="true"
+               		android:layout_toRightOf="@id/progress"
+               		android:layout_marginLeft="7dip"
+               		android:textSize="16dip"
+               		android:textColor="#f2bc18"
+               		android:textStyle="bold"
+               		android:text="@string/loading_bg_text" />
+				
+			</RelativeLayout>
+			
+		 	<ListView
+		 		android:id="@+id/contentList"
+		 		android:layout_width="fill_parent"
+		 		android:layout_height="fill_parent"
+				android:scrollbars="vertical"
+				android:scrollingCache="true"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="5dip"
+				android:cacheColorHint="#00000000"
+				android:dividerHeight="0dip"
+				android:divider="#00000000"
+				android:listSelector="#00000000"
+				/>
+		 		
+	</LinearLayout >

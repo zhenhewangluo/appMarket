@@ -1,0 +1,21 @@
+<div class="catebar f_l clear">
+	<h6><span><strong>分类浏览</strong></span></h6>
+	<dl class="catebar_list">
+		<dt>{$appCateTree[1]['name']}</dt>
+		<volist name="appCateTree[1]['_child']" id="vo">
+			<if condition="0 eq $key">
+			<dd class="b_n"><a href="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			<else/>
+			<dd><a href="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			</if>
+		</volist>
+		<dt>{$appCateTree[2]['name']}</dt>
+		<volist name="appCateTree[2]['_child']" id="vo">
+			<if condition="0 eq $key">
+			<dd class="b_n"><a href="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			<else/>
+			<dd><a href="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			</if>
+		</volist>
+	</dl>
+</div>

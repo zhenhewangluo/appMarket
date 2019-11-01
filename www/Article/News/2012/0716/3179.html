@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>本周Android新游TOP20_***</title>
+<meta name="keywords" content="Android新游,游戏TOP20" />
+<meta name="description" content="Android平台的新游戏增长已经越来越多，以至于我们挑选TOP10时很难进行取舍，许多精品游戏都值得推荐给大家，所以，本周继续加料。" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E7%9C%8B%E4%B9%A6/' target="_blank">看书</a><a href='/Article/tags.php?/%E7%BD%91%E6%98%93/' target="_blank">网易</a><a href='/Article/tags.php?/%E7%85%A7%E7%89%87%E5%BE%AE%E5%8D%9A/' target="_blank">照片微博</a><a href='/Article/tags.php?/%E5%93%86%E5%95%A6a%E6%A2%A6/' target="_blank">哆啦a梦</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">本周Android新游TOP20</h1>
+			<div class="articleInfo"><small>时间:</small>2012-04-13 16:50<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=3179&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	Android平台的新游戏增长已经越来越多，以至于我们挑选TOP10时很难进行取舍，许多精品游戏都值得推荐给大家，所以，本周继续加料。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	1.《虚拟城市2：天堂度假村》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	G5 Entertainment已经推出了该游戏的续作：《虚拟城市2：天堂度假村(Virtual City: Paradise Resort)》，让大家继续体验建造并管理一个城市的乐趣。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	在这款游戏中，地域已经扩展到了佛罗里达的海岸、阿拉斯加的雪地、犹他州的大山以及内华达州的苔原。游戏提供有超过50个挑战需要你去完成。你也可以建造写字楼、餐厅、酒店、夜总会、博物馆、滑雪场等73个不同建筑，并且有45种建筑可以升级和解锁，能够拥有42种不同的商品进行流通和交易，剧情模式则拥有29个不同的场景需要完成。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	目前这款游戏已经提供下载，需要安装80MB左右的数据包，支持中文显示。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20" src="/uploads/allimg/c120716/134242250CF-TJ2.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	2.《小鱼拉力赛》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	一款基于Tegra平台的Android游戏现在以及出现，来自于NVIDIA和合作开发商的这款《小鱼拉力赛(Jett Tailfin Racers THD)》同时支持Tegra 2和Tegra 3设备，让玩家体验到海底赛车的快感。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《小鱼拉力赛》是一款竞速游戏，不过玩家需要操控的不是赛车，而是各种小鱼，赛道就在海底。你需要通过解锁获得不同的鱼和赛道，同时可以借助不同的道具加速或者清除掉障碍物。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	这款游戏支持蓝牙或者USB控制器，USB手柄需要Android 3.1以上系统版本支持，可以与其他玩家进行局域网联网游戏。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	NVIDIA联合开发的Tegra游戏，肯定会要在图形上进行优化，这款游戏也不例外，提供有很棒的动态模糊和水下灯光等效果，
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20" height="288" src="/uploads/allimg/c120716/134242250MMP-cN7.jpg" width="512" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	3.《黑暗传说》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	Spacetime Studios时空工作室的这款《黑暗传说(Dark Legends)》从第一次发布预告到现在已经很久了，这家老牌Android网游开发商的新游戏现在终于揭开盖头，现在已经可以免费下载。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	这是一款关于狼人、僵尸、血等元素的吸血鬼题材免费MMORPG网游。自古以来，吸血鬼以谣言和传说生存在人类文明的影子之中，一种新的技术已经出现，可以证实吸血鬼真实存在。现在吸血鬼们已经开始躁动，在游戏中，玩家作为一名吸血鬼，要利用自己的超自然能力生存下来。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	这款游戏采用了3D引擎，支持多种网络连接，包括WiFi、EDGE、3G、4G，以及大部分移动设备，而时空工作室的服务器技术可以让所有玩家连接到同一个游戏世界进行联机，玩家与玩家之间可以进行PvP战斗。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20" height="309" src="/uploads/allimg/c120716/134242250V0M0-1030E.jpg" width="550" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	4.《掌上足球经理2012》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	世界上最畅销的足球管理游戏现在已经来到Android平台，世嘉刚刚发布了最新的《掌上足球经理2012(Football Manager Handheld 2012)》Android版本，我们也在第一时间为大家带来下载。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	目前这款游戏要求Android 2.2版以上系统支持，根据机型不同会要求下载7-19MB不等的数据包，还请大家自行开启WiFi下载。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	玩家可以选择12个国家的联赛，经营自己的俱乐部，包括转会、训练、战术布置等等，继承了PC版游戏的体验。游戏提供有生涯模式和挑战模式可选。12个国家包括澳大利亚、比利时、巴西、英格兰、法国、德国、荷兰、意大利、葡萄牙、苏格兰、西班牙和威尔士。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	目前这款游戏支持英语、法语、意大利语和西班牙语四种语言。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20" height="230" src="/uploads/allimg/c120716/134242250936140-11M15.jpg" width="383" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	5.《艾德温娜传说》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	Gamevil为Android平台又带来一款新的RPG动作游戏《艾德温娜传说(ADVENA)》，这款游戏之前已经在iOS平台出现，现在Android用户也可以玩到。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏的背景设计在佩拉丁大陆，来自那比联盟的魔法师和来自特姆斯的普通人和平共处，直到有一天，两个王国国界之间的圣树突然被发现遭到神秘地亵渎和毁坏。双方相互指责，最终演变为一场全面的战争。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	那比首先出击，而特姆斯立即给予了还击。那比军很快在特姆斯的强大进攻下彻底溃败，迫使那比国王开始找寻预言中的救世主。就像预言中提到的一样，一位来自另一世界的陌生人出现在那比国国土，他有着神秘的身世和强大的力量。嗯，这就是你了。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏提供有5位英雄可以组队，包含近战、远程、法师和治疗等角色，跟随角色可以由AI进行控制，玩家可以设定不同的AI状态，比如治疗、防御、团队出击等等。游戏提供有超过200个不同的关卡，而操作也继承了Gamevil的一款作风，操作感非常爽快。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20" src="/uploads/allimg/c120716/134242250c5920-12HQ.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<br />
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	6.《银河系撞击》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	IT-EO今天发布了他们最新的一款Android平台益智游戏《银河系撞击(Galaxy Pool)》，具备独特的玩法和流行的潜质，有趣的玩法、关卡设计，漂亮的图形效果，上手简单，加上具有挑战性的难度等等，会让玩家们消耗不少的时间。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏的玩法很简单，这是一款撞球游戏，玩家需要调整挡板的角度，让飞船最终回到星球上，途中要吃到越多的星星越好。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《银河系撞击(Galaxy Pool)》现在提供有50个关卡，分为两个大关，提供卡通式的画风和轻松的配乐。游戏的难度会逐级递增，挡板也会更加复杂，黑洞会让飞船的回家路程更加多变。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(2)" src="/uploads/allimg/c120716/1342422510V360-13VR.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	7.《炸弹人大战僵尸》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《炸弹人大战僵尸(Bomberman vs Zombies)》是Contlex Labs于近日推出的一款Android游戏，把炸弹人和僵尸结合在一起，让玩家们能够享受到把僵尸炸成灰的乐趣。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏采用触摸式操作，左侧为虚拟摇杆，可以控制角色移动，右侧为炸弹键，可以放出一颗地雷。玩法与《炸弹人》相同，炸弹会向四个方向喷出火焰造成伤害，注意不要被炸弹或者僵尸碰到就好。还有一点需要适应，角色在移动中不能释放炸弹，需要停止移动之后点击炸弹键。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏中的箱子里面藏着很多道具，会有很大帮助。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(2)" src="/uploads/allimg/c120716/13424225115a40-149539.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	8.《全民卡踏车》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《全民卡踏车(Bike Striker)》故事讲述王牌的单车特务“阿志跟小茜”出去巡逻，发现了“河尚和蚊仔”骑着单车正在偷鸡腿，于是出现警匪双方开展一场激烈单车追逐大战…
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏拥有众多的赛道，还有一些高科技的无敌道具供主角选择，极限的赛道大对决，世纪卡踏车黑白大战，等你一起来飙车！
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(2)" src="/uploads/allimg/c120716/1342422512514P-156305.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	9.《SAWS The Puridium War》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏时间是2210年，人类已经开始重建爆炸后的近地小行星，世界各地的蓝色碎片如雨点般落下。科学家们发现，晶体几乎摧毁了我们所有人，科学家开发了新的能源，举行了清洁能源使用秘密会议，将新的能源命名为Puridium，一个新时代诞生了。不幸的是，对Puridium感兴趣的不止人类。慢慢的吞噬的生物开始出现在世界各地，它们狩猎和寻找Puridium，并且会不择手段得到它，而现在我们已经居住在这蓝色的星球，吞噬生物开始威胁到人类的生存。<br />
+<br />
+在游戏中，玩家扮演的是属于SAWS Battalion下PFC Lucas的E25机器人。你宣誓捍卫人类，为了守卫人类，你必须杀死一切吞噬生物。作为一个特别的攻击性武器队的成员，你将驾驶有史以来最具破坏性的移动武器装备。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(2)" height="320" src="/uploads/allimg/c120716/13424225135S0-1E506.jpg" width="512" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	10.《掠夺之旅》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《掠夺之旅(Battleloot Adventure)》是一部发生在有点恶搞的幻想世界中的传统型策略RPG，玩家将带领一支小队，与暴走绵羊之类的各种无厘头的怪物搏斗。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏采用典型美式漫画风，特点鲜明，风格幽默，可玩性也不错，方便的触摸式操控会带给你更好的游戏体验。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(2)" src="/uploads/allimg/c120716/13424225142960-1GZ4.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	11.《灵魂争霸》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《灵魂争霸(SoulCraft)》一是款动作类RPG游戏，操作方式类似于Android平台一些经典作品的左手方向右手攻击，需要双手配合才能玩出好成绩。这款游戏背景设计在世界末日中，天使、人类和魔鬼为了争取到未来而完成各种任务。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏包含有五种不同的模式，包括竞技场、计时关、黑暗之门、水晶防御和BOSS战，场景涉及到意大利威尼斯、德国汉堡，未来还将放出纽约、东京和华盛顿等地图。在公测中，玩家只能允许扮演天使角色，人类和恶魔还需要等到稍后推出。MobileBits表示将随着测试的深入，游戏还将会加入更多的内容，包括场景、任务、法术、物品等等。<br />
+<br />
+现在这款游戏已经不再要求Tegra处理器了。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(3)" src="/uploads/allimg/c120716/1342422515024P-1W2H.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	12.《九霄惊魂》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《九霄惊魂(Panic Flight)》是一款很好玩的休闲游戏，目的是要求你不断收集到更多的金币，通过游戏奖励可以提升飞行器的能力，亦可购买新的机种。游戏单人模式包含许多有趣的任务，卡通式的画面非常可爱，游戏中还有龙卷风和不明飞行物来阻止你的行动，一定要万分小心。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(3)" height="288" src="/uploads/allimg/c120716/134242251605360-1bD2.jpg" width="512" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	13.《大企业》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《大企业(Big Business)》是一款模拟经营类游戏，在《大企业》游戏中，游戏中的城市建设不是即时形成的，玩家各种活动都是动态的，城市建设伴随着噪杂的人群和持续不断的施工轰鸣声中进行。另外，由于游戏运行流畅，Game Insight更是将建筑的过程分阶段呈现。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《大企业》的商业系统设计得十分精湛。城市各种建筑物之间的关联性很强，要求玩家平衡发展各种城市设施：人口数量要与住宅数量相适应，商品的产出要与市场的出售情况保持平衡，同时还要加紧建设运输和生产设施以引进开发更好的产品。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	由于《大企业》不再仅仅关注商品生产，因此玩家在游戏中要注重发展各种事物，其中十分重要的一项就是服务。玩家要不断加强譬如电力站等城市设施的服务能力以满足不断增长的城市人口。因此，城市发展越快，玩家就需提供更多更高品质的服务。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	另外，玩家建设的工业区或住宅区都有两大测量指数：生态指数和幸福指数。玩家每建造一个建筑物，生态指数就会有所下降，只能通过植树造林来回复。此外，玩家还需在城市中建设一定数量的娱乐性建筑以提高居民的幸福指数等，这类游戏游戏的建造不会影响生态指数。因此，《大企业》的关键在于和谐发展而不是一味地追求金钱。如果您也热衷于微管理，快到《大企业》建造属于自己的城市吧！
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(3)" height="288" src="/uploads/allimg/c120716/134242251D93P-204101.jpg" width="512" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	14.《一球爆破》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《一球爆破(Blast Ball)》是一款科幻线条风格的小游戏，你要控制小人将各种各样的球踢进左右两边的球门里，会有许多怪物来咬你，可以用球撞死它们，但不要碰到它们，否则你就Game Over了！十分有趣的小游戏，看看你能进多少分吧！
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(3)" src="/uploads/allimg/c120716/134242251R31F-212F4.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	15.《3D羽毛球》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《3D羽毛球(3D Badminton)》是一款好玩的羽毛球游戏。很好的3D展示效果，画面逼真，轻松体会运动的乐趣。准备好，表现出你很好的爆发力和反应能力，不要掉以轻心，集中精神，开始你的羽毛球大战！
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(3)" height="320" src="/uploads/allimg/c120716/134242251954450-226392.jpg" width="480" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	16.《雪人兄弟》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《雪人兄弟(Snow Bros)》相信年纪稍大一点的玩家没有人不玩过，当年经典的街机游戏之一。本作移植的是经典的街机90版。游戏6大关，共计50小关，分为三种难度模式，依次解锁，支持Openfeint。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《雪人兄弟》是一款在90年代引起轰动流行的街机游戏。得到许多来自世界各地的玩家的喜爱，雪人兄弟现在已经被移植到很多平台。现在移植到Android，任何人都可以轻松享受和发挥！
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏超过50个关卡，约20种的怪物。你也可以与其他玩家在排行榜和成就竞争。现在！让创建的雪球，击败怪物，拯救公主！如果拖延，南瓜鬼会出现骚扰你。所以一定要小心！
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(4)" height="512" src="/uploads/allimg/c120716/13424225205E40-232R7.jpg" width="307" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	17.《破冰男孩乔(Icy Joe)》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	3D版敲冰块，乔被困在一个山洞里，需要你的帮助！这里只有你和你的锤子-你需要扣杀，跳 ，打倒怪物然后回到阳光明媚的世界。超过50个级别的不同关卡。每个阶段有坏人，困惑和挑战的新鲜组合。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(4)" height="307" src="/uploads/allimg/c120716/13424225212120-242427.jpg" width="512" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	18.《微型格斗》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《微型格斗(Minibash)》是一款特别的格斗游戏，玩过PC上的《圆环格斗(Toribash)》一定对此不陌生！
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	游戏的核心是基于人体身上的关节结构来的，从控制人体关节的弯曲和伸缩来控制甚至影响全身运动状态。有别于普通格斗的轻中重拳(脚)或者是左右(拳)，左右(脚)等。游戏的可以说是有那么点暴力和血腥，别看游戏是以卡通渲染来制作的，可是“血肉横飞”这档子事儿也是时常发生的。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(4)" height="320" src="/uploads/allimg/c120716/1342422521N3F-255N0.jpg" width="480" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	19.《Pogo Games》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	来自EA的游戏，加入数百万人玩POGO游戏！尽情玩乐免费的拼图游戏、填字游戏和纸牌游戏，如Poppit！、Word Whomp、Turbo21、Mahjong Safari、Sweet Tooth 2和Phlinx。高级玩家和Pogo俱乐部成员还可以解锁一款新的奖励游戏——World Class Solitaire。
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(4)" height="307" src="/uploads/allimg/c120716/134242252245L0-2631D.jpg" width="512" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	20.《乐动达人》
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《乐动达人》是国内首款以华语流行音乐为主要介质的休闲音乐游戏。游戏内涵括了周杰伦、萧敬腾、蔡依林等多名国内知名歌手的歌曲，可谓是国内首款、原创、集百家之口味于一身的多元化音乐游戏。
+</p>
+<p style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	《乐动达人》融汇了各游戏平台的音乐游戏的优点，巧妙的将音乐与娱乐相结合，让玩家在弹奏歌曲时不知不觉融入到美妙的音乐节奏中。还在等什么，快来开始你的音乐之旅，做欢型的乐动达人！
+</p>
+<p align="center" style="margin-top:15px;margin-bottom:15px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;line-height:23px;white-space:normal;">
+	<img alt="再次加料本周Android新游TOP20(4)" src="/uploads/allimg/c120716/134242252321610-2JO9.png" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-style:initial;border-color:initial;" /> 
+</p>
+<p>
+	<br />
+</p>
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>驱动之家</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/3179.html">/Article/News/2012/0716/3179.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/3179.html";
+				var wumiiTitle = "本周Android新游TOP20";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/3179.html">本周Android新游TOP20</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/3178.html'>航空巨头波音将推Android手机 售价或达数万美元</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/3180.html'>华为平板电脑率先进入Android 4.0时代</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',3179)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',3179)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',3179)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(3179);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="3179" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=3179">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=3179&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '3179');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '3179');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:14pt;color:#e26c8a">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:12pt;color:#bac4de">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:10pt;color:#189293">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:pt;color:#b99cc">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:10pt;color:#6314cc">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:10pt;color:#1a3034">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:14pt;color:#4a9cea">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:pt;color:#4e6e7a">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:10pt;color:#1c386">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:pt;color:#44dfa">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:10pt;color:#236d4">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:pt;color:#9aa1f4">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:pt;color:#eb951">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:10pt;color:#02995">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:12pt;color:#16210">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:12pt;color:#f6a81">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:10pt;color:#8e62">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#6cc2b0">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:14pt;color:#8b8b6c">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:10pt;color:#864b24">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

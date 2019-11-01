@@ -1,0 +1,10 @@
+{dede:field name='keywords'}Android app泄私隐,被套信息{/dede:field}
+{dede:field name='description'}据香港《文汇报》3月5日报道，英国《星期日泰晤士报》利用软件追踪安卓（Android）手机下载智能手机用户下载程序（app）的数据传送，发现用户电话号码、电邮及位置等，最终会被传送至中国、印度、以色列及美国的公司。{/dede:field}
+{dede:field name='title'}英媒称Android app泄私隐 被套信息传遍美中印以{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

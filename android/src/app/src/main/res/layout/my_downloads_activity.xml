@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+
+    <!-- Content list -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#e4e4e4"
+        android:orientation="vertical" >
+			<TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/move_bg"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="下载管理"
+                android:textColor="#ffffff"
+                ></TextView>
+			<TextView
+            android:id="@+id/empty_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#e4e4e4"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:visibility="gone" />
+        <ListView
+            android:id="@+id/contentList"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="2dip"
+            android:cacheColorHint="#00000000"
+            android:divider="#000000"
+            android:dividerHeight="0dip"
+            android:listSelector="@color/transparent"
+            android:scrollbars="vertical"
+            android:scrollingCache="true" />
+
+    </LinearLayout>
+
+</LinearLayout>

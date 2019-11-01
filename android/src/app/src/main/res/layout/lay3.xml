@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/has_title_list_layout_height"
+        android:orientation="horizontal" >
+
+
+        <LinearLayout
+            android:layout_width="310dip"
+            android:layout_height="fill_parent"
+            android:background="#e4e4e4"
+            android:orientation="vertical" >
+
+
+            <RelativeLayout
+                android:id="@+id/loading_bg"
+                android:layout_width="310dip"
+                android:layout_height="fill_parent"
+                android:visibility="gone" >
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="100dip"
+                    android:indeterminate="true"
+                    android:indeterminateBehavior="cycle"
+                    android:indeterminateDrawable="@drawable/progressbar"
+                    android:max="100"
+                    android:progress="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="7dip"
+                    android:layout_toRightOf="@id/progress"
+                    android:text="@string/loading_bg_text"
+                    android:textColor="#fff"
+                    android:textSize="16dip"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- <RelativeLayout
+                android:id="@+id/no_content"
+                android:layout_width="310dip"
+                android:layout_height="fill_parent"
+                android:background="@drawable/c4"
+                android:visibility="gone" >
+            </RelativeLayout> -->
+
+            <LinearLayout
+                android:id="@+id/down_Desc"
+                android:layout_width="310dip"
+                android:layout_height="45dip"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:layout_width="251dip"
+                    android:layout_height="45dip"
+                    android:layout_gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/downDesc"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dip"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/refresh_app"
+                        android:textColor="#b50001" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <GridView
+                android:id="@+id/contentList3"
+                android:layout_width="310dip"
+                android:layout_height="@dimen/has_title_list_height"
+                android:cacheColorHint="#00000000"
+                android:divider="@color/transparent"
+                android:dividerHeight="2dip"
+                android:listSelector="@null"
+                android:scrollbars="vertical"
+                android:scrollingCache="true" />
+        </LinearLayout>
+
+    </LinearLayout>

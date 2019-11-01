@@ -1,0 +1,10 @@
+{dede:field name='keywords'}业务员,手机打电话,突发性{/dede:field}
+{dede:field name='description'}28岁的张先生是名业务员，为了方便联系客户，他配了两个手机，其中一个手机还是双卡双待，就这样用3个电话号码24小时开机维持业务往来。不久前，张先生开始经常感到耳朵胀痛、听力下降，时不时还有耳鸣、头晕症状。直到昨天，张先生在接电话时，忽然感到一阵天旋地转，耳朵听不到声音，只有微{/dede:field}
+{dede:field name='title'}男子经常用手机打电话患“突发性耳聋”{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

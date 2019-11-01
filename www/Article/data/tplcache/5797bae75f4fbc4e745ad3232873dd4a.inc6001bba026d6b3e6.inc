@@ -1,0 +1,45 @@
+<?php
+$z[0]=Array("sppage","",0,73);
+$z[0][4]['sptype']="full";
+$z[0][4]['srul']="1";
+$z[0][4]['erul']="5";
+$z[1]=Array("previewurl","http://www.apkge.com/info/1533.html",75,145);
+$z[2]=Array("keywordtrim","",147,184);
+$z[3]=Array("descriptiontrim","",186,231);
+$z[4]=Array("item","\n   {dede:match}<title>[内容]</title>{/dede:match}\n   \n   {dede:function}{/dede:function}\n",233,391);
+$z[4][4]['field']="title";
+$z[4][4]['value']="";
+$z[4][4]['isunit']="";
+$z[4][4]['isdown']="";
+$z[5]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",393,529);
+$z[5][4]['field']="writer";
+$z[5][4]['value']="";
+$z[5][4]['isunit']="";
+$z[5][4]['isdown']="";
+$z[6]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",531,667);
+$z[6][4]['field']="source";
+$z[6][4]['value']="";
+$z[6][4]['isunit']="";
+$z[6][4]['isdown']="";
+$z[7]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}@me=GetMkTime(@me);{/dede:function}\n",669,825);
+$z[7][4]['field']="pubdate";
+$z[7][4]['value']="";
+$z[7][4]['isunit']="";
+$z[7][4]['isdown']="";
+$z[8]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",827,963);
+$z[8][4]['field']="body";
+$z[8][4]['value']="";
+$z[8][4]['isunit']="1";
+$z[8][4]['isdown']="1";
+$z[9]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",965,1107);
+$z[9][4]['field']="download_url";
+$z[9][4]['value']="";
+$z[9][4]['isunit']="";
+$z[9][4]['isdown']="";
+$z[10]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",1109,1245);
+$z[10][4]['field']="app_id";
+$z[10][4]['value']="";
+$z[10][4]['isunit']="";
+$z[10][4]['isdown']="";
+
+?>

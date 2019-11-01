@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#e4e4e4"
+    android:layout_gravity="center_vertical"
+    android:layout_margin="20dip"
+    >
+
+
+    <LinearLayout
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="25dip"
+	    android:layout_marginRight="25dip"
+	    android:layout_marginTop="15dip">
+    
+    	<ImageView
+			android:id="@+id/star1"
+			android:layout_width="37dip"
+			android:layout_height="35dip"
+			android:scaleType="fitXY"
+			android:src="@drawable/star_selected" />
+	
+		<ImageView
+			android:id="@+id/star2"
+			android:layout_width="37dip"
+			android:layout_height="35dip"
+			android:scaleType="fitXY"
+			android:layout_marginLeft="10dip"
+			android:src="@drawable/star_selected" />
+			
+		<ImageView
+			android:id="@+id/star3"
+			android:layout_width="37dip"
+			android:layout_height="35dip"
+
+			android:scaleType="fitXY"
+			android:layout_marginLeft="10dip"
+			android:src="@drawable/star_selected" />
+			
+
+		<ImageView
+			android:id="@+id/star4"
+			android:layout_width="37dip"
+			android:layout_height="35dip"
+			android:scaleType="fitXY"
+			android:layout_marginLeft="10dip"
+			android:src="@drawable/star_selected" />
+
+			
+		<ImageView
+			android:id="@+id/star5"
+			android:layout_width="37dip"
+			android:layout_height="35dip"
+			android:scaleType="fitXY"
+			android:layout_marginLeft="10dip"
+			android:src="@drawable/star_selected" />
+			
+
+    </LinearLayout>
+    
+    <TextView
+    	android:id="@+id/rating_ref_text"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dip"
+		android:gravity="center_horizontal"
+		android:textColor="#db6607"
+		android:textSize="15dip"
+		android:textStyle="bold"
+		android:text=" "/>
+			
+	
+
+	<!-- update comment -->
+	    
+	<include layout="@layout/long_button"
+		android:id="@+id/update_comment_btn"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dip"
+		android:layout_marginLeft="30dip"
+		android:layout_marginRight="30dip"
+		android:layout_marginBottom="15dip"
+		android:layout_gravity="center"
+		/>
+
+
+</LinearLayout>

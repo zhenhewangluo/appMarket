@@ -1,0 +1,7 @@
+[ 2013-02-04T00:03:05+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-04T19:09:47+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-04T19:10:41+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-04T20:26:27+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/RegisterUser/index.html]
+[ 2013-02-04T20:52:04+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-04T20:53:45+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-04T21:47:01+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)

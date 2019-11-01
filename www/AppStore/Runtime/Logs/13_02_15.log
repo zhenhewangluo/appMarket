@@ -1,0 +1,7 @@
+[ 2013-02-15T01:12:07+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2013-02-15T02:33:44+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-15T02:46:55+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-15T02:48:55+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-02-15T02:51:21+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-15T02:53:10+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-02-15T03:27:17+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)

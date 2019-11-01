@@ -1,0 +1,44 @@
+<script type='text/javascript'>
+	$(function(){
+        var time = parseInt('{$waitSecond}');
+        var interval = setInterval(function(){
+            if(time>0){
+                $('#light').html(time--);
+            } else{
+				clearInterval(interval);
+				window.location.href = "{$jumpUrl}";
+            }
+        },1000);
+    });
+</script>
+
+<div class="content">
+	<div class="httpError">
+		<div class="left">
+			<img src="../Public/images/picProblem.png" alt="">
+		</div>
+		<div class="right">
+			<h1>{$message}</h1>	
+			<present name="message" >
+				<p>
+					{$msgTitle}
+				</p>
+			</present>
+			<ul>
+				<present name="error" >
+				<li>{$error}</li>
+				</present>
+				<present name="closeWin" >
+						<li>系统将在 <span id="light" style="float:none;color:blue;font-weight:bold">{$waitSecond}</span> 秒后自动关闭，如果不想等待,直接点击 <a href="{$jumpUrl}">这里</a> 关闭</li>
+				</present>
+				<notpresent name="closeWin" >
+						<li>系统将在 <span id="light" style="float:none;color:blue;font-weight:bold">{$waitSecond}</span> 秒后自动跳转,如果不想等待,直接点击 <a href="{$jumpUrl}">这里</a> 跳转</li>
+				</notpresent>
+			</ul>
+			<p>
+				&nbsp;<br>
+				返回 <a href="/">***</a>.
+			</p>
+		</div>
+	</div>
+</div>

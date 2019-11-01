@@ -1,0 +1,121 @@
+* {margin: 0px;padding: 0px;}
+body{ background:url(./image/body_bg.png) left top; font-size:12px}
+a{ text-decoration:none;color:#333}
+ul,li{list-style:none;float:left;}
+/**/
+.top{ width:985px;height:80px; margin:0 auto; }
+.top .pic{ float:left;margin: 5px 0 0 0;}
+.top .nav{ width:540px; height:42px;float:left; margin:35px 0px 0px 30px ;}
+.top .nav ul{position:relative;}
+.top .nav p{ margin-top:1px;line-height: 120%;}
+.top .nav ul li { width:70px;height:46px;text-align:center; margin-right:20px;cursor:pointer;}
+.top .nav ul li a{ font-size:13px; }
+.top .nav ul li a:hover{ color:#f60;}
+
+.top .nav ul li.back{background:url(./image/nav_hover.gif) no-repeat center bottom; cursor:pointer; z-index:9999;position:absolute;height:16px;bottom:0;}
+
+.zhuce{width:50px;height:25px;padding-right:3px;line-height:25px;float:right;background:#6C6C6C; color:#FFF}
+.line{width:10px;height:25px; font-weight:bold;line-height:25px;float:right;background:#6C6C6C; color:#FFF}
+.zhuce a{ color:#FFF}
+.zhuce:hover { background:#f60}
+.zhuce {color:#FFF;position:relative;width:50px;height:25px;text-align:center;line-height:25px;float:right;cursor:pointer;background:#6C6C6C ;z-index:102}
+.zhuce:hover{ background:#f60;}
+/*.zhuce:hover #reg {display:block; }*/
+#reg {display:none;position:absolute;top: 25px;left: -195px;width: 258px;height: 248px;background:url(./image/reg.png) no-repeat center center;text-align:center;color:#999; z-index:1;}
+#reg dd{ margin-left:10px;margin-top:10px; margin-bottom:5px;*margin-bottom:2px;font-weight: bold;color:#333;position:relative;}
+#reg button{
+	width:72px;
+	height:24px;
+	background:url(./image/sendVerify.png) no-repeat;
+	color:#fff;
+	font-weight:bold;
+	border:none;
+	position:absolute;
+	right:25px;
+	bottom:1px;
+	cursor:pointer;
+}
+#reg dd input{border:none;}
+
+.login {color:#FFF;position:relative;width:50px;height:25px;text-align:center;line-height:25px;float:right;cursor:pointer;background:#6C6C6C ;z-index:102}
+.login:hover{ background:#f60;}
+/*.login:hover #login {display:block; }*/
+#login {display:none;position:absolute;top:25px;left:-165px;width:210px;height:120px;background: url(./image/dengk.png) no-repeat center center;
+text-align:center;color:#999; }
+#login dd{ margin-left:10px; margin-bottom:5px;}
+.input{ background:url(./image/input.gif) no-repeat; border:none ; width:139px; height:24px; padding-left:10px ;line-height:150%;*line-height:24px;font-size: 12px;display:inline}
+.anniu{ background:url(./image/submit.gif) no-repeat; color:#FFF; width:44px; height:23px;border:none; cursor:pointer;}
+.checkbox{float:left; margin-left:5px;padding-top:5px; }
+
+.showUpdatePassBox{position:relative;cursor:pointer;z-index:102}
+.updatePassBox{display:none;}
+.updatePassBox input {border:none;}
+.updatePassBox_input, .reg_box_input{margin-left:5px;background:url(./image/updatePassBox_input.png) no-repeat left top;width:144px;height:26px;line-height:150%;}
+
+
+
+.showUpdatePassBox:hover{color:#f60;}
+.updatePassBox {display:none;position:absolute;top:18px;left:-205px;width:258px;height:193px;background: url(./image/updatePass.png) no-repeat left top;
+text-align:center;color:#999;}
+.top .exit dl.updatePassBox dd{float:none;margin:10px 0;font-weight: bold;color:#333;} 
+.updatePassBox{display:none;position:absolute;top:25px;left:-205px;width:258px;height:193px;background: url(./image/updatePass.png) no-repeat center center;
+text-align:center;color:#999;}
+li.showUpdatePassBox .updatePassBox dd{line-height:150%;margin:10px 0;font-weight: bold;color:#333;}
+.top .exit{ width: 260px;height:25px; float:right; margin-top:10px}
+.top .exit dl dt { float:left ; margin-right:20px}
+.top .exit dl dd{ float:left;margin-right:20px}
+
+
+
+.slides{width:1200px; height:350px; background:url(./image/bannersmall.png) no-repeat top; position:absolute;left:-107px;}
+
+
+
+.content1 { width:905px; margin:0 auto}
+.content1 .duobj { width:905px; height:53px; background:url(./image/duo_bj.png) no-repeat center bottom; text-align:center ;}
+.jpic{ width:30px; height:100%; margin-top:55px;margin-left:2px}
+.content1 .pic{ margin-top:2px}
+
+
+
+.content1 .huigu{ background:#f36a1a; height:45px; width:905px; margin:0 auto; text-align:center ; float:left; padding-top:10px} 
+.content1 div.time{ width:905px; height:200px; background:url(./image/nr_bj.png) no-repeat center center; margin:0 auto; float:left;}
+.textsize{ font-size:20px; margin:20px 0 0 20px; }
+.time{ font-size:60px; text-align:center; margin:30px 0 0 60px}
+.time span{ margin:0 5px; color:#f36a1a}
+
+
+.banner{
+	width:985px; height:350px;position:relative;margin: 0 auto;
+}
+
+
+
+
+.footer1{ height:70px; float:left; line-height:70px; text-align:center; width:100%; color:#eee; background:url(./image/footer.png) repeat-x center bottom; margin-top:10px}
+
+
+
+.buddy_add_form li
+{
+	display:block;
+	float:none;
+}
+div.award_bar ul li
+{
+	display:block;
+	float:none;
+}
+div.award_bar ul
+{
+	display:block;
+	float:none;
+}
+ul.buddy_list_btns
+{
+	float:left;
+}
+ul.buddy_list_btns  li
+{
+	margin-left:20px;
+}

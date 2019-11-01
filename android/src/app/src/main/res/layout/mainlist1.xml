@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 创建存放一行数据的组件 -->
+  
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:descendantFocusability="blocksDescendants">
+
+    <TableRow >
+        <FrameLayout 
+            android:id="@+id/bottombar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip" >
+
+            <ImageView
+                android:id="@+id/logotypes"
+                android:layout_width="100dip"
+                android:layout_height="100dip"
+                android:src="@drawable/default_image" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/jifen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:shadowRadius="3.0"
+                android:text="积分×××"
+                android:textColor="#000000" >
+            </TextView>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="10dip"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/adtitle"
+                android:layout_width="150dip"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/jianjie"
+                android:layout_width="150dip"
+                android:layout_height="wrap_content"
+                android:text="×××××××××××××××××××××××××××××××××××××××" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dip"
+            android:layout_height="100dip"
+            android:orientation="vertical" 
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/enter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="30dip"
+                android:focusable="false"
+                android:text="兑奖" >
+            </Button>
+        </LinearLayout>
+    </TableRow>
+
+</TableLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><![CDATA[
+<div>
+	<ul class="activity_user_nav">
+		<li>我的邀请记录</li>
+		<li>我的投票记录</li>
+		<li>我的被投记录</li>
+	</ul>
+	<div class="infoList pullList">
+		<table>
+			<tr>
+				<th>邀请号码</th>
+				<th>发送时间</th>
+<!--				<th>当前状态</th>-->
+			</tr>
+			<volist name="pullList['advises']" id="vo">
+			<tr>
+				<td class="win_mobile">{$vo['phone']|deMaskPhone=false}</td>
+				<td class="win_date">{$vo['adviseDate']}</td>
+<!--				<td class="win_status">
+					<compare name="vo['feedbacked']" value="1" type="eq">已支持<else/>等待支持</compare>
+				</td>-->
+			</tr>
+			</volist>
+		</table>
+		<div class="page">{$pullList['pageShow']}</div>
+	</div>
+	<div class="infoList pushList" style="display:none;">
+		<table>
+			<tr>
+				<th>所投号码</th>
+				<th>投票时间</th>
+<!--				<th>被投人当前人气</th>
+				<th>被投人当前排名</th>-->
+			</tr>
+			<volist name="pushList['advises']" id="vo">
+			<tr>
+				<td class="win_mobile">{$vo['phone']|deMaskPhone=false}</td>
+				<td class="win_date">{$vo['adviseDate']}</td>
+<!--				<td></td>
+				<td></td>-->
+			</tr>
+			</volist>
+		</table>
+		<div class="page">{$pushList['pageShow']}</div>
+	</div>
+	<div class="infoList voteList" style="display:none;">
+		<table>
+			<tr>
+				<th>所投号码</th>
+				<th>投票时间</th>
+			</tr>
+			<volist name="voteList['advises']" id="vo">
+			<tr>
+				<td class="win_mobile">{$vo['phone']|deMaskPhone=false}</td>
+				<td class="win_date">{$vo['adviseDate']}</td>
+			</tr>
+			</volist>
+		</table>
+		<div class="page">{$voteList['pageShow']}</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.activity_user_nav li').each(function(e){
+				var thisNode = $(this);
+				thisNode.hover(function(){
+					$('.infoList').hide();
+					$('.infoList').eq(e).show();
+				});
+			});
+		});
+	</script>
+</div>]]></root>

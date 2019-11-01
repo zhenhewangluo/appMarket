@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* 
+    Document   : test
+    Created on : 2012-4-10, 12:10:17
+    Author     : xuhao
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+* html{background-image:url(about:blank);overflow-x: hidden; overflow-y: visible;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,button,a{padding:0;margin:0;font-size:100%;outline: none;}
+label input{vertical-align:middle;}
+a:link,a:visited{text-decoration:none;color:#333;outline: none;}
+a:hover,a:active{text-decoration:underline;outline: none;}
+body{font:12px/1.5 Tahoma, "微软雅黑", Arial, Helvetica, sans-serif;color:black;background-color:#fff;text-align:center}
+img{border:0;vertical-align:middle;}
+table{border-collapse:collapse}
+ul li{list-style-type:none}
+hr{height:1px;border:none;border-top:1px solid #e4e4e4;overflow:hidden}
+hr.dashed{border-top:1px dashed #e4e4e4}
+a.hidefocus{outline:none} 
+button.hidefocus::-moz-focus-inner{border:none} 
+.green{color:#8fc21d}
+.brown{color:#a40000}
+.gray{color:#4f4f4f}
+.normal_gray{color:#666}
+.dark_gray{color:#3f3f3f}
+.light_gray{color:#999}
+.black{color:#000}
+.orange{color:#d66b03}
+.red{color:#ff3200}
+.blue{color:#0082C8}
+.c_l{float:left;width:48%}
+.c_r{float:left;width:48%;margin-left:1.5%}
+.f_l{float:left}
+.f_r{float:right}
+.t_l{text-align:left}
+.t_r{text-align:right}
+.t_c{text-align:center}
+.b_n{border:none;}
+.hidden{visibility:hidden}
+.clearfix:after{display:block;visibility:hidden;clear:both;height:0;content:"."}
+input.normal{height:25px;line-height:25px;padding-left:5px;width:191px;border:1px #d7d7d7 solid;margin-right:5px}
+.activity_html_body{width:980px;margin:0 auto;}
+.wrapper{width:980px;}
+/*-----------------#pageOne-----------------*/
+.header{height:150px;border:1px solid #333;position:relative;}
+.logo{float:left;margin-top:25px;}
+.nav{width:500px;position: absolute;left:200px;bottom:50px;}
+.nav li{display:inline;font-size: 13px;padding:0 10px;}
+.login_info{margin-right:40px;margin-top:20px;}
+.login_info li{display: inline;padding:20px;}
+.activity_login_form, .activity_reg_form{width:220px;border:1px solid #333;padding:5px;position: absolute;right:0;top:0;}
+.activity_login_form table, .activity_reg_form table{margin:10px 0 0 10px;}
+.activity_login_form table td, .activity_reg_form table td{padding:5px 0;}
+.activity_login_form{height:110px;}
+.activity_reg_form{height:130px;}
+.wallPaper{height:350px;border:1px solid #333;position:relative;}
+.activity_info{height:180px;border:1px solid #333;}
+.footer{height:40px;border:1px solid #333;}
+.start_btn{width:160px;height:40px;position:absolute;right:20px;bottom:20px;border:1px solid #333;font-size:18px;line-height:200%;}
+/*-----------------#pageOneEnd-----------------*/
+/*-----------------#pageTwo-----------------*/
+.nav_btn{height:40px;border:1px solid #333;font-size:13px;line-height:200%;}
+.nav_btn p{padding:5px;}
+.user_panel_left{width:360px;height:360px;background:gold;}
+.user_panel_list{width:310px;background:yellow;height:360px;}
+.activity_user_panel{height:360px;}
+.user_panel_title{font-size:28px;text-align:left;margin:10px 0 0 10px;}
+.user_panel_info{font-size:60px;margin-top:60px;}
+.user_count{position:relative;right:-20px;bottom:-100px;font-size:16px;}
+/*.user_info{margin:10px 0 0 10px;height:60px;}
+.user_info dt{margin-right:10px;}
+.user_info dt img{width:75px;height:58px;}
+.user_info dd{text-align: left;}*/
+.user_panel_list h6{font-size:13px;text-align:left;text-indent:20px;border-top:1px solid #333;height:20px;}
+.user_info{height:160px;margin:0 auto;}
+
+.user_info thead{height:64px;}
+.user_info thead img{height:58px;width:75px;}
+.user_dynamic{height:170px;}
+.show_me_the_money{height:320px;border:1px solid #333;}
+.user_contacts{height:560px;}
+.user_contacts h6{font-size:28px; text-align: left;text-indent:56px;width:50%;}
+.search_contacts{width:50%;}
+.user_contacts_btns{height:50px;clear:both;text-align:left;font-size:16px;padding:10px 0 0 50px;}
+.user_contacts_btns ul li{display:inline;}
+.user_contacts_list{height:360px;overflow:auto;}
+.user_contacts table{width:100%;overflow:hidden;height:360px;}
+/*-----------------#pageTwoEnd-----------------*/
+/*-----------------#test-----------------*/
+.page ul li{float: left;margin: 0 5px;}
+/*-----------------#test-----------------*/

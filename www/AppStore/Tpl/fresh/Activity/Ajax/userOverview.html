@@ -1,0 +1,266 @@
+<div class="wrap">
+	<div class="header" >
+		<div class="header_left">
+			<div class="back">
+				<a href="#" class="go_activity_home"><img src="../Public/activity/image/back.png"  /></a>
+			</div>
+			<div style="clear:both"></div>
+			<div class="header_top">
+				<div class="top_left">
+					<div class="l_t">我的排名</div>
+					<div class="l_m l_m_rank">
+						<dl>
+							<dd style="color:#f60;">{$dbUserinfo['voteRanking']|number_format}</dd>
+							<dd class="l_mdd">当前玩家总数<span class="l_mddspan1">{$activeInfo['partincount']|number_format}</span>位</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="top_right">	
+					<div class="l_t">与前一位相差</div>
+					<div class="l_m l_m_div">
+						
+						<?php
+							$strlen = strlen($dbUserinfo['voteBeforeCount']);
+							$newnum="";
+							for ($i = 0; $i < $strlen; $i++) {
+								$number = intval(substr($dbUserinfo['voteBeforeCount'],$i,1));
+								$newnum.="<em class='vote_count_".$number."'></em>";
+							}
+						?>
+						<span class="l_mddspan2">{$newnum}</span>
+						<span style="font-size:40px">票</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="right_t">
+				<ul>
+					<li class="show_username" style="margin:0px 10px 0px 0px;display:inline">{~if(isset($userinfo['username']) && !empty($userinfo['username'])) echo $userinfo['username'];else echo $userinfo['mobile']}</li>
+					<li class="showUpdatePassBox">修改密码
+						<dl class="updatePassBox">
+							<form method="post" action="{:U('Ucenter-Ajax/updatePass')}" name="overview_updatePass_form" autocomplete="off" id="overview_updatePass_form">
+								<dd style="margin-top:30px;margin-left:13px;">您的密码：<input class="updatePassBox_input" type="password" name="pwd" pattern="pass" required /></dd>
+								<dd style="margin-left:23px;">新密码：<input class="updatePassBox_input" type="password" name="newpwd" pattern="pass" required /></dd>
+								<dd>确认新密码：<input class="updatePassBox_input" type="password" name="newrepwd" pattern="pass" required /></dd>
+								<dd>
+									<input class="anniu" type="submit" name="submit" value="确定" />
+								</dd>
+							</form>
+						</dl>
+						</li>
+					<li><a href="javascript:void(0);" class="logout">退出</a></li>
+				</ul>
+			</div>
+			<div class="r_t">
+				<div class="tx"><img src="{$webUhead[2]}" width="78" height="77" /></div>
+				<dl>
+					<dt>
+						<span class="edit_username">{$userinfo['username']}</span>
+						<span  class="edit_username_box" style="display: none;">
+							<input name="edit_username_input" value="{$userinfo['username']}" />
+						</span>
+					</dt>
+					<dd class="piao"><p>当前票数</p><p>{$dbUserinfo['voteCount']}</p></dd>
+					<dd><p>好友数</p><p>{$dbUserinfo['buddyCount']}</p></dd>
+				</dl>
+			</div>
+			<div class="r_m">
+				<ul class="user_dynamic_tab">
+					<li class="user_dynamic_tab_title">动态</li>
+
+					<li class="user_dynamic_tab_title">被投票</li>
+
+<!--					<li class="user_dynamic_tab_title">被拉票</li>-->
+
+<!--					<li class="user_dynamic_tab_title">投票</li>-->
+					<li class="user_dynamic_tab_title">拉票</li>
+				</ul>
+				<div class="m_fri showVticker">
+					<div class="user_dynamic">
+						<ul class="">
+							<volist name="voteAllList" id="vo">
+								{~$voteName = isset($vo['vote_name']) && !empty($vo['vote_name']) ? $vo['vote_name'] : deMaskPhone($vo['vote_phone'], false);}
+								<li>{$voteName} 刚刚给 {:isset($vo['partake_name']) && !empty($vo['partake_name']) ? $vo['partake_name'] : deMaskPhone($vo['partake_phone'])} 进行了投票</li>
+							</volist>
+						</ul>
+
+	<!--					<ul style="display:none;">
+							<volist name="voteAllList" id="vo">
+								{~$voteName = isset($vo['vote_name']) && !empty($vo['vote_name']) ? $vo['vote_name'] : deMaskPhone($vo['vote_phone']);}
+								<li>{:isset($vo['partake_name']) && !empty($vo['partake_name']) ? $vo['partake_name'] : deMaskPhone($vo['partake_phone'])} 刚刚给 {$voteName} 进行了投票</li>
+							</volist>
+						</ul>
+						<ul style="display:none;">
+							<volist name="voteAllList" id="vo">
+								{~$voteName = isset($vo['vote_name']) && !empty($vo['vote_name']) ? $vo['vote_name'] : deMaskPhone($vo['vote_phone']);}
+								<li>{:isset($vo['partake_name']) && !empty($vo['partake_name']) ? $vo['partake_name'] : deMaskPhone($vo['partake_phone'])} 刚刚给 {$voteName} 进行了投票</li>
+							</volist>
+						</ul>-->
+
+					</div>
+					<div class="voteMeInfo" style="display:none;">
+						<ul>
+							<compare name="voteMeInfo" type="eq" value="false">
+							<li>暂无信息</li>
+							<else/>
+							<volist name="voteMeInfo" id="vo">
+								{~$voteName = isset($vo['nickname']) && !empty($vo['nickname']) ? $vo['nickname'] : deMaskPhone($vo['phone'], false);}
+								<li>{$voteName} 刚刚给我投票了</li>
+							</volist>
+							</compare>
+						</ul>
+					</div>
+					<div class="inviteMeInfo" style="display:none;">
+						<ul>
+							<volist name="inviteMeInfo" id="vo">
+								{~$voteName = isset($vo['nickname']) && !empty($vo['nickname']) ? $vo['nickname'] : deMaskPhone($vo['phone'], false);}
+								<li>我刚刚给 {$voteName} 拉票了</li>
+							</volist>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="r_b"></div>
+		</div>
+	</div>
+	<div  style="clear:both"></div>
+	<div class="content2">
+		<div class="c_t">
+			<img src="../Public/activity/image/txlu.png" alt="通讯录" />
+			<div id="search">
+				<input class="search" type="text" name="keyword" value="请输入想要查询的好友手机号..." />
+				<input class="send" type="submit" name="search" value="" />
+			</div>
+		</div>
+<!--		<div class="buddy_add_box" style="display:none;" id="show_buddy_add_box">
+			<ul class="buddy_add_form">
+				<li><textarea name="add_buddy_phone" style="width:300px;min-height:30px;overflow-y:visible;vertical-align: middle;" contenteditable="true"></textarea> 好友手机号</li>
+				<li><label><input type="checkbox" name="add_invite" /> 同时邀请好友</label></li>
+				<li><input type="submit" name="submit" value="添加" class="buddy_add" /></li>
+			</ul>
+		</div>-->
+		<div class="c_m">
+			<div class="c_mnr">
+				<div class="mnr_t">
+					<label style="float:left;display: inline-block;margin: 30px 30px 0 3px;">
+						<input type="checkbox" name="selectAllBuddy"  onclick="selectAll('buddyPhone[]');" /> 全选
+					</label>
+					<ul class="buddy_list_btns">
+						<li><span class="buddy_invites"></span></li>
+						<li><span class="selectPhoneBook"></span></li>
+						<li><span class="buddy_dels"></span>
+						<!--								<span class="buddy_add_btn"></span>--></li>
+					</ul>
+					<span class="disp" style="float:right;" >显示个数：
+						<a href="javascript:void(0);" onclick="setListRow(20);">20</a>/
+						<a href="javascript:void(0);" onclick="setListRow(30);">30</a>/
+						<a href="javascript:void(0);" onclick="setListRow(40);">40</a>/
+						<a href="javascript:void(0);" onclick="setListRow(-1);">All</a>
+					</span>
+				</div>
+				<div class="buddy_add_form_box">
+					<input type="text" name="add_buddy_phone" class="add_buddy_phone_input" /> <input type="submit" class="buddy_add_btn" value="" /> <label><input type="checkbox" name="add_invite" style="vertical-align: middle;" /> 同时邀请好友</label>
+				</div>
+				<div class="mnr_m buddys_list">
+					<table width="921px" border="0" align="center" cellpadding="0" cellspacing="10">
+						<volist name="buddyList" id="vo">
+							<tr id="buddy_id_{:deMaskPhone($vo['phone'], false)}">
+								<td>
+									<input name="buddyPhone[]" type="checkbox" value="{:deMaskPhone($vo['phone'], false)}" />
+								</td>
+								<td class="buddy_name_td">{$vo['name']}</td>
+								<td class="buddy_phone_td">{:deMaskPhone($vo['phone'], false)}</td>
+								<td>
+									<?php
+										if($vo['astatus'] == 0)echo '邀请好友支持我！';
+										else echo'已拉票';
+									?>/
+									<?php
+										if($vo['vstatus'] == 0)
+											echo '支持该好友';
+										else
+										{
+											if($vo['vstatus'] == 1)echo'已投票！';
+											else echo '未注册';
+										}	
+									?>
+								</td>
+								<td><a href="javascript:void(0);" class="buddy_edit orange">编辑</a></td>
+								<td>
+									<a href="javascript:void(0);" class="buddy_del">
+										<img src="../Public/activity/image/del.gif" width="24" height="19" border="0" />
+									</a>
+								</td>
+								<td>
+									<a href="javascript:void(0);" class="buddy_vote"></a>
+								</td>
+								<td>
+									<a href="javascript:void(0);" class="buddy_invite"></a>
+								</td>
+							</tr>
+							<tr style="display: none;">
+								<td>
+									<input type="checkbox" value="{:deMaskPhone($vo['phone'], false)}" />
+									<input name="buddyPhone" type="hidden" value="{:deMaskPhone($vo['phone'], false)}" />
+								</td>
+								<td><input type="text" class="buddy_edit_input" name="buddyName" value="{$vo['name']}"/></td>
+								<td><input type="text" class="buddy_edit_input" name="buddyNewphone" value="{:deMaskPhone($vo['phone'], false)}"/></td>
+								<td>
+									<?php
+										if($vo['astatus'] == 0)echo '邀请好友支持我！';
+										else echo'已拉票';
+									?>/
+									<?php
+										if($vo['vstatus'] == 0)
+											echo '支持该好友';
+										else
+										{
+											if($vo['vstatus'] == 1)echo'已投票！';
+											else echo '未注册';
+										}	
+									?>
+								</td>
+								<td><a href="javascript:void(0);" class="buddy_save green">保存</a></td>
+								<td>
+									<a href="javascript:void(0);" class="buddy_cancel">
+										<img src="../Public/activity/image/del.gif" width="24" height="19" border="0" title="取消" />
+									</a>
+								</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</volist>
+					</table>
+				</div>
+				<input name="list_row" type="hidden" value="10" />
+				<div class="mnr_b clearfix">
+					<label style="float:left;display: inline-block;margin: 20px 30px 0 3px;">
+						<input type="checkbox" name="selectAllBuddy"  onclick="selectAll('buddyPhone[]');" /> 全选
+					</label>
+					<ul class="buddy_list_btns" style="margin-top: 20px;">
+						<li><small class="buddy_invites">邀请选中好友投票</small></li>
+						<li><small class="selectPhoneBook">上传通讯录</small></li>
+						<li><small class="buddy_dels">批量删除好友</small></span>
+						<!--								<small class="buddy_add_btn">添加好友</small>--></li>
+					</ul>
+					<span class="disp" style="float:right;" >显示个数：
+						<a href="javascript:void(0);" onclick="setListRow(20);">20</a>/
+						<a href="javascript:void(0);" onclick="setListRow(30);">30</a>/
+						<a href="javascript:void(0);" onclick="setListRow(40);">40</a>/
+						<a href="javascript:void(0);" onclick="setListRow(-1);">All</a>
+					</span>
+				</div>
+				<div id="page">
+					{$page}
+				</div>
+			</div>
+		</div>
+		<div class="c_b"></div>
+	</div>
+	<div class="footer2">
+		<div class="f_text">
+			<h5 class="text"><span class="text_re">Copyright : 2010-2012 Hjapp Rights Reserved</span><span>Copyright : 2010-2012 Hjapp Rights Reserved</span></h5>		
+		</div>
+	</div>
+</div>

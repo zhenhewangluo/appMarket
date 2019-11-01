@@ -1,0 +1,10 @@
+{dede:field name='keywords'}Android 4.0系统,三星i9250,售{/dede:field}
+{dede:field name='description'}这款三星i9250以首款搭载了Android4.0 系统手机的身份以及自身强悍的配置吸引了无数关注。同时GALAXY Nexus支持NFC、蓝牙3.0技术，并且加入了3G、LTE网络的支持，在目前的智能手机市场算得上是顶级旗舰产品，今天笔者从睿风电讯得到消息，该机仅售2899元，喜欢的朋友可多关注一下。{/dede:field}
+{dede:field name='title'}原生Android 4.0系统 三星i9250售价2899元{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

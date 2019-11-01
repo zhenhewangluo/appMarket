@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comment_list"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#e4e4e4"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/loading_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ProgressBar
+                android:id="@+id/comm_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="100dip"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/progressbar"
+                android:indeterminateOnly="true"
+                android:max="100"
+                android:progress="0" />
+
+            <TextView
+                android:id="@+id/background_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="7dip"
+                android:layout_toRightOf="@id/comm_progress"
+                android:text="@string/loading_bg_text"
+                android:textColor="#0000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/no_comments"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ececec"
+            android:gravity="center"
+            android:text="@string/get_comments_no_comment"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/comments"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="0dip"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000"
+            android:dividerHeight="5dip"
+            android:listSelector="#00000000"
+            android:scrollbars="vertical"
+            android:scrollingCache="true" />
+    </LinearLayout>
+
+</LinearLayout>

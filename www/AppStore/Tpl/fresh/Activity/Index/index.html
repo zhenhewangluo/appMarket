@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9" />
+		<link type="image/x-icon" href="__PUBLIC__/images/favicon.ico" rel="icon" />
+		<link type="image/x-icon" href="__PUBLIC__/images/favicon.ico" rel="bookmark" />
+		<title>欢聚夺宝</title>
+		<meta name="generator" content="{$meta_generator}" />
+		<meta name="keywords" content="{$meta_keywords}" />
+		<meta name="description" content="{$meta_description}" />
+		<link href="../Public/activity/activity.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+		<script type='text/javascript' src="__PUBLIC__/js/artdialog/jquery.artDialog.js?skin={$css}"></script>
+		<script type='text/javascript' src="__PUBLIC__/js/common.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.cycle.all.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.vticker-min.js"></script>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+		<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+		<script type='text/javascript' src="../Public/activity/activity.js"></script>
+	</head>
+	<body>
+		<a id="back-to-top" href="http://www.hjapp.com" title="返回***"></a>
+		<div class="container clearfix">
+			<div class="activity_t"></div>
+			<div class="activity_middle" style="color:#fff;text-align: left;text-indent: 44px;font-weight:bold;font-size:22px;line-height:44px;">
+<!--				<div class="activity_award_bg">
+					<ul class="award_list_box_s">
+						<li>
+							<img src="{:C('UPLOAD_PATH')}activity/award_desc_01_s.png" />
+							<img src="{:C('UPLOAD_PATH')}activity/award_icon_01.png" />
+						</li>
+						<li>
+							<img src="{:C('UPLOAD_PATH')}activity/award_desc_02_s.png" />
+							<img src="{:C('UPLOAD_PATH')}activity/award_icon_02.png" />
+						</li>
+					</ul>
+				</div>-->
+				<p style="text-indent:0;padding:8px 20px 0px;">亲爱的夺宝用户：</p>
+				<p style="padding:8px 20px 0px;">我们的夺宝一期活动已经圆满结束，投票功能已关闭。恭喜手机号<span style="color:#c95e1c;">153****8066</span>的用户获得了我们的<span style="color:gold;">皇冠大奖</span>，<span style="color:#c95e1c;">156****8893</span>，<span style="color:#c95e1c;">182****5305</span>等20位用户获得了我们的<span style="color:gold;">钻石大奖</span>，我们将于一周内进行奖品的颁发与获奖用户的采访，请各位随时关注我们的***与夺宝页面的最新动态，二期夺宝活动将于近期全新推出，敬请期待！</p>
+				<p style="text-align:right;padding:0 30px;">北京***科技有限公司</p>
+				<div class="download_client_box">
+					<a href="{:U('AppStore://App-Apps/appDownloadAct?aid=6055446');}">***客户端下载</a>
+				</div>
+			</div>
+			<div class="activity_award_detail">
+				<div class="award_box">
+					<ul class="award_list_box">
+						<li>
+							<table>
+								<tr>
+									<td class="award_icon">
+										<img src="{:C('UPLOAD_PATH')}activity/award_icon_01.png" style="width:84px;height:112px;" />
+									</td>
+									<td class="award_desc">
+										<img src="{:C('UPLOAD_PATH')}activity/award_desc_01.png" />
+									</td>
+								</tr>
+							</table>
+						</li>
+						<li>
+							<table>
+								<tr>
+									<td class="award_icon">
+										<img src="{:C('UPLOAD_PATH')}activity/award_icon_02.png" style="width:105px;height:60px;" />
+									</td>
+									<td class="award_desc">
+										<img src="{:C('UPLOAD_PATH')}activity/award_desc_02.png" />
+									</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+					<ul class="award_page_list"></ul>
+				</div>
+				<div class="user_area">
+					<if condition="(isset($dUinfo) AND ($dUinfo['userid'] gt 0)) ">
+					<div class="info_form">
+						<table>
+							<col width="100">
+							<col />
+							<tr>
+								<th>手机号：</th>
+								<td>{$dUinfo['mobile']}</td>
+							</tr>
+							<tr>
+								<th>我的人气：</th>
+								<td>{$dUinfo['pageUserActive'][0]['votecount']}</td>
+							</tr>
+							<tr>
+								<th>我的排名：</th>
+								<td>{$dUinfo['pageUserActive'][0]['voteranking']}</td>
+							</tr>
+						</table>
+						<table>
+							<col width="150">
+							<col />
+							<tr>
+								<th><a href="javascript:void(0);" id="logout" class="action_btn">退出</a></th>
+								<td><a href="javascript:void(0);" id="resetPass" class="action_btn">修改密码</a></td>
+							</tr>
+							<tr>
+								<th><a href="javascript:void(0);" id="invite" class="action_btn">邀请好友</a></th>
+								<td><a href="javascript:void(0);" id="supMeList" class="long_btn">支持我的好友列表</a></td>
+							</tr>
+						</table>
+					</div>
+					<else />
+					<div class="login_form">
+<!--						<form method="get" action="{:U('AppStore://Activity-Index/loginAct')}" id="act_login" autocomplete="off">
+							<table>
+								<col width="60">
+								<col />
+								<col width="70">
+								<tr>
+									<th>手机号：</th>
+									<td colspan="2"><input type="text" class="input_box" name="mobile" pattern="mobi" value="" alt="请输入正确的手机号" /><label>　</label></td>
+								</tr>
+								<tr>
+									<th>密　码：</th>
+									<td colspan="2"><input type="password" pattern="pass" class="input_box" name="password" value="" alt="密码在6到32位之间" /><label>　</label></td>
+								</tr>
+								<tr>
+									<th>验证码：</th>
+									<td><input pattern="verify" type="text" class="input_box" name="verifyCard" value="" /><label>　</label><img style='cursor:pointer' title='刷新验证码' src="{:U('AppStore://App-RegisterUser/verify')}" id='verifyImg' onClick="fleshVerify()" /></td>
+									<td></td>
+								</tr>
+								<tr>
+									<th></th>
+									<td colspan="2"><a href="javascript:void(0);" id="reg">注册夺宝</a>　<a href="javascript:void(0);" id="resetPass">忘记密码</a></td>
+								</tr>
+								<tr>
+									<th></th>
+									<td colspan="2"><input type="submit" class="login_btn" value="登录" /></td>
+								</tr>
+							</table>
+						</form>-->
+						<a href="{:U('AppStore://Common-Index/reg', array('acttype' => $acttype))}">注册</a>
+						<a href="{:U('AppStore://Common-Index/login', array('acttype' => $acttype))}">登录</a>
+						<a href="{:U('AppStore://App-Apps/detail', array('aid' => 6006867))}">绑定</a>
+					</div>
+					</if>
+				</div>
+			</div>
+			<div class="left_con f_l">
+				<div class="activity_desc"></div>
+				<div class="activity_dynamic_t"></div>
+				<div class="activity_dynamic_c">
+					<div class="activity_dynamic_box">
+						<ul>
+						<volist name="allVoteLists" id="vo">
+							<li><em>{$vo['adviseDate']}</em><span style="color:#703206;">{$vo['phone']|deMaskPhone}</span>给<span style="color:#c95e1c;">{$vo['tuserPhone']|deMaskPhone}</span>投票了</li>
+						</volist>
+						</ul>
+					</div>
+				</div>
+				<div class="activity_dynamic_b"></div>
+			</div>
+			<div class="right_con f_r">
+				<div class="activity_rank">
+					<div class="activity_rank_t"></div>
+					<div class="rankList">
+						<ul class="activity_rank_c">
+						<volist name="rankLists['voteLists']" id="vo">
+							<li <compare name="key" value="0" type="eq"> style="border:none;"</compare>>
+								<em class="f_r">{$vo['votecount']}</em>
+								<strong>
+									<span <compare name="key" value="3" type="lt">style="background-position: center -{:$key * 61}px;text-indent:-9999px;"</compare>>{$i}</span>
+									{$vo['phone']|deMaskPhone}
+								</strong>
+							</li>
+						</volist>
+						</ul>
+						<div class="page">
+						{$rankLists['pageShow']}
+						</div>
+					</div>
+					<div class="activity_rank_b"></div>
+				</div>
+				<div class="next_activity">
+<!--					<p>神秘的戈壁大沙漠里，隐藏着惊人的宝藏，目前我们的探险队挖掘的皇冠和宝石只是凤毛麟角，相信在下一次的勘探工作中我们挖掘的宝藏将会更加惊人丰厚！让我们一起期待下一次的夺宝活动吧！</p>-->
+				</div>
+			</div>
+			<div class="container_b">
+			</div>
+			<div class="footer">
+				<ul>
+					<li><a href="{:U('AppStore://App-Block/aboutUs')}">关于我们</a></li>
+					<li><a href="{:U('AppStore://App-Block/agreement')}">服务条款</a></li>
+					<li><a href="{:U('AppStore://App-Block/devNotes')}">开发者须知</a></li>
+					<li><a href="{:U('AppStore://App-Block/disclaimer')}">免责声明</a></li>
+				</ul>
+				<p>Copyright &copy; 2010-2011 SkyXLink Ltd. Rights Reserved</p>
+			</div>
+			<script type="text/javascript">
+			$(function(){
+				$(window).scroll(function(){
+					$("#back-to-top").show();
+				});
+				var getUrl = '{:U("AppStore://Activity-Index/")}';
+				$('.activity_dynamic_box').vTicker({
+					speed: 500,
+					pause: 3000,
+					showItems: 10,
+					animation: 'fade',
+					mousePause: true,
+					height: 650,
+					direction: 'down'
+				});
+				$('.award_list_box').cycle({ 
+					speed:       600, 
+					timeout:     2000, 
+					pause:	true,
+					rev:1,
+					fx: 'scrollVert',
+					pagerAnchorBuilder: pagerFactory,
+					pager:      '.award_page_list',
+					cleartypeNoBg: true
+				});
+				$('.award_list_box_s').cycle({ 
+					speed:       600, 
+					timeout:     2000, 
+					//pagerEvent: 'mouseover',
+					pause:	true,
+					rev:1,
+					fx: 'scrollVert',
+					cleartypeNoBg: true
+				});
+				$('.login_btn').click(function(){
+					var obj = {
+						mobile		: $('#act_login input:[name="mobile"]').val(),
+						password	: $('#act_login input:[name="password"]').val(),
+						verifyCard	: $('#act_login input:[name="verifyCard"]').val(),
+						__hash__	: $('#act_login input:[name="__hash__"]').val()
+					};
+					if(checkInfo(obj, 'act_login') == true)
+					{
+						sendInfo(getUrl + 'loginAct', obj, true);
+					}
+					return false;
+				});
+				$('#reg').click(function(){
+					getWin(getUrl + 'reg', 'regWin', '注册夺宝');
+				});
+				$('#invite').click(function(){
+					getWin(getUrl + 'invite', 'inviteWin', '邀请好友', false, 'auto', 'auto', '10px', 1);
+				});
+				$('#resetPass').click(function(){
+					getWin(getUrl + 'resetPass', 'resetPassWin', '重置密码');
+				});
+				$('#supMeList').click(function(){
+					getWin(getUrl + 'getAllUserInfo', 'userInfoId', '', false, '600px', '400px', 0);
+				});
+				$('#logout').click(function(){
+					$.getJSON(getUrl + 'logout', function(data){
+						getDialog(data.msg, 'succeed', true);
+					});
+				});
+			});
+			function fleshVerify(){
+				//重载验证码
+				var timenow = new Date().getTime();
+				$('#verifyImg').attr('src', "{:U('AppStore://App-RegisterUser/verify?random=')}"+timenow);
+			}
+			function getDynamic()
+			{
+				$.getJSON('{:U("AppStore://Activity-Index/getDynamic")}', function(data){
+					if(data.status == 1)
+					{
+						$('.activity_dynamic_box ul').prepend(data.msg);
+						$('.activity_dynamic_box li.slide' + data.infoId).slideDown('500');
+					}
+				});
+			}
+			function pagerFactory(idx) {
+				return '<li style="*display:inline;"><a href="#">'+(idx+1)+'</a></li>';
+			};
+			var t = setInterval('getDynamic()', 10000);
+			function ajax_page(p, action)
+			{
+				var tmp = $('.' + action + 'List').html();
+				if(action == 'rank')
+				{
+					$('.' + action + 'List').html('<ul class="activity_rank_c"><li style="border:none;">loading......</li></ul>');
+				}
+				else
+				{
+					$('.' + action + 'List').html('loading......');
+				}
+				$.getJSON("{:U('AppStore://Activity-Index/getAllUserInfo')}", {'p':p, 'action' : action} ,function(data){
+					if(data.status == 1)
+					{
+						$('.' + action + 'List').html(data.msg);
+						return false;
+					}
+					alert(data.msg);
+					$('.' + action + 'List').html(tmp);
+					return false;
+				});
+			}
+			</script>
+		</div>
+		<div style="display: none;">
+			<script src="http://s17.cnzz.com/stat.php?id=3865865&web_id=3865865" type="text/javascript"></script>
+		</div>
+	</body>
+</html>

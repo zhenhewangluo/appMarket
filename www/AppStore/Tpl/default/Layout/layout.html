@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9" />
+	<title>{$title}{$sub_title}{$page_title}{$app_title}</title>
+	<meta name="generator" content="{$meta_generator}" />
+	<meta name="keywords" content="{$meta_keywords}" />
+	<meta name="description" content="{$meta_description}" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+	<script type='text/javascript' src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+	<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+	<script type='text/javascript' src="__PUBLIC__/js/artdialog/jquery.artDialog.js?skin=aero"></script>
+	<script type='text/javascript' src="__PUBLIC__/js/common.js"></script>
+</head>
+<body>
+	<!-- 顶部用户登录信息 -->
+	<div class="header_fixbar">
+		<ul>
+			<li>
+				<a class="user_conf" href="###" style="">设置</a>
+			</li>
+			<if condition="$webUid gt 0">
+			<li>
+				<a href="{:U('AppStore://RegisterUser/logout')}">退出</a>
+			</li>
+			<li>
+				<a href="{:U('AppStore://RegisterUser/ucenter')}">
+					<img class="user_head" src="__ROOT__/{$webUhead[2]}" />
+				</a>
+			</li>
+			</if>
+			<li>
+				<if condition="$webUid gt 0">
+					<a href="{:U('AppStore://RegisterUser/ucenter')}">
+						{$webUname}
+					</a>
+				<else/>
+					<a href="{:U('AppStore://RegisterUser/login')}">登录</a>
+				</if>
+			</li>
+			<if condition="$webUid elt 0">
+			<li>
+				<a id="user_login" href="{:U('AppStore://RegisterUser/index')}">注册</a>
+			</li>
+			</if>
+		</ul>
+	</div>
+	<!-- 顶部用户登录信息 -->
+	<!-- 布局开始 -->
+	<div class="wrapper clear">
+		<!-- 页面头部  -->
+		<div class="header">
+			<h1 class="logo f_l">
+				<!--<a title="{$title}" href="{:U('AppStore://Index/index')}" style="background: url({:APP_PATH}/Data/logo.gif) no-repeat left top;">{$title}</a>-->
+				<img src="{:APP_PATH}/Data/logo.png" style="width:167px;height:60px;" />
+			</h1>
+		<!-- 	<ul class="shortcut">
+				<li>
+					<a href="javascript:void(0);">应用程序</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);">我的应用库</a>
+				</li>
+			</ul> -->
+		</div>
+		<!-- 页面头部 -->
+		<!-- 导航栏 -->
+		<div class="navbar">
+			<ul>
+				<li class="home_page"><a href="__APP__">首页</a></li>
+				<volist name="category" id="vo">
+					<if condition="$vo['id'] eq 5">
+						<li><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a></li>
+					</if>
+					<if condition="$vo['id'] eq 6">
+						<li><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a></li>
+					</if>
+				</volist>
+				<li><a href="{:U('AppStore://Topic/index')}">专题</a></li>
+				<li><a href="{:U('AppStore://Developer/index')}">开发者</a></li>
+				<li><a href="{:U('AppStore://PointMall/index')}">积分商城</a></li>
+			</ul>
+			<div class="global_search f_l">
+				<form method="get" action="{:U('AppStore://Search/index')}">
+					{__NOTOKEN__}
+					<div class="search_bg">
+						<input type="text" name="key_word" id="search_input" value="" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- 导航栏 -->
+		<!-- 页面主体 -->
+		<div class="viewcontent clear">
+			<!-- layout::$viewcontent::0 -->
+		</div>
+		<!-- 页面主体 -->
+	</div>
+	<!-- 布局结束 -->
+	<div class="link">
+	</div>
+	<!-- 页面底部 -->
+	<div class="footer clear">
+		<div class="subfooter">
+			<ul>
+				<li><a href="{:U('AppStore://Block/aboutUs')}">关于我们</a></li>
+				<li><a href="{:U('AppStore://Block/agreement')}">服务条款</a></li>
+				<li><a href="{:U('AppStore://Block/hr')}">诚聘英才</a></li>
+				<li><a href="{:U('AppStore://Block/help')}">帮助信息</a></li>
+				<li><a href="{:U('AppStore://RegisterUser/ucenter')}">用户中心</a></li>
+			</ul>
+		</div>
+		<p>Copyright &copy; 2010-2011 SkyXLink Ltd. Rights Reserved</p>
+	</div>
+	<!-- 页面底部 -->
+</body>
+</html>

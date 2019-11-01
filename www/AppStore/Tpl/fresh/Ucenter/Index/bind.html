@@ -1,0 +1,85 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+绑定{$bindtype}	
+<form id="common_login" method="post" action="{:U('Ucenter-Index/bindAct')}" autocomplete="off">
+
+	<input type="hidden" name='callbackUrl' value="{$callbackUrl}">
+	<input type="hidden" name="acttype" value="{$acttype}">
+	<table>
+		{~$activityName = C('ACTIVITY_NAME');}
+		{~$bbsName = C('BBS_NAME');}
+		<compare name="acttype" value="$activityName" type="eq">
+		<tr>
+			<th>
+				手机号：
+			</th>
+			<td>
+				<input type="text" name="mobile" value="" />
+			</td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>
+				<input type="button" name="sendVerify" value="发送手机验证码" id="sendVerify" />
+			</td>
+		</tr>
+		<tr>
+			<th>
+				填写手机验证码：
+			</th>
+			<td>
+				<input type="text" name="mobileVefiry" value="" />
+			</td>
+		</tr>
+		<elseif condition="$acttype eq $bbsName"/>
+		<tr>
+			<th>
+				昵称：
+			</th>
+			<td>
+				<input type="text" name="nickname" value="" />
+			</td>
+		</tr>
+		<else/>
+		<tr>
+			<th>
+				E-mail：
+			</th>
+			<td>
+				<input type="text" name="email" value="" />
+			</td>
+		</tr>
+		</compare>
+		<tr>
+			<th>
+				验证码：
+			</th>
+			<td>
+				<input type="text" name="verifyCard" value="" /><img style="cursor:pointer;" title="刷新验证码" src="{:U('AppStore://Base/verify')}" id="verifyImg" />
+			</td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>
+				<input type="submit" name="submit" value="确定" />
+			</td>
+		</tr>
+	</table>
+</form>
+<script type="text/javascript">
+	$(function(){
+		$('#verifyImg').click(function(){
+			var timenow = new Date().getTime();
+			$(this).attr('src', "{:U('AppStore://Base/verify?random=')}"+timenow);
+		});
+		$('#sendVerify').click(function(){
+			$.getJSON('{:U("Ucenter-Ajax/sendVerify")}', {mobile : $('input:[name="mobile"]').val(), type : 'bind'}, function(data){
+				if(data.status == 1)
+				{
+					//do something...
+				}
+				alert(data.msg)
+			});
+		});
+	});
+</script>

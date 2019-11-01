@@ -1,0 +1,10 @@
+{dede:field name='keywords'}Android平板,GO Launcher HD Be{/dede:field}
+{dede:field name='description'}根据国外媒体报道，在我购入Galaxy Nexus之前，我一直都是GO Launcher EX的死忠。其实最开始的时候我并不愿意去尝试它，不过在我的一个好朋友的强力推荐下我试用了一整天，之后就再也离不开它了。现在我已经无法想象一台Android 4.0之前版本系统的手机如果不安装GO Launcher EX会有多难用。{/dede:field}
+{dede:field name='title'}进军Android平板 GO Launcher HD Beta版{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

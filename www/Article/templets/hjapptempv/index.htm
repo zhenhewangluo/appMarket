@@ -1,0 +1,307 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+
+<title>{dede:global.cfg_webname/}-精品手机应用下载平台！</title>
+
+<meta name="description" content="{dede:global.cfg_description/}" />
+
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+
+<link type="text/css" rel="stylesheet" href="{dede:global.cfg_cmsurl/}/templets/style/css.css" />
+
+<link rel="alternate" type="application/rss+xml" href="{dede:global.cfg_cmsurl/}data/rssmap.html" title="***" />
+
+<meta property="wb:webmaster" content="23cab78c53cb9f9a" />
+
+<meta http-equiv="Cache-Control" content="max-age=7200" />
+
+<script type="text/javascript" src="{dede:global.cfg_cmsurl/}/templets/js/dedeajax2.js"></script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(
+
+function($){
+
+$("img").lazyload({
+
+placeholder : "{dede:global.cfg_templeturl/}/images/grey.gif",
+
+effect      : "fadeIn"
+
+});
+
+});
+
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+
+<body>
+
+{dede:include filename="head2.htm"/}
+
+<div class="mainBox">
+
+	<div class="featured">
+
+		{dede:arclist flag='f' row='8' titlelen='30'}
+
+		<div class="item"> <a href="[field:arcurl/]" target="_blank"><img src="{dede:global.cfg_cmsurl/}/[field:litpic/]" alt="[field:title function='html2text(@me)'/]" width="220" /></a> <a href="[field:arcurl/]" class="box" target="_blank">详细内容</a>
+
+			<!--<h2><a href="[field:arcurl/]" target="_blank">[field:title function='html2text(@me)'/]</a></h2>
+-->
+		</div>
+
+		{/dede:arclist}
+
+	</div>
+
+	<div class="mleft">
+
+		<div class="conList">
+
+			{dede:arclist row=10 titlelen=120 infolen='300'}
+
+			<div class="g">
+
+				<h2><span>分类：<a href="[field:typeurl/]" target="_blank">[[field:typename/]]</a></span><a href="[field:arcurl/]" target="_blank" title="[field:title  function='html2text(@me)' /]">[field:title function="cn_substr(Html2text(@me),75)" /]</a><em class="list_time">[field:stime/]</em></h2>
+
+				<p>[field:array runphp='yes']@me = (strpos(@me['litpic'],'defaultpic') ? "" : "<a href='{@me['arcurl']}' class='imgview' target='_blank'><img src='{@me['litpic']}' align='right' alt='{@me['title']}' width='100' height='100'/></a>"); [/field:array] [field:description  function="cn_substr(Html2text(@me),300)"/]... <a href="[field:arcurl/]" target="_blank">阅读全文&gt;&gt;</a> <span class="data"><em class="list_view">[field:click/]围观</em><em class="list_tag">标签：[field:id function=GetTags(@me)/] 
+
+		   </em></span> </p>
+
+			</div>	
+
+			{/dede:arclist}
+
+		</div>
+
+		<!--con 结束-->
+
+		<div class="listbox">
+
+			{dede:channelartlist typeid = '1,2,4,5,9,17'}
+
+			<div class="chNews">
+
+				<h3><strong><a href="{dede:field name='typeurl'/}">{dede:field name='typename'/}</a></strong><span><a href="{dede:field name='typeurl'/}">更多>></a></span></h3>
+
+				{dede:arclist row=1 orderby=pubdate type='image.' imgwidth='120' imgheight='95' titlelen='60' infolen='80'}
+
+				<div class="category_dis">
+
+					<a href="[field:arcurl/]" title="[field:title/]" target="_blank">[field:image/]</a><h4><a href="[field:arcurl/]" target="_blank" title="[field:title/]">[field:title/]</a></h4><p>[field:info/]...</p>
+
+				</div>
+
+				{/dede:arclist}
+
+				<ul>
+
+					{dede:arclist titlelen='60' limit='1,4'}
+
+					<li><a href="[field:arcurl /]" target="_blank">[field:title /]</a></li>
+
+					{/dede:arclist}
+
+				</ul>
+
+			</div>
+
+			{/dede:channelartlist}
+
+		</div>
+
+		<!--listBox 结束-->	
+
+	</div>
+
+	<!--左边内容 结束-->
+
+	<div class="mright">
+
+		<div class="rBox"> 
+
+<!--
+AD  250x250
+-->
+<script src='{dede:global.cfg_cmsurl/}/plus/ad_js.php?aid=21' language='javascript'></script>
+
+</div>
+
+		<!--右边内容 结束-->
+
+		<div class="rBox">
+
+			<h2 class="title"><strong>TOP</strong><span class="diggtab"> <em id="diggnav1" onmouseover="javascript:tabDivcnt('digg',1,3,'cut')" class="cut"><a href="#"  target="_blank">最近</a></em> <em id="diggnav2" onmouseover="javascript:tabDivcnt('digg',2,3,'cut')"><a href="#" target="_blank">本周</a></em> <em id="diggnav3" onmouseover="javascript:tabDivcnt('digg',3,3,'cut')"><a href="#"  target="_blank">本月</a></em> </span> </h2>
+
+			<ul id="diggcnt1" class="diggArea">
+
+				{dede:arclist row=10 titlelen=80 noflag='h' orderby='hot' subday='5' }
+
+				<li>
+
+					<div class="diggNum"><a href="[field:arcurl/]" target="_blank">[field:click/]</a></div>
+
+					<div class="diggLink"><a href="[field:arcurl/]" target="_blank">[field:title/]</a></div>
+
+				</li>
+
+				{/dede:arclist}
+
+			</ul>
+
+			<ul id="diggcnt2" class="diggArea" style="display:none;">
+
+				{dede:arclist row=10 titlelen=80 noflag='h' orderby='hot' subday='7' }
+
+				<li>
+
+					<div class="diggNum"><a href="[field:arcurl/]" target="_blank">[field:click/]</a></div>
+
+					<div class="diggLink"><a href="[field:arcurl/]" target="_blank">[field:title/]</a></div>
+
+				</li>
+
+				{/dede:arclist}
+
+			</ul>
+
+			<ul id="diggcnt3" class="diggArea" style="display:none;">
+
+				{dede:arclist row=10 titlelen=80 noflag='h' orderby='hot' subday='30' }
+
+				<li>
+
+					<div class="diggNum"><a href="[field:arcurl/]" target="_blank">[field:click/]</a></div>
+
+					<div class="diggLink"><a href="[field:arcurl/]" target="_blank">[field:title/]</a></div>
+
+				</li>
+
+				{/dede:arclist}
+
+			</ul>
+
+		</div>
+
+		<div class="rBox">
+
+		</div>
+
+		<!--右边内容 结束-->
+
+		<div class="rBox">
+
+			<h2 class="title">编辑推荐</h2>
+
+			<ul class="list1">
+
+				{dede:arclist flag='c' row='10' orderby='pubdate' titlelen=50}            
+
+           		<li><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>
+
+                {/dede:arclist}
+
+			</ul>
+
+		</div>
+
+		<!--右边内容 结束-->
+
+		<!--pinglun.la-->
+
+		<!--右边内容 结束-->
+
+	</div>
+
+	<!--右边内容 结束-->
+
+</div>
+
+<div class="link">
+
+	<div class="title">
+
+		<div class="add_link"><a href="plus/flink_add.php" title="申请链接">申请链接>></a></div>
+
+		<h2>友情链接</h2>
+
+	</div>
+
+	<ul class="list" >
+
+		{dede:flink row='50' linktype='2'/}
+
+	</ul>
+
+</div>
+
+<!--友情链接 结束-->
+
+<!-- totop BEGIN -->
+
+<div id="totop" class="totop"><span>返回顶部</span></div>
+
+<script type="text/javascript">
+
+	$(window).scroll(function () {
+
+        var dt = $(document).scrollTop();
+
+        var wt = $(window).height();
+
+        if (dt <= 0) {
+
+            $("#totop").hide();
+
+            return;
+
+        }
+
+        $("#totop").show();
+
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+
+            $("#totop").css("top", wt + dt - 110 + "px");
+
+        }
+
+    });
+
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+
+</script>
+
+{dede:include filename="footer2.htm"  /}
+
+<!-- /footer -->
+
+</body>
+
+</html>
+
+
+

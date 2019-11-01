@@ -1,0 +1,9 @@
+[ 2013-03-09T01:12:25+08:00 ] ERR: (ThinkException) Action:\"http您所请求的方法不存在！
+[ 2013-03-09T01:53:52+08:00 ] ERR: (ThinkException) Action:\"http您所请求的方法不存在！
+[ 2013-03-09T03:55:13+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-03-09T03:55:30+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-03-09T05:02:23+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/aboutUs.html]
+[ 2013-03-09T20:50:44+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-03-09T20:51:20+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-03-09T21:26:41+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-03-09T21:34:34+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)

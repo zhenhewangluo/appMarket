@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+
+<title>热门标签{dede:field.title/}_{dede:global.cfg_webname/}</title>
+
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+<link type="text/css" rel="stylesheet" href="{dede:global.cfg_cmsurl/}/templets/style/css.css" />
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+
+<body>
+
+{dede:include filename="head2.htm"/}
+
+<div class="tagspage">
+
+	<div class="">
+
+		<h2>最新标签</h2>
+
+		{dede:tag row='100' sort='new'} <a href='[field:link/]' class='tagc'>[field:tag /]</a> {/dede:tag} </div>
+
+	<div class="">
+
+		<h2>当月热门标签</h2>
+
+		{dede:tag row='100' sort='month'} <a href='[field:link/]' class='tagc'>[field:tag /]</a> {/dede:tag} </div>
+
+	<div class="">
+
+		<h2>您可能感兴趣的</h2>
+
+		{dede:tag row='100' sort='rand'} <a href='[field:link/]' class='tagc'>[field:tag /]</a> {/dede:tag} </div>
+
+</div>
+
+{dede:include filename="footer2.htm"  /}
+
+<!-- /footer -->
+
+</body>
+
+</html>

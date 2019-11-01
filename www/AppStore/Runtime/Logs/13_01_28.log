@@ -1,0 +1,6 @@
+[ 2013-01-28T10:57:31+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/App/Developer//register.html]
+[ 2013-01-28T11:14:03+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/App/Developer//resetPass.html]
+[ 2013-01-28T13:02:01+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/Activity/Index/index.html]
+[ 2013-01-28T13:49:44+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/App/Developer//index.html]
+[ 2013-01-28T18:28:59+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/agreement.html]
+[ 2013-01-28T20:14:26+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/agreement.html]

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="17dip"
+    android:paddingRight="17dip"
+    android:paddingTop="6dip"
+    android:paddingBottom="6dip"
+    android:textSize="15dip"
+    android:textColor="#0e66a0"
+    android:text="@string/comment_top"/>

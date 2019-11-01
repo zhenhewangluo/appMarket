@@ -1,0 +1,2 @@
+[ 2012-10-17T11:34:18+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/Activity/Index/index.html]
+[ 2012-10-17T18:51:25+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/RegisterUser/index.html]

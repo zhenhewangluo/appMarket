@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+
+    <!-- Content list -->
+
+<!--  android:layout_height="@dimen/simple_title_list_height" -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+		android:layout_weight="1"
+        android:background="#e1e1e1"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/loading_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:id="@+id/progress"
+                 style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="100dip"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateOnly="true"
+            android:indeterminateDrawable="@drawable/progressbar"
+                android:max="100"
+                android:progress="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="7dip"
+                android:layout_toRightOf="@id/progress"
+                android:text="@string/loading_bg_text"
+                android:textColor="#f2bc18"
+                android:textSize="16dip"
+                android:textStyle="bold" />
+        </RelativeLayout>
+		  <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/move_bg"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="排行分类"
+                android:textColor="#ffffff"
+                ></TextView>
+        <ListView
+            android:id="@+id/contentList"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="0dip"
+       		android:layout_marginRight="0dip"
+            android:layout_marginTop="0dip"
+            android:cacheColorHint="#00000000"
+            android:divider="#000000"
+            android:dividerHeight="0dip"
+            android:listSelector="@color/transparent"
+            android:scrollbars="vertical"
+            android:scrollingCache="true" />
+    </LinearLayout>
+
+    <!-- Footer Tab -->
+
+    <include layout="@layout/footer_tabs" />
+
+</LinearLayout>

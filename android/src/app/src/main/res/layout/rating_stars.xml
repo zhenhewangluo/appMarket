@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.market.hjapp.ui.view.RatingStars xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content">
+	
+	<ImageView
+		android:id="@+id/star1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:scaleType="fitXY"
+		android:src="@drawable/star_empty" />
+	
+	<ImageView
+		android:id="@+id/star2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="2dip"
+		android:scaleType="fitXY"
+		android:src="@drawable/star_empty" />
+	
+	<ImageView
+		android:id="@+id/star3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="2dip"
+		android:scaleType="fitXY"
+		android:src="@drawable/star_empty" />
+	
+	<ImageView
+		android:id="@+id/star4"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="2dip"
+		android:scaleType="fitXY"
+		android:src="@drawable/star_empty" />
+	
+	<ImageView
+		android:id="@+id/star5"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="2dip"
+		android:scaleType="fitXY"
+		android:src="@drawable/star_fill" />
+	
+</com.market.hjapp.ui.view.RatingStars>
+

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9" />
+		<link type="image/x-icon" href="__PUBLIC__/../Public/activity/image/favicon.ico" rel="icon" />
+		<link type="image/x-icon" href="__PUBLIC__/../Public/activity/image/favicon.ico" rel="bookmark" />
+		<title>欢聚夺宝</title>
+		<meta name="generator" content="{$meta_generator}" />
+		<meta name="keywords" content="{$meta_keywords}" />
+		<meta name="description" content="{$meta_description}" />
+
+		<link href="../Public/activity/main.css" rel="stylesheet" type="text/css" />
+		<link href="../Public/activity/global.css" rel="stylesheet" type="text/css" />
+		<link href="../Public/activity/list.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.lavalamp.min.js"></script>
+		<script type='text/javascript' src="__PUBLIC__/js/artdialog/jquery.artDialog.js?skin=idialog"></script>
+		<script type='text/javascript' src="__PUBLIC__/js/common.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.cycle.all.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.vticker-min.js"></script>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+		<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+		<script type='text/javascript' src="../Public/activity/activity.js"></script>
+		
+		<script type="text/javascript">
+			var uid = parseInt("{$userinfo['uid']}");
+			$(function(){
+				$(document).click(function(){
+					if($('#reg').css('display') != 'none')$('#reg').hide();
+					if($('#login').css('display') != 'none')$('#login').hide();
+					if($('.updatePassBox').css('display') != 'none')$('.updatePassBox').hide();
+//					if($('.showUpdatePassBox').css('display') != 'none')$('.showUpdatePassBox').hide();
+				});
+				$('.zhuce').hover(function(){
+					if($('#login').css('display') != 'none')$('#login').hide();
+					$('#reg').show();
+				});
+				$('.login').hover(function(){
+					if($('#reg').css('display') != 'none')$('#reg').hide();
+					$('#login').show();
+				});
+				$('.updatePassBtn').hover(function(){
+					$('.updatePassBox').show();
+				});
+				$('.showUpdatePassBox').live('mouseover', function(event){
+					
+					$('.updatePassBox').show();
+					event.stopPropagation();
+				});
+				$('.updatePassBox').live('click', function(){
+					return false;
+				});
+				$('.nav ul').lavaLamp({fx:'easeOutBack',speed:700});  
+				$('.slides_container').cycle({ 
+					speed:       800,
+					timeout:     0,
+					prev:   '.prev',
+					next:   '.next',
+					pauseOnPagerHover: true,
+					pause:	true,
+					cleartypeNoBg: true,
+					pager:      '.pagination', 
+					pagerAnchorBuilder: pagerFactory,
+					fx: 'scrollHorz'
+				});
+
+				$('#sendVerify').click(function(){
+					$.getJSON('{:U("Ucenter-Ajax/sendVerify")}', {mobile : $('#activity_reg_form input:[name="mobile"]').val()}, function(data){
+						if(data.status == 1)
+						{
+							//do something...
+						}
+						alert(data.msg);
+					});
+					return false;
+				});
+				$('#activity_login_form input:[name="submit"]').click(function(){
+					if(!check_invalid('activity_login_form', {username : 'username', password : 'password'})) return false;
+					$.post(
+					'{:U("Ucenter-Ajax/loginAct")}', 
+					{acttype : 'duobao', username : $('#activity_login_form input:[name="username"]').val(), password : $('#activity_login_form input:[name="password"]').val()},
+					function(data){
+						if(data.status > 0)
+						{
+							if(data.synlogin)$('head').append(data.synlogin);
+							window.location.reload();
+							uid = data.status;
+							$('.exit').html(data.html).show();
+							$('.loginfo').remove();
+							$('#activity_reg_form').remove();
+						}
+						else
+							getDialog(data.msg);
+					}, 
+					'JSON'
+				);
+					return false;
+				});
+				$('#activity_reg_form input:[name="submit"]').click(function(){
+					if(!check_invalid('activity_reg_form', {mobile : 'mobile', password : 'password', mobileVefiry : 'mobileVefiry', username : 'username'})) return false;
+					var mobile = $('#activity_reg_form input:[name="mobile"]').val();
+					var password = $('#activity_reg_form input:[name="password"]').val();
+					var mobileVefiry = $('#activity_reg_form input:[name="mobileVefiry"]').val();
+					var username = $('#activity_reg_form input:[name="username"]').val();
+					$.post(
+					'{:U("Ucenter-Ajax/regAct")}', 
+					{acttype : 'duobao', mobile : mobile, password : password , mobileVefiry : mobileVefiry, username : username, acttype : 'duobao'},
+					function(data){
+						if(data.status == 1)
+						{
+//								$('#login_info').html(data.html);
+//								$('#activity_login_form').remove();
+//								$('#activity_reg_form').remove();
+						}
+						getDialog(data.msg);
+					}, 
+					'JSON'
+				);
+					return false;
+				});
+				$('.start_btn').live('click',function(){
+					getOverview(true);
+					$.cookie('currentDiv', 'overview');
+					return false;
+				});
+				//animate
+				var animateT;
+				$('.aboutdb').bind('click', function(event){
+					event.stopPropagation();
+					if(animateT)clearTimeout(animateT);
+					animateT = setTimeout(goAboutDb, 200);
+				});
+				$('.indexdb').bind('click', function(event){
+					event.stopPropagation();
+					if(animateT)clearTimeout(animateT);
+					animateT = setTimeout(goIndex, 200);
+				});
+				$('.awarddb').bind('click', function(event){
+					event.stopPropagation();
+					if(animateT)clearTimeout(animateT);
+					animateT = setTimeout(goAward, 200);
+				});
+				$('.navPager li').each(function(){
+					$(this).hover(function(){
+						$('.navPager li').removeClass('orange');
+						$(this).addClass('orange');
+					});
+				});
+				var cook = $.cookie('currentDiv');
+				switch(cook)
+				{
+					case 'overview' :
+						if($('#slidesDivTwo').css('display') == 'none' && uid > 0)
+						{
+							$('#slidesDivOne').css('display', 'none');
+							$('#slidesDivOne').css('left', '-100%');
+							$('#slidesDivTwo').css('display', 'block');
+							$('#slidesDivTwo').css('left', '0%');
+							getOverview(false);
+						}
+//						$('.start_btn').trigger('click');
+						break;
+					case 'aboutdb' :
+						if($('#innerSlidesTwo').css('display') == 'none')
+						{
+							$('#innerSlidesOne').css('display', 'none');
+							$('#innerSlidesOne').css('left', '-100%');
+							$('#innerSlidesThree').css('display', 'none');
+							$('#innerSlidesThree').css('left', '100%');
+							$('#innerSlidesTwo').css('display', 'block');
+							$('#innerSlidesTwo').css('left', '0%');
+						}
+						break;
+					case 'dbindex' :
+						if($('#slidesDivOne').css('display') == 'none' && $('#innerSlidesOne').css('display') == 'none')
+						{
+							$('#innerSlidesTwo').css('display', 'none');
+							$('#innerSlidesTwo').css('left', '-100%');
+							$('#innerSlidesThree').css('display', 'none');
+							$('#innerSlidesThree').css('left', '100%');
+							$('#innerSlidesOne').css('display', 'block');
+							$('#innerSlidesOne').css('left', '0%');
+						}
+						break;
+					case 'dbaward' :
+						if($('#innerSlidesThree').css('display') == 'none')
+						{
+							$('#innerSlidesTwo').css('display', 'none');
+							$('#innerSlidesTwo').css('left', '-100%');
+							$('#innerSlidesOne').css('display', 'none');
+							$('#innerSlidesOne').css('left', '100%');
+							$('#innerSlidesThree').css('display', 'block');
+							$('#innerSlidesThree').css('left', '0%');
+						}
+						break;
+					default :
+						break;
+				}
+			});
+			function goAboutDb()
+			{
+				if($("#innerSlidesOne").css('display') != 'none')
+				{
+					$("#innerSlidesOne").animate({
+						left: '100%', opacity: 1
+					}, 600, 'linear', function(){
+						$(this).hide();
+					});
+				}
+				if($("#innerSlidesThree").css('display') != 'none')
+				{
+					$("#innerSlidesThree").animate({
+						left: '100%', opacity: 1
+					}, 600, 'linear', function(){
+						$(this).hide();
+					});
+				}
+				$("#innerSlidesTwo").show().animate({
+					left: '0%', opacity: 1
+				}, 600, 'linear');
+				$.cookie('currentDiv', 'aboutdb');
+				$.cookie('lastCurrentDiv', 'aboutdb');
+			}
+			function goIndex()
+			{
+				if($("#innerSlidesTwo").css('display') != 'none')
+				{
+					$("#innerSlidesTwo").animate({
+						left: '-100%', opacity: 1
+					}, 600, 'linear', function(){
+						$(this).hide();
+					});
+				}
+				if($("#innerSlidesThree").css('display') != 'none')
+				{
+					$("#innerSlidesThree").animate({
+						left: '100%', opacity: 1
+					}, 600, 'linear', function(){
+						$(this).hide();
+					});
+				}
+				$("#innerSlidesOne").show().animate({
+					left: '0%', opacity: 1
+				}, 600, 'linear');
+				$.cookie('currentDiv', 'dbindex');
+				$.cookie('lastCurrentDiv', 'dbindex');
+			}
+			function goAward()
+			{
+				if($("#innerSlidesOne").css('display') != 'none')
+				{
+					$("#innerSlidesOne").animate({
+						left: '-100%', opacity: 1
+					}, 600, 'linear', function(){
+						$(this).hide();
+					});
+				}
+				if($("#innerSlidesTwo").css('display') != 'none')
+				{
+					$("#innerSlidesTwo").animate({
+						left: '-100%', opacity: 1
+					}, 600, 'linear', function(){
+						$(this).hide();
+					});
+				}
+				$("#innerSlidesThree").show().animate({
+					left: '0%', opacity: 1
+				}, 600, 'linear');
+				$.cookie('currentDiv', 'dbaward');
+				$.cookie('lastCurrentDiv', 'dbaward');
+			}
+			function pagerFactory(idx, slide) {
+				return '<li></li>';
+			};
+			function delBuddys(id)
+			{
+				var ids = [];
+				var idNodes = $('input:checkbox[name="buddyPhone[]"]:checked');
+				var pattern = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|147[0-9]{8}$/;
+
+				if(pattern.test(id) == false)
+				{
+					idNodes.each(function(){
+						ids.push($(this).val());
+					});
+				}
+				else
+				{
+					ids.push(id);
+				}
+				if(ids.length <= 0 )
+				{
+					alert('请选择要删除的数据');
+					return false;
+				}
+				
+				$.dialog.confirm('确定要删除所选中的好友吗？',function(){
+					$.post('{:U("AppStore://Activity-Ajax/delBuddys")}', {id : ids}, function(data){
+						var tips = '';
+						if(data.status == 1)
+						{
+							tips = 'succeed';
+							if(isNaN(id))
+							{
+								idNodes.each(function(i){
+									$('#buddy_id_'+$(this).val()).remove();
+								});
+							}
+							else
+							{
+								$('#buddy_id_'+id).remove();
+							}
+						}
+						getDialog(data.msg, tips);
+					}, 'JSON')},
+				function(){}
+			);
+				return false;
+			}
+			function check_invalid(form_name,mustObj)
+			{
+				//必填数据
+				if(mustObj != '')
+				{
+					for(pro in mustObj)
+					{
+						var val = $('[name="'+form_name+'"] [name="'+mustObj[pro]+'"]').val();
+						if(val == '' || val == undefined)
+						{
+							alert('请填写必要的数据');
+							return false;
+						}
+					}
+				}
+
+				//数据合法性
+				if($('[name="'+form_name+'"] .invalid-msg').length > 0)
+				{
+					alert('您填写的数据不符合规范');
+					return false;
+				}
+				else
+				{
+					return true;
+				}
+			}
+			function ajax_page(pageNum)
+			{
+				var listRow = $('input:[name="list_row"]').val();
+				$.ajax({
+					url:'{:U("AppStore://Activity-Ajax/getBuddyList")}',
+					type : 'get',
+					data : {pageNum : pageNum, pageSize : listRow},
+					dataType:'json',
+					beforeSend: function(){
+						$('.buddys_list').html('<img src="../Public/activity/image/wating.png" />');
+					},
+					success:function(data) {
+						if(data.status == 1)
+						{
+							$('.buddys_list').html(data.html);
+							$('#page').html(data.pageHtml);
+							$('input:[name="selectAllBuddy"]').attr('checked', false);
+						}
+					}
+				});
+			}
+			function setListRow(pageSize)
+			{
+				var list_row_num = parseInt(pageSize);
+				var list_row = $('input:[name="list_row"]').val();
+				if(list_row != list_row_num)
+				{
+					$('input:[name="list_row"]').val(list_row_num);
+					ajax_page(1);
+					return;
+				}
+				return false;
+			}
+			function goOverview()
+			{
+				$("#slidesDivOne").animate({
+					left: '-100%', opacity: 1
+				}, 600, 'linear', function(){
+					$(this).hide();
+				});
+				$("#slidesDivTwo").show().animate({
+					left: '0%', opacity: 1
+				}, 600, 'linear');
+			}
+			function getOverview(showAnimate)
+			{
+				if(!$('#slidesDivTwo').html())
+				{			
+					if(uid > 0)$('body').waiting({imgsrc:"../Public/activity/image/loading_hand_240x320.gif", imgheight:330, imgwidth:240});
+					$.getJSON('{:U("AppStore://Activity-Ajax/getUserOverview")}',{aaa: 'aaa'}, function(data){
+						$('body').stopWaiting();
+						if(data.status > 0)
+						{
+							$('#slidesDivTwo').html(data.html);
+							$.dialog({id:'logo_loading'}).close();
+							if(showAnimate)goOverview();
+							validateInit();
+							$('.user_dynamic').vTicker({
+								speed: 500,
+								pause: 3000,
+								showItems: 10,
+								animation: 'fade',
+								mousePause: true,
+								height: 170,
+								direction: 'down'
+							});
+							$('.voteMeInfo').vTicker({
+								speed: 500,
+								pause: 3000,
+								showItems: 10,
+								animation: 'fade',
+								mousePause: true,
+								height: 170,
+								direction: 'down'
+							});
+							$('.inviteMeInfo').vTicker({
+								speed: 500,
+								pause: 3000,
+								showItems: 10,
+								animation: 'fade',
+								mousePause: true,
+								height: 170,
+								direction: 'down'
+							});
+//								var mobilesNode = $('textarea:[name="add_buddy_phone"]');
+//								$(document).mousemove(function(){
+//									var mobileVal = mobilesNode.val().replace(/\D+/g, '');
+//									if(mobileVal.length > 11)
+//									{
+//										var newMobileVal = '';
+//										var tmp = '';
+//										var modTmp = parseInt(mathDiv(mobileVal.length, 11), 10);
+//										for(var i = 0; i <= modTmp; i ++ )
+//										{
+//											tmp = mobileVal.substr(i*11, 11);
+//											if(tmp.length == 11)
+//												newMobileVal += tmp + '\r\n';
+//											else
+//												newMobileVal += tmp;
+//										}
+//										mobilesNode.val(newMobileVal);
+//									}
+//								});
+							$('.user_dynamic_tab li.user_dynamic_tab_title').each(function(i){
+								$(this).hover(function(){
+									$('.showVticker div').hide();
+									$('.showVticker div').eq(i).show();
+									$('.user_dynamic_tab li.user_dynamic_tab_title').removeClass('user_dynamic_tab_title_hover');
+									$(this).addClass('user_dynamic_tab_title_hover');
+								});
+							});
+						}
+						else
+						{
+							alert(data.msg);
+							return false;
+						}
+					});
+				}
+				else
+				{
+					if(showAnimate)goOverview();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="slidesDivOne" class="slidesDiv">
+			<div class="wrapper">
+				<div class="wrapper_header">
+					<div class="top" align="center">
+						<img class="pic" src="../Public/activity/image/logo.png" alt="夺宝" width="150" height="71" />
+						<div class="nav" align="center">	
+							<ul class="navPager">
+								<li class="hrefhover current indexdb">
+									<p>首页</p><p>Home</p>
+								</li>
+								<li class="awarddb">
+									<p>奖品</p><p>Treasure</p>
+								</li>
+								<li class="aboutdb">
+									<p>关于</p><p>About</p>
+								</li>
+								<li class="start_btn">
+									<p>我要夺宝</p><p>Go</p>
+								</li>
+								<li style="margin-left:80px;">
+									<a href="http://www.hjapp.com"><p>***</p><p>Huanju</p></a>
+								</li>
+							</ul>
+						</div>
+						<!--登录注册开始  -->	
+						<compare name="userinfo['uid']" type="elt" value="0">
+							{~$showLoginfo = 'display:block;';$showExit = 'display:none;';}
+							<else/>
+							{~$showLoginfo = 'display:none;';$showExit = 'display:block;';}
+						</compare>
+						<div class="loginfo" style="{$showLoginfo}">
+							<div class="zhuce" style="float:right;">
+								注册
+								<dl id="reg">
+									<form method="post" action="{:U('Ucenter-Index/loginAct')}" name="activity_reg_form" autocomplete="off" id="activity_reg_form">
+										<dd style="margin-top:35px">您的昵称<input class="reg_box_input" type="text" name="username" value="" pattern="username" required /></dd>
+										<dd>手机号码<input class="reg_box_input" type="text" name="mobile" value="" required /></dd>
+										<dd style="margin-left:-2px;">
+											手机验证码
+											<input class="reg_box_input" type="text" name="mobileVefiry" value="" pattern="verify" required />
+											<button id="sendVerify">发送验证码</button>
+										</dd>
+										<dd>设置密码<input class="reg_box_input" type="password" name="password" value="" pattern="pass" required /></dd>
+										<dd>
+											<input class="anniu" type="submit" name="submit" value="注册" />
+										</dd>
+									</form>
+								</dl>
+							</div>
+							<div class="line">|</div>
+							<div class="login">登录
+								<dl id="login">
+									<form method="post" action="{:U('Ucenter-Index/loginAct')}" name="activity_login_form" autocomplete="off" id="activity_login_form">
+										<dd style="margin-top:20px">手机号：<input class="input" type="text" name="username" value="" required /></dd>
+										<dd>密　码：<input class="input" type="password" name="password" value="" pattern="pass" required /></dd>
+										<dd>
+											<label><input type="checkbox" name="autoLogin" style="vertical-align: middle" /> 自动登录</label>
+											<a style="padding-right:5px; color:#F60" href="{:U('Ucenter-Index/forgotPass', array('acttype' => 'duobao'))}">忘记密码</a>
+											<input class="anniu" type="submit" name="submit" value="登录" />
+										</dd>
+									</form>
+								</dl>
+							</div>
+						</div>
+						<div class="exit" style="{$showExit}">
+							<dl>
+								<dt>
+								<strong class="show_username">
+									{~if(isset($userinfo['username']) && !empty($userinfo['username'])) echo $userinfo['username'];else echo $userinfo['mobile']}
+								</strong>
+								</dt>
+								<dd class="showUpdatePassBox">
+									<span class="updatePassBtn">修改密码
+										<dl class="updatePassBox">
+											<form method="post" action="{:U('Ucenter-Ajax/updatePass')}" name="activity_updatePass_form" autocomplete="off" id="activity_updatePass_form">
+												<dd style="margin-top:30px;margin-left:13px;">您的密码：<input class="updatePassBox_input" type="password" name="pwd" pattern="pass" required /></dd>
+												<dd style="margin-left:23px;">新密码：<input class="updatePassBox_input" type="password" name="newpwd" pattern="pass" required /></dd>
+												<dd>确认新密码：<input class="updatePassBox_input" type="password" name="newrepwd" pattern="pass" required /></dd>
+												<dd>
+													<input class="anniu" type="submit" name="submit" value="确定" />
+												</dd>
+											</form>
+										</dl>	
+									</span>
+									
+								</dd>
+								<dd><a href="javascript:void(0);" class="logout">退出</a></dd>
+							</dl>
+						</div>
+						<!-- 登录结束 -->
+					</div>
+				</div>
+				<div class="outterContainer">
+					<div id="innerSlidesTwo" class="innerContainer">
+						<div class="aboutdb_container">
+							<div class="aboutdb_headerbg"></div>
+							<div class="aboutdb_leftbg"></div>
+							<div class="aboutdb_centerbg">
+								<div class="aboutdb_bar">
+									<p class="first"><img src="../Public/activity/image/duobaologo.png" /></p>
+									<p><img src="../Public/activity/image/huanjubaologo.png" /></p>
+								</div>
+								<div class="aboutdb_content">
+									<h5>关于夺宝</h5>
+									<p>夺宝起始于2012年2月27日，是***转为广大用户设立的促进好友间互动，专为用户谋福利的拇指夺宝活动。夺宝会根据活动周期，向用户提供不同价值的奖品和获奖名额。奖品价值由几百到几千元不等，所有奖品均为实物。每一份奖品由***工作人员我们精心为用户挑选，其中包括数码产品，充值卡，生活娱乐产品等等。</p>
+									<dl>
+										<dt>活动规则</dt>
+										<dd>1.登录夺宝页面（<a href="http://duobao.hjapp.com/">http://duobao.hjapp.com/</a>）注册成为夺宝会员。</dd>
+										<dd>2.注册成功后在个人管理中心，可选择邀请好友为您投票，也可在个人管理中心查看您在排行榜上的名次与或得支持的短信数，投票越多排名越高。</dd>
+										<dd>3.活动截止后，官方人员统计排行榜内获奖用户的名单，并电话确认联系领奖事宜，获奖用户收取奖品。</dd>
+									</dl>
+									<dl>
+										<dt>活动说明</dt>
+										<dd>1.本期夺宝活动时间为：<span class="red">3月16日至3月23日</span></dd>
+										<dd>2.被邀请的好友每天均可投票，当日投票每位好友仅限1此，当日未使用，翌日则视为无效，不可累积。</dd>
+										<dd>3.活动截止日期后第二日将公布统计的获奖用户名单，在 <span class="red">3</span> 个工作日内将有官方人员电话与获奖用户取得联系确认身份，获奖事宜。</dd>
+									</dl>
+								</div>
+							</div>
+							<div class="aboutdb_rightbg"></div>
+							<div class="aboutdb_footerbg"></div>
+						</div>
+						<div class="footer1">Copyright : 2010-2012 Hjapp Rights Reserved</div>
+					</div>
+					<div id="innerSlidesOne" class="innerContainer">
+						<!--banner开始-->
+						<div class="banner">
+							<div class="slides">
+								<div class="slides_container">
+									<div class="caption">
+										<ul>
+											<li><a href="#"><img src="../Public/activity/image/shouji.png"  border="0"/></a></li>
+											<li><a href="#"><img src="../Public/activity/image/wenzi.png"  border="0" /></a></li>
+										</ul>
+									</div>
+									<div class="caption">
+										<ul>
+											<li><a href="#"><img src="../Public/activity/image/shouji.png"  border="0"/></a></li>
+											<li><a href="#"><img src="../Public/activity/image/wenzi.png"  border="0" /></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="activity_btns">
+									<a href="javascript:void(0);" class="start_btn"><img src="../Public/activity/image/anniu.png"  border="0" /></a>
+									<a href="6055446/apk/market.apk"><img src="../Public/activity/image/anniu1.png" /></a>
+								</div>
+								<a href="#" class="prev"></a>
+								<a href="#" class="next"></a>
+							</div>
+							<ul class="pagination"></ul>
+						</div>
+						<!--banner结束-->
+						<!--content开始-->
+						<div class="content1" align="center">
+							<compare name="userinfo['uid']" type="elt" value="0">
+								<div class="duobj" >
+									<a href="#">
+										<img src="../Public/activity/image/duo_bj01.png" border="0" />
+									</a>
+								</div>
+								<div class="pic">
+									<ul>
+										<li><a  href="#" ><img src="../Public/activity/image/pic_1.jpg" onmouseover="this.src='../Public/activity/image/pic_4.jpg'" onmouseout="this.src='../Public/activity/image/pic_1.jpg'" border="0" alt="注册夺宝用户"  /></a></li>
+										<li class="jpic"><img src="../Public/activity/image/pic.png" /></li>
+										<li ><a href="#"><img src="../Public/activity/image/pic_2.jpg" onmouseover="this.src='../Public/activity/image/pic_5.jpg'" onmouseout="this.src='../Public/activity/image/pic_2.jpg'" border="0" alt="多拉票多投票" /></a></li>
+										<li class="jpic"><img src="../Public/activity/image/pic.png" /></li>
+										<li ><a href="#"><img src="../Public/activity/image/pic_3.jpg" onmouseover="this.src='../Public/activity/image/pic_6.jpg'" onmouseout="this.src='../Public/activity/image/pic_3.jpg'" border="0" alt="多拉票多投票" /></a></li>
+									</ul>
+								</div>
+								<else/>
+								<div class="huigu" > <img src="../Public/activity/image/huigu.png" /> </div>
+								<div class="pic" style="display:none;">
+									<ul>
+										<li><a  href="#" ><img src="../Public/activity/image/pic_1.jpg" onmouseover="this.src='../Public/activity/image/pic_4.jpg'" onmouseout="this.src='../Public/activity/image/pic_1.jpg'" border="0" alt="注册夺宝用户"  /></a></li>
+										<li class="jpic"><img src="../Public/activity/image/pic.png" /></li>
+										<li ><a href="#"><img src="../Public/activity/image/pic_2.jpg" onmouseover="this.src='../Public/activity/image/pic_5.jpg'" onmouseout="this.src='../Public/activity/image/pic_2.jpg'" border="0" alt="多拉票多投票" /></a></li>
+										<li class="jpic"><img src="../Public/activity/image/pic.png" /></li>
+										<li ><a href="#"><img src="../Public/activity/image/pic_3.jpg" onmouseover="this.src='../Public/activity/image/pic_6.jpg'" onmouseout="this.src='../Public/activity/image/pic_3.jpg'" border="0" alt="多拉票多投票" /></a></li>
+									</ul>
+								</div>
+								<div class="time">
+									{~$free_time=$endTime-time();}
+									<compare name="free_time" type="gt" value="0">
+										<ul>
+											<li class="textsize">距本期夺宝时间还剩：</li>
+											<li class="time">
+												<span id="cd_day_1">{:floor($free_time/86400);}</span>天<span id="cd_hour_1">{:floor( ($free_time%86400)/3600 );}</span>:<span id="cd_minute_1">{:floor( ($free_time%86400%3600)/60 );}</span>:<span id="cd_second_1">{:$free_time%86400%3600%60}</span>
+												<!--								<span>33</span>天<span>11:30:35</span>-->
+											</li>
+										</ul>
+										<script type="text/javascript">	
+											var cd_timer=new countdown();
+											cd_timer.add(1);
+										</script>
+										<else/>
+										<ul>
+											<li class="textsize"></li>
+											<li class="time">
+												<span>本期夺宝活动已结束！！！</span>
+											</li>
+										</ul>
+									</compare>
+								</div>
+							</compare>
+						</div>
+						<!--content结束-->
+						<div style="clear:both"></div>
+						<div class="footer1">Copyright : 2010-2012 Hjapp Rights Reserved</div>
+					</div>
+					<div id="innerSlidesThree" class="innerContainer">
+						<div class="awardContainer">
+							<div class="award_header">
+								<div class="award_header_bg"></div>
+							</div>
+							<div class="award_center">
+								<div class="award_content">
+									<dl>
+										<dt>
+											<span class="crown">皇冠奖</span>
+										</dt>
+										<dd>
+											<img src="../Public/activity/image/jiangpin1.png" />
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<span class="diamond">钻石奖</span>
+										</dt>
+										<dd>
+											<img src="../Public/activity/image/jiangpin2.png" />
+										</dd>
+									</dl>
+									<dl class="next_award">
+										<dt>
+											<span>下期奖品预告</span>
+										</dt>
+										<dd>
+											<img src="../Public/activity/image/jiangpin3.png" />
+										</dd>
+									</dl>
+								</div>
+								<div class="award_line">
+								</div>
+								<div class="award_bar">
+									<h6>您的奖品</h6>
+									<ul>
+										<li>夺宝第1期<span>皇冠大奖</span></li>
+										<li>夺宝第2期<span>钻石奖</span></li>
+									</ul>
+									<h6>好友获奖</h6>
+									<ul>
+										<li>夺宝第1期<span>13000000000</span><span>皇冠大奖</span></li>
+										<li>夺宝第1期<span>夺宝主</span><span>钻石奖</span></li>
+									</ul>
+									<h6>获奖名单</h6>
+									<ul>
+										<li>夺宝第1期<span>13000000000</span><span>皇冠大奖</span></li>
+										<li>夺宝第1期<span>夺宝主</span><span>钻石奖</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="footer1">Copyright : 2010-2012 Hjapp Rights Reserved</div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+		<div id="slidesDivTwo" class="slidesDiv"></div>
+		<script type="text/javascript">
+			$('.go_activity_home').live('click',function(){
+				$( "#slidesDivTwo" ).animate({
+					left: '100%', opacity: 1
+				}, 600, 'linear', function(){
+					$(this).hide();
+				});
+				$('#slidesDivOne').show().animate({
+					left: '0%', opacity: 1
+				}, 600, 'linear');
+				$.cookie('currentDiv', $.cookie('lastCurrentDiv'));
+				switch($.cookie('lastCurrentDiv'))
+				{
+					case 'aboutdb' :
+						if($('#innerSlidesTwo').css('display') == 'none')
+						{
+							$('#innerSlidesOne').css('display', 'none');
+							$('#innerSlidesOne').css('left', '-100%');
+							$('#innerSlidesThree').css('display', 'none');
+							$('#innerSlidesThree').css('left', '100%');
+							$('#innerSlidesTwo').css('display', 'block');
+							$('#innerSlidesTwo').css('left', '0%');
+						}
+						break;
+					case 'dbindex' :
+						if($('#innerSlidesOne').css('display') == 'none')
+						{
+							$('#innerSlidesTwo').css('display', 'none');
+							$('#innerSlidesTwo').css('left', '-100%');
+							$('#innerSlidesThree').css('display', 'none');
+							$('#innerSlidesThree').css('left', '100%');
+							$('#innerSlidesOne').css('display', 'block');
+							$('#innerSlidesOne').css('left', '0%');
+						}
+						break;
+					case 'dbaward' :
+						if($('#innerSlidesThree').css('display') == 'none')
+						{
+							$('#innerSlidesTwo').css('display', 'none');
+							$('#innerSlidesTwo').css('left', '-100%');
+							$('#innerSlidesOne').css('display', 'none');
+							$('#innerSlidesOne').css('left', '100%');
+							$('#innerSlidesThree').css('display', 'block');
+							$('#innerSlidesThree').css('left', '0%');
+						}
+						break;
+					default :
+						break;
+				}
+			});
+			$('input:submit[name="search"]').live('click',function() {
+				var keyword = $('input:[name="keyword"]').val();
+				var pageSize = $('input:[name="list_row"]').val();
+				$.ajax({
+					url:'{:U("AppStore://Activity-Ajax/searchBuddyList")}',
+					type:'post',
+					data:{keyword : keyword, pageSize : pageSize},
+					dataType:'json',
+					beforeSend: function(){
+						$('.buddys_list').html('<img src="../Public/activity/image/wating.png" />');
+					},
+					success:function(data) {
+						if(data.status == 1)
+						{
+							$('.buddys_list').html(data.html);
+							$('#page').html(data.pageHtml);
+							$('input:[name="selectAllBuddy"]').attr('checked', false);
+						}
+					}
+				});
+				return false;
+			});
+			$('.buddy_edit').live('click',function(){
+				$(this).parent().parent().hide();
+				$(this).parent().parent().next().show();
+			});
+			$('.buddy_cancel').live('click',function(){
+				$(this).parent().parent().hide();
+				$(this).parent().parent().prev().show();
+			});
+			$('.buddy_save').live('click',function(){
+				var _this = $(this);
+				var name = _this.parent().parent().find('input:text[name="buddyName"]').val();
+				var newphone = _this.parent().parent().find('input:[name="buddyNewphone"]').val();
+				var phone = _this.parent().parent().find('input:[name="buddyPhone"]').val();
+				$.ajax({
+					url:'{:U("AppStore://Activity-Ajax/editBuddy")}',
+					type:'post',
+					data:{ name : name, phone : phone, newphone : newphone },
+					dataType:'json',
+					success:function(data) {
+						if(data.status == 1)
+						{
+							$('#buddy_id_' + phone).attr('id', 'buddy_id_'+ newphone);
+							$('#buddy_id_' + newphone).find('input:[name="buddyPhone[]"]').val(newphone);
+							_this.parent().parent().find('input:[name="buddyPhone"]').val(newphone);
+							_this.parent().parent().prev().find('.buddy_name_td').html(name);
+							_this.parent().parent().prev().find('.buddy_phone_td').html(newphone);
+							_this.parent().parent().hide();
+							_this.parent().parent().prev().show();
+						}
+						alert(data.msg);
+					}
+				});
+			});
+			$('.buddy_dels').live('click', delBuddys);
+			$('span.buddy_dels').live({
+				mouseover: function() {
+					$(this).addClass('buddy_dels_hover');
+				},
+				mouseout: function() {
+					$(this).removeClass('buddy_dels_hover');
+				}
+			});
+			$('small.buddy_dels').live({
+				mouseover: function() {
+					$(this).addClass('buddy_dels_hover');
+				},
+				mouseout: function() {
+					$(this).removeClass('buddy_dels_hover');
+				}
+			});
+			$('.buddy_del').live('click', function(){
+				var _this = $(this);
+				var phone = _this.parent().parent().find('input:checkbox[name="buddyPhone[]"]').val();
+				delBuddys(phone);
+			});
+			$('.buddy_invite').live({
+				click : function(){
+					var _this = $(this);
+					var phone = _this.parent().parent().find('input:checkbox[name="buddyPhone[]"]').val();
+					inviteBuddys(phone);
+				},
+				mouseover: function() {
+					$(this).addClass('buddy_invite_hover');
+				},
+				mouseout: function() {
+					$(this).removeClass('buddy_invite_hover');
+				}
+			});
+			$('.buddy_invites').live({
+				click: function() {
+					inviteBuddys();
+				}
+			});
+			$('span.buddy_invites').live({
+				mouseover: function() {
+					$(this).addClass('buddy_invites_hover');
+				},
+				mouseout: function() {
+					$(this).removeClass('buddy_invites_hover');
+				}
+			});
+			$('small.buddy_invites').live({
+				mouseover: function() {
+					$(this).addClass('buddy_invites_hover');
+				},
+				mouseout: function() {
+					$(this).removeClass('buddy_invites_hover');
+				}
+			});
+			function inviteBuddys(id)
+			{
+				var ids = [];
+				var idNodes = $('input:checkbox[name="buddyPhone[]"]:checked');
+				var pattern = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|147[0-9]{8}$/;
+
+				if(pattern.test(id) == false)
+				{
+					idNodes.each(function(){
+						ids.push($(this).val());
+					});
+				}
+				else
+				{
+					ids.push(id);
+				}
+				if(ids.length <= 0 )
+				{
+					alert('请选择要邀请的好友！');
+					return false;
+				}
+				$.post('{:U("AppStore://Activity-Ajax/adviseBuddy")}', {phone : ids}, function(data){
+					alert(data.msg);
+				}, 'JSON');
+			}
+			$('.buddy_vote').live({
+				click : function(){
+					var _this = $(this);
+					var phone = _this.parent().parent().find('input:checkbox[name="buddyPhone[]"]').val();
+					voteBuddys(phone);
+				},
+				mouseover: function() {
+					$(this).addClass('buddy_vote_hover');
+				},
+				mouseout: function() {
+					$(this).removeClass('buddy_vote_hover');
+				}
+			});
+			$('.buddy_votes').live('click', voteBuddys);
+			function voteBuddys(id)
+			{
+				var ids = [];
+				var idNodes = $('input:checkbox[name="buddyPhone[]"]:checked');
+				var pattern = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|147[0-9]{8}$/;
+
+				if(pattern.test(id) == false)
+				{
+					idNodes.each(function(){
+						ids.push($(this).val());
+					});
+				}
+				else
+				{
+					ids.push(id);
+				}
+				if(ids.length <= 0 )
+				{
+					alert('请选择要邀请的好友！');
+					return false;
+				}
+				$.post('{:U("AppStore://Activity-Ajax/voteBuddy")}', {id : ids}, function(data){
+					alert(data.msg);
+				}, 'JSON');
+			}
+			$('.selectPhoneBook').live({
+				click: function() {
+					$.dialog.open('{:U("Activity-Test/guestPhoneBook")}',{id:'guest_phone_book',title:'上传好友列表'});
+				}
+			});
+			$('span.selectPhoneBook').live({
+				mouseover: function() {
+					$(this).addClass('selectPhoneBook_hover');
+				},
+				mouseout: function() {
+					$(this).removeClass('selectPhoneBook_hover');
+				}
+			});
+			$('small.selectPhoneBook').live({
+				mouseover: function() {
+					$(this).addClass('selectPhoneBook_hover');
+				},
+				mouseout: function() {
+					$(this).removeClass('selectPhoneBook_hover');
+				}
+			});
+			
+			$('.logout').live('click', function(){
+				$.getJSON("{:U('Ucenter-Ajax/logout')}", function(data){
+					if(data.status == 1)
+					{
+						if(data.synlogout)$('head').append(data.synlogout);
+						window.location.reload();
+					}
+				});
+			});
+			$('#activity_updatePass_form input:[name="submit"]').live('click', function(){
+				if(!check_invalid('activity_updatePass_form', {pwd : 'pwd', newpwd : 'newpwd', newrepwd : 'newrepwd'})) return false;
+				var obj = {
+					acttype : 'duobao', 
+					pwd : $('#activity_updatePass_form input:[name="pwd"]').val(),
+					newpwd : $('#activity_updatePass_form input:[name="newpwd"]').val(), 
+					newrepwd : $('#activity_updatePass_form input:[name="newrepwd"]').val()
+				};
+				doUpdatePass(obj);
+				return false;
+			});
+			$('#overview_updatePass_form input:[name="submit"]').live('click', function(){
+				if(!check_invalid('overview_updatePass_form', {pwd : 'pwd', newpwd : 'newpwd', newrepwd : 'newrepwd'})) return false;
+				var obj = {
+					acttype : 'duobao', 
+					pwd : $('#overview_updatePass_form input:[name="pwd"]').val(),
+					newpwd : $('#overview_updatePass_form input:[name="newpwd"]').val(), 
+					newrepwd : $('#overview_updatePass_form input:[name="newrepwd"]').val()
+				};
+				doUpdatePass(obj);
+				return false;
+			});
+			$('.huigu').live('click', function(){
+				$('.content1 .pic').slideToggle("fast");
+			});
+			function doUpdatePass(obj)
+			{
+				$.post(
+				'{:U("Ucenter-Ajax/updatePass")}', 
+				obj,
+				function(data){
+					data.status == 1 ? getDialog(data.msg, 'succeed', true) : getDialog(data.msg);
+				}, 
+				'JSON'
+			);
+			}
+			function callbackPhoneBook(content)
+			{
+				var content = eval(content);
+				if(content.isError == true)
+				{
+					alert(content.message);
+				}
+				else
+				{
+					ajax_page(1);
+				}
+				$.dialog({id:'guest_phone_book'}).close();
+			}
+//			$('.buddy_add_btn').live('click', function(){
+//				$.dialog({
+//					id : 'buddy_add_dialog',
+//					content : document.getElementById('show_buddy_add_box')//$('.buddy_add_box').html()
+//				});
+//				return false;
+//			});
+
+			/*除法函数，用来得到精确的除法结果
+			 *返回值：arg1除以arg2的精确结果
+			 */
+			function mathDiv(arg1,arg2)
+			{
+				var t1=0,t2=0,r1,r2;
+				try{t1=arg1.toString().split(".")[1].length}catch(e){}
+				try{t2=arg2.toString().split(".")[1].length}catch(e){}
+				with(Math){
+					r1=Number(arg1.toString().replace(".",""));
+					r2=Number(arg2.toString().replace(".",""));
+					return (r1/r2)*pow(10,t2-t1);
+				}
+			}
+			$('.buddy_add_btn').live('click', function(){	
+				var add_invite = $('input:checkbox[name="add_invite"]:checked').val() ? 1 : 0;
+				var phone = $.trim($('input:text[name="add_buddy_phone"]').val());
+				if(phone.length <= 0)
+				{
+					alert('请填写正确的手机号！');
+					return false;
+				}
+				$.post(
+					'{:U("AppStore://Activity-Ajax/addBuddy")}',
+					{phone : phone, buddyName : '', add_invite : add_invite},
+					function(data){
+						alert(data.msg);
+						ajax_page(1);
+					},
+					'JSON'
+				);
+			});
+			$('.buddy_add_btn').live({
+				mouseover : function(){
+					$(this).addClass('buddy_add_btn_hover');
+				},
+				mouseout : function(){
+					$(this).removeClass('buddy_add_btn_hover');
+				}
+			});
+//			$('.buddy_add').live('click', function(){
+//				var mobilesNode = $('textarea:[name="add_buddy_phone"]');
+//				var mobileVal = $.trim(mobilesNode.val()).replace(/\s+/g, '#');
+//				var mobileArr = mobileVal.split('#');			
+//				//mobileArr = $.unique(mobileArr);
+//				if(mobileArr.length > 20)
+//				{
+//					getDialog('每次最多只能邀请20个好友', 'error', false);
+//					return false;
+//				}
+//				for(var i = 0; i < mobileArr.length; i ++)
+//				{
+//					var pattern = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|147[0-9]{8}$/;
+//					if(pattern.test(mobileArr[i]) == false)
+//					{
+//						getDialog(mobileArr[i] + '<br />此手机号不合法<br />请填写合法的手机号！', 'error', false, 5);
+//						return false;
+//					}
+//				}
+//				var add_invite = $('input:checkbox[name="add_invite"]:checked').val() ? 1 : 0;
+//				$.post(
+//				'{:U("AppStore://Activity-Ajax/addBuddy")}',
+//				{phone : mobileVal, buddyName : '', add_invite : add_invite},
+//				function(data){
+//					if(data.status > 0)
+//					{
+//						$.dialog({id:'buddy_add_dialog'}).close();
+//						page(1);
+//					}
+//					alert(data.msg);
+//				},
+//				'JSON'
+//			);
+//			});
+			$('input:text[name="keyword"]').live({
+				focus:function(){checkInput($(this), '请输入想要查询的好友手机号...');},
+				blur :function(){checkInput($(this), '请输入想要查询的好友手机号...');}
+			});
+			function checkInput(para,textVal)
+			{
+				var inputObj = (typeof(para) == 'object') ? para : $('#'+para+'');
+
+				if(inputObj.val() == '')
+				{
+					inputObj.val(textVal);
+				}
+				else if(inputObj.val() == textVal)
+				{
+					inputObj.val('');
+				}
+			}
+		</script>
+	</body>
+</html>

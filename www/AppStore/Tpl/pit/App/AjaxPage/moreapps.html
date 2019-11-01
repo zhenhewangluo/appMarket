@@ -1,0 +1,38 @@
+<compare name="htmlType" type="eq" value="Normal">
+	<ul class="appsList">
+</compare>
+
+<volist name="appslist" id="vo">
+            <li>
+              <a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" class="appIcon" id="{$rid}-{$vo['app_id']}">
+                <img src="{:C('PICTURE_HOST')}{$vo['icon']}" style="width: 78px; height: 78px;" alt="Icon">
+              </a>
+              <div class="appText">
+				  <a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" class="title">
+                <h3>{$vo['app_name']}</h3>
+				</a>
+                <p>{:showCutStr($vo['app_desc'],100);}</p>
+              </div>
+              <div class="appInfo">
+                <div class="stars darkStars"><div class="RatingStarsDark rating-{:round($vo['app_score_www']*2/($vo['app_starcount']+1e-5))}"></div></div>
+    <a class="button_normal" href="{:C('PICTURE_HOST')}{$vo['apk_path']}" onclick="getApp('{$vo['app_id']}');{$returnFlase}">下载</a>
+              </div>
+            </li>				
+</volist>	
+<compare name="htmlType" type="eq" value="Normal">
+	</ul>
+</compare>
+				<compare name="page|trim" value="" type="neq">
+				<table class="pager" style="width: 460px;" cellspacing="0">
+					<tbody><tr>
+							<td class="cl"></td>
+							<td>跳转至：</td>
+							<td>
+								<div class="ajaxpage"> {$page}</div>
+								<!--span class="active">1</span-->
+							</td>
+							<td class="cr"></td>
+						</tr>
+					</tbody>
+				</table>
+				</compare>

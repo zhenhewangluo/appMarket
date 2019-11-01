@@ -1,0 +1,746 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>雷军回应小米成本：和国际品牌比是侮辱智商_***</title>
+<meta name="keywords" content="雷军,小米手机,小米成本" />
+<meta name="description" content="如果说这个夏天有什么特殊的话，那么在智能手机领域出现的变迁会是一个令人关注的话题。一方面，根据我们接触的诸多行业人士的推 断，在这个夏天之后，智能手机将真正进入一个" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E5%A4%AA%E7%A9%BA/' target="_blank">太空</a><a href='/Article/tags.php?/%E6%96%87%E6%A1%A3/' target="_blank">文档</a><a href='/Article/tags.php?/%E8%99%AB%E8%99%AB%E9%83%A8%E8%90%BD/' target="_blank">虫虫部落</a><a href='/Article/tags.php?/%E6%9F%A5%E5%BF%AB%E9%80%92/' target="_blank">查快递</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">雷军回应小米成本：和国际品牌比是侮辱智商</h1>
+			<div class="articleInfo"><small>时间:</small>2012-06-23 20:24<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=2684&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p>
+	<strong>如果说这个夏天有什么特殊的话，那么在智能手机领域出现的变迁会是一个令人关注的话题。</strong>一方面，根据我们接触的诸多行业人士的推&nbsp;断，在这个夏天之后，智能手机将真正进入一个放量的井喷期；另一方面是智能手机成本在下降，摩尔定律似乎仍在这个行业起着支配性的作用；这还不包括一批新&nbsp;玩家的进驻，几乎是一夜之间，大部分的互联网巨头都有涉足这个行业计划，这些颇具实力的新玩家的出现，注定了这个夏天之后，将是一个行业结构会出现颠覆式&nbsp;变迁的时刻。
+</p>
+<p>
+	<br />
+</p>
+
+	<img alt="/uploads/allimg/c120716/13424214K33J0-5bQ.jpg" src="/uploads/allimg/c120716/13424214K33J0-5bQ.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" /> 
+
+<p>
+	在我们的观察中，这是一个行业的拐点，也是一些新兴公司的拐点。
+</p>
+<p>
+	无论其未来是继续向上还是拐弯向下，选 取一家最具代表性的公司，进行解剖麻雀式的跟踪是非常有意义的。我们的选择是小米公司。对于中国互联网厂商投入智能手机业而言，雷军的小米手机是成功者， 亦是先行者。投资者刚刚以现金投票，认定这是一家颇具前景的公司。事实上，完成多轮融资的小米公司，在估值上也不断翻番。
+</p>
+<p>
+	当然，我们亦关注到这家公司的变化和潜在的危机，以“拐点”作为这家公司的注脚。这个判断有些大胆，我们是希望通过对一家公司深入观察，以资读者洞彻这一行业的变化。我们亦能通过这一组报道，在这个燥热夏天的关键时刻，以记录这个激动人心的行业变迁。
+</p>
+<p>
+	——编者
+</p>
+<p>
+	<strong>经济观察报 记者 闫威</strong> 
+</p>
+<p>
+	“每台小米手机的利润是多少？”记者提问。
+</p>
+<p>
+	雷军皱了皱眉头，提高了嗓门：“你不觉得你这个问题很不礼貌吗？”语气像一家公司的老板质问他手下做错事的员工一样。
+</p>
+<p>
+	小米公司宣称以成本定价，达到最好的性价比，但产业链上的专业人士称，他的每部手机会在硬件成本的基础上再加价约700元。“面对不断推出的同样高配置的千元手机，小米的竞争力在哪里？”
+</p>
+<p>
+	在嘈杂的展馆中，雷军将手机在桌子上一摔：“拿国产的和世界一流的品牌相比，是侮辱大家的智商。”
+</p>
+<p>
+	用“小米手机质量”作为关键词，很多搜索引擎的结果都会出现若干质量问题的搜索结果。有资料称其“做工差，硬件品质一般”。
+</p>
+<p>
+	小米公司一直宣称手机供不应求，长期缺货。不过这家公司现在开始使用优惠券促销。最近一次活动的内容包括了发放30万张300元的购机优惠券。
+</p>
+<p>
+	中国电信天翼3G手机交易会期间，小米公司董事长兼CEO雷军前所未见地在公开场合失态。这背后，究竟是怎么回事？
+</p>
+<p>
+	<strong>利润问题</strong> 
+</p>
+<p>
+	6月15日，中国电信天翼3G手机交易会现场，在助手的簇拥下，雷军走进专访间。在专访间透明的玻璃窗外面，上百名米粉驻足围观，有人拍照，发微博，也有人等待专访结束，向雷军索要签名，或者合影。
+</p>
+<p>
+	这位小米公司的董事长兼CEO，被拥趸们尊称为“雷布斯”。
+</p>
+<p>
+	当天，面对中国电信天翼3G手机交易会现场6000多名与会者，雷军说，“行业关于小米的质疑，我想最大的质疑是，这300万台是不是真的？”话音落下，台下掌声雷动。紧接着，雷军又说，“相信这300万台是真的请鼓掌！”
+</p>
+<p>
+	这一次，掌声稀落。雷军自我解嘲道：“我也不想拿出审计报告证明我讲的是真的还是假的，反正信不信由大家，无所谓。”
+</p>
+<p>
+	当天会后，当记者问及每台小米手机的利润有多少时，雷军的回答是：“小米和供应商签订保密协议，零部件的价格不能透露。”记者强调，问题并不是关于零部 件的利润，而是每台小米手机的整体利润，雷军皱了皱眉头，提高了嗓门，说，“你不觉得你这个问题很不礼貌吗？”语气就像一家公司的老板对他手下做错事的员 工的态度一样。会后，记者追问能否回答每台手机是赚钱还是赔钱的时候，雷军拒不回答，头也不回地，被随行的助手簇拥着消失在人群中。
+</p>
+<p>
+	小米手机的利润就是一个敏感的秘密，小米公司对手机利润坚称成本定价。
+</p>
+<p>
+	小米公司曾对它的支持者称，使用成本定价。在这些具有道德感的话语下，以至于单台小米手机的利润问题某种程度上说是一个诚信问题。事实上，雷军则在微博、公开论坛等各种场合对外宣称，智能手机行业三星和苹果占据和利润的99%，以此强调小米的高性价比和成本定价。
+</p>
+<p>
+	在这次手机交易会上，摩托罗拉、华为、HTC、天宇朗通、宇龙酷派、TCL等传统制造企业竞赛推出高配智能手机，定价上从1000到3000元不等，涵 盖各个阶段，除了刚刚做自有品牌5年的HTC称无法实现1999元以下的智能手机外，其他品牌均推出金字塔式结构价格，产品从1000元、甚至八九百元的 智能手机做基石，均以高配置高性价比诱人。
+</p>
+<p>
+	以华为C8812为例，高通处理器，4.0　Android系统，人脸识别，全景拍摄，以及前后镜头，价格设在990元档位。
+</p>
+<p>
+	<strong>对手</strong> 
+</p>
+<p>
+	无论如何，智能手机已经进入了一个新的发展阶段。此时，既有摩托罗拉、诺基亚和华为老牌贵族，也有HTC、宇龙酷派、天语朗通等新式精英，甚至还加入了尼彩这样凶猛的后来者。
+</p>
+<p>
+	中国很多国内厂商此前因功能手机的诱惑，资源还没有完全转向智能手机。因为大厂商撤离功能手机市场，留下了大规模的市场空白，而在现在，随着智能手机成本下降，这些厂商蜂拥而入——单从性价比看，这些厂商具备很多优势。
+</p>
+<p>
+	按照宇龙酷派常务副总裁李旺的观点，小米手机一旦上量，它不太可能再如入无人之境，其他手机行业遇到的库存、技术更新等问题，它也不得不面对。
+</p>
+<p>
+	小米强调采用1.5G双核高通处理器，基于安卓OS　2.3系统，夏普的4寸屏幕，后来改成了东芝的屏幕。按照去年8月份，这个配置算是高的，1999元的价格也因此获得了高性价比。但现在这个配置的性价比优势已经不再。
+</p>
+<p>
+	此间，产品更新的周期也在加快。华为终端有限公司中国地区部总裁王伟军说，“希望产品的生命周期越长越好，但是消费者的需求、运营商对产品的需求以及竞争的环境下，目前智能手机的生命周期越来越短。”
+</p>
+<p>
+	宇龙酷派常务副总裁李旺也表示：“目前智能手机已经到了三个月一个产品周期的阶段了。”
+</p>
+<p>
+	天宇朗通副总裁手机倪刚说，“天语在未来一个季度里，会有更多有性价比优势的产品推出来，不管是3.5寸的入门级智能机，到双核，到四核的产品，所有的这些产品配置比较高，但是价格会更亲民。”
+</p>
+<p>
+	高通已经将系统定价为可以直接用于600元左右的智能手机芯片了。
+</p>
+<p>
+	专做高端机的HTC中国区总裁任伟光称： “我们没有能力做到价格1999元以下的智能手机。”这家公司做手机15年，从代工起家的HTC在专利上储备不多，每台手机用于支付专利费的成本不菲，任 伟光说：“决定价格差异的因素在原材料、专利、生产费用、研发成本和运营成本等五方面，相比较来说，只有专利费是无法降低下来的，因为你不可能像小厂那样 不交专利费吧，不像三星、诺基亚那些大厂可以用专利互换，谷歌收购摩托罗拉也正是看中专利。”
+</p>
+<p>
+	专利费正是雷军用以支撑小米手机无利润的素材。此外，他对记者表示，由于每台手机原材料进口，关税就要400元。
+</p>
+<p>
+	然而并不是所有人都认同这种观点。以打造手机工厂店突围的尼彩手机创始人卢洪波说，一部手机从出厂到消费者手中，往往加价几百块钱，但整个行业又普遍反 映，自己赚不到什么钱。尼彩第一款安卓智能手机售价为799元。卢洪波表示，一部售价1999元的小米手机，实际制造成本仅1300元左右，智能手机仍有 很大暴利空间。
+</p>
+<p>
+	当记者问道，目前不少品牌厂生产出高配置但价格仅1699元、1499元、甚至1299元的手机，小米的竞争力在哪里？
+</p>
+<p>
+	雷军又一次表现出愤怒，他提高嗓门，即使在嘈杂的展馆内，也听得格外清楚，他甚至将手机在桌子上一摔，“如果不相信，可以拆开来看看。小米手机定价1999，不要和国产拼。”
+</p>
+<p>
+	他拿起手中的小米手机：“号称能和我们竞争的厂商，你提供一下名字就可以了，其实哪一家号称可以问一下，你就知道了，所以这一点我们足够自信。拿国产的和世界一流的品牌相比，是侮辱大家的智商。”
+</p>
+<p>
+	在场的人们似乎听出了里面的玄机，窃窃私语。雷军努力做出镇定的样子，“包括电池，其实你如果采用一流的供应商，贵得一塌糊涂。不是国产的不好，而是在 手机制造的今天，日本、韩国在技术上的领先还是非常明显。但是我有一点特别要跟大家强调的是，假如你用世界一流的显示屏，用了一流的元器件，其实做到这一 点，任何一家手机厂商都是困难的。小米到今天为止，如果全部采用世界一流的供应商的核心器件，依然是最困难的。”
+</p>
+<p>
+	随着竞争对手的涌入，雷军则不再强调配置，而强调所有配件是进口，进口配件比国产的好得多。
+</p>
+<p>
+	尼彩手机创始人卢洪波说，智能手机和功能手机最大的不同是，后者售后服务功能更突出。功能手机时代，手机仅仅是打电话发短信的工具，手机卖出后就是一锤 子买卖。而智能手机时代，许多用户需要店家帮忙解决手机软件问题，需要刷机、装软件、拷音乐、拷电影，实体店的作用日益突出。“这是我们和小米最大的区 别。”卢洪波表示，小米依靠互联网销售模式，缺乏实体店对用户的后期支持，而尼彩手机希望做“开门生意”，用各种服务将用户吸引到店里来。
+</p>
+<p>
+	宇龙酷派常务副总裁李旺说，当有了规模以后，小米也会遇到传统手机制造商的难题，比如库存，比如供应链难题。没有供应链经验，没有研发基础，没有实体销 售渠道的互联网公司，在开始向社会渠道延伸，和传统手机制造商展开全面竞争后，其依靠小众市场创造的辉煌能否持续？这是摆在小米面前的新课题。
+</p>
+<p>
+	饶有趣味的是，就在这次会议不久，一向宣称供不应求，长期缺货状态的小米公司开始尝试促销以及降价。
+</p>
+<p>
+	6月18日，小米公司通过官方微博宣布开始使用优惠券。“300元购机优惠券，使用期限是6月19日24点。”
+</p>
+<p>
+	到了当天下午，小米手机标准版最新价已跌至1599元。
+</p>
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>《经济观察报》</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/2684.html">/Article/News/2012/0716/2684.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/2684.html";
+				var wumiiTitle = "雷军回应小米成本：和国际品牌比是侮辱智商";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/2684.html">雷军回应小米成本：和国际品牌比是侮辱智商</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/News/2012/0716/3501.html" target="_blank">小米手机第五轮10万台开放购买 赠送橙色后盖</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3437.html" target="_blank">小米手机又要开放购买喽~</a>(2012-03-06)</li>
+<li><a href="/Article/News/2012/0716/3415.html" target="_blank">Anchorfe公司即将推出小米手机专用基座，支持WI</a>(2012-03-04)</li>
+<li><a href="/Article/News/2012/0716/3409.html" target="_blank">【小米配件气质新品】小米手机皮质挂绳即将登</a>(2012-03-03)</li>
+<li><a href="/Article/News/2012/0716/3387.html" target="_blank">小米的快发展与慢服务</a>(2012-03-20)</li>
+<li><a href="/Article/News/2012/0716/3360.html" target="_blank">小米手机第五轮开放购买 十万台35分钟售完</a>(2012-03-17)</li>
+<li><a href="/Article/News/2012/0716/3355.html" target="_blank">3月17日周六，小米手机第五轮10万台开放购买！赠</a>(2012-03-17)</li>
+<li><a href="/Article/News/2012/0716/3289.html" target="_blank">[视频]小米手机遥控本田CRV真车 模型弱爆了！</a>(2012-04-01)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/2683.html'>Android系统下版本为4.1果冻豆</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/2685.html'>HTC将会退出巴西市场，北卡罗莱纳州一个研究中</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',2684)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',2684)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',2684)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(2684);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="2684" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=2684">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=2684&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '2684');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '2684');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:pt;color:#4c49e9">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:12pt;color:#8830bd">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:14pt;color:#c02d41">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:12pt;color:#7614">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:pt;color:#d78322">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:12pt;color:#7a3243">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:pt;color:#243c95">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:12pt;color:#30b43c">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:12pt;color:#4a1dd3">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:pt;color:#656f7b">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:10pt;color:#cc918c">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:12pt;color:#be6f27">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:14pt;color:#3b39d">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:14pt;color:#8b3e89">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:14pt;color:#9f17fb">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:pt;color:#92b4c">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:12pt;color:#5e1826">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:pt;color:#b17cea">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:12pt;color:#5e5bc1">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:10pt;color:#7b2b4">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

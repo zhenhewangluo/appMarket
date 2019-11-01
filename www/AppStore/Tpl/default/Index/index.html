@@ -1,0 +1,206 @@
+<script type='text/javascript' src="__PUBLIC__/js/jquery.cycle.all.js"></script>
+<div class="flag_ad">
+	<ul class="img_list_box">
+		<li><a href="javascript:void(0);"><img src="{:C('UPLOAD_PATH')}slide_1.png" alt=""  /></a></li>
+		<li><a href="javascript:void(0);"><img src="{:C('UPLOAD_PATH')}slide_2.png" alt="" /></a></li>
+		<li><a href="javascript:void(0);"><img src="{:C('UPLOAD_PATH')}slide_3.png" alt="" /></a></li>
+		<li><a href="javascript:void(0);"><img src="{:C('UPLOAD_PATH')}slide_4.png" /></a></li>
+		<li><a href="javascript:void(0);"><img src="{:C('UPLOAD_PATH')}slide_5.png" /></a></li>
+	</ul>
+	<div class="img_page_box">
+		<a href="javascript:void(0);" id="img_page_prev"></a>
+		<ul class="img_page_list"></ul>
+		<a href="javascript:void(0);" id="img_page_next"></a>
+	</div>
+</div>
+<div class="catebar f_l clear">
+	<script type="text/javascript">
+		$(function(){
+			var cateNodes = $('.catebar_title .switch_tab li a');
+			var cotnentNodes = $('.content_box_title .switch_tab li a');
+			var cateDivNodes = $('.catebar_tab_content');
+			var cotnentDivNodes = $('.chosen_box');
+			switch_liTab_bg(cateNodes, cateDivNodes, 'switch_tab_current');
+			switch_liTab_bg(cotnentNodes, cotnentDivNodes, 'switch_tab_current');
+			$('.img_list_box').cycle({ 
+				speed:       2000, 
+				timeout:     2000, 
+				pager:      '.img_page_list', 
+				//pagerEvent: 'mouseover',
+				prev:   '#img_page_prev', 
+				next:   '#img_page_next',
+				pauseOnPagerHover: true,
+				pause:	true,
+				pagerAnchorBuilder: pagerFactory
+				
+			});
+		});
+		function ajax_page(p)
+		{
+			$('.page').html('loading......');
+			$.getJSON("{:U('AppStore://Index/displayRiseList?do=ajax_page')}", {'p':p} ,function(data){
+				$('.ajax_rocket').html(data.content);
+				$('.page').html(data.pageInfo);
+			});
+		}
+		function pagerFactory(idx, slide) {
+			//var s = idx > 2 ? ' style="display:none"' : '';
+			return '<li></li>';
+		};
+	</script>
+	<div class="catebar_title">
+		<ul class="switch_tab">
+			<li><a href="javascript:void(0);" class="switch_tab_current">排行榜</a></li>
+			<li><a href="javascript:void(0);">分类浏览</a></li>
+		</ul>
+	</div>
+	<!-- 按排行浏览 -->
+	<div class="catebar_tab_content">
+		<h6 class="cate_title">最新免费</h6>
+		<volist name="newlist" id="vo">
+			<dl>
+				<dt class="app_rank">{$i}</dt>
+				<dt class="app_title">
+					<a href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" target="_blank">
+						{$vo['app_name']|mb_substr=0,10,'UTF-8'}
+					</a>
+				</dt>
+				<dd>{$vo['author_name']}</dd>
+			</dl>
+		</volist>
+		<!--游戏分类-->
+		<p>所有热门免费应用程序 <span>></span></p>
+
+		<!--应用程序分类-->
+		<h6 class="cate_title line_t">热门免费新品</h6>
+		<volist name="hotlist" id="vo">
+			<dl>
+				<dt class="app_rank">{$i}</dt>
+				<dt class="app_title">
+					<a href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" target="_blank">
+						{$vo['app_name']|mb_substr=0,10,'UTF-8'}
+					</a>
+				</dt>
+				<dd>{$vo['author_name']|mb_substr=0,10,'UTF-8'}</dd>	
+			</dl>
+		</volist>		    
+		<!-- <p>所有热门免费新品应用程序 <span style="color:#6EDCF7;">></span></p> -->
+	</div>
+	<!--应用程序分类-->
+	<!-- 按排行浏览 -->
+	<!-- 按分类浏览 -->
+	<div class="catebar_tab_content" style="display:none;">
+		<!--游戏分类-->
+		<h6 class="cate_title">游戏</h6>
+		<ul>
+			<volist name="appCateTree[1]['_child']" id="vo">
+				<if condition="0 eq $key">
+				<li class="b_n"><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></li>
+				<else/>
+				<li><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></li>
+				</if>
+			</volist>
+		</ul>
+		<!--游戏分类-->
+		<!--应用程序分类-->
+		<h6 class="cate_title line_t">应用程序</h6>
+		<ul>
+			<volist name="appCateTree[2]['_child']" id="vo">
+				<if condition="0 eq $key">
+				<li class="b_n"><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></li>
+				<else/>
+				<li><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></li>
+				</if>
+			</volist>
+		</ul>
+	</div>
+	<!-- 按分类浏览 -->
+</div>
+<div class="content_box line_l">
+	<div class="content_box_title">
+		<ul class="switch_tab">
+			<li><a href="javascript:void(0);" class="switch_tab_current">精选</a></li>
+			<li><a href="javascript:void(0);">精选平板应用</a></li>
+		</ul>
+	</div>
+	<div>
+		<div class="chosen_box">
+			<volist name="recommenlist" id="vo">
+				<dl class="app_dl">
+					<dt>
+						<a href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" target="_blank">
+							<img alt ="" src="../Public/images/1.png" />
+						</a>
+					</dt>
+					<dt><a href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" target="_blank">{$vo['app_name']|mb_substr=0,10,'UTF-8'}</a></dt>
+					<dd>{$vo['author_name']|mb_substr=0,10,'UTF-8'}</dd>
+					<dd>
+						<span class="blue_grade">
+							<if condition="$vo['app_starcount'] gt 0">
+							<i style="width:{:round($vo['app_score_www']/$vo['app_starcount']) * 15}px;"></i>
+							<else/>
+							<i style="width:0px;"></i>
+							</if>
+						</span>
+						({:number_format($vo['app_downloads'])})
+					</dd>
+					<dd>
+						<a href="{:U('AppStore://Apps/appDownload?aid=' . $vo['app_id'])}" target="_blank">
+							<img alt ="" src="../Public/images/installation.png" />
+						</a>
+					</dd>
+				</dl>
+			</volist>
+		</div>
+		<div class="chosen_box">
+			
+		</div>
+		<hr />
+	</div>
+	<div class="line_t">
+		<dl class="recommend_box">
+			<dt class="recommend_icon"><img src="../Public/images/recommend.png" /></dt>
+			<dt class="recommend_title">编辑精选</dt>
+			<dd>我们的工作人员从Android电子市场中挑选的一些最受欢迎的应用程序</dd>
+			<dd class="recommend_all">查看全部 <span style="color:#6EDCF7;"> > </span></dd>
+		</dl>
+	</div>
+	<div class="rocket_box line_t">
+		<h6 class="cate_title">上升最快</h6>
+		<div class="ajax_rocket">
+			<volist name="riselist" id="vo">
+				<dl class="app_dl">
+					<dt>
+						<a href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+							<img alt ="{$vo['app_name']}" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" />
+						</a>
+					</dt>
+					<dt>
+						<a class="app_name" href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+							{$vo['app_name']|mb_substr=0,8,'UTF-8'}
+						</a>
+					</dt>
+					<dd class="app_author_name">{$vo['author_name']|mb_substr=0,8,'UTF-8'}</dd>
+					<dd>
+						<span class="blue_grade">
+							<if condition="$vo['app_starcount'] gt 0">
+							<i style="width:{:round($vo['app_score_www']/$vo['app_starcount']) * 15}px;"></i>
+							<else/>
+							<i style="width:0px;"></i>
+							</if>
+						</span>
+						({:number_format($vo['app_downloads'])})
+					</dd>
+					<dd>
+						<a href="{:U('AppStore://Apps/appDownload?aid=' . $vo['app_id'])}" target="_blank" title="{$vo['app_name']}">
+							<img alt ="" src="../Public/images/installation.png" />
+						</a>
+					</dd>
+				</dl>
+			</volist>
+		</div>
+		<div class="page" style="clear:both;">{$pageInfo}</div>
+		<p>查看更多 <span> > <span></p>
+	</div>
+</div>
+<!--右侧主体-->

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#e4e4e4">
+
+	<!-- user nickname-->
+   	<TextView
+        android:id=	"@+id/usernickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dip"
+        android:layout_marginLeft="13dip"
+        android:text="@string/user_info_nickname"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="16dip"/>
+           
+   	<LinearLayout
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="9dip"
+       	android:layout_marginLeft="22dip"
+	    >
+		    
+	    <ImageView
+	    	android:layout_width="17dip"
+	    	android:layout_height="16dip"
+	    	android:scaleType="fitXY"
+	    	android:src="@drawable/user_info_icon1"
+	    	/>
+	    
+		<!-- user name -->
+		<TextView
+			android:id="@+id/username"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="7dip"
+			android:text="@string/user_info_name"
+			android:textStyle="bold"
+			android:textColor="#fff"
+			android:textSize="16dip"/>
+			
+   	</LinearLayout>
+    	
+   	<LinearLayout
+	    android:orientation="horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5dip"
+          	android:layout_marginLeft="22dip"
+	    >
+		    
+	    <ImageView
+	    	android:layout_width="17dip"
+	    	android:layout_height="16dip"
+	    	android:scaleType="fitXY"
+	    	android:src="@drawable/user_info_icon2"
+	    	/>
+	    					
+		<!-- user phone -->
+		<TextView
+			android:id="@+id/phone"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="7dip"
+			android:text="@string/user_info_phone"
+			android:textStyle="bold"
+			android:textColor="#fff"
+			android:textSize="16dip"/>
+			
+   	</LinearLayout>
+   	
+   	<!-- part line -->
+	<include layout="@layout/long_button"
+		android:id="@+id/edit_btn"
+		android:layout_width="267dip"
+		android:layout_height="36dip"
+		android:layout_marginTop="20dip"
+		android:layout_marginLeft="13dip"
+		/>
+		
+	<include layout="@layout/long_button"
+        android:id="@+id/change_pwd_btn"
+		android:layout_width="267dip"
+		android:layout_height="36dip"
+		android:layout_marginTop="20dip"
+		android:layout_marginLeft="13dip"/>
+	
+	<include layout="@layout/long_button"
+        android:id="@+id/logout_btn"
+		android:layout_width="267dip"
+		android:layout_height="36dip"
+		android:layout_marginTop="20dip"
+		android:layout_marginLeft="13dip"/>
+				
+
+</LinearLayout>

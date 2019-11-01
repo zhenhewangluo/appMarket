@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>***-</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link type="text/css" rel="stylesheet" href="/templets/style/css.css" />
+
+<link rel="alternate" type="application/rss+xml" href="data/rssmap.html" title="***" />
+
+<meta property="wb:webmaster" content="23cab78c53cb9f9a" />
+
+<meta http-equiv="Cache-Control" content="max-age=7200" />
+
+<script type="text/javascript" src="/templets/js/dedeajax2.js"></script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(
+
+function($){
+
+$("img").lazyload({
+
+placeholder : "/templets/images/grey.gif",
+
+effect      : "fadeIn"
+
+});
+
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div class="topbar">
+	<div class="topbarcnt">
+		<div class="topbarL"><a href="/">***</a>精品安卓应用下载平台！</div>
+		<div class="topbarR"><!--<a href="/top/index.html">资讯排行</a>|--><a href="/tags.php">热门标签</a>|<a href="javascript:addCookie();" _fcksavedurl="javascript:addCookie();">收藏本站</a>|<link title="***" type="application/rss+xml" href="/data/rssmap.html" rel="alternate" /><a href="/data/rssmap.html" target="_blank" class="rss">RSS订阅</a></div>		
+	</div>
+</div>
+
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.huanjubao.com">***</a></div>
+		<div class="search">
+			<form action="/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" /><input name="" type="submit" class="search-submit" value="搜索" />
+			</form>
+			<div class="hottag">热门关键字：<a href='/tags.php?/%E6%9E%9C%E5%86%BB%E9%98%B2%E5%BE%A1/' target="_blank">果冻防御</a></div>
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='/'>首页</a>|<a href='/plus/list.php?tid=1' >新闻</a>|<a href='/plus/list.php?tid=2' >评测</a>
+		</div>
+		<div class="user"><a href="/data/rssmap.html" target="_blank" class="a3">RSS订阅</a></div>
+	</div>
+</div>
+<!-- /header -->
+<div class="mainBox">
+	<div class="place">您的位置：<a href="http://www.yixieshi.com">首页</a> > 申请链接</div>
+	<div style="margin-top:10px;">
+		<p style=" margin-bottom:20px;line-height:2.2;"><strong>欢迎优秀网站与我们交换链接！</strong><br />
+			交换友情链接前，请先将我们的链接加入贵站。<br />
+			名称：***<br />
+	  地址：http://www.huanjubao.com/</p>
+		<form name="form1" method="post" action="flink.php">
+			<input type='hidden' name='dopost' value='save'>
+			<table width="100%"  border="0" cellspacing="1" cellpadding="3">
+				<tr>
+					<td height="25">网址：</td>
+					<td><input name="url" type="text" id="url" value="http://" size="30" class="ipt-txt"></td>
+				</tr>
+				<tr>
+					<td height="25">网站名称：</td>
+					<td><input name="webname" type="text" id="webname" size="30" class="ipt-txt"></td>
+				</tr>
+				<tr>
+					<td height="25">网站简况：</td>
+					<td><textarea name="msg" cols="40" rows="4" id="msg" class="ipt-txt"></textarea></td>
+				</tr>
+				<tr>
+					<td height="25">站长Email：</td>
+					<td><input name="email" type="text" id="email" size="30" class="ipt-txt"></td>
+				</tr>
+				<tr>
+					<td height="25">验证码：</td>
+					<td><table width="200" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="84"><input name="validate" type="text" id="vdcode2" size="10"></td>
+								<td width="116"><img src='../include/vdimgck.php' width='50' height='20'></td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr>
+					<td height="51">&nbsp;</td>
+					<td><input type="submit" name="Submit" value=" 提 交 " class="btn-2">
+						<input type="reset" name="Submit" value=" 重 置 " class="btn-2"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<div class="footer">
+	<p class="link"> 网站版权信息及免责声明 </p>
+	<!-- /powered -->
+</div>
+</body>
+</html>

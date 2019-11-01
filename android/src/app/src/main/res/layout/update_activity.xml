@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dip"
+    android:layout_height="280dip"
+    android:background="#e4e4e4"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="300dip"
+        android:layout_height="220dip"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="300dip"
+            android:layout_height="220dip"
+            android:orientation="vertical"
+            android:paddingBottom="12dip"
+            android:paddingTop="12dip" >
+
+            <ImageView
+                android:layout_width="75dip"
+                android:layout_height="75dip"
+                android:layout_gravity="center"
+                android:src="@drawable/app_icon" />
+
+            <TextView
+                android:id="@+id/version"
+                android:layout_width="300dip"
+                android:layout_height="18dip"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/change_log"
+                android:layout_width="300dip"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="27dip"
+                android:paddingRight="27dip"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="300dip"
+        android:layout_height="60dip"
+        android:background="#e4e4e4"
+        android:gravity="center" >
+
+        <include
+            android:id="@+id/btn"
+            android:layout_width="180dip"
+            android:layout_height="36dip"
+            android:layout_gravity="center"
+            layout="@layout/long_button" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<div class="catebar f_l">
+	<div class="catebar_title">
+		<ul class="switch_tab"><li><a href="javascript:void(0);" class="switch_tab_current">分类浏览</a></li></ul>
+	</div>
+	<div class="catebar_tab_content">
+		<!--游戏分类-->
+		<h6 class="cate_title">游戏</h6>
+		<ul>
+			<volist name="appCateTree[1]['_child']" id="vo">
+				<if condition="0 eq $key">
+				<li class="b_n"><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></li>
+				<else/>
+				<li><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></li>
+				</if>
+			</volist>
+		</ul>
+		<!--游戏分类-->
+		<!--应用程序分类-->
+		<h6 class="cate_title line_t">应用程序</h6>
+		<ul>
+			<volist name="appCateTree[2]['_child']" id="vo">
+				<if condition="0 eq $key">
+				<li class="b_n"><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></li>
+				<else/>
+				<li><a href="{:U('AppStore://Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></li>
+				</if>
+			</volist>
+		</ul>
+		<!--应用程序分类-->
+	</div>
+</div>

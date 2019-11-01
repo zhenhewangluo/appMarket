@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+<channel>
+<title>新闻</title>
+<link>/Article/plus/list.php?tid=1</link>
+<description>新闻</description>
+<language>zh-cn</language>
+<generator><![CDATA[Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved]]></generator>
+<webmaster>admin@hjapp.com</webmaster>
+<item>
+    <title><![CDATA[拓展“小秘”极品市场：手机应用市场的发展]]></title>
+    <link>/Article/News/2012/0328/684.html</link>
+    <description><![CDATA[手机的发展演变：小秘的成长史 谁都不会想到，当1938年，美国贝尔实验室为美国军方成功制造世界上第一部移动电话之后，经过70多年的演变发展，这部移动电话已经由原本的只做通讯的机器]]></description>
+    <pubDate>2012-03-29</pubDate>
+    <category>新闻</category>
+    <author>Estelle</author>
+    <comments>***</comments>
+</item>
+<item>
+    <title><![CDATA[那些年，我在图书馆遇到的女孩]]></title>
+    <link>/Article/News/2012/0328/680.html</link>
+    <description><![CDATA[我也偶尔幻想自己会不会有一天也变成一个伟人，但是通常我都会马上打消这种想法，因为我觉得，伟人们应该不会把一个姑娘看作是一个图书馆的全部。是的，就是在这座图书馆中，我遇见了]]></description>
+    <pubDate>2012-03-29</pubDate>
+    <category>新闻</category>
+    <author>影武者</author>
+    <comments>未知</comments>
+</item>
+
+</channel>
+</rss>

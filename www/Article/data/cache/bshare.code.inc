@@ -1,0 +1,1 @@
+<a class=\"bshareDiv\" href=\"http://www.bshare.cn/share\">分享按钮</a><script language=\"javascript\" type=\"text/javascript\" src=\"http://www.bshare.cn/button.js#uuid=9556efb9-d36b-4350-bb13-7392aa5b08bd&style=2&textcolor=#000&bgcolor=none&bp=qqmb%2csinaminiblog%2csohubai%2crenren%2cbaiduhi%2cbgoogle&ssc=false&sn=true&text=分享到\"></script>           

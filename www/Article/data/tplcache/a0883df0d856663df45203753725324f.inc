@@ -1,0 +1,10 @@
+{dede:field name='keywords'}手机木马,疯狂“变脸”为{/dede:field}
+{dede:field name='description'}木马通过伪装实现“变脸”的行为并不稀奇，但“面具”高达近 150 种的手机木马却极为罕见。近期，一批名为“变脸”的手机木马家族在安卓平台异常活跃，中招用户手机往往会出现话费莫名被扣。根据 360 云安全中心监测数据，截至 2 月 15 日，该系列木马变种样本已接近 150 款，包括贪吃蛇、俄罗斯方{/dede:field}
+{dede:field name='title'}手机木马疯狂“变脸”为扣费 已感染近150个安卓应用{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

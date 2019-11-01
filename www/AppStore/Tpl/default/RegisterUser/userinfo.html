@@ -1,0 +1,210 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a> > 用户中心
+</div>
+<!-- 面包屑导航 -->
+<!-- layout::$userbar::0 -->
+<script type="text/javascript">
+	$(function(){
+		$('#btRegister').click(function(){
+			var phoneVal = $('input:[name="phone"]').val();
+			var qqVal = $('input:[name="qq"]').val();
+			var obj = {
+				'email_ispublic' : parseInt($('[name="email_ispublic"]:checked').val()),				
+				'phone' : (phoneVal == '') ? '' : parseInt(phoneVal),
+				'mobile_ispublic' : parseInt($('[name="mobile_ispublic"]:checked').val()),
+				'qq' : (qqVal == '') ? '' : parseInt(qqVal),
+				'qq_ispublic' : parseInt($('[name="qq_ispublic"]:checked').val()),
+				'weburl' : $('input:[name="weburl"]').val(),
+				'weburl_ispublic' : parseInt($('[name="weburl_ispublic"]:checked').val()),
+				'address' : $('input:[name="address"]').val(),
+				'expressdelivery' : parseInt($('[name="expressdelivery"]:checked').val()),
+				'__hash__' : $('#userinfo input:[name="__hash__"]').val() 
+				};
+			if($('#userinfo .invalid-msg').length > 0)
+			{
+				return false;
+			}
+			$.post("{:U('AppStore://Ajax/userUpdate')}", obj, function(data){
+				alert(data);
+			},'json');
+			return false;
+		});
+	});
+   //清空radio
+    function clearRadio(radio_oj){
+    for(var i=0;i<radio_oj.length;i++) //循环
+    {
+	if(radio_oj[i].value=='1') //比较值
+	 { 
+	    radio_oj[i].checked=true; //修改选中状态
+	    break; //停止循环
+	}
+    }   
+    }  //清空内容
+    function clearInput(){
+        $("input:text").attr('value','');
+	$("input:password").attr('value','');
+	clearRadio(document.userinfo.mobile_ispublic);
+	clearRadio(document.userinfo.qq_ispublic);
+	clearRadio(document.userinfo.weburl_ispublic);
+	clearRadio(document.userinfo.expressdelivery);
+	clearRadio(document.userinfo.email_ispublic);
+    }
+
+
+</script>
+<div class="user_box f_r">
+	<div class="user_box_t">
+		<h6>个人资料</h6>
+		<ul class="user_box_nav">
+			<li class="current"><a href="javascript:void(0);">我的欢聚</a></li>
+			<li><a href="{:U('AppStore://RegisterUser/ucenter')}">我的更新</a></li>
+			<li><a href="{:U('AppStore://RegisterUser/downloadHistory')}">我的下载</a></li>
+			<li><a href="javascript:void(0);">我的收藏</a></li>
+			<li><a href="{:U('AppStore://RegisterUser/commentHistory')}">我的评分</a></li>
+			<li><a href="javascript:void(0);">我的点评</a></li>
+		</ul>
+	</div>
+	<div class="user_box_c">
+		<h6>用户信息修改</h6>
+		<form method="post"  id="userinfo" name="userinfo">
+			<table>
+				<tr>
+					<th class="t_r">昵称：</th>
+					<td><label>{$webUname}</label></td>
+				</tr>				
+				<tr>
+					<th class="t_r">账户邮箱：</th>
+					<td><label>{$webUemail}</label></td>
+				</tr>
+				<tr>
+					<th class="t_r" >邮箱是否公开：</th>
+					<td class="tLeft" >
+					    <label>
+						<if condition="$userinfo['email_ispublic'] eq 1">
+						<input type="radio" name="email_ispublic" value="1" checked="true" />是
+						<else />
+						<input type="radio" name="email_ispublic" value="1" />是
+						</if>
+					    </label>
+					    <label>
+						<if condition="$userinfo['email_ispublic'] eq 0">
+						<input type="radio" name="email_ispublic" value="0" checked="true" />否
+						<else />
+						<input type="radio" name="email_ispublic" value="0" />否
+						</if>
+					    </label>
+					</td>
+				</tr>	
+				<tr>
+					<th class="t_r">手机号：</th>
+					<td><label><input class="long" type="text"  name="phone"  pattern="mobi" alt="请输入正确手机号码" value="{$userinfo['phone']}" empty /></label></td>
+				</tr>
+				<tr>
+					<th class="t_r" >手机号是否公开：</th>
+					<td class="tLeft" >
+					    <label>
+						<if condition="$userinfo['mobile_ispublic'] eq 1">
+						<input type="radio" name="mobile_ispublic" value="1" checked="true" />是
+						<else />
+						<input type="radio" name="mobile_ispublic" value="1" />是
+						</if>
+					    </label>
+					    <label>
+						<if condition="$userinfo['mobile_ispublic'] eq 0">
+						<input type="radio" name="mobile_ispublic" value="0" checked="true" />否
+						<else />
+						<input type="radio" name="mobile_ispublic" value="0" />否
+						</if>
+					    </label>
+					</td>
+				</tr>	
+				<tr>
+					<th class="t_r">QQ号码：</th>
+					<td><label><input class="long" type="text"   name="qq"  pattern="qq" alt="请输入正确的QQ号码" value="{$userinfo['qq']}" empty /></label></td>
+				</tr>				
+				<tr>
+					<th class="t_r" >QQ号码是否公开：</th>
+				       <td class="tLeft" >
+					    <label>
+						<if condition="$userinfo['qq_ispublic'] eq 1">
+						    <input type="radio" name="qq_ispublic" value="1" checked="true" />是
+						<else />
+						    <input type="radio" name="qq_ispublic" value="1"  />是
+						</if>
+					    </label>
+					    <label>
+						<if condition="$userinfo['qq_ispublic'] eq 0">
+						    <input type="radio" name="qq_ispublic" value="0" checked="true"  />否
+						<else />
+						    <input type="radio" name="qq_ispublic" value="0"   />否      
+						</if>
+					    </label>
+					</td>
+				</tr>	
+				<tr>
+					<th class="t_r">微博地址：</th>
+					<td><label><input class="long" type="text"  name="weburl"   value="{$userinfo['weburl']}" empty /></label><br>必须以http://开头</td>
+				</tr>
+				<tr>
+					<th class="t_r" >微博是否公开：</th>
+					<td class="tLeft" >
+					    <label>
+						<if condition="$userinfo['weburl_ispublic'] eq 1">
+						    <input type="radio" name="weburl_ispublic" value="1" checked="true" />是
+						<else />
+						     <input type="radio" name="weburl_ispublic" value="1" />是
+						</if>
+					    </label>
+					    <label>
+						<if condition="$userinfo['weburl_ispublic'] eq 0">
+						    <input type="radio" name="weburl_ispublic" value="0" checked="true" />否
+						<else />
+						     <input type="radio" name="weburl_ispublic" value="0" />否
+						</if>
+					    </label>
+					</td>
+				</tr>	
+				<tr>
+					<th class="t_r">联系地址:</th>
+					<td><label><input class="long" type="text"  name="address"  alt="请输入联系地址用于以后发送奖品" value="{$userinfo['address']}"  /></label></td>
+				</tr>				
+				<tr>
+					<th class="t_r" >选择快递方式(用于发送奖品)：</th>
+					<td class="tLeft" >
+					    <label>
+						<if condition="$userinfo['expressdelivery'] eq 1">
+						    <input type="radio" name="expressdelivery" value="1" checked="true" />平邮
+						<else />
+						    <input type="radio" name="expressdelivery" value="1"  />平邮
+						</if>
+					    </label>
+					    <label>
+						<if condition="$userinfo['expressdelivery'] eq 0">
+						    <input type="radio" name="expressdelivery" value="0" checked="true" />快递
+						<else />
+						    <input type="radio" name="expressdelivery" value="0"  />快递
+						</if>
+					    </label>
+					</td>
+				</tr>	
+				<tr>
+					<th class="t_r"></th>
+					<!-- <td><input type="hidden" name="ajax" value="1"></td> -->
+					<td>
+						<label>							
+							<input type="submit" id="btRegister" class="user_submit"  value="修 改"/>&nbsp;
+							
+						</label>
+						<input  type="button" class="user_clearinput"  value="修 改" onclick="clearInput()" >&nbsp;
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="user_box_b"></div>
+</div>
+ 
+
+

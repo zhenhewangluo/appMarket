@@ -1,0 +1,774 @@
+.clearfix:after{display:block;visibility:hidden;clear:both;height:0;content:"."}
+.containerAllApps {
+	width: 935px;
+	margin: 10px auto 0;
+	background: url('../images/bg_containers.gif') repeat-y 0 0;
+	_margin:0 auto;
+}
+.sidebarAllApps {
+	float: left;
+	width: 180px;
+	margin: -10px 5px 0 0;
+	_margin: 0 5px 0 0;
+}
+.sidebarAllApps .top {
+	height: 59px;
+	background: url('../images/contentTopAllAppsSidebarBg.png') no-repeat 0 0;
+	_background:url('../images/contentTopAllAppsSidebarBg.gif') no-repeat 0 0;
+}
+.sidebarAllApps .top h2 {
+	margin: 0;
+	padding: 0 0 0 10px;
+	line-height: 59px;
+	font-size: 14px;
+	color: #FFF;
+}
+.sidebarAllApps .top .backToOverview {
+	position: relative;
+	top: 22px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+}
+.sidebarAllApps .top .backToOverview:hover {
+	text-decoration: underline;
+}
+.sidebarAllApps .sidebarInner {
+	background: #FFF;
+}
+.sidebarAllApps .favSortList,.sidebarAllApps .favSortList .options {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sidebarAllApps .favSortList li {
+	display: block;
+	overflow: hidden;
+	margin: 0;
+	*margin-top:-5px;
+	padding: 0 8px 0 11px;
+	min-height: 30px;
+	line-height: 30px;
+	background: url('../images/favoritesSortListBg.png') repeat-x 0 0;
+}
+.sidebarAllApps .favSortList li a {
+	float: left;
+	text-decoration: none;
+	font-size: 11px;
+	color: #CCC;
+	width: 106px;
+	*width:80px;
+	white-space: nowrap;
+	overflow: hidden;
+	*font-size:12px;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+}
+.sidebarAllApps .favSortList .options {
+	float: right;
+	height: 18px;
+	overflow: hidden;
+	margin: 5px 0 0 0;
+	*min-height: 18px;
+}
+.sidebarAllApps .favSortList .options li {
+	float: left;
+	height: 18px;
+	*min-height:18px;
+	margin: 0;
+	padding: 0;
+	background: none;
+}
+.sidebarAllApps .favSortList .options li a.sortUp {
+	display: block;
+	width: 16px;
+	height: 18px;
+	overflow: hidden;
+	text-indent: -99999px;
+	background: url('../images/sortUpBtn.png') no-repeat 0 0;
+}
+.sidebarAllApps .favSortList li.first .options li span.sortUp {
+	display: block;
+	width: 16px;
+	height: 18px;
+	overflow: hidden;
+	text-indent: -99999px;
+	background: url('../images/sortUpBtn.png') no-repeat 0 -18px;
+}
+.sidebarAllApps .favSortList .options li a.sortDown {
+	display: block;
+	width: 16px;
+	height: 18px;
+	overflow: hidden;
+	text-indent: -99999px;
+	background: url('../images/sortDownBtn.png') no-repeat 0 0;
+}
+.sidebarAllApps .favSortList li.last .options li span.sortDown {
+	display: block;
+	width: 16px;
+	height: 18px;
+	overflow: hidden;
+	text-indent: -99999px;
+	background: url('../images/sortDownBtn.png') no-repeat 0 -18px;
+}
+.sidebarAllApps .favSortList .options li a.sortRemove {
+	display: block;
+	width: 13px;
+	height: 18px;
+	margin: 0 0 0 7px;
+	overflow: hidden;
+	text-indent: -99999px;
+	background: url('../images/sortRemoveBtn.png') no-repeat 0 0;
+}
+.sidebarAllApps .favSortList li.addWidget {
+	padding: 0;
+	line-height: 33px;
+	min-height: 34px;
+	text-align: center;
+	border-bottom: 1px solid #000;
+	background: #3a3a3a url('../images/addWidgetTopBg.png') repeat-x 0 0;
+}
+.sidebarAllApps .favSortList li.addWidget a {
+	float: none;
+}
+.sidebarAllApps .favSortList li.addWidget .addFavListClosed {
+	display: block;
+}
+.sidebarAllApps .favSortList li.addWidget .addFavListClosed a {
+	position: relative;
+	top: 6px;
+	display: block;
+	width: 70px;
+	height: 22px;
+	margin: 0 auto;
+	padding: 0 0 0 25px;
+	line-height: 21px;
+	text-align: left;
+	background: url('../images/addWidgetBtn.png') no-repeat 0 0;
+}
+.sidebarAllApps .favSortList li.addWidget .addFavListOpen {
+	position: relative;
+	display: none;
+}
+.sidebarAllApps .favSortList li.addWidget .addFavListOpen a.close {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	width: 11px;
+	height: 11px;
+	margin: 0;
+	overflow: hidden;
+	background: url('../images/ico_close.gif') no-repeat 0 0;
+}
+.sidebarAllApps .favSortList li.addWidget ul.unassignedFavs {
+	margin: 0 0 10px 0;
+	padding: 5px 0 0 0;
+	list-style: none;
+}
+.sidebarAllApps .favSortList li.addWidget ul.unassignedFavs li {
+	padding: 0 0 0 10px;
+	*padding: 5px 0 5px 10px;
+	padding: 5px 0 5px 10px\0;
+	min-height: 20px;
+	line-height: 20px;
+	text-align: left;
+	background: none;
+}
+.sidebarAllApps .favSortList li.addWidget ul.unassignedFavs li a {
+	padding: 0 0 0 17px;
+	background: url('../images/ico_add.gif') no-repeat left;
+}
+.sidebarAllApps form {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 11px;
+	background: #FFF;
+	*font-size: 12px;
+}
+.sidebarAllApps form fieldset.section {
+	padding: 10px 0 10px 12px;
+}
+.sidebarAllApps form fieldset.section .innerSection {
+	padding: 0 0 0 5px;
+}
+.sidebarAllApps form fieldset.section label {
+	
+	line-height: 14px;
+	_line-height:-100px;
+	*vertical-align:-4px;
+	vertical-align:-4px\0;
+}
+.sidebarAllApps form fieldset.section label.categoryName{
+	vertical-align:1px;
+}
+.sidebarAllApps form fieldset.section label.installSelect{
+	*vertical-align:3px;
+}
+.sidebarAllApps form fieldset.section input[type="radio"] {
+	float: left;
+	margin: 2px 7px 0 0;
+	*vertical-align:-3px;
+}
+.sidebarAllApps form fieldset.section select {
+	font-size: 11px;
+	color: #666;
+}
+.sidebarAllApps form.appSearch fieldset.section h3 {
+	margin: 0 0 10px 0;
+}
+.sidebarAllApps form.appSearch input[type="text"] {
+	width: 152px;
+	margin: 0 0 10px 0;
+}
+.sidebarAllApps form.appSearch input[type="submit"] {
+	float: right;
+	width: 96px;
+	height: 20px;
+	margin: 0 12px 10px 0;
+	border: 0;
+	line-height: 20px;
+	text-align: center;
+	font-size: 11px;
+	color: #FFF;
+	background: url('../images/forumBtnAnswer.png') no-repeat 0 0;
+}
+.sidebarAllApps form.appFilter fieldset.section h3 {
+
+}
+.sidebarAllApps form.appFilter fieldset.section h3 a {
+	float:right;
+	display: inline;
+	width: 11px;
+	height: 9px;
+	margin-top: 4px;
+	*margin-top: -16px;
+	*margin-top: -16px\0;
+	overflow: hidden;
+	text-indent: -99999px;
+	background: url('../images/btnOpenCategories.png') no-repeat;
+}
+.sidebarAllApps form.appFilter fieldset.section h3 a.appCategoriesClosed {
+	background-position: 0 0;
+}
+.sidebarAllApps form.appFilter fieldset.section h3 a.appCategoriesOpen {
+	background-position: 0 -9px;
+}
+.sidebarAllApps form.appFilter fieldset.section fieldset.appCategoriesClosed {
+	width: 156px;
+}
+.sidebarAllApps form.appFilter fieldset.section fieldset.appCategoriesOpen {
+	display: none;
+	width: 156px;
+}
+.sidebarAllApps form.appFilter fieldset.section fieldset.appCategoriesClosed ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sidebarAllApps form.appFilter fieldset.section fieldset.appCategoriesClosed li h4 {
+	margin: 2px 0;
+}
+.sidebarAllApps form.appFilter fieldset.section fieldset.appCategoriesClosed li h4 a {
+	text-decoration: none;
+	font-size: 11px;
+	color: #000;
+	*font-size: 12px;
+}
+.sidebarAllApps form.appFilter fieldset.section fieldset.appCategoriesClosed li h4 a:hover {
+	text-decoration: underline;
+}
+.sidebarAllApps form.appFilter fieldset.section fieldset.appCategoriesClosed ul ul li {
+	padding: 0 0 0 15px;
+	text-decoration: none;
+	font-size: 11px;
+	*font-size: 12px;
+	background: url('../images/doubleArrowGrey.gif') no-repeat 2px 2px;
+}
+.sidebarAllApps form.appFilter fieldset.section fieldset.appCategoriesClosed ul ul {
+	margin: 0 0 0 5px;
+}
+.sidebarAllApps form.appFilter input[type="submit"] {
+	float: right;
+	width: 96px;
+	height: 20px;
+	margin: 10px 0 5px 0;
+	border: 0;
+	line-height: 20px;
+	text-align: center;
+	font-size: 11px;
+	color: #FFF;
+	background: url('../images/forumBtnAnswer.png') no-repeat 0 0;
+}
+.sidebarAllApps form.appRating fieldset.section fieldset {
+	margin: 4px 0;
+}
+.sidebarAllApps form.appRating fieldset.section input[type="radio"] {
+	margin: 0 7px 0 0;
+}
+.sidebarAllApps form.appRating fieldset.section label {
+	_display:inline;
+	float: left;
+	width: 70px;
+	_vertical-align:bottom;
+	*margin-top:3px;
+	*vertical-align:-5px;
+	vertical-align:-5px\0;
+}
+.sidebarAllApps form.appRating fieldset.section label img {
+	float: left;
+	margin: 0 1px;
+}
+.sidebarAllApps form.appPrice .jslider_androidpit {
+	width: 156px;
+	margin: 0 auto;
+}
+.sidebarAllApps form fieldset.section {
+	margin: 0;
+	border: 0;
+	border-bottom: 5px solid #CCC;
+}
+.sidebarAllApps form fieldset.section h3 {
+	margin: 0 0 10px 0;
+	font-size: 15px;
+	color: #43A8DA;
+}
+.sidebarAllApps form fieldset.section fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+.sidebarAllApps FORM FIELDSET.section fieldset input{
+	_float:left;
+	_display: inline;
+	
+}
+.sidebarAllApps form fieldset.section .layout-slider {
+	position: relative;
+	left: -6px;
+	margin: 10px 0 20px 0;
+}
+.sidebarAllApps form fieldset.section .layout-slider .jslider-pointer,.sidebarAllApps form fieldset.section .layout-slider .jslider-value {
+	display: none;
+}
+.sidebarAllApps form fieldset.section .layout-slider .jslider-pointer-to,.sidebarAllApps form fieldset.section .layout-slider .jslider-value-to {
+	display: block;
+}
+.contentContainerAllApps {
+	float: left;
+	position: relative;
+	width: 750px;
+	margin: -10px 0 0 0;
+	_margin:0;
+	*z-index:9999;
+}
+.contentContainerAllApps .rightColTop {
+	height: 10px;
+	_margin:0;
+	background: url('../images/contentTopAllAppsBg.png') no-repeat 0 0;
+	_background: url('../images/contentTopAllAppsBg.gif') no-repeat 0 0;
+}
+.contentContainerAllApps .top {
+	_margin-top:-10px;
+	height: 49px;
+	padding: 0 15px 0 20px;
+	line-height: 39px;
+	background: #43A8DA;
+}
+.contentContainerAllApps .top .clear{
+	_height:0;
+	_display:none;
+}
+.contentContainerAllApps .top h2 {
+	color: #FFF;
+	font-size: 20px;
+	margin: 0;
+}
+.contentContainerAllApps .main {
+	background: #FFF;
+}
+.contentContainerAllApps .main .references {
+	position: relative;
+	padding: 20px 15px 0 15px;
+	border-bottom: 5px solid #D5D5D5;
+}
+.contentContainerAllApps .main .references h3 {
+	position: relative;
+	height: 20px;
+	margin: 0 5px;
+	font-size: 20px;
+	color: #43a8da;
+	*line-height:20px;
+}
+.contentContainerAllApps .main .references h3 a {
+	position: absolute;
+	right: 0;
+	width: 96px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 11px;
+	font-weight: normal;
+	color: #FFF;
+	background: url('../images/forumBtnAnswer.png') no-repeat 0 0;
+}
+.contentContainerAllApps .main .references .sliderBox {
+	position: relative;
+	overflow: hidden;
+	width: 656px;
+	margin: 0 auto;
+	_margin-top: 17px;
+}
+*+html .contentContainerAllApps .main .references .sliderBox {
+	margin-top: 17px;
+}
+.contentContainerAllApps .main .references ul {
+	display: block;
+	overflow: hidden;
+	width: 656px;
+	height: 120px;
+	padding: 0;
+	list-style: none;
+}
+.contentContainerAllApps .main .references .sliderBox ul {
+	position: relative;
+	width: 1968px;
+	margin-left: 0;
+	margin-right: 0;
+}
+.contentContainerAllApps .main .references ul li {
+	float: left;
+	width: 656px;
+	padding: 0;
+}
+.contentContainerAllApps .main .references ul li ul {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	_width:656px;
+}
+.contentContainerAllApps .main .references ul li ul li {
+	float: left;
+	width: 82px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+	border: 0;
+}
+.contentContainerAllApps .main .references ul li ul li a {
+	text-decoration: none;
+}
+.contentContainerAllApps .main .references ul li ul li a span {
+	display: inline-block;
+	padding: 0 2px;
+	vertical-align: text-top;
+	line-height: 14px;
+	font-size: 11px;
+	color: #000;
+	*font-size: 12px;
+}
+.contentContainerAllApps .main .references ul li.prev, .contentContainerAllApps .main .references ul li.active, .contentContainerAllApps .main .references ul li.next{
+	_width:656px;
+}
+.contentContainerAllApps .main .references a.btnLeft {
+	position: absolute;
+	top: 80px;
+	left: 10px;
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	text-indent: -999999px;
+	background: url('../images/slider_buttons.png') no-repeat -7px -8px;
+	_left:0;
+}
+.contentContainerAllApps .main .references a.btnRight {
+	position: absolute;
+	top: 80px;
+	right: 10px;
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	text-indent: -999999px;
+	background: url('../images/slider_buttons.png') no-repeat -52px -8px;
+}
+.categoriesPage .top ul {
+	float: right;
+	margin: -15px 0 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+	padding-right: 15px;
+	position: relative;
+	z-index: 20;
+}
+.categoriesPage .top li {
+	float: left;
+	height: 29px;
+	line-height: 29px;
+	padding-left: 8px;
+	background: url(../images/categoriesPageTab_left.png) 0 -29px no-repeat;
+	margin-right: 1px;
+}
+.categoriesPage .top li a {
+	display: block;
+	background: url(../images/categoriesPageTab_right.png) right -29px no-repeat;
+	padding: 0 20px 12px 12px;
+	height: 13px;
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
+.categoriesPage .top li.btn1A {
+	background: url(../images/categoriesPageTab_left.png) 0 0 no-repeat!important;
+}
+.categoriesPage .top li.btn1A a {
+	background: url(../images/categoriesPageTab_right.png) right 0 no-repeat!important;
+	color: #000!important;
+	font-weight: bold;
+}
+.categoriesPage .top li.btn2A {
+	background: url(../images/categoriesPageTab_left.png) 0 0 no-repeat!important;
+}
+.categoriesPage .top li.btn2A a {
+	background: url(../images/categoriesPageTab_right.png) right 0 no-repeat!important;
+	color: #000!important;
+}
+.categoriesPage .top li:hover {
+	background: url(../images/categoriesPageTab_left.png) 0 -58px no-repeat;
+}
+.categoriesPage .top li:hover a {
+	background: url(../images/categoriesPageTab_right.png) right -58px no-repeat;
+	color: #fff;
+}
+.categoriesPage .top li.btn1 a span {
+	padding: 0 0 0 14px;
+	background: url('../images/ico_tabListView.gif') no-repeat 0 3px;
+}
+.categoriesPage .top li.btn1A a span {
+	padding: 0 0 0 14px;
+	background: url('../images/ico_tabListView.gif') no-repeat 0 -24px;
+}
+.categoriesPage .top li.btn2 a span {
+	padding: 0 0 0 14px;
+	background: url('../images/ico_tabGridView.gif') no-repeat 0 3px;
+}
+.categoriesPage .top li.btn2A a span {
+	padding: 0 0 0 14px;
+	background: url('../images/ico_tabGridView.gif') no-repeat 0 -24px;
+}
+.categoriesPage .categorySelectBar {
+	background: url('../images/categorySelectBGR.png') repeat-x scroll 0 0 transparent;
+	height: 22px;
+	padding: 13px 20px;
+}
+.categoriesPage .categorySelectBar fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+.categoriesPage .body .main {
+	position: relative;
+	padding: 15px;
+}
+.categoriesPage .body .main .pager {
+	margin: 20px auto 0;
+}
+.categoriesPage .appsList,.categoriesPage .appsGrid {
+	margin: 0 0 20px 0;
+	padding: 0;
+	list-style: none;
+}
+.categoriesPage .appsList li {
+	display: block;
+	overflow: hidden;
+	padding: 15px 6px;
+	border-bottom: 1px solid #CCC;
+	_height:109px;
+}
+.categoriesPage .appsList li a.appIcon {
+	float: left;
+	margin: 0 18px 0 0;
+}
+.categoriesPage .appsList li a.appIcon a {
+	display: block;
+}
+.categoriesPage .appsList li .appText {
+	float: left;
+	width: 375px;
+}
+.categoriesPage .appsList li .appText h3 {
+	margin: 0;
+	padding: 0;
+	color: #37A3D8;
+}
+.categoriesPage .appsList li .appInfo {
+	float: right;
+	width: 115px;
+}
+.categoriesPage .appsList li .appInfo p {
+	margin: 0;
+}
+.categoriesPage .appsList li .appInfo .appPrice {
+	text-align: center;
+	font-size: 16px;
+	color: #769b11;
+}
+.categoriesPage .appsList li .appInfo .appRating {
+	margin: 5px 0 20px;
+	text-align: center;
+}
+.categoriesPage .appsList li .appInfo .btnAppInstall {
+	display: block;
+	width: 115px;
+	height: 20px;
+	line-height: 21px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 11px;
+	color: #FFF;
+	background: url('../images/button_small_normal.png') no-repeat 0 0;
+}
+.categoriesPage .appsList li .appInfo .btnAppInstall:hover {
+	background-position: 0 -20px;
+}
+.categoriesPage .appsGrid {
+	margin: 15px 0 0 0;
+}
+.categoriesPage .appsGrid li {
+	float: left;
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 90px;
+	height: 120px;
+}
+.categoriesPage .appsGrid li a {
+	text-decoration: none;
+}
+.categoriesPage .appsGrid li a span {
+	color: #000;
+	display: inline-block;
+	font-size: 11px;
+	line-height: 14px;
+	padding: 0 2px;
+	vertical-align: text-top;
+}
+.categoriesPage .appsGrid li a.appIcon {
+	display: block;
+	height: 120px;
+}
+.infoLayer {
+	position: absolute;
+	top: -235px;
+	left: 15px;
+	z-index: 8000;
+	width: 690px;
+	height: 270px;
+	padding: 15px;
+	background: #FAFAFA;
+	border-radius: 10px;
+	box-shadow: 0 0 20px #000;
+}
+.infoLayerContent {
+	position: relative;
+}
+.infoLayerContent .appInfo {
+	float: left;
+	width: 500px;
+}
+.infoLayerContent .appInfo .appIcon {
+	float: left;
+	margin-right: 20px;
+}
+.infoLayerContent .appInfo .appInfoHeader {
+	height: 78px;
+}
+.infoLayerContent .appInfo .appInfoHeader h3 {
+	margin: 0;
+	padding: 17px 0 0 0;
+}
+.infoLayerContent .appInfo .appInfoHeader h3 a {
+	float: none;
+	position: static;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #37a3d8;
+	background: none;
+}
+.infoLayerContent .appInfo .appInfoHeader .appRating {
+	margin: 7px 0 0 0;
+}
+.infoLayerContent .appInfo .appInfoText {
+	clear: both;
+	overflow-y: auto;
+	height: 142px;
+	margin: 20px 0 0 0;
+	padding-right: 5px;
+	line-height: 14px;
+	font-size: 11px;
+	*font-size:12px;
+}
+.appInfo p {
+	margin: 0;
+}
+.infoLayerContent .appScreens {
+	float: right;
+	position: relative;
+	width: 160px;
+	height: 265px;
+	padding: 5px;
+	background: #EDEDED;
+	text-align: center;
+}
+.infoLayerContent .appScreens .options {
+	position: absolute;
+	bottom: 5px;
+	width: 150px;
+	text-align: center;
+	*width:160px;
+	*left:0px;
+}
+.infoLayerContent .appScreens .options a {
+	display: block;
+	width: 17px;
+	height: 17px;
+	overflow: hidden;
+	text-indent: -99999px;
+}
+.infoLayerContent .appScreens .options a.btn_left {
+	float: left;
+	background: url('../images/screenshot_buttons.png') no-repeat top left;
+}
+.infoLayerContent .appScreens .options a.btn_right {
+	float: right;
+	background: url('../images/screenshot_buttons.png') no-repeat top right;
+}
+.infoLayerContent .appScreens .options .screensPager {
+	*vertical-align: middle;
+	*float:left;
+	*padding-left:50px;
+	display: inline-block;
+	font-weight: bold;
+}
+#infoLayerArrowTop {
+	display: none;
+	position: absolute;
+	top: -12px;
+}
+#infoLayerArrowBottom {
+	display: none;
+	position: absolute;
+	bottom: -12px;
+}
+#test {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	padding: 20px;
+	background: aqua;
+}

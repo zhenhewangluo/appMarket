@@ -1,0 +1,159 @@
+<div class="app_detail_box f_l">
+	<div>
+		<h6>用户评论</h6>
+		<div class="app_content_box">
+			<div class="user_comment_list clear">
+				<volist name="appComment" id='vo'>
+					<dl>
+						<dd>{$vo['user_name']} 评论日期：{$vo['create_time']|strtotime|date='Y年m月d日',###}</dd>
+						<dd class="comment_grade">
+							<p>
+								<span class="blue_grade">
+									<i style="width:{$vo['score_www']*15}px;"></i>
+								</span>
+							</p>
+						</dd>
+						<dd>
+							{:keyWordFilter($vo['content'])}
+						</dd>
+					</dl>
+				</volist>
+			</div>
+			<div>
+				<eq name="userCommentDone" value="true">
+					<input type="hidden" name="act" id="act" value="2" />
+					此应用您已评过分了！
+				<else/>
+				<form id="comment_form" method="post" action="">
+					<ul class="user_comment_form">
+						<li class="user_comment_el">
+							<span>我来点评：</span>
+							<script type="text/javascript" src="__PUBLIC__/js/rater/jquery.rater.js"></script>
+							<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/rater/jquery.rater.css" />
+							<span id="star"></span>
+							<script type="text/javascript">
+								var options = {
+									'max'			: '5',
+									'value'			: '4',
+									'image'			: '__PUBLIC__/js/rater/star.gif',
+									'after_click'	: function(e){
+										$('#score').val(e.number);
+									}
+								};
+								$('#star').rater(options);
+							</script>
+							<input type="hidden" name="score" id="score" value="4" />
+							<input type="hidden" name="active" id="active" value="1" />
+						</li>
+						<li class="user_comment_el">
+							<elt name="webUid" value="0">
+								<div class="comment_content_box">
+									<p>您需要登录后才可以评分和评论 <span class="login_window_btn">登录</span>|<a href="{:U('AppStore://App-RegisterUser/index')}">注册</a></p>
+								</div>	
+							<else/>
+								<textarea name="content" id="comment_content" class="comment_content_box"></textarea>
+							</elt>
+						</li>
+						<li class="user_comment_el">
+							<elt name="webUid" value="0">
+								<input type="button" id="sub_comment_login" value="提交" />
+							<else/>
+								<input type="button" id="sub_comment" value="提交" />
+							</elt>
+						</li>
+					</ul>
+					<input type="hidden" name="app_id" id="app_id" value="{$aid}" />
+				</form>
+				</eq>
+			</div>
+			<compare name="page|trim" value="" type="neq">
+			<div class="page" style="clear:both;">
+				{$page}
+			</div>
+			</compare>
+		</div>
+		<div class="app_content_box_b"></div>
+	</div>
+</div>
+<div class="appbar f_r">
+	<h6>
+		热门应用
+	</h6>
+	<div class="appbar_content">
+		<volist name="hotlist" id="vo">
+		<dl class="t_l clearfix">
+			<dt>
+				<a name="rec_app_24" href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}">
+					<img alt ="" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" />
+				</a>
+			</dt>
+			<dd><a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}">{$vo['app_name']|mb_substr=0,10,'UTF-8'}</a></dd>
+			<dd>下载次数：{$vo['app_downloads']|number_format}</dd>
+		</dl>
+		</volist>
+	</div>
+	<h6>
+		应用下载排行
+	</h6>
+	<div class="appbar_content">
+		<ul class="t_l">
+			<volist name="downloadlist" id="vo">
+			<li>
+				<a name="rec_app_24" href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+					<img width="24" height="24" alt ="" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" />
+					{$vo['app_name']|mb_substr=0,17,'UTF-8'}
+				</a>
+			</li>
+			</volist>
+		</ul>
+	</div>
+</div>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+<script type="text/javascript">
+$(function(){
+		$('.login_window_btn').click(function(){
+			getWin('{:U("AppStore://App-Ajax/loginWindow")}', 'loginWin', '用户登录', false);	
+		});
+		$('#sub_comment_login').click(function(){
+			getWin('{:U("AppStore://App-Ajax/loginWindow")}', 'loginWin', '用户登录', false);
+		});
+		$(".user_comment_list dl::nth-child(even)").addClass('even');
+		$(".user_comment_list dl::nth-child(odd)").addClass('odd');
+		//提交评论
+		$('#sub_comment').click(function(){
+			var uid = parseInt('{$webUid}');
+			if(uid <= 0)
+			{
+				
+				return false;
+			}
+			var comment_content = $('#comment_content').val();
+			var score_value = parseInt($('#score').val());
+			var active = parseInt($('#active').val());
+			if($.trim(comment_content) == '')
+			{
+				alert('请填写评论内容');
+				return false;
+			}
+			if(active == 1 && (score_value <=0 || score_value > 5))
+			{
+				alert('评分只能是1-5分');
+				return false;
+			}
+			$.getJSON(
+				"{:U('AppStore://App-Ajax/appComment')}", 
+				{'score':score_value,'comment_content':comment_content, 'app_id':$('#app_id').val(), 'active': active},
+				function(data){
+					alert(data.msg);
+					if(data.status == 1)
+					{
+						$('.user_comment_list').prepend(data.returnhtml);
+						$('.slide' + data.dlflag).slideDown('slow');
+						$('#comment_form').remove();
+					}
+				}
+			);
+		});
+	});
+</script>

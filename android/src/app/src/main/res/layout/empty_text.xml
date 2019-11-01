@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="313dip"
+  android:layout_height="24dip"
+  android:paddingLeft="13dip"
+  android:paddingTop="12dip"
+  android:background="#e4e4e4"
+  android:textSize="12sp">
+</TextView>

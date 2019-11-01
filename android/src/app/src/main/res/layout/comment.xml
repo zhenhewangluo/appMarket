@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="240dip"
+    android:layout_gravity="center_vertical"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:background="#00000000"
+    >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:background="@drawable/dialog_title_bg"
+        >
+	<TextView
+		android:id="@+id/comment_label"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dip"
+		android:layout_gravity="center"
+		android:gravity="center"
+		android:textColor="#ffffff"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:text="@string/comment_add"/>
+    </LinearLayout>
+			
+	<!-- add comment text editor -->
+	  <LinearLayout 
+        android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:orientation="vertical"
+		android:background="@drawable/dialog_content_bg"
+        >
+	<EditText
+		android:id="@+id/comment_edit"
+	    android:layout_marginLeft="12dip"
+	    android:layout_marginRight="12dip"
+	    android:layout_marginTop="30dip"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:minHeight="80dip"
+	    android:textSize="16sp"
+	    android:gravity="top"/>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="30dip"
+		android:layout_marginRight="30dip"
+		android:layout_marginTop="20dip"
+		android:layout_marginBottom="10dip"
+		android:orientation="horizontal"
+	    >
+	<include layout="@layout/long_button"
+		android:id="@+id/update_comment_btn"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:layout_marginRight="20dip"
+		/>
+	
+	<include layout="@layout/long_button"
+		android:id="@+id/cancel_btn"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:layout_marginLeft="20dip"
+		/>
+	    
+	    
+	</LinearLayout>
+
+</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,303 @@
+{~$params = array('listRow' => 10)}
+{~if(isset($_GET['order']))$params['order'] = $_GET['order']}
+{~if(isset($_GET['listRow']))$params['listRow'] = $_GET['listRow']}
+{~$key_words = urldecode(implode(' ', $keyWords));}
+<link href="../Public/css/{$css}recommendations.css" type="text/css" rel="stylesheet" />
+<script type='text/javascript' src="../Public/js/all.js"></script>
+<script type='text/javascript' src="../Public/js/in.js"></script>
+<script type='text/javascript' src="../Public/js/plusone.js"></script>
+<script type='text/javascript' src="../Public/js/social.js"></script>
+<script type='text/javascript' src="../Public/js/recommendations.js"></script>
+<link href="../Public/css/socialshareprivacy.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+	$(function(){
+		initRecommendations();
+		$('.headerNav .menu').lavaLamp({fx:'easeOutBack',speed:700});
+	});
+</script>
+<script type="text/javascript">
+	var gl_localPrefix_saveAct = '{:U("App-Ajax/saveActOrder")}';
+	var gl_localPrefix_getApp = '{:U("App-Ajax/ajaxGetAppsList")}';
+	var gl_localPrefix_get3App = '{:U("App-Ajax/ajaxGet3AppsList")}';
+	var gl_localPrefix_layer = '{:U("App-Ajax/getPopupAppinfo")}';
+	var text_recommendations_showAll = '显示全部';    
+	var gl_localPrefix_recomm = '{:U("App-Ajax/ajaxGetMoreApps")}';
+
+    var currentRowId = '{$rid}';
+    var maxResults = '{$maxPerPage}';
+
+	function ajax_page(p){
+		var rid = '{$rid}';
+		var order = $('input:[name="order_type"]').val();
+		var obj = $.extend(ar_filter.toAjax(), {'do' : 'ajax_page', 'rid':rid,'si':p, 'order':order, 'max' : maxResults});
+		$.post("{:U('AppStore://App-Ajax/ajaxGetMoreApps')}", obj, function(data){
+			$('.appsList').html(data.content);
+			$('.ajaxpage').html(data.pageInfo);
+		}, 'json');
+	}
+</script>
+<div class="breadcrumbBar">
+	<div class="breadcrumb">
+		您的位置： <a href="/">***</a> &raquo; 搜索结果
+	</div>
+	<div class="clear">&nbsp;</div>
+</div>
+<div class="containerAllApps" style="background:none;">
+<!--	<div class="sidebarAllApps">
+		<div class="top">
+			<h2>应用筛选</h2>
+		</div>
+		<div class="sidebarInner" id="filterSidebar">
+			<ul class="favSortList" id="favSortList">
+
+				{~$appTypeTextCount = count($appTypeText);$firstClass='';$lastClass='';}
+
+				{~$unassignArrCount = count($unassignArr);$addWidget = '';}
+				<compare name="unassignArrCount" type="elt" value="0">
+					{~$addWidget = 'style="display:none;"';}
+				</compare>
+				<li class="addWidget" {$addWidget}>
+					<div class="addFavListClosed">
+						<a href="javascript:void(0);" onclick="openAddWidget(); return false">Add widget</a>
+					</div>
+					<div class="addFavListOpen" id="addFavList">
+						<a href="javascript:void(0);" class="close" onclick="closeAddWidget(); return false">x</a>
+						<ul class="unassignedFavs" id="unassignedFavs">
+							<volist name="unassignArr" id="vo">
+								<li id="fav_{$key}">
+									<a href="javascript:void(0);" onclick="addToFavs('{$key}');  return false">{$vo['desc']}</a>
+								</li>
+							</volist>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<form action="" method="post" class="appFilter" id="appFilter">
+				<fieldset class="section">
+					<fieldset class="appCategoriesClosed" id="appCategoriesClosed">
+						<h3>应用分类<a href="#" onclick="toggleCategories(); return false" class="appCategoriesClosed">toggle</a></h3>
+						<fieldset>
+							<ul>
+								<li>
+									<h4><a href="#" onclick="toggleCategories(); return false">软件分类</a></h4>
+									{~$tmpShowAppCateInArray = false;}
+									<ul id="appsCategoryList">
+										<volist name="appCateTree[1]['_child']" id="vo">
+											<?php
+											if(isset($checkedCate) && in_array($vo['id'], $checkedCate))
+											{
+											$tmpShowAppCateInArray = ture;
+											break;
+											}
+											?>
+										</volist>
+										<?php
+										if(!$tmpShowAppCateInArray)
+										{
+										?>
+										<li>所有软件</li>
+										<?php
+										}
+										?>
+									</ul>
+								</li>
+								<li>
+									<h4><a href="#" onclick="toggleCategories(); return false">游戏分类</a></h4>
+									{~$tmpShowGameCateInArray = false;}
+									<ul id="gamesCategoryList">
+										<volist name="appCateTree[2]['_child']" id="vo">
+											<?php
+											if(isset($checkedCate) && in_array($vo['id'], $checkedCate))
+											{
+											$tmpShowGameCateInArray = ture;
+											break;
+											}
+											?>
+										</volist>
+										<?php
+
+										if(!$tmpShowGameCateInArray)
+										{
+										?>
+										<li>所有游戏</li>
+										<?php
+										}
+										?>
+									</ul>
+								</li>
+							</ul>
+						</fieldset>
+					</fieldset>
+					<fieldset class="appCategoriesOpen" id="appCategoriesOpen">
+						<h3>应用分类<a href="#" onclick="toggleCategories(); return false" class="appCategoriesOpen">toggle</a></h3>
+						<fieldset class="innerSection" id="appsCategoryListOpen">
+							<fieldset>
+								<input type="checkbox" value="*" id="appCategory_0" <?php if(!$tmpShowAppCateInArray)echo 'checked="checked"';?> /><label for="appCategory_0">所有软件</label>
+							</fieldset>
+							<volist name="appCateTree[1]['_child']" id="vo">
+								<fieldset>
+									{~$tmpInArray = 0;}
+									{~if(isset($checkedCate) && in_array($vo['id'], $checkedCate))$tmpInArray =1;}
+									<input type="checkbox" value="{$vo['id']}" id="appCategory_{$i}" <compare name="tmpInArray" type="eq" value="1">checked="checked"</compare> /><label for="appCategory_{$i}">{$vo['name']}</label>
+								</fieldset>
+							</volist>
+						</fieldset>
+						<hr />
+						<fieldset class="innerSection" id="gamesCategoryListOpen">
+							<fieldset>
+								<input type="checkbox" value="*" id="gameCategory_0" <?php if(!$tmpShowGameCateInArray)echo 'checked="checked"';?> /><label for="gameCategory_0">所有游戏</label>
+							</fieldset>
+							<volist name="appCateTree[2]['_child']" id="vo">
+								{~$tmpInArray = 0;}
+								{~if(isset($checkedCate) && in_array($vo['id'], $checkedCate))$tmpInArray =1;}
+								<fieldset>
+									<input type="checkbox" value="{$vo['id']}" id="gameCategory_{$i}" <compare name="tmpInArray" type="eq" value="1">checked="checked"</compare> /><label for="gameCategory_{$i}">{$vo['name']}</label>
+								</fieldset>
+							</volist>
+						</fieldset>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appRating" id="appRating">
+				<fieldset class="section">
+					<h3>评分筛选</h3>
+					<p>minimum:</p>
+					<?php
+					for($i = 5; $i > 0; $i--)
+					{
+					?>
+					<fieldset class="innerSection">
+						<input type="radio" name="minRating" id="minRating_{$i}stars" value="{$i}" <?php if(isset($checkedRate) && $i == $checkedRate)echo 'checked="checked"';?> />
+							   <label for="minRating_{$i}stars"><div class="smallStars"><div class="RatingStarsSmall rating-{:($i * 2)}"></div></div></label>
+					</fieldset>
+					<?php
+					}
+					?>
+					<fieldset class="innerSection">
+						<input type="radio" name="minRating" id="minRating_0stars" value="0" <?php if(!isset($checkedRate) || $checkedRate == 0 || $checkedRate == '')echo 'checked="checked"';?> />
+							   <label for="minRating_0stars"><div class="smallStars"><div class="RatingStarsSmall rating-0"></div></div></label>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appPeriod" id="appPeriod">
+				<fieldset class="section">
+					<h3>时间筛选</h3>
+													<fieldset class="innerSection">
+														<input type="radio" name="timeFilter" value="SINCE_LAST_LOGIN" id="timeFilter_SINCE_LAST_LOGIN" disabled="disabled" title="Not logged in - please log in or register."/>
+														<label for="timeFilter_SINCE_LAST_LOGIN" style="color:#aaa" title="Not logged in - please log in or register.">since last login</label>
+													</fieldset>
+					<volist name="dateArr" id="vo">
+						<fieldset class="innerSection">
+							<input type="radio" name="timeFilter" value="{$key}" id="timeFilter_{$key}" <?php if(isset($checkedDate) && $checkedDate == $key)echo 'checked="checked"';?> />
+								   <label for="timeFilter_{$key}">{$vo['desc']}</label>
+						</fieldset>
+					</volist>
+					<fieldset class="innerSection">
+						<input type="radio" name="timeFilter" value="LAST_365_DAYS" id="timeFilter_LAST_365_DAYS" <?php if(!isset($checkedDate) || $checkedDate == '' || $checkedDate == 'LAST_365_DAYS')echo 'checked="checked"';?> />
+							   <label for="timeFilter_LAST_365_DAYS">过去365天</label>
+					</fieldset>
+				</fieldset>
+			</form>
+			<form action="" method="post" class="appInstallations" id="appInstalls">
+				<fieldset class="section">
+					<h3>下载量筛选</h3>
+					<fieldset class="innerSection">
+						<input type="radio" name="appInstalls" value="any" id="appInstalls_any" <?php if(!isset($checkedDownload) || ($checkedDownload['from'] == -1 && $checkedDownload['to'] == -1) || empty($checkedDownload))echo 'checked="checked"';?> />
+							   <label for="appInstalls_any">any</label>
+					</fieldset>
+					<fieldset class="innerSection" style="margin-top:2px">
+						<input type="radio" name="appInstalls" value="range" id="appInstalls_range"  <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] != -1)echo 'checked="checked"';?> />
+							   <table style="border:0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><label for="appInstalls_range">from:&nbsp;</label></td>
+								<td style="padding-bottom:1px">
+									<select id="appInstalls_min" name="appInstalls_min">
+										<option value="0" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] == 0)echo 'selected="selected"';?>>0</option>
+										<volist name="downloadArr" id="vo">
+											<option value="{$vo}" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['from'] == $vo)echo 'selected="selected"';?>>{:number_format($vo)}</option>
+										</volist>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td><label for="appInstalls_max">to:&nbsp;</label></td>
+								<td>
+									<select id="appInstalls_max" name="appInstalls_max">
+										<volist name="downloadArr" id="vo">
+											<option value="{$vo}" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['to'] == $vo)echo 'selected="selected"';?>>{:number_format($vo)}</option>
+										</volist>
+										<option value="-1" <?php if(isset($checkedDownload) && !empty($checkedDownload) && $checkedDownload['to'] == -1)echo 'selected="selected"';?>>&gt; 100,000,000</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+				</fieldset>
+			</form>
+		</div>
+	</div>-->
+	<div class="contentContainerAllApps categoriesPage" id="contentTab">
+		<div class="rightColTop"></div>
+		<div class="top">
+			<h2>搜索<span class="green">{$key_words}</span>的结果</h2>
+		</div>
+		<div id="contentTabBody1" class="body">
+			<div class="categorySelectBar">
+				<fieldset style="float:right;">
+					<span>每页显示:</span>
+					<select id="searchMax" name="max">
+						<option <compare name="params['listRow']" type="eq" value="5">selected="selected"</compare> value="5">5</option>
+						<option <compare name="params['listRow']" type="eq" value="10">selected="selected"</compare> <?php if(!isset($params['listRow'])) echo 'selected="selected"';?> value="10">10</option>
+						<option <compare name="params['listRow']" type="eq" value="25">selected="selected"</compare> value="25">25</option>
+						<option <compare name="params['listRow']" type="eq" value="50">selected="selected"</compare> value="50">50</option>
+					</select>
+				</fieldset>
+			</div>
+			<div id="listviewApps" class="main" style="position:relative;">          
+				<ul class="appsList">
+					<volist name="list" id="vo">
+						<li>
+							<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" class="appIcon" id="{$rid}-{$vo['app_id']}">
+								<img src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" style="width: 78px; height: 78px;" alt="Icon">
+							</a>
+							<div class="appText">
+								<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" class="title">
+								<h3>{:replaceKeyWords($keyWords, $vo['app_name']);}</h3>
+								</a>
+								<p>{:showCutStr($vo['app_desc'],100);}</p>
+							</div>
+							<div class="appInfo">
+								<div class="stars darkStars"><div class="RatingStarsDark rating-{:round($vo['app_score_www']*2/($vo['app_starcount']+1e-5))}"></div></div>
+								<a class="button_normal" href="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['apk_path']}" onclick="getApp('{$vo['app_id']}');{$returnFlase}">下载</a>
+							</div>
+						</li>				
+					</volist>
+				</ul>
+				<compare name="page|trim" value="" type="neq">
+				<table class="pager" style="width: 460px;" cellspacing="0">
+					<tbody>
+						<tr>
+							<td class="cl"></td>
+							<td>跳转至：</td>
+							<td>
+								<div class="ajaxpage"> {$page}</div>
+							</td>
+							<td class="cr"></td>
+						</tr>
+					</tbody>
+				</table>
+				</compare>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('#searchMax').change(function(){
+			var searchUrl = "{:U('App-Search/index', array_merge($params, array('key_word' => $key_words)))}";
+			searchUrl = searchUrl.replace(/\/listRow\/\w{0,2}/, '/listRow/' + encodeURIComponent($(this).val()));
+			document.location.href=searchUrl;
+		});
+	})
+</script>

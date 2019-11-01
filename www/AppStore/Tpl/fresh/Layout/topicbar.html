@@ -1,0 +1,12 @@
+<div class="catebar f_l clear">
+	<h6><span><strong>专题浏览</strong></span></h6>
+	<dl class="catebar_list">
+		<volist name="appTopicTree" id="vo">
+			<if condition="0 eq $key">
+			<dd class="b_n"><a href="{:U('AppStore://App-Apps/topicAppList?tid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			<else/>
+			<dd><a href="{:U('AppStore://App-Apps/topicAppList?tid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			</if>
+		</volist>
+	</dl>
+</div>

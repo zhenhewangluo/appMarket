@@ -1,0 +1,10 @@
+{dede:field name='keywords'}Android,原生浏览器,手机浏{/dede:field}
+{dede:field name='description'}前些天我们刚刚报道过PC机最新浏览器。然而手机端浏览器也变得越来越重要。有一个来自StatCounter的新报道称在手机领域内，Google Android浏览器在全球最受欢迎。这个图表显示的是自2012年2月以来，Android浏览器的用户在全球占据22.67%，紧随其后的是占据21.7%的Opera。{/dede:field}
+{dede:field name='title'}Android原生浏览器成为最受欢迎的手机浏览器{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

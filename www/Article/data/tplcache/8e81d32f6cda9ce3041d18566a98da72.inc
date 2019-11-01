@@ -1,0 +1,10 @@
+{dede:field name='keywords'}谷歌,Android应用商店,负责{/dede:field}
+{dede:field name='description'}在最近一周，有关Android Market的消息不绝于耳。最新的消息称，目前已经在Android团队工作4年半之久的埃里克·楚（Eric Chu)将不再担任Android应用商店的负责人职务，但仍留在谷歌从事其它工作。与此同时，Android数字内容主管兼谷歌音乐（Google Music）发布人杰米·罗森伯格（Jamie Rosenberg)将被赋予多项职责，包{/dede:field}
+{dede:field name='title'}谷歌Android应用商店负责人调任其他岗位{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

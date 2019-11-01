@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="#e4e4e4"
+    >
+
+    <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <!-- Recommend App Header Info -->
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip" 
+            android:background="@drawable/move_bg"
+            >
+
+            <!-- Layer 2, in the front -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/recommend_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:text="@string/today_recommend"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/recommend_app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/no_recommend"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Recommend App Content -->
+
+        <FrameLayout
+            android:id="@+id/detail"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#dddddd"
+            android:layout_weight="1" >
+
+            <!-- Layer 2, in the front -->
+            <!-- ImageSwitcher , Description  download LongButton and Gallery -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <!-- ImageSwitcher , Description -->
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="180dip"
+                    android:layout_weight="1"
+                    android:scrollbars="none" >
+
+                    <!-- ImageSwitcher , Description -->
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <!-- ImageSwitcher and  Description -->
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dip"
+                            android:layout_marginRight="10dip"
+                            android:gravity="center"
+                            android:orientation="vertical" >
+
+                            <!-- ImageSwitcher -->
+
+                            <ImageSwitcher
+                                android:id="@+id/img_switcher"
+                                android:layout_width="fill_parent"
+                                android:layout_height="133dip"
+                                android:layout_marginTop="10dip"
+                                />
+                                <!-- android:background="@drawable/imagebackground" -->
+                            <!-- Description -->
+
+                            <TextView
+                                android:id="@+id/recommend_app_desc"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dip"
+                                android:layout_marginLeft="10dip"
+                                android:layout_marginRight="10dip"
+                                android:textColor="#444444"
+                                android:autoLink="web"                                android:textSize="16sp"
+                                android:textStyle="normal" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+                <!-- Bottom button  INIT or DOWNLOADED or INSTALLED or HAS_UPDATE -->
+
+                <FrameLayout
+                    android:id="@+id/bottombar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:layout_marginTop="5dip" >
+
+                    <!-- app status: INIT or DOWNLOADED or INSTALLED or HAS_UPDATE -->
+
+                    <LinearLayout
+                        android:id="@+id/bottombar_buttons"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:visibility="gone" >
+
+                        <LinearLayout
+                            android:id="@+id/one_button"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:visibility="gone" >
+
+                            <include
+                                android:id="@+id/btn11"
+                                android:layout_width="180dip"
+                                android:layout_height="37dip"
+                                android:layout_marginLeft="70dip"
+                                android:layout_marginTop="4dip"
+                                layout="@layout/long_button" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/two_button"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:visibility="gone" >
+
+                            <include
+                                android:id="@+id/btn21"
+                                android:layout_width="115dip"
+                                android:layout_height="37dip"
+                                android:layout_marginLeft="30dip"
+                                android:layout_marginTop="4dip"
+                                layout="@layout/long_button" />
+
+                            <include
+                                android:id="@+id/btn22"
+                                android:layout_width="115dip"
+                                android:layout_height="37dip"
+                                android:layout_marginLeft="30dip"
+                                android:layout_marginTop="4dip"
+                                layout="@layout/long_button" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/three_button"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:visibility="gone" >
+
+                            <include
+                                android:id="@+id/btn31"
+                                android:layout_width="91dip"
+                                android:layout_height="37dip"
+                                android:layout_marginLeft="12dip"
+                                android:layout_marginTop="4dip"
+                                layout="@layout/long_button" />
+
+                            <include
+                                android:id="@+id/btn32"
+                                android:layout_width="91dip"
+                                android:layout_height="37dip"
+                                android:layout_marginLeft="12dip"
+                                android:layout_marginTop="4dip"
+                                layout="@layout/long_button" />
+
+                            <include
+                                android:id="@+id/btn33"
+                                android:layout_width="91dip"
+                                android:layout_height="37dip"
+                                android:layout_marginLeft="12dip"
+                                android:layout_marginTop="4dip"
+                                layout="@layout/long_button" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- app status: DOWNLOADING or PAUSE -->
+
+                    <LinearLayout
+                        android:id="@+id/bottombar_progress"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:visibility="gone" >
+
+                        <ImageView
+                            android:id="@+id/pause_btn"
+                            android:layout_width="51dip"
+                            android:layout_height="30dip"
+                            android:layout_marginLeft="28dip"
+                            android:layout_marginTop="6dip"
+                            android:src="@drawable/download_pause" />
+
+                        <ImageView
+                            android:id="@+id/resume_btn"
+                            android:layout_width="51dip"
+                            android:layout_height="30dip"
+                            android:layout_marginLeft="28dip"
+                            android:layout_marginTop="6dip"
+                            android:src="@drawable/download_resume"
+                            android:visibility="gone" />
+
+                        <include
+                            android:id="@+id/progress"
+                            android:layout_width="162dip"
+                            android:layout_height="30dip"
+                            android:layout_marginTop="6dip"
+                            layout="@layout/fancy_progressbar" />
+
+                        <ImageView
+                            android:id="@+id/stop_btn"
+                            android:layout_width="51dip"
+                            android:layout_height="30dip"
+                            android:layout_marginTop="6dip"
+                            android:src="@drawable/download_delete" />
+                    </LinearLayout>
+                </FrameLayout>
+                <!-- line -->
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dip"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line" />
+                <!-- Recommend App gallery -->
+                <!-- Gallery -->
+
+                <Gallery
+                    android:id="@+id/mygallery"
+                    android:layout_width="fill_parent"
+                    android:layout_height="58dip"
+                    android:background="#dddddd"
+                    android:gravity="center_vertical"
+                    android:scaleType="fitCenter"
+                    android:spacing="10dip" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+    <!-- Footer Tab -->
+
+    <include layout="@layout/footer_tabs" />
+
+</LinearLayout>

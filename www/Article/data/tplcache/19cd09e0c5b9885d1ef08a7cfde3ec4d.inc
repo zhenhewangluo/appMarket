@@ -1,0 +1,10 @@
+{dede:field name='keywords'}谷歌,应用开发商,谷歌钱包{/dede:field}
+{dede:field name='description'}北京时间3月12日消息，据国外媒体报道，谷歌日前表示，该公司旗下Google Play商店（原Android Market）的支付政策并未调整。消息人士上周透露，谷歌一直在施压应用和移动游戏开发者使用谷歌钱包（Google Wallet），希望仿效苹果iOS平台取得成功。{/dede:field}
+{dede:field name='title'}谷歌否认要求应用开发商使用谷歌钱包服务{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

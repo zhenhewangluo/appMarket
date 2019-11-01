@@ -1,0 +1,5 @@
+[ 2012-09-13T16:03:57+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-09-13T16:04:28+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-09-13T16:04:44+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-09-13T18:24:54+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/disclaimer.html]
+[ 2012-09-13T18:39:34+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/devNotes.html]

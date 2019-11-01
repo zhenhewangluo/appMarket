@@ -1,0 +1,2 @@
+[ 2013-01-26T00:23:02+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-01-26T02:22:28+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)

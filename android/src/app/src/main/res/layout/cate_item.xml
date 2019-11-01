@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="68dip"
+    android:background="@drawable/listview_item_bg"
+    android:orientation="horizontal" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dip"
+        android:orientation="horizontal" >
+
+        <!--
+            ImageView
+			android:layout_width="fill_parent"
+			android:layout_height="68dip"
+			android:scaleType="fitXY"
+			android:src="@drawable/backg"
+        -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="68dip"
+            android:orientation="horizontal" >
+
+            <!-- android:layout_width= 56dip -->
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="48.5dip"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="17dip" 
+                android:scaleType="fitCenter"
+                android:src="@drawable/app_icon"
+                />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="8dip" 
+                android:layout_marginRight="17dip" 
+                >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dip"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <com.market.hjapp.ui.view.ScrollForeverTextView
+                        android:id="@+id/cate_description"
+                        android:layout_width="170dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dip"
+                        android:ellipsize="marquee"
+                        android:lines="1"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="right|center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <FrameLayout
+                        android:layout_width="50dip"
+                        android:layout_height="fill_parent"
+                        android:layout_marginRight="10dip" >
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_gravity="center"
+                            android:src="@drawable/apps_num" />
+
+                        <TextView
+                            android:id="@+id/app_cnt"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:paddingBottom="4dip"
+                            android:text="@string/cate_app_count"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+
+                    <!--
+                 ImageView
+				android:layout_width="10dip"
+				android:layout_height="15dip"
+				android:layout_marginLeft="3dip"
+				android:layout_marginTop="25dip"
+				android:src="@drawable/z49" 
+                    -->
+
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

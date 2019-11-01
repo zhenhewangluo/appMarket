@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>罗永浩做手机：从做ROM开始_***</title>
+<meta name="keywords" content="罗永浩,做手机" />
+<meta name="description" content="最近，老罗很忙。老罗姓罗名永浩。他的名言“彪悍的人生不需要解释”已经流传甚广，但他看起来是一个毫无攻击性的中年胖子，和彪悍无关，用作家王小峰的话说，“长得真客气、" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E8%94%AC%E8%8F%9C%E6%AD%A6%E5%A3%AB/' target="_blank">蔬菜武士</a><a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank">消除</a><a href='/Article/tags.php?/%E6%89%8B%E6%9C%BAQQ%E9%98%85%E8%AF%BB/' target="_blank">手机QQ阅读</a><a href='/Article/tags.php?/%E6%8C%91%E9%A3%9F/' target="_blank">挑食</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">罗永浩做手机：从做ROM开始</h1>
+			<div class="articleInfo"><small>时间:</small>2012-06-25 22:20<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=2505&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p>
+	最近，老罗很忙。老罗姓罗名永浩。他的名言“彪悍的人生不需要解释”已经流传甚广，但他看起来是一个毫无攻击性的中年胖子，和彪悍无关，用作家王小峰的话说，“长得真客气、界面很友好”。此前，他的身份是一家英语培训机构的校长，在微博上他还是方舟子的敌人，不久前他因为怒砸西门子冰箱维权而名声大噪。现在，他又多了一重身份——未来的手机制造商。
+</p>
+<p>
+	4月8日下午16点28分，罗永浩在新浪发了条微博：下周就要注册一个新公司开始做手机了，每天都活在兴奋中……
+</p>
+<p>
+	于是，全天下人都知道了教英语的罗老师要造手机了。
+</p>
+<p>
+	此后，罗永浩确实每天都活在了刺激和兴奋之中，但他也开始变得时常焦虑，脾气会莫名地很差，像一个随时会引爆的炸弹。
+</p>
+<p>
+	我见证了这个炸弹几乎要爆炸的那一刻。在采访前，摄影师帮他拍照——拍照是他最讨厌的事情。这过程里，他的朋友许岑在旁边帮忙。相框的位置稍微有点歪，或桌椅摆放位置不对，老罗立马满脸怒气地带着脏字责骂，如一位抓狂的暴君。
+</p>
+<p>
+	这种细微之处，常人未必能第一时间发现，但老罗却能注意到。
+</p>
+<p>
+	这或许是个尴尬的开场，然而采访开始后，当谈起他的手机梦，罗永浩顿时像变了一个人。这个看起来像几天没睡觉的疲惫而暴躁的中年男人，身体里的马达重新开动起来，逐渐变得兴奋、友善、滔滔不绝。
+</p>
+<p>
+	当谈到国内手机的外观设计和用户体验时，他语速变快，激动起来。他跑出去，从抽屉里取了台魅族MX进来——这是他最近买来20多部用于研究的手机之一。
+</p>
+<p>
+	“这个黑白配色，我敢打赌，魅族设计师绝对干不出来，肯定是黄章的主意。” 在老罗眼中，魅族CEO黄章是一个追求细节的技术控，但不懂什么叫审美。他继而又抱怨起主屏上魅族官网无法删除的设置。
+</p>
+<p>
+	“这些都是用户体验的细节。”罗永浩自认为自己是客户体验的大师。
+</p>
+<p>
+	<strong>雷军向左，老罗向右</strong>
+</p>
+<p>
+	罗永浩做事喜欢高调，这种性格在他维权怒砸西门子冰箱一事中表现得淋漓尽致。
+</p>
+<p>
+	在做手机这么大的事情上，他依然让人感觉到不可思议的高调，虽然他没有任何该行业的经验。在微博上回复网友们的质疑时，他写到：“用户体验、审美、营销推广、恋物、完美主义倾向这五项我都不输乔布斯，只差了一个现实扭曲场，但我人格力量远胜，加上这个行业全是土鳖和笨蛋，不骄傲地说，胜算很大。”
+</p>
+<p>
+	自比乔布斯，让他遭到了无数嘲笑和板儿砖。罗永浩不以为然。
+</p>
+<p>
+	时光回到半年之前，造手机的野心还藏在他内心深处。那个时候，他的英语培训学校已经开始盈利。从挤入竞争激烈的培训市场，到占据了江湖第二的位置，老罗只用了3年时间。而学校的宣传海报、视频的那种病毒式的传播、复制，已经足以证明他在营销推广方面的能力。
+</p>
+<p>
+	“我有很强的营销推广能力，但教育培训却是一个非大众化产品，从企业的长远策略上，可能并不是很明智。所以我想做一个大众产品。”手机正是人人都需要的产品，也是他的兴趣所在。而引发他开始行动的导火索，是与小米手机的总裁雷军的一次见面。
+</p>
+<p>
+	罗永浩曾收到过一台小米公司送来的小米试用版手机。他是数码狂人，“阅机无数”。但小米手机给了他除iPhone之外最好的体验。他很喜欢，就在微博发了几条赞誉的话。雷军看到后，开始与他互动。两人此前并无私交，很快，就有人来牵线，说雷军想跟他一起聊聊。
+</p>
+<p>
+	听到这个消息时，罗永浩很兴奋。他想起雷军的那句引发舆论炮轰的话：“乔布斯有一天也会死，所以我们还有机会。”罗永浩觉得机会来了，他希望通过这次见面，能与雷军合作。
+</p>
+<p>
+	当时，自己创业造手机的想法尚未扎根到他的脑子里，这时的罗永浩，完全不介意给雷军打工，“因为我由衷的热爱这个行业。不管是以小股东身份，还是给雷军打工，我都愿意帮他做一些事情。”他甚至已经设想好了自己的去处，生产管理他没有经验，但用户体验、UI设计、营销推广，都可能是他未来的岗位职责。
+</p>
+<p>
+	于是2011年11月初的一天，罗永浩应邀去了小米总部。当时雷军有个会没有结束，他就在休息室里等待。小米公司的年轻员工听说老罗来了，纷纷过来排队找他合影，折腾了二三十分钟。大家都很开心。
+</p>
+<p>
+	一切似乎向着好的方向发展，但接下来的3个多小时后，罗永浩美好的期望泡汤了。
+</p>
+<p>
+	“我聊了一个半小时，雷军聊了一两个小时，都保持着礼貌，但很不耐烦地听着，想法完全不一样。”罗永浩说。
+</p>
+<p>
+	罗永浩聊得全是他针对小米手机的用户体验。在之前使用小米的过程中，他随想随记，写下了30多条用户体验。当然当时他并不是为了这次见面而刻意准备的。罗永浩聊得眉飞色舞，小米副总裁黎万强听得很认真，一边聊一边记。雷军则很少插话。
+</p>
+<p>
+	接下来，雷军讲了他的观点。他提到苹果因为是封闭系统，会重蹈PC时代的覆辙，而开放的安卓系统加上硬件厂商百花齐放，最终会击败苹果。对此，罗永浩并不同意，但他也未反驳。随后，雷军很有兴致地展示他投资过的UC浏览器，这款浏览器目前有上亿人使用，雷军认为之所以有如此多的客户，是因为UC浏览器可以节省流量。对此，罗永浩不置可否，他认为节省流量虽然在一定意义上可以帮到穷孩子，但这产品注定是没有未来的，因为流量在未来不会是个问题。
+</p>
+<p>
+	其实，两人最大的分歧是在战略方向上。雷军强调要造高性能、高性价比的手机，这样可以提升市场占有率。但罗永浩认为手机不同于电脑，硬件竞赛没有意义。
+</p>
+<p>
+	“机能对手机来讲绝对不是核心问题，当然你不能太差，界面运行不流畅这肯定不行。保证流畅下，多一点机能都是浪费，成本、耗热量、耗电都会增加。”罗永浩认为，小米能做好用户体验，只不过是创业团队里恰好有人精通此道，而用户体验，显然并不是雷军的核心战略方向。
+</p>
+<p>
+	在一番客套话之后，这次见面就结束了。双方虽然彼此不认同，但会面的过程中没有辩论和反驳。“看起来至少都挺文明的。”罗永浩说。
+</p>
+<p>
+	没人给他1000万美元
+</p>
+<p>
+	虽然与雷军的合作没有谈成，但罗永浩的兴趣却被激发出来了。他决定自己找投资。他自己测算，因为前期做硬件会非常烧钱的，所以前期启动资金至少需要1000万美金。
+</p>
+<p>
+	<strong>去哪里找到这1000万美元投资呢？</strong>
+</p>
+<p>
+	他第一个想到了此前他在新东方时的老同事李丰。李丰现在已经是IDG的合伙人。IDG当初也给小米投了钱。俩人相约一起吃饭，饭桌上，李丰直言不讳说：“以你在商业领域里的成就，和你的演讲、宣传等能力，你要找一个1000万人民币的项目，不是难事。”但随后李丰话锋一转说：“如果是1000万美元的项目，你拿到钱的可能基本为零。”
+</p>
+<p>
+	罗永浩随后找到了和君咨询合伙人铁岭，也是他以前的老同事。老罗滔滔不绝说了2个多小时。铁岭听完他的远大理想，也很兴奋，拍着桌子说，“我给你掏钱，需要多少钱？”
+</p>
+<p>
+	“1000万。”罗永浩也很激动。
+</p>
+<p>
+	“没问题！”铁岭斩钉截铁。
+</p>
+<p>
+	“是美金。”罗永浩补充道。
+</p>
+<p>
+	听说是1000万美金，铁岭顿时面露难色，嘟囔道：“那这个有点问题了……”
+</p>
+<p>
+	类似这样的尴尬事情发生了二十几次。从去年11月到今年2月，靠朋友推荐朋友，罗永浩动用了所有人脉，马不停蹄地找投资。但每次几乎都和铁岭的谈话一样，对方都认同他的想法，愿意投钱，但一听到数额，纷纷退缩了。
+</p>
+<p>
+	罗永浩找的投资人五花八门，有做咨询的，有做风投的，甚至还有位煤老板——那是他英语班上学生的家长，被孩子主动拉来见面。但听完罗永浩的计划之后，“他说你这个培训机构做的刚有点起色，怎么不务正业好高骛远啊，给我讲了一通做人的道理”。结果可想而知了。
+</p>
+<p>
+	瞄准一个投资人行不通，是否让多方各出一些钱合资来投呢？但经过一番尝试后，罗永浩认为这个想法也行不通，因为投资者都希望能取得绝对的话语权。
+</p>
+<p>
+	几个月的努力都失败了，罗永浩也渐渐心灰意冷了。的确，在手机这个高新技术领域，他没有任何经验，也没有被证明过任何能力。当他再次跟李丰吃饭时，他问李丰：“为什么你们都给雷军投资呢？”李丰回答说，雷军自己花了血本，所以大家都敢跟着投。
+</p>
+<p>
+	“我没有这么多钱，还是继续做我的培训机构吧。”罗永浩决定先放下自己的手机梦想，等自己赚到足够的钱，再重新启动这个他“唯一热衷的事业”。但他也担心，到时候自己可50岁了，还有精力和创造力维持创业的状态吗？
+</p>
+<p>
+	今年3月份，罗永浩去了趟美国，继续进行西门子冰箱的维权准备。在旧金山他见到位老朋友，那人正在做一个网站，原来的人马不行，他想让罗永浩回北京接手。那位朋友说由他投钱，罗永浩负责组建团队。几天沟通下来，罗永浩觉得成功的可能性非常大，而且目前也不用操心做手机了，于是他就同意了。
+</p>
+<p>
+	这已经不是罗永浩第一次做网站了。2006年，他离开新东方英语后，曾和程序员黄斌共同创办的牛博网。此后牛博网一直是中国知识分子聚集地，从厦门PX项目到拯救黑窑奴工再到汶川地震救援行动，重大的公共事件上牛博网均没有缺席。但在2009年初，牛博网国内服务器被关闭。那时的牛博网已经基本实现收支平衡，但罗永浩并没有从牛博网赚到钱。
+</p>
+<p>
+	从美国回来后，他就开始筹备起做网站的事情。每天，他跟原来的团队沟通、开会，在北京新中关大厦12层——他的英语培训机构所在地，又租了几间房，以安置新的网络公司。他把网站开张的日期定在了3月31日。
+</p>
+<p>
+	<strong>忽然而至的转机</strong>
+</p>
+<p>
+	网站开张前一晚，罗永浩去上岛咖啡见一位朋友，求教他网络运营管理的经验。这位朋友原来是某大网站的主管，如今出来自己创业。
+</p>
+<p>
+	聊天中，罗永浩提到了自己想做手机的梦想。这位朋友顿时来了兴致，不断追问起来。罗永浩最开始不想谈那些曾经的烦心事，想多听对方谈谈网站运营管理的事情，但那位朋友显得对网站的事儿毫无兴趣，老罗也就把之前的遭遇统统讲了出来。
+</p>
+<p>
+	听完他的故事，那位朋友问他：“难道必须要用1000万美元的启动资金吗？”
+</p>
+<p>
+	其实这个问题，在罗永浩从美国回来后，和黄斌在聊网站时不经意也交流过。当时黄斌建议罗，可以变通下，考虑先用1000万人民币，带一个团队用4至6个月时间，开发一个ROM(安卓手机操作系统)到网上，然后再传播。
+</p>
+<p>
+	这其实是小米手机的售卖模式。小米MIUI系统早于小米手机2年推出，在网络上免费让其他手机用户安装使用，在实现上百万的装机量后，整机才在2011年8月推向市场，一炮而红。
+</p>
+<p>
+	当时罗永浩听到这话时，并没有想到用这种模式继续去游说投资者。他只想专心做网站了。
+</p>
+<p>
+	当他的朋友再次问道类似的问题时，罗永浩不再像以前那样咬定1000万美元的数额不松口。他告诉对方说：“应该可以分两步走。”
+</p>
+<p>
+	这位朋友是个喜怒不形于色的人，平淡地说：“那你就别管了，我给你解决1000万元人民币，你就做手机，别做网站了。”
+</p>
+<p>
+	接下来的整个晚上，话题发生了戏剧性的改变。那位朋友开始说服老罗放弃做网站改做手机，而不是罗永浩请教他管理网站的经验。
+</p>
+<p>
+	朋友承诺，在A轮融资的1000万烧掉之前，如果老罗能用18个月证明设计出来的ROM是好产品，并且能被市场接受，即使手机还没个影儿，他也能保证说服风投进行B轮融资。
+</p>
+<p>
+	罗永浩和这位朋友认识已经四五年，他并非传统的投资人，所以之前罗永浩没想过去找他投资。但那天晚上，不经意的聊天反而促成了双方的合作。
+</p>
+<p>
+	熟悉罗永浩的这位朋友认为他的性格特别适合做完美的产品。“在一个追求完美品质的人眼中，这个世界是千疮百孔的。”
+</p>
+<p>
+	他们继而交流了一些细节。罗永浩告诉对方，他认识全球那些最好的UI设计师，他还知道苹果上每一个图标是谁做的，并和这些人有过些书信来往，他们的身价罗永浩也清楚了。随后他给朋友看了一些他的存档记录，这位朋友更加有了信心。
+</p>
+<p>
+	这次偶然谈话，就像铁轨上的扳道岔，又把他拉回到原来的创业轨道上。这个节点确实微妙得很，距离网络公司开始运转前的一夜，“一旦我接手网站了，那就是责任，不可能甩手不干了。”
+</p>
+<p>
+	二人结束谈话时已经是深夜一点钟了。在回家路上，罗永浩忍不住兴奋，给天津的妻子打去电话。他对被吵醒的妻子喊道：“这个太他妈邪门了！我现在还没调整过神儿来！”
+</p>
+<p>
+	<strong>老罗的班底</strong>
+</p>
+<p>
+	次日，罗永浩赶紧给美国的朋友打电话推掉网站的工作，罗永浩也曾经找过他请求投资手机。现在终于有人投钱了，那位朋友也表示理解。
+</p>
+<p>
+	接下来就是组建班底了。老罗英语培训加入不久的设计师NodYoung，直接被任命为手机公司的视觉总监，此人给很多全球500强公司做过设计。
+</p>
+<p>
+	而其他职位，皆从零开始。但他没有大张旗鼓地发英雄帖。
+</p>
+<p>
+	罗永浩的设想是，组建一个六七人的技术开发团队，包括3个UI设计师，1个产品经理，三四个人做用户体验。
+</p>
+<p>
+	以前他做英语培训时，发现很多优秀人才并不愿意进入这一行业。他曾经看好一个网站编辑，觉得他教课的能力比那些非常技术性的培训老师们要优秀得多。他给这个编辑开出了6个月培养期间只需备课也有一万元工资的条件，那人也不肯来，宁愿守着之前4000元的工资。
+</p>
+<p>
+	现在不同了，一听做手机，对方马上就兴奋了。罗永浩问了四个认识已久的年轻人，入伙率百分之百。有个上海的年轻人，卖掉自己每年可稳赚几十万的小公司，来北京投奔他。
+</p>
+<p>
+	这四个人却都不是手机领域专业出身。有一位在数码器材杂志做编辑，对各款手机了如指掌，已经算最接近专业的了。另外三人则并不挨边。比如朱萧木，在美国读建筑学，在建筑师事务所上过班，回国后就投奔了罗永浩。
+</p>
+<p>
+	这批人将会做用户体验，也是罗永浩最关心的领域。这个看起来颇为山寨的团队，罗永浩却很看好，他认为这些人的恋物、聪明，是他需要的。他不否认他们不专业，“乔布斯就是因为不专业，但他最知道一个傻瓜用户的需求。”
+</p>
+<p>
+	罗永浩举了那个上海小伙儿的例子。近几年，罗永浩不断会有剧场演讲的机会，他想达到乔布斯演讲时那种感觉，大屏幕和演讲者能够完美结合。他拿着乔布斯的录像给做投影的人看，那些人都说能做到，但一试都不能令他满意。于是，罗永浩网上求助，那位上海的年轻人应征而来。2011年罗永浩保利剧院的演讲由这位年轻人来主持。最终的效果让罗永浩非常满意。
+</p>
+<p>
+	目前，罗永浩让这几个年轻人，每天都摆弄新手机，然后在excel表格里，分三栏填写：从软件上，我认为这款手机做的好的、做的不好的地方，以及我能想到的新主意。罗永浩表示，目前已经收获不少惊喜。
+</p>
+<p>
+	技术开发的团队还在考察中。他对技术团队更不担心。“如果产品经理靠谱，整个方向对，就不用担心，你让我们开发一个OS，那要求太高了，但要是做个表层改动，技术性要求并不是那么高。”
+</p>
+<p>
+	至于UI设计师，罗永浩说，“国内我瞧得上眼的不超过5个人，有两三个已经答应跟我合作了。”显然，罗永浩是有准备得。他很早就关注国内有关UI设计的网站和论坛，并和这些设计师们有过沟通，还和一些人吃过饭。“他们听了我的计划很兴奋，对于他们来说，这是为数不多的职业生涯机会。”
+</p>
+<p>
+	罗永浩估计，只要团队组建好，再花上两个多月时间，老罗版的ROM就会上线。“我的ROM会做英文版，而且保证英文菜单是完美的。”
+</p>
+<p>
+	但罗永浩此前的创业兄弟黄斌，却不愿加入这个新团队，虽然罗永浩劝了他无数次。黄斌是计算机神童，大二时就创业且当年营利。“这小子不恋物，而且是典型的程序员思维，他竟然认为安卓手机比iPhone好用。”这在罗永浩看来是难以理解的。
+</p>
+<p>
+	黄斌最近做一个新项目，卖装饰画。罗永浩常挤兑他说大材小用、堕落。黄斌也不以为然。最近，罗永浩从黄斌那里拿走了一幅带有乔布斯肖像的高清晰数码像框，准备挂到开发小组的办公室里。“乔布斯是这个行业的祖师爷，我们要学习要模仿要超越的，只有这么一个乔布斯。”罗永浩说。但在我们为他拍照时，他却拒绝拿着乔布斯的照片。
+</p>
+<p>
+	<strong>胜算很大？</strong>
+</p>
+<p>
+	网络上，不少人骂罗永浩狂妄，不看好他投资手机业务。但罗永浩却非常自信，这种自信有时候让人觉得他有些自大和盲目。
+</p>
+<p>
+	但他身边的朋友们却不这么看。
+</p>
+<p>
+	罗永浩是个工作狂，所以家和公司都放在同一幢建筑里，以便长时间加班。黄斌曾评价说，“他在工作上的热情和敬业，曾让我强烈感觉，一个人能在一方面有所建树，一定是因为完全投入了热情。”
+</p>
+<p>
+	他对细节有着苛刻的要求，以至于一定程度上，同事经常难以忍受他。但他的朋友，学者刘瑜认为他是一个“事无巨细，所有事情都不放心交给别人去做的完美主义者”。有时候，这样的领导者不一定合格，但追求完美，对产品和服务来说却是一件好事。
+</p>
+<p>
+	他对用户体验有着长久的追求。很多人因为看了他的演讲而感动，打电话表示想支持他，花钱来他的英语培训班上课。他特别交代前台接电话的小姑娘，要问清对方到底想学什么，如果没有适合的课程，就劝对方不要来了。
+</p>
+<p>
+	营销推广上，他肯下工夫，他曾研究了很多市场营销专业的书籍，他也有天分，自己操刀的“一块钱计划”等方案，被证明取得了商业上的成功。
+</p>
+<p>
+	他的很多朋友认为，他有充满理想主义的个人风格，这让他有别于其他的商人，可以像一个明星一样被粉丝包裹。他的一句话，可能在商业上迅速兑现。他在演讲中推荐《美国种族简史》，这本书几天就登上畅销书排行榜，很快销掉10万本。
+</p>
+<p>
+	但以上这些，能帮他做成一个手机梦吗？
+</p>
+<p>
+	小米手机的副总裁黎万强说过，罗永浩的品牌影响力很出色，甚至超过小米。但客观的说，做手机面临很多问题：首先是手机产业的供应链长，跨度大。从硬件、设计、电子商务，每一环差别都很大，需要投入很多精力；其次，需要有与供应商之间沟通协商的强大能力；再次，做手机产品。超越用户的期望并不容易，产品只有超越了用户期望，他们才会买单。
+</p>
+<p>
+	易观分析师王颖也表示，罗永浩没有自己的生产线，也没有自己的品牌，一个外来者突然闯入，前期投入会非常大。而且很难达短时间内塑造品牌力量，如果多是在炒作概念，那很危险。
+</p>
+<p>
+	“我也知道，做成这件事肯定难，但是我喜欢，再难的环节都是乐趣。”罗永浩也清楚，很多人都在嘲笑他，但在他看来，“不被嘲笑的愿望是不值得去实现的。”
+</p>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/2505.html">/Article/News/2012/0716/2505.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/2505.html";
+				var wumiiTitle = "罗永浩做手机：从做ROM开始";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/2505.html">罗永浩做手机：从做ROM开始</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/News/2012/0716/2877.html" target="_blank">手机厂商回应互联网公司做手机:抢占不如合作</a>(2012-05-29)</li>
+<li><a href="/Article/News/2012/0716/2700.html" target="_blank">UC做手机网游月入数千万 份额逼近中国移动</a>(2012-06-25)</li>
+<li><a href="/Article/News/2012/0716/2623.html" target="_blank">马化腾微博重申：我们不会做手机</a>(2012-06-13)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/2504.html'>HTC否认退出巴西市场 称缩编团队为补给中国市场</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/2506.html'>Google IO大会：必须证明Android操作系统的价值</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',2505)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',2505)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',2505)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(2505);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="2505" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=2505">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=2505&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '2505');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '2505');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:10pt;color:#667796">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:12pt;color:#3d26b9">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:10pt;color:#4784a9">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:14pt;color:#db9c1d">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:10pt;color:#eb7b3a">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:12pt;color:#1c693">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:10pt;color:#2fa3e7">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:12pt;color:#91bd83">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:pt;color:#921377">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:pt;color:#4b25fc">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:14pt;color:#dd8052">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:14pt;color:#7155f3">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:12pt;color:#f23c6">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:10pt;color:#36453c">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:12pt;color:#2f1bbb">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:pt;color:#1a30b9">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:14pt;color:#58257c">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#625d36">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:10pt;color:#1f69f8">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:14pt;color:#f8b5ee">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

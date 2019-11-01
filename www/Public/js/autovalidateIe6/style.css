@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* form validate */
+textarea.invalid-text,input.invalid-ie6-text{border:1px #DD0000 solid;}
+textarea.valid-text,input.valid-text{border:1px #06AC87 solid;}
+span.invalid-msg,label.invalid-msg{text-indent:18px;color:#DD0000;padding:3px 3px 3px 28px;background: url(images/error_msg_icon.gif) no-repeat 6px;}
+span.valid-msg,label.valid-msg{text-indent:18px;color:#06AC87;padding:3px 3px 3px 28px;background: url(images/success_msg_icon.gif) no-repeat 6px;}

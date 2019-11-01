@@ -1,0 +1,788 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Android碎片化：应用多终端适配三阶段_***</title>
+<meta name="keywords" content="Android碎片化" />
+<meta name="description" content="Android碎片化的问题确实困扰的不少的应用开发商，Animoca是香港的一个应用开发商，它的应用已经有7000万下载量，为了让应用有最佳的表现，他们购买了400多款手机对应用进行质量测试" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E9%A3%9E%E6%9C%BA/' target="_blank">飞机</a><a href='/Article/tags.php?/%E5%B0%8F%E9%B1%BC/' target="_blank">小鱼</a><a href='/Article/tags.php?/%E6%80%AA%E7%89%A9/' target="_blank">怪物</a><a href='/Article/tags.php?/%E8%94%AC%E8%8F%9C/' target="_blank">蔬菜</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">Android碎片化：应用多终端适配三阶段</h1>
+			<div class="articleInfo"><small>时间:</small>2012-05-16 21:43<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=2980&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	Android 碎片化的问题确实困扰的不少的应用开发商，Animoca是香港的一个应用开发商，它的应用已经有7000万下载量，为了让应用有最佳的表现，他们购买了400多款手机对应用进行质量测试。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	下面的这张照片是 Animoca 的用于测试的Android的设备全家福。Animoca母公司Outblaze CEO Yat Siu称他们在网络上已经检测出有600多款不同的 Android 设备，而更糟糕的是，有很大的一部分设备在市面上已经无法买到。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;white-space:normal;background-color:#FFFFFF;text-align:center;">
+	<br />
+</p>
+
+	<img alt="Android 碎片化的问题确实困扰的不少的应用开发商，Animoca
+是香港的一个应用开发商，它的应用已经有7000万下载量，为了让应用有最佳的表现，他们购买了400多款手机对应用进行质量测试" src="/uploads/allimg/c120716/134242203c9320-2UI3.jpg" style="width:480px;height:318px;" /> 
+
+<p>
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	Android 系统由<span style="color:#0b3b8c;"><span style="border-bottom-width:1px;border-bottom-style:dotted;border-bottom-color:#0781C7;">谷歌</span></span>开发，以开源软件方式免费提供给全球手机和平板电脑厂商，外部厂商可以自由修改定制，这导致市场上的 Android 系统版本极为凌乱，缺乏统一管理也导致 Android 平台上出现了大量吸取用户话费的恶意应用。不过面对业界长期抱怨的 Android 平台碎片化问题，谷歌似乎仍未找到解决的良方。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	<strong style="font-weight:800;">Android 平台碎片化来源——终端难题</strong> 
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	对于终端厂商和开发者来说，版本升级与适配测试工作是十分繁琐、复杂的，需要完成大量的软件开发、测试、适配和认证。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;white-space:normal;background-color:#FFFFFF;text-align:center;">
+	<br />
+</p>
+
+	<img alt="Android 碎片化的问题确实困扰的不少的应用开发商，Animoca
+是香港的一个应用开发商，它的应用已经有7000万下载量，为了让应用有最佳的表现，他们购买了400多款手机对应用进行质量测试" src="/uploads/allimg/c120716/13424220410U10-2c111.jpg" style="width:480px;height:320px;" /> 
+
+<p>
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	当Google 将开放源代码录入Android开源项目库时，整个更新过程才能开始，而这通常只能是Google推出新的体验设备时才会有的。原始设备制造商必须要获得该代码，并整合到内部代码树，此时，这项工作才算开始。接下来，一般要面临三个阶段：
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	第一阶段：优化硬件抽象层（HAL）
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	硬件抽象层是 Android 的软件层的基础，这样才可以使软件访问硬件设备。为适应 Android4.0 系统，Google 采用了 TI OMAP 作为操作系统基础开发平台，这就让很多制造商不得不更新他们的 HAL，因为他们使用的不是基于 TI OMAP 的硬件方案，或者是<span style="color:#0b3b8c;"><span style="border-bottom-width:1px;border-bottom-style:dotted;border-bottom-color:#0781C7;">高通</span></span>，三星，联发科，ROCKCHIP 等等。不过同样是不以 TI 硬件作为开发平台，厂商升级的难易度也不尽相同，加之众多的产品型号、外形、屏幕尺寸和规格差异很大，HAL将需要针对每一个设备进行微调。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	第二阶段：Android 定制修改
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	终端厂商为了满足自己运营商和其他合作伙伴的需求，开始对 Android 做定制修改。他们做了修补程序，自定义接口和其他一些杂项的修改，并对由此产生的系统ROM进行测试。所有的原始设备制造商都必须在定制 Android 平台后进行内部测试、入网测试、内置应用程序测试等环节。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	第三阶段：网络部署
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	根据不同的设备和运营商，网络部署更新会有所不同。厂商倾向于通过测试小组测试来查找漏洞，然后再把更新公布给成千上万的普通用户。这就是所谓的浸泡测试。制造商可能会有几十个测试设备，但它们也无法测到每一个可能的软件和设置组合。通过浸泡测试，能在更新发布前避免BUG流出到用户手中。如果一切进行的顺利的话，这个更新就可以发布。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	<strong style="font-weight:800;">Android 平台碎片化危害——应用适配现状</strong> 
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	随着 Android 终端的迅猛发展和普及，越来越多的 App 与终端的不适配导致的 App 应用不能安装、程序崩溃、意外终止等问题越来越多地困扰着广大的用户，也是终端厂商遭到投诉最多的一类问题，糟糕的口碑也使得愈加激烈的终端市场竞争雪上加霜。另一方面，大量终端厂商的低成本、低配置 Android 终端，以异常迅猛的趋势覆盖国内二三线城市、中亚和非洲国家市场，使得 App 应用和终端的不适配问题迅速国际化。据独立第三方测试机构Testin 的数据表明，目前中国主流的 App 应用对 Android 系统的适配率不到 70% 。同时，有接近半数的应用存在严重缺陷，主要体现在无法安装、点击后闪退、启动时间超长、UI错位、运行不稳定、与其他应用程序冲突等问题 。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	谷歌的官方电子市场在一定程度上能测试和解决应用的适配，但基于国内的网络环境和混乱市场环境，普通用户还是看得到，用不到。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;white-space:normal;background-color:#FFFFFF;text-align:center;">
+	<br />
+</p>
+
+	<img alt="Android 碎片化的问题确实困扰的不少的应用开发商，Animoca
+是香港的一个应用开发商，它的应用已经有7000万下载量，为了让应用有最佳的表现，他们购买了400多款手机对应用进行质量测试" src="/uploads/allimg/c120716/134242204161510-301406.jpg" style="width:480px;height:289px;" /> 
+
+<p>
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	移动开发的一个重要难题，就是应用在开发过程中，必须使用手机真实环境进行测试，才有可能进入商用。由于手机操作系统的不同，以及操作系统版本之间的差异，使得真机测试这个过程尤其复杂，涉及终端、人员、工具、时间、管理等方面的问题。所有的移动互联网应用，测试是一个应用的必备环节，并且需要重复测试保证各种使用场景下的稳定性，在目前，全球移动互联网的应用测试绝大部分都是由人手工执行，少有的企业级解决方案灵活性很差，费用昂贵（国企专用哦，中小开发者们看看就行了）。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	<strong style="font-weight:800;">企业应用适配解决方案</strong> 
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	一般大型企业通常都会选择诸如HP Business Process Testing之类的企业级应用方案，HP Business Process Testing 软件支持创建实际为模块、可重用的测试案例，帮助确定自动化测试的最佳方案。 它采用准确涵盖各项功能的业务流程，为业务分析师设计和调整测试提供了一种无需编写脚本的机制，与此同时，支持测试工程师专注于自动化的子系统。 HP Business Process Testing 软件无需您创建和维持定制框架。但事实上作为这样一款定位为企业级的应用，<span style="color:#0b3b8c;"><span style="border-bottom-width:1px;border-bottom-style:dotted;border-bottom-color:#0781C7;">惠普</span></span>的服务费用高昂，并不是所有中小型开发者都能够负担。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	<strong style="font-weight:800;">个人应用适配解决方案</strong> 
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	国内开发者大多都会买测试机来测试，但很少有开发者能向本文开头介绍的那样买 400 多款手机对应用进行质量测试。不管是时间成本还是金钱成本都远远超出中小开发者的承受能力。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	Testin是一家面向全球互联网开发者和运营企业提供7x24自动真机 App 测试的 SaaS 服务平台，为广大移动 App 开发者提供免费的测试服务，建立面向全球 App 开发者的 App 在线云测试平台，以帮助各国移动 App 开发者可以随时选择全球或特定市场型号的终端、对 App 进行针对性的兼容适配性测试。更重要的是，it’s free。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	<strong style="font-weight:800;">Testin 平台的操作性：</strong> 
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	如图所示：
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;white-space:normal;background-color:#FFFFFF;text-align:center;">
+	<br />
+</p>
+
+	<img alt="Android 碎片化的问题确实困扰的不少的应用开发商，Animoca
+是香港的一个应用开发商，它的应用已经有7000万下载量，为了让应用有最佳的表现，他们购买了400多款手机对应用进行质量测试" src="/uploads/allimg/c120716/134242204215150-311211.jpg" style="width:480px;height:1081px;" /> 
+
+<p>
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	开发者向 Testin 提交 App，Testin 平台根据任务要求可以在全球的任何地点、网络、终端上自动测试这些 App，然后将测试结果即可交付给开发者。开发者会拿到关于应用适配的数据报告，同时，Testin 还提供自动脚本测试服务，开发者可以自定义脚本，让应用在Testin 的真机上按照自己设定的方式运行，以测试应用的操作性和稳定性。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	以《商业价值》客户端测试为例：
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	1：上传App到Testin的云端，选择需要测试的机型。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;white-space:normal;background-color:#FFFFFF;text-align:center;">
+	<br />
+</p>
+
+	<img alt="Android 碎片化的问题确实困扰的不少的应用开发商，Animoca
+是香港的一个应用开发商，它的应用已经有7000万下载量，为了让应用有最佳的表现，他们购买了400多款手机对应用进行质量测试" src="/uploads/allimg/c120716/134242204311130-323534.jpg" style="width:480px;height:233px;" /> 
+
+<p>
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	2：由 Testin 分布在全国各地的不同环境下的真机自动安装运行 App，记录每一个环节并截图和生成 log 日志。
+</p>
+<p align="center" style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;white-space:normal;background-color:#FFFFFF;">
+	<br />
+</p>
+
+	<img alt="Android平台碎片化：应用多终端适配三阶段" src="/uploads/allimg/c120716/1342422043T3Z-339357.jpg" /> 
+
+<p>
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	3：真机自动运行完成后，会生成数据报告，供开发者<span style="color:#0b3b8c;"><span style="border-bottom-width:1px;border-bottom-style:dotted;border-bottom-color:#0781C7;">下载</span></span>查看，数据报告包括应用的适配率，应用适配主要错误出现环节等。
+</p>
+<p align="center" style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;white-space:normal;background-color:#FFFFFF;">
+	<br />
+</p>
+
+	<img alt="Android平台碎片化：应用多终端适配三阶段" src="/uploads/allimg/c120716/1342422044Ob0-342A1.jpg" /> 
+
+<p>
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	Testin 平台的安全性：
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	1）所有在 Testin 测试平台提交的 App 测试用户可以自定义报告展示与否；
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	2）所有提交到 Testin 测试的 App 都将以黑盒的方式进行测试，完全不涉及程序代码；
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	3）目前 Testin 推出一款Itest测试客户端，用户可以自己录制测试脚本，只需将脚本提交测试平台即可，完全不涉及应用程序数据包；
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	4）所有提交到 Testin 测试平台的 App 数据包都会有相关保密协议；
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	Testin 在上周应用测试数突破了百万次，正在为全球数以万计开发者提供免费的测试服务。
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	附测试机机柜实体图一张。
+</p>
+<p align="center" style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;white-space:normal;background-color:#FFFFFF;">
+	<br />
+</p>
+
+	<img alt="Android平台碎片化：应用多终端适配三阶段" src="/uploads/allimg/c120716/134242204E3G0-3564F.jpg" /> 
+
+<p>
+	<br />
+</p>
+<p style="margin-top:20px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;line-height:25px;font-family:宋体， arial， sans-serif;font-size:14px;text-align:left;white-space:normal;background-color:#FFFFFF;text-indent:2em;">
+	笔者在对 Testin CEO 王军采访的时候，聊到他参加 GMIC2012 全球互联网大会期间，开发著名益智游戏割绳子（Cut the Rope）的 iFree 亚洲 CEO Evgeny Kosolapov 曾告诉他：“中国的山寨 Android 终端已经严重地困扰着他和他们的用户。”这算是真正的中国改变世界吗？
+</p>
+<p>
+	<br />
+</p>
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>极客公园</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/2980.html">/Article/News/2012/0716/2980.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/2980.html";
+				var wumiiTitle = "Android碎片化：应用多终端适配三阶段";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/2980.html">Android碎片化：应用多终端适配三阶段</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/2979.html'>小米手机青春版开箱体验及与普通版游戏加载速</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/2981.html'>谷歌Android战略大调整：与多厂商建联合战线</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',2980)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',2980)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',2980)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(2980);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="2980" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=2980">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=2980&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '2980');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '2980');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:pt;color:#cd41b7">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:pt;color:#37a5fc">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:pt;color:#be3690">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:12pt;color:#5368e">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:12pt;color:#54932d">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:12pt;color:#b0253c">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:10pt;color:#bf2da">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:12pt;color:#9ebe54">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:12pt;color:#4c93f">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:14pt;color:#e32e64">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:14pt;color:#83bcec">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:pt;color:#fd5e29">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:12pt;color:#3b42ca">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:pt;color:#875f9">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:12pt;color:#aa3b0">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:14pt;color:#cc415">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:10pt;color:#11419c">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:pt;color:#91196">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:10pt;color:#f665ec">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:pt;color:#ff1046">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

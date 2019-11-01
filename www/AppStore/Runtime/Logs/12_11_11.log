@@ -1,0 +1,2 @@
+[ 2012-11-11T12:24:41+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/Activity/Test/guestPhoneBook.html]
+[ 2012-11-11T23:26:07+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/App/Developer//register.html]

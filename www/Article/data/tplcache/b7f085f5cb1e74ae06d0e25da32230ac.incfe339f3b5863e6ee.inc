@@ -1,0 +1,45 @@
+<?php
+$z[0]=Array("sppage","",0,59);
+$z[0][4]['sptype']="full";
+$z[0][4]['srul']="1";
+$z[0][4]['erul']="5";
+$z[1]=Array("previewurl","http://www.apkge.com/info/1533.html",61,131);
+$z[2]=Array("keywordtrim","",133,170);
+$z[3]=Array("descriptiontrim","",172,217);
+$z[4]=Array("item","\n   {dede:match}<div id=\"newstt\" class=\"tt nt\"><h1>[内容]</h1><span class=\"tt_right hs\">{/dede:match}\n   \n   {dede:function}{/dede:function}\n",219,428);
+$z[4][4]['field']="title";
+$z[4][4]['value']="";
+$z[4][4]['isunit']="";
+$z[4][4]['isdown']="";
+$z[5]=Array("item","\n   {dede:match}[鹏哥哥]{/dede:match}\n   \n   {dede:function}{/dede:function}\n",428,575);
+$z[5][4]['field']="writer";
+$z[5][4]['value']="";
+$z[5][4]['isunit']="";
+$z[5][4]['isdown']="";
+$z[6]=Array("item","\n   {dede:match}[安卓哥]{/dede:match}\n   \n   {dede:function}{/dede:function}\n",575,722);
+$z[6][4]['field']="source";
+$z[6][4]['value']="";
+$z[6][4]['isunit']="";
+$z[6][4]['isdown']="";
+$z[7]=Array("item","\n   {dede:match}<span id=\"lb_bj\">daiwei 发布于[内容] | 111 次阅读</span>{/dede:match}\n   \n   {dede:function}{/dede:function}\n",722,923);
+$z[7][4]['field']="pubdate";
+$z[7][4]['value']="";
+$z[7][4]['isunit']="";
+$z[7][4]['isdown']="";
+$z[8]=Array("item","\n   {dede:match}<div id=\"boxsm\">[内容]</p></div>\r\n                 </div>{/dede:match}\n   \n   {dede:function}{/dede:function}\n",923,1118);
+$z[8][4]['field']="body";
+$z[8][4]['value']="";
+$z[8][4]['isunit']="1";
+$z[8][4]['isdown']="1";
+$z[9]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",1118,1260);
+$z[9][4]['field']="download_url";
+$z[9][4]['value']="";
+$z[9][4]['isunit']="";
+$z[9][4]['isdown']="";
+$z[10]=Array("item","\n   {dede:match}{/dede:match}\n   \n   {dede:function}{/dede:function}\n",1260,1396);
+$z[10][4]['field']="app_id";
+$z[10][4]['value']="";
+$z[10][4]['isunit']="";
+$z[10][4]['isdown']="";
+
+?>

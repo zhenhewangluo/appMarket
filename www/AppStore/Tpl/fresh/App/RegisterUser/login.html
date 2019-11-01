@@ -1,0 +1,45 @@
+<!-- 面包屑导航 -->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+<div class="position">
+	<a href ="__APP__">首页</a> > 用户登录
+</div>
+<script type="text/javascript">
+	function fleshVerify(){
+	//重载验证码
+	var timenow = new Date().getTime();
+	document.getElementById('verifyImg').src= "{:U('AppStore://App-RegisterUser/verify?random=')}"+timenow;
+	}  
+	
+</script>
+<div class="simple_box">
+	<div class="simple_box_t"></div>
+	<div class="simple_box_c">
+		<div class="pencil"></div>
+		<h6>用户登录</h6>
+		<form method="post" action="{:U('AppStore://App-RegisterUser/loginAction')}" id="loginForm">
+			<table>
+				<tbody>
+				<tr>
+					<th class="t_r">账户邮箱：</th>
+					<td><input class="long" type="text" name="email" value=""  pattern="email" alt="请输入账户邮箱" /><label>　</label></td>
+				</tr>
+				<tr>
+					<th class="t_r">密码：</th>
+					<td><input class="long" type="password" name="password" value=""  pattern="required" alt="请输入密码" /><label>　</label></td>
+				</tr>
+				<tr>
+					<th class="t_r">验证码：</th>
+					<td><input class="middle" type="text" name="verifyCard" value=""  pattern="required" alt="请输入验证码" /><label>　</label>
+							  <img style='cursor:pointer' title='刷新验证码' src="{:U('AppStore://App-RegisterUser/verify')}" id='verifyImg' onClick="fleshVerify()" /></td>
+				</tr>
+				<tr>
+					<th class="t_r"></th><td><input type="submit" class="user_submit"  value="登　录" />　<a href="{:U('AppStore://App-RegisterUser/resetPassword')}">忘记密码?</a>　<a class="user_form_reg" href="{:U('AppStore://App-RegisterUser/index')}">创建一个账户</a></td>
+				</tr>
+				</tbody>
+			</table>
+			
+		</form>
+	</div>
+	<div class="simple_box_b"></div>
+</div>

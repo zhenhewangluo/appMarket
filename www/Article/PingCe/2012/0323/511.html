@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无头里的公主与王子与骑士的故事——《公主踢_***</title>
+<meta name="keywords" content="无,头里,的,公主,与,王子,骑士,故事,—,《,踢," />
+<meta name="description" content="《公主踢骑士（Princess Punt）》是一款公主为了找寻心爱的王子，展开奇妙冒险旅程的动作角色扮演游戏。因为路途遥远，沿途又有着非常暴力的怪物和不讲理的 BOSS，于是负责保护傲慢公主的可怜主人公－我们的肉弹骑士 Hero，率领着他的皇家（炮灰）骑士团为了保护公主、战胜怪物，不停的变成闪亮之星" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E8%AF%B4%E8%AF%9D/' target="_blank">说话</a><a href='/Article/tags.php?/%E8%AF%95%E5%90%AC/' target="_blank">试听</a><a href='/Article/tags.php?/%E5%87%BA%E8%A1%8C/' target="_blank">出行</a><a href='/Article/tags.php?/%E8%BD%A6%E5%B1%95/' target="_blank">车展</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href=''>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a class='cut' href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href=''>***</a>>><a href='/Article/plus/list.php?tid=2'>评测</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">无头里的公主与王子与骑士的故事——《公主踢</h1>
+			<div class="articleInfo"><small>时间:</small>2012-02-17 21:02<small>来源:</small><a href="/" target="_blank">未知</a> <small>作者:</small>Nagisa <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=511&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			
+    <p align="left"><strong><a href="/uploads/allimg/120322/ajhlg3vdyvc.jpg" class="highslide-image" onclick="return hs.expand(this);"><img class="size-full wp-image-511 alignleft" title="gz1" src="/uploads/allimg/120322/ajhlg3vdyvc.jpg" alt="" width="180" height="180" /></a></strong></p>
+<p>《公主踢骑士（Princess Punt）》是一款公主为了找寻心爱的王子，展开奇妙冒险旅程的动作角色扮演游戏。因为路途遥远，沿途又有着非常暴力的怪物和不讲理的 BOSS，于是负责保护傲慢公主的可怜主人公－我们的肉弹骑士 Hero，率领着他的皇家（炮灰）骑士团为了保护公主、战胜怪物，不停的变成闪亮之星划过天空。</p>
+<p align="left">
+<div style="text-align: -webkit-auto;" align="center"></div>
+<div style="text-align: -webkit-auto;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><span id="more-510"></span></span></span></div>
+<p align="left">　　本游戏分成很多个区域组成，代表着公主追逐王子的旅行，每个区域有 6 关，每关有 5 个小关卡，如果踢的技术足够好的话，关卡结束会最多给予三颗星的评价，这与后期开发拓展功能是息息相关的。</p>
+<div style="text-align: -webkit-auto;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><br />
+</span></span></div>
+<p style="text-align: center;" align="left"> <a href="/uploads/allimg/120322/g5gyhdnpo2i.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-512" title="gz2" src="/uploads/allimg/120322/g5gyhdnpo2i.png" alt="" width="480" height="320" /></a></p>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><br />
+</span></span></div>
+<p align="left">
+游戏的主要方式类似小鸟，不过这次我们可爱的小鸟变成了倒霉的主人公与他的骑士团成员，小猪变成了无辜的小怪物。通过利用公主精湛的踢技，把主人公 Hero 与配给Hero的小骑士们同炸弹，准确的踢到敌人区域来打败敌人。主人公有四种职业可以选择，剑士、长枪兵、弓箭手、法师，每种职业攻击的范围都各有不同，所以规划先后顺序及地形份布是非常重要的攻略技巧。</p>
+<div style="text-align: center;"><span style="font-size: x-small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/ieabksmpzeq.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-514" title="gz4" src="/uploads/allimg/120322/ieabksmpzeq.png" alt="" width="480" height="320" /></a></span></span></div>
+<p align="left">
+<p align="left">职业体会心得：</p>
+<p align="left">剑士：技能大多为单词的无力攻击，小编最爱的职业，如果使用重砍伤害会很高，但是攻击范围极小。</p>
+<p align="left">长枪兵：不俗的攻击力配合较广的攻击范围本应有不俗的表现，但是经常会打着打着就飘到奇怪的地方去了……（在某些场合下比剑士好用！有点看RP！！）</p>
+<p align="left">弓箭手：需要技能操作最频繁的职业，攻击角度受风向严重。上手较难但一旦命中BOSS弱点可造成的伤害最为可观。</p>
+<p align="left">法师：小编使用最少的职业，不是因为不好用，而是因为在打BOSS时很难命中BOSS弱点，比较看RP技能碰运气成分过高。</p>
+<p align="left">　　每种职业都各有三种技能，但是上场时只能装备一种技能，技能可以通过升级的进行强化，只要在战斗中胜利即可获得该技能的经验值。</p>
+<div style="text-align: center;" align="center"><a href="/uploads/allimg/120322/iolmbxuuc1p.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-515" title="gz5" src="/uploads/allimg/120322/iolmbxuuc1p.png" alt="" width="480" height="320" /></a></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">饰品代表主人公的血量</span></span></div>
+<p align="left">
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/pe0txhlqwme.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-517" title="gz7" src="/uploads/allimg/120322/pe0txhlqwme.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">读取画面也会相当贴心的附上一些小秘诀，不过要能看得懂 -。-<br />
+</span></span></div>
+<p align="left">
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/2pdubrwbwij.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-518" title="gz8" src="/uploads/allimg/120322/2pdubrwbwij.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/xzprgugumbz.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-519" title="gz9" src="/uploads/allimg/120322/xzprgugumbz.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/44tmetlhbjb.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-521" title="gz10" src="/uploads/allimg/120322/44tmetlhbjb.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">每个大关一开始都会有超级搞笑的剧情漫画<br />
+</span></span></div>
+<p align="left">
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/31yunhj4mii.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-522" title="gz11" src="/uploads/allimg/120322/31yunhj4mii.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">右边是怪物的总血量，只要变成0 就过关了啦！<br />
+</span></span></div>
+<p align="left">　　进入关卡之后，每次都有五回合的限制，选好要踢出去的“东西”就可以开始游戏了。需要注意的是踢出去的炮灰骑士们不是没有用处的，到达被公主“派遣”后每个回合它们还会自动攻击怪物，但是需要注意踢出去的骑士职业是什么，因为不同职业的骑士攻击距离各不相同。</p>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/komgyybvy5g.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-523" title="gz12" src="/uploads/allimg/120322/komgyybvy5g.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">话说这关的炸弹怎么变成菠萝了啊？！<br />
+</span></span></div>
+<p align="left">
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/2bu52bxizaq.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-524" title="gz13" src="/uploads/allimg/120322/2bu52bxizaq.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">只要用一只手指头把东西像弹弓一样踢出去就好了，力道和角度是很重要滴~<br />
+</span></span></div>
+<p align="left">
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/cdlagcxpomp.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-525" title="gz14" src="/uploads/allimg/120322/cdlagcxpomp.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">失败没关系，只要花些游戏赚的金币就会再给你一次机会的。<br />
+</span></span></div>
+<p align="left">
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/cjg4s5esqky.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-526" title="gz15" src="/uploads/allimg/120322/cjg4s5esqky.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">过关后主人公会跑回公主身边，摆出胜利手势……<br />
+</span></span></div>
+<p align="left">
+在关卡中敌人所掉落的各种珍珠，可以在关卡结束后加成到各种物品上，以提升主人公等级，若是想要练到满，在任务开始前记得先装备各种还没练满的道具到身上，才能继续累加经验值。无法再继续加成下去的其余珍珠，就只能丢弃了。</p>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/12qinubmco1.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-527" title="gz16" src="/uploads/allimg/120322/12qinubmco1.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">在关卡里打敌人掉出各种珍珠，结束后会加成到各种物品上。<br />
+</span></span></div>
+<p align="left">
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;"><a href="/uploads/allimg/120322/5qgeethso02.png" class="highslide-image" onclick="return hs.expand(this);"><img class="alignnone size-full wp-image-528" title="gz17" src="/uploads/allimg/120322/5qgeethso02.png" alt="" width="480" height="320" /></a></span></span></div>
+<div style="text-align: center;" align="center"><span style="font-size: small;"><span style="line-height: normal;">主人公等级提升！<br />
+</span></span></div>
+<p align="left">　　《公主踢骑士》已经在 iPhone / iPod touch / Android 平台推出，并相容于 iPad，所有游戏版本皆免费下载，有日文、英文等语文版本。</p>
+
+				<!--<p>本文链接：<a href="/Article/PingCe/2012/0323/511.html">/Article/PingCe/2012/0323/511.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.***.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/PingCe/2012/0323/511.html";
+				var wumiiTitle = "无头里的公主与王子与骑士的故事——《公主踢";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/PingCe/2012/0323/511.html">无头里的公主与王子与骑士的故事——《公主踢</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/PingCe/2012/0716/4801.html" target="_blank">《谷歌翻译》：功能强大的在线翻译软件</a>(2012-07-16)</li>
+<li><a href="/Article/PingCe/2012/0713/2481.html" target="_blank">《变色龙的午餐时间》：用舌头荡秋千的可爱变色龙</a>(2012-07-13)</li>
+<li><a href="/Article/PingCe/2012/0712/2479.html" target="_blank">《大脑魔方》：不可小窥的电子版立体魔方</a>(2012-07-12)</li>
+<li><a href="/Article/PingCe/2012/0712/2478.html" target="_blank">《星宝石》：需要快速反应和战略思维的消除类脑力游戏</a>(2012-07-12)</li>
+<li><a href="/Article/PingCe/2012/0711/2476.html" target="_blank">《3D趣味夹娃娃机》：讨好女友的必备软件</a>(2012-07-11)</li>
+<li><a href="/Article/PingCe/2012/0711/2475.html" target="_blank">《小鸡快跑》：考验惯性和节奏感的跑酷游戏</a>(2012-07-11)</li>
+<li><a href="/Article/PingCe/2012/0710/2474.html" target="_blank">《接蛋高手》：美式乡村风格浓厚的趣味游戏</a>(2012-07-10)</li>
+<li><a href="/Article/PingCe/2012/0710/2473.html" target="_blank">《91UP公务员考试》：国内第一款专门针对公务员考试的手机</a>(2012-07-10)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：***</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/PingCe/2012/0323/510.html'>《纸上战争》:追忆童年的涂鸦战争</a> </li>
+					<li>下一篇：<a href='/Article/PingCe/2012/0323/512.html'>《超音速飞行TurboFly 3D》 :体验未来的超音速度</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',511)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',511)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',511)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(511);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="511" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=511">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=511&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '511');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '511');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/PingCe/2012/0715/2424.html" target="_blank" title="《生气的妈妈》：小朋友们好">《生气的妈妈》：小朋友们好</a></li>
+<li><a href="/Article/PingCe/2012/0715/2423.html" target="_blank" title="《狂热力学》：挑战智力的物">《狂热力学》：挑战智力的物</a></li>
+<li><a href="/Article/PingCe/2012/0713/1112.html" target="_blank" title="《儿童趣味触屏》：针对幼儿">《儿童趣味触屏》：针对幼儿</a></li>
+<li><a href="/Article/PingCe/2012/0716/4801.html" target="_blank" title="《谷歌翻译》：功能强大的在">《谷歌翻译》：功能强大的在</a></li>
+<li><a href="/Article/PingCe/2012/0713/2481.html" target="_blank" title="《变色龙的午餐时间》：用舌">《变色龙的午餐时间》：用舌</a></li>
+<li><a href="/Article/PingCe/2012/0712/2479.html" target="_blank" title="《大脑魔方》：不可小窥的电">《大脑魔方》：不可小窥的电</a></li>
+<li><a href="/Article/PingCe/2012/0712/2478.html" target="_blank" title="《星宝石》：需要快速反应和">《星宝石》：需要快速反应和</a></li>
+<li><a href="/Article/PingCe/2012/0712/2477.html" target="_blank" title="《地铁背单词》：轻松背单词">《地铁背单词》：轻松背单词</a></li>
+<li><a href="/Article/PingCe/2012/0711/2476.html" target="_blank" title="《3D趣味夹娃娃机》：讨好女">《3D趣味夹娃娃机》：讨好女</a></li>
+<li><a href="/Article/PingCe/2012/0711/2475.html" target="_blank" title="《小鸡快跑》：考验惯性和节">《小鸡快跑》：考验惯性和节</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:10pt;color:#b3824a">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:14pt;color:#2f3549">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:12pt;color:#406a52">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:14pt;color:#5c314">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:12pt;color:#e06bb">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:10pt;color:#ab6920">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:10pt;color:#7221e8">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:12pt;color:#e9108a">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:14pt;color:#bfa33d">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:pt;color:#1a6868">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:12pt;color:#12901a">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:12pt;color:#fc18e7">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:pt;color:#277df2">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:pt;color:#2ce10">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:14pt;color:#3dbf11">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:10pt;color:#e78c5">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:pt;color:#712bd">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#8a1de7">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:14pt;color:#e21a">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:pt;color:#21babb">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?php
+$z[0]=Array("global","",233,261);
+$z[0][4]['name']="cfg_soft_lang";
+$z[1]=Array("field","",273,292);
+$z[1][4]['name']="title";
+$z[2]=Array("global","",293,319);
+$z[2][4]['name']="cfg_webname";
+$z[3]=Array("field","",359,388);
+$z[3][4]['name']="keywords";
+$z[4]=Array("field","",427,485);
+$z[4][4]['name']="description";
+$z[4][4]['function']="html2text(@me)";
+$z[5]=Array("global","",502,534);
+$z[5][4]['name']="cfg_templets_skin";
+$z[6]=Array("global","",663,688);
+$z[6][4]['name']="cfg_cmsurl";
+$z[7]=Array("include","",756,791);
+$z[7][4]['filename']="head.htm";
+$z[8]=Array("global","",935,960);
+$z[8][4]['name']="cfg_cmsurl";
+$z[9]=Array("field","",1017,1037);
+$z[9][4]['name']="title";
+$z[10]=Array("list","\n				<li>\n      				[field:array runphp='yes']@me = (empty(@me['litpic']) ? \"\" : \"<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>\"); [/field:array]\n					<a href=\"[field:arcurl/]\" class=\"title\">[field:title/]</a>\n					<span class=\"info\">\n						<small>日期：</small>[field:pubdate function=\"GetDateTimeMK(@me)\"/]\n						<small>点击：</small>[field:click/]\n						<small>好评：</small>[field:scores/]\n					</span>\n					<p class=\"intro\">\n						[field:description/]...\n					</p>\n				</li>\n",1105,1679);
+$z[10][4]['orderby']="sortrank";
+$z[10][4]['pagesize']="10";
+$z[11]=Array("pagelist","",1780,1851);
+$z[11][4]['listitem']="info,index,end,pre,next,pageno";
+$z[11][4]['listsize']="5";
+$z[12]=Array("arclist","\n          	<li><a href=\"[field:arcurl/]\">[field:title/]</a>\n            	<p>[field:description function='cn_substr(@me,80)'/]...</p>\n            </li>",2061,2268);
+$z[12][4]['flag']="c";
+$z[12][4]['titlelen']="42";
+$z[12][4]['row']="6";
+$z[13]=Array("myad","",2373,2404);
+$z[13][4]['name']="listRtPicAD";
+$z[14]=Array("arclist","\n                    	<li><a href=\"[field:arcurl/]\">[field:title/]</a></li>\n                    ",2554,2700);
+$z[14][4]['row']="10";
+$z[14][4]['orderby']="click";
+$z[15]=Array("myad","",2796,2828);
+$z[15][4]['name']="listRtPicAD2";
+$z[16]=Array("myad","",2921,2954);
+$z[16][4]['name']="innerfooterAD";
+$z[17]=Array("include","",2961,2998);
+$z[17][4]['filename']="footer.htm";
+
+?>

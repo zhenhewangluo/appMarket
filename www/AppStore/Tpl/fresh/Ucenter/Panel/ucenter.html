@@ -1,0 +1,50 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a> > 用户中心
+</div>
+<!-- 面包屑导航 -->
+<!-- layout::$userbar::0 -->
+<div class="user_box f_r">
+	<div class="user_box_t"></div>
+	<div class="user_box_c">
+		<h5>我的更新</h5>
+		<ul class="user_box_nav clear">
+			<li><a href="{:U('AppStore://Ucenter-Panel/userinfo')}">用户信息修改</a></li>
+			<li class="current"><a href="javascript:void(0);">我的更新</a></li>
+			<li><a href="{:U('AppStore://Ucenter-Panel/downloadHistory')}">我的下载</a></li>
+			<li><a href="{:U('AppStore://Ucenter-Panel/updatePassword')}">修改密码</a></li>
+			<li><a href="{:U('AppStore://Ucenter-Panel/commentHistory')}">我的评分</a></li>
+			<li><a href="{:U('AppStore://Ucenter-Panel/headUpload')}">修改头像</a></li>
+		</ul>
+		<table class="table_app_list">
+			<col />
+			<col width="150px" />
+			<col width="150px" />
+			<col width="150px" />
+			<thead>
+				<tr>
+					<th class="t_c">名称</th>
+					<th class="t_c">下载时间</th>
+					<th class="t_c">更新时间</th>
+					<th class="t_c">最新版本</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="list" id="vo">
+				<tr>
+					<td class="t_l"><a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}"  title="{$vo['app_name']}">{$vo['app_name']|mb_substr=0,20,'UTF-8'}</a></td>
+					<td class="t_l">{$vo['create_time']}</td>
+					<td class="t_l">{$vo['app_update_date']}</td>
+					<td class="t_l">{$vo['app_version']}</td>
+				</tr>
+				</volist>
+			</tbody>
+		</table>
+		<compare name="page|trim" value="" type="neq">
+		<div class="page" style="clear:both;">
+			{$page}
+		</div>
+		</compare>
+	</div>
+	<div class="user_box_b"></div>
+</div>

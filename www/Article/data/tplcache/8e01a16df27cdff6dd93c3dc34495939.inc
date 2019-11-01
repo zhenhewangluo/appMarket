@@ -1,0 +1,10 @@
+{dede:field name='keywords'}Android设备,日激活量85万台{/dede:field}
+{dede:field name='description'}据国外媒体报道，Android保持强劲势头，每天保持85万部Android系统的电话与平板电脑的销售量。自从Android发布以来，Android手机的激活量已经达到3亿台。谷歌Android主管安迪·罗宾（Andy Rubin）今天在其Google+ 网页上公布了该数据。和其他主要无线电运营商一样，谷歌也参加了此次世界移动大会（MWC）。{/dede:field}
+{dede:field name='title'}Android设备日激活量85万台 激活量破3亿{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <!-- search input box -->
+
+        <FrameLayout
+            android:id="@+id/topFrameLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/search_topFrameLayout_layout_height" >
+
+            <!-- search input box bg -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/move_bg"
+                android:orientation="vertical" >
+
+                <!-- search input box -->
+
+                <EditText
+                    android:id="@+id/search_inputbox"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginTop="10dip"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginTop="10dip"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1" >
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/search_ibtn"
+                        android:layout_width="20dip"
+                        android:layout_height="20dip"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dip"
+                        android:background="@drawable/search"
+                        android:clickable="true" />
+                </LinearLayout>
+            </RelativeLayout>
+        </FrameLayout>
+
+        <!-- Content list -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#e8e8e8"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <ListView
+                    android:id="@+id/contentList"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:cacheColorHint="#00000000"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dip"
+                    android:listSelector="#00000000"
+                    android:scrollbars="vertical"
+                    android:scrollingCache="true"
+                    android:visibility="gone" />
+
+                <FrameLayout
+                    android:id="@+id/hot_key_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:visibility="gone" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key1"
+                            style="@style/hot_key1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey1_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey1_layout_marginTop"
+                            android:background="@android:color/transparent"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey1_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key2"
+                            style="@style/hot_key2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey2_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey2_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey2_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key3"
+                            style="@style/hot_key3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey3_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey3_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey3_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key4"
+                            style="@style/hot_key4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey4_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey4_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey4_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key5"
+                            style="@style/hot_key5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey5_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey5_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey5_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key6"
+                            style="@style/hot_key6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey6_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey6_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey6_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key7"
+                            style="@style/hot_key7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey7_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey7_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey7_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key8"
+                            style="@style/hot_key8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey8_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey8_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey8_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key9"
+                            style="@style/hot_key9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey9_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey9_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey9_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" >
+
+                        <TextView
+                            android:id="@+id/hot_key10"
+                            style="@style/hot_key10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/search_hotkey10_layout_marginLeft"
+                            android:layout_marginTop="@dimen/search_hotkey10_layout_marginTop"
+                            android:singleLine="true"
+                            android:textSize="@dimen/search_hotkey10_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="center" >
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_gravity="center"
+                            android:orientation="vertical" >
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_weight="1" />
+                            <!-- search more app button -->
+                            <include
+                                android:id="@+id/nextHotKey_btn"
+                                android:layout_width="100dip"
+                                android:layout_height="40dip"
+                                android:layout_gravity="center"
+                                layout="@layout/long_button" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Footer Tab -->
+
+    <include layout="@layout/footer_tabs" />
+
+</LinearLayout>

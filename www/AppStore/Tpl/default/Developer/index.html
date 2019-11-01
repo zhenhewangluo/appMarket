@@ -1,0 +1,42 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a>&nbsp;>&nbsp;开发者&nbsp;>&nbsp;
+</div>
+<link rel="stylesheet" type="text/css" href="../Public/css/dev.css" />
+<div class="simple_box">
+	<div class="user_box_t">
+		<h6>开发者登录</h6>
+	</div>
+	<div class="user_box_c">
+		<form action="{:U('AppStore://Developer/loginAct')}" method="post">
+			<table>
+				<col width="150px">
+				<col />
+				<tr>
+					<th class="t_r">
+						邮箱：
+					</th>
+					<td>
+						<input type="text" pattern="email" name="useremail" />
+					</td>
+				</tr>
+				<tr>
+					<th class="t_r">
+						密码：
+					</th>
+					<td>
+						<input type="password" pattern="^\S{6,32}$" alt="密码必填且至少6位" name="userpass" />
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+						<input type="submit" value="登录" /> <a href="{:U('AppStore://Developer/resetPass')}">忘记密码？</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<p>还未成为开发者？ <span><a href="{:U('AppStore://Developer/register')}">立即注册</a></span></p>
+	</div>
+	<div class="user_box_b"></div>
+</div>

@@ -1,0 +1,194 @@
+<script type='text/javascript' src="__PUBLIC__/js/jquery.cycle.all.js"></script>
+<div class="flag_ad">
+	<a href="javascript:void(0);" id="img_page_prev"></a>
+	<ul class="img_list_box">
+		<volist name="rec_daily_list" id="vo">
+			<li><a href="{:U('AppStore://App-Apps/detail?aid='.$vo['typeid'])}"><img src="{$vo['image']}" style="width:960px;height:340px;"/></a></li>
+		</volist>
+	
+	</ul>
+	<a href="javascript:void(0);" id="img_page_next"></a>
+	<ul class="img_page_list"></ul>
+</div>
+<div class="catebar f_l clear">
+	<h6><span><strong>分类浏览</strong></span></h6>
+	<dl class="catebar_list">
+		<dt>{$appCateTree[1]['name']}</dt>
+		<volist name="appCateTree[1]['_child']" id="vo">
+			<compare name="key" type="eq" value="0">
+			<dd class="b_n"><a href="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			<else/>
+			<dd><a href="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			</compare>
+		</volist>
+		<dt>{$appCateTree[2]['name']}</dt>
+		<volist name="appCateTree[2]['_child']" id="vo">
+			<compare name="key" type="eq" value="0">
+			<dd class="b_n"><a href="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			<else/>
+			<dd><a href="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a> <span>></span></dd>
+			</compare>
+		</volist>
+	</dl>
+	<h6><span><strong>下载排行榜</strong></span></h6>
+	<ul class="rank_list">
+	<volist name="newlist" id="vo">
+		<li>
+			<compare name="key" type="eq" value="0">
+			<dl class="b_n">
+			<else/>
+			<dl>
+			</compare>
+				<dt class="app_rank app_rank_icon_{$i}">{$i}</dt>
+				<dt class="app_title">
+					<a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+						{:showCutStr($vo['app_name'], 10)}
+					</a>
+				</dt>
+				<dd>{:showCutStr($vo['author_name'], 10)}</dd>	
+			</dl>
+		</li>
+	</volist>
+	</ul>
+</div>
+<div class="content_box f_r">
+	<div class="content_box_title">
+		<ul class="show_list_order">
+			<li>排序方式：</li>
+			<volist name="orderTypeArr" id="vo">
+				<li id="app_order_{$key}">
+					<a class="order_btns" href="javascript:void(0);" onclick="setOrder('{$key}');">{$vo}</a>
+				</li>
+			</volist>
+		</ul>
+		<input name="order_type" type="hidden" value="default" />
+		<ul class="show_list_count">
+			<li>每页展示：</li>
+			<volist name="listRowArr" id="vo">
+				<if condition="is_numeric($key)">
+				<li id="app_list_{$vo}">
+					<if condition="$key neq 0">
+						/
+					</if>
+					<if condition="$vo eq $listRowArr['default']">
+					<a href="javascript:void(0);" onclick="setListRow('{$vo}');">{$vo}</a>
+					<else/>
+					<a href="javascript:void(0);" class="blue" onclick="setListRow('{$vo}');">{$vo}</a>
+					</if>
+				</li>
+				</if>
+			</volist>
+			<li>　个</li>
+		</ul>
+		<input name="list_row" type="hidden" value="20" />
+	</div>
+	<h6 class="content_title">热门免费</h6>
+	<div class="app_list_box">	</div>
+	<div class="page" style="clear:both;"></div>
+	<h6 class="content_title">热门下载</h6>
+	<div class="group_scroll_box">
+		<a href="javascript:void(0);" class="group_page_prev f_l"></a>
+		<div class="group_list_box f_l">
+			{~$hot_list_count = count($hotlist)}
+			<volist name="hotlist" id="vo">
+				<if condition="$key%3 eq 0">
+					<div class="slide">
+				</if>
+				<dl class="app_dl">
+					<dt>
+						<a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+							<img alt ="{$vo['app_name']}" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" style="width:55px;height:55px;" />
+						</a>
+					</dt>
+					<dt><a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">{:showCutStr($vo['app_name'])}</a></dt>
+					<dd>{:showCutStr($vo['author_name'])}</dd>
+					<dd>
+						<span class="blue_grade">
+							<compare name="vo['app_starcount']" type="gt" value="0">
+							<i style="width:{:round($vo['app_score_www']/$vo['app_starcount']) * 15}px;"></i>
+							<else/>
+							<i style="width:0px;"></i>
+							</compare>
+						</span>
+						({:number_format($vo['app_downloads'])})
+					</dd>
+				</dl>
+				<if condition="(($key+1)%3 eq 0) OR (($key+1) eq $hot_list_count)">
+					</div>
+				</if>
+			</volist>
+		</div>
+		<a href="javascript:void(0);" class="group_page_next f_l"></a>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('.img_list_box').cycle({ 
+			speed:       600, 
+			timeout:     0, 
+			pager:      '.img_page_list', 
+			//pagerEvent: 'mouseover',
+			prev:   '#img_page_prev', 
+			next:   '#img_page_next',
+			pauseOnPagerHover: true,
+			pause:	true,
+			fx: 'scrollHorz',
+			pagerAnchorBuilder: pagerFactory
+		});
+		$('.group_list_box').cycle({ 
+			speed:       800, 
+			timeout:     2000,
+			//pager:      '.img_page_list', 
+			//pagerEvent: 'mouseover',
+			prev:   '.group_page_prev', 
+			next:   '.group_page_next',
+			pauseOnPagerHover: true,
+			pause:	true,
+			cleartypeNoBg: true,
+			fx: 'scrollHorz'
+			//pagerAnchorBuilder: pagerFactory
+		});
+		ajax_page(1);
+	});
+	function pagerFactory(idx, slide) {
+		//var s = idx > 2 ? ' style="display:none"' : '';
+		return '<li></li>';
+	};
+	function ajax_page(p)
+	{
+		$('.app_list_box').html('loading......');
+		var order = $('input:[name="order_type"]').val();
+		var listRow = $('input:[name="list_row"]').val();
+		$.getJSON("{:U('AppStore://App-Ajax/appList?do=ajax_page')}", {'p':p, 'order':order, 'listRow':listRow} ,function(data){
+			$('.app_list_box').html(data.content);
+			$('.page').html(data.pageInfo);
+		});
+	}
+	function setOrder(type)
+	{
+		var order_type = $('input:[name="order_type"]').val();
+		if(order_type != type)
+		{
+			$('input:[name="order_type"]').val(type);
+			var	p = parseInt($('span.current').html());
+			ajax_page(p);
+			return;
+		}
+		return false;
+	}
+	function setListRow(nums)
+	{
+		var list_row_num = parseInt(nums);
+		var list_row = $('input:[name="list_row"]').val();
+		if(list_row != list_row_num)
+		{
+			$('input:[name="list_row"]').val(list_row_num);
+			$('.show_list_count a').addClass('blue');
+			$('#app_list_' + list_row_num + ' a').removeClass('blue');
+			var	p = parseInt($('span.current').html());
+			ajax_page(p);
+			return;
+		}
+		return false;
+	}
+</script>

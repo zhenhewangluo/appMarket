@@ -1,0 +1,15 @@
+<table>
+	<tr>
+		<th>所投号码</th>
+		<th>投票时间</th>
+	</tr>
+	<volist name="infoList['advises']" id="vo">
+		<tr>
+			<td class="win_mobile">{$vo['phone']|deMaskPhone=false}</td>
+			<td class="win_date">{$vo['adviseDate']}</td>
+		</tr>
+	</volist>
+</table>
+<div class="page">
+	{$infoList['pageShow']}
+</div>

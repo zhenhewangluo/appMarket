@@ -1,0 +1,10 @@
+{dede:field name='keywords'}Android下一代,Key Lime Pie{/dede:field}
+{dede:field name='description'}我们知道Android 5.0的开发代号将会被称为“Jelly Bean”，这是一种孩子们很喜欢的果汁软糖豆，而再往后推我们还可以发现一个新的名字，那就叫Key Lime Pie，这是一种青柠风味的蛋糕甜点，很能勾起人的食欲，这套系统有可能会在2013年左右发布，但我们至今没有任何消息可以提供，只有上一幅点心的图解解{/dede:field}
+{dede:field name='title'}Android下一代将被命名为Key Lime Pie{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

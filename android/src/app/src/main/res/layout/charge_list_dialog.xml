@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="267dip"
+	android:layout_height="336dip"
+		android:background="#e4e4e4"
+	>
+	
+	<ListView
+ 		android:id="@+id/charge_list"
+ 		android:layout_width="fill_parent"
+ 		android:layout_height="fill_parent"
+		android:divider="@color/transparent"
+		android:dividerHeight="10dip"
+        android:layout_marginTop="12dip"
+		android:scrollbars="vertical"
+		android:scrollingCache="true"
+		android:cacheColorHint="#00000000"
+		android:listSelector="@color/transparent"
+		 />	
+		
+</FrameLayout>

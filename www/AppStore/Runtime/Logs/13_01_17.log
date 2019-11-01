@@ -1,0 +1,6 @@
+[ 2013-01-17T18:23:25+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/aboutUs.html]
+[ 2013-01-17T19:33:40+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/devNotes.html]
+[ 2013-01-17T20:07:34+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/devNotes.html]
+[ 2013-01-17T20:13:21+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/aboutUs.html]
+[ 2013-01-17T20:17:52+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/disclaimer.html]
+[ 2013-01-17T23:31:43+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)

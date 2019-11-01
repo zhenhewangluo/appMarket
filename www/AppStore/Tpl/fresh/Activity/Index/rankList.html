@@ -1,0 +1,14 @@
+<ul class="activity_rank_c">
+<volist name="infoList['voteLists']" id="vo">
+	<li <compare name="key" value="0" type="eq"> style="border:none;"</compare>>
+		<em class="f_r">{$vo['votecount']}</em>
+		<strong>
+			<span <compare name="vo['ranking']" value="4" type="lt">style="background-position: center -{:($vo['ranking'] - 1) * 61}px;text-indent:-9999px;"</compare>>{$vo['ranking']}</span>
+			{$vo['phone']|deMaskPhone}
+		</strong>
+	</li>
+</volist>
+</ul>
+<div class="page">
+{$infoList['pageShow']}
+</div>

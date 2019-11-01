@@ -1,0 +1,1567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Android应用商店及安全问题检测报告_***</title>
+<meta name="keywords" content="Android商店,安全问题检测报" />
+<meta name="description" content="当今的移动互联领域，大家关注最多的是如何利用手中的智能手机和平板电脑去工作和娱乐，而提到智能手机和平板电脑，更多的人首先想到肯定是Android 而非苹果的iOS，不论是Android掌" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E7%9C%8B%E4%B9%A6/' target="_blank">看书</a><a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F%EF%BC%8C%E5%8F%8D%E5%BA%94%E5%8A%9B/' target="_blank">游戏，反应力</a><a href='/Article/tags.php?/%E7%94%B5%E8%A7%86/' target="_blank">电视</a><a href='/Article/tags.php?/%E6%B4%9B%E5%85%8B%E4%BF%9D%E9%BE%84%E7%90%83/' target="_blank">洛克保龄球</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">Android应用商店及安全问题检测报告</h1>
+			<div class="articleInfo"><small>时间:</small>2012-05-17 11:10<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=2987&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p>
+	&nbsp;
+</p>
+<p>
+	当今的移动互联领域，大家关注最多的是如何利用手中的智能手机和平板电脑去工作和娱乐，而提到智能手机和平板电脑，更多的人首先想到肯定是Android 而非苹果的iOS，不论是Android掌上移动设备的发展还是应用软件的诞生，大家都爱用“泛滥”一词来形容，在这即将到来的酷暑的时刻我们一起来严苛的拷问这个“机器人”所带来的弊病，尤其是它的应用商店和安全性方面<span style="font-weight:bold;">，那么，我们的报告就先从Android发展趋势开始。</span> 
+</p>
+<p>
+	<p>
+		<strong>一，报告背景：纵览市场 看Android突飞猛进</strong> 
+	</p>
+	<p>
+		<strong>1，Android产品呈高速增长趋势</strong> 
+	</p>
+	<p>
+		&nbsp;2008年9月发布的第一版Android（Android 1.1）至今已经历了近四年，其发展速度我们可以从Google高级副总裁Andy Rubin在其官方博客上公布的Android增长数据中得到答案，Android设备的去年增长了250%，全球共有3亿台Android设备。平均每天有85万台新设备被激活，其中圣诞节周激活设备数量就有370万台，而2010年12月中旬平均每天的激活设备还只有70万台。同时Android应用平均每月下载量高达10亿次，Android市场里的应用数量已经超过45万，Android已经成为一个高速增长的生态系统。
+	</p>
+	<p>
+		根据市场调查机构IDC发布的数据，2011年第四季度全球智能手机出货量同比增长54.7%。达到1.578亿部，超过了IDC预期的40%的增幅，也超过第三季度49.2%的增幅。而2011年智能手机全年市场份额，Android手机所占48.8%，出货量约为2.378亿部，苹果iOS系统 2011年所占份额为19.1%，iPhone出货量为9310万部，诺基亚的塞班系统手机去年的总销量为8010万部。虽然相比2010年增幅有所下降，但IDC预计，在可预见的未来智能手机市场仍将保持两位数的增长。
+	</p>
+	<p style="text-align:center;">
+		<img height="152" src="/uploads/allimg/c120716/13424220E94350-105200.png" width="476" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		　　2011年第四季全球前五大手机厂商出货量及市占情况(单位：百万部)
+	</p>
+	<p>
+		IDC手机技术和趋势部门高级研究分析师拉蒙·拉马斯(Ramon Llamas)表示：“在第四季度末，全球每售出的三部手机当中就有一部是智能手机。苹果iPhone4S的推出在智能手机销量增长上起到了关键作用，因为它满足了之前被压抑的需求，其他厂商智能手机的推出也为不同性能喜好和价格偏好的消费者提供了多样化的选择”。
+	</p>
+	<p style="text-align:center;">
+		<img height="150" src="/uploads/allimg/c120716/13424220H3160-119A6.png" width="473" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		　　2011全年全球前五大手机厂商业务情况(单位：百万部)
+	</p>
+	<p>
+		由于智能手机厂商在新兴市场和发达市场都在努力拓展各自的用户群，各种产品之间的差别也在日益缩小。IDC全球手机统计项目的高级研究分析师凯文· 雷斯蒂沃(Kevin Restivo)表示：“包括三星Galaxy Nexus和苹果iPhone 4S等所谓的‘经典设备’都吸引了大量消费者的关注。但是价格低于250美元的Android设备也越来越多，使得Android硬件合作伙伴在提高智能手机销量的同时也进一步扩展了市场份额”。
+	</p>
+	<p style="text-align:center;">
+		<img height="475" src="/uploads/allimg/c120716/13424220I04F-12A47.png" width="518" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		　　2011年全球前五大手机厂商市场份额变化情况
+	</p>
+	<p>
+		而在具体品牌产品方面，苹果在推出了iPhone 4S之后又一次回到了市场的领先地位，其一个季度的销量便打破了该公司自身以及整个智能手机行业的记录。搭载Android操作系统的三星在第四季度完成了一系列重大的成就，首次突破了3000万台的销量大关，成为了各大智能手机企业同期增长最快的企业，同时在2011年成为了智能手机整体市场的领头羊。
+	</p>
+	<p>
+		回到国内，易观国际发布分析报告指出，2011年第四季度Android产品占中国整体智能手机销量的68.4%，Symbian系统市场份额不断下滑，但Symbian系统仍为第二大系统，不过份额仅占18.7%。
+	</p>
+	<p style="text-align:center;">
+		<img height="326" src="/uploads/allimg/c120716/13424220J11450-1332M.jpg" width="514" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		2011年第四季度中国智能手机销售份额
+	</p>
+	<p style="text-align:left;">
+		2011全年，由于搭载Android系统的厂商众多，Android系统市场份额一家独大，全年市场份累计达到51.1%，其他智能操作系统市场份额没有明显变化，与前两大系统（Android和Symbian）份额差距显著。
+	</p>
+	<p>
+		易观智库分析认为，2011年中国手机市场Android系统发展迅速的原因：
+	</p>
+	<p>
+		（1），搭载Android系统的厂商众多，渠道覆盖范围广，其中有国际品牌三星、HTC、索尼爱立信这样的厂商，品牌影响力度大，且机型数量众多；
+	</p>
+	<p>
+		（2），国产品牌中兴、华为、联想与运营商合作紧密，高额的补贴拉动定制终端的销量；
+	</p>
+	<p>
+		（3），类似于iOS的操作体验为消费者提供了高性价比的选择，iPhone的高端定价以及市场铺货能力无法满足中低端市场消费者的需求；
+	</p>
+	<p>
+		（4），运营商加强对终端市场的把控，iPhone4这样的明星机型让消费者对定制机有了更为明确的认知，加之对Android千元智能机的推广，使运营商定制终端份额不断提升。
+	</p>
+	<p>
+		从上面的数据及分析，我们可以确定Android产品不论是在全球还是中国国内都保持着高速增长的态势，凭借着众多厂商和运营商的支持，中低端智能机了很大的市场份额，而中高端机市场中除了iPhone 4和4S外几乎难寻对手，RIM和诺基亚的Symbian早已不见曾日的辉煌，未来几年中应该是Android、iOS和Windows Phone 7三雄割据的盛况。而在中国国内，2011全年Android市场份额达到51.1%，超过半数的市场占有率让我们看到的不仅仅是市场和销量，还有无限的发展空间和希望。
+	</p>
+	<p>
+		<strong>2，Android平台中安全问题严重</strong> 
+	</p>
+	<p>
+		俗话说“报喜不报忧”，但作为客观的报告和评测我们必须要从第三方看清楚Android存在的问题，不用多说，大家都知道Android平台发展迅猛其中一个非常重要的原因是开放平台，但从另一个角度来说这种优势也成为android在发展中遇到的最大困难——安全性。
+	</p>
+	<p>
+		Android备受职责的安全问题早已成为了家常便饭，先不说Android刷机问题，就光凭着“不稳定”这三个字就会给Android日后发展造成巨大的阻碍，iOS移动操作系统仅能够用在Apple的产品中，但微软的Windows Phone 7可不是这样，随着前日正式入驻中国市场，Android平台即将会迎来最为艰巨的挑战，如何剔除自身缺点稳固根基和市场份额，增强安全性应该是其首要任务，下面我们先要看看Android出现的严重安全问题：
+	</p>
+	<p>
+		根据《2011年中国手机安全状况报告》中的统计，2011年，Android木马呈现爆发式增长，相较2010年全年共发现12个木马样本相比，今年1月-12月，360手机云安全中心捕获新增Android木马样本4722个，被感染人数超过498万人次。从去年8月起，Android平台每月新增木马连续4个月超过Symbian平台，在新增安全威胁的增速与增量上全面居首，成为新的移动互联网安全攻防主战场。
+	</p>
+	<p style="text-align:center;">
+		<img height="311" src="/uploads/allimg/c120716/13424220J61320-14QU.png" width="539" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		2011年Android和Symbian新增木马对比
+	</p>
+	<p>
+		根据最新统计数据，随着Android平台“千元智能机”的迅速普及，安全问题“大爆发“也随之而来。2010年的Android平台恶意软件及木马还几乎无迹可寻，而进入2011年，不仅每个月都呈现出“大跃进”的态势，新增恶意软件及木马总数量甚至在一年之中就超过了老牌智能操作系统 Symbian，并仍呈高速增长态势。
+	</p>
+	<p>
+		艾瑞咨询发布的最新研究数据也表明同样的现状，2011年第三季度，全球智能手机操作系统总体销售额为1.15亿美元，比去年同期增长42.0%。其中，Android操作系统排名第一，获得52.5%的市场占有率。
+	</p>
+	<p style="text-align:center;">
+		<img height="319" src="/uploads/allimg/c120716/13424220K233Z-1552H.png" width="549" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		2011年Android每月新增恶意软件及木马数
+	</p>
+	<p>
+		Android平台的开源、开放、免费等特性虽然带来了大量的市场占有率，但是这把双刃剑也给消费者带来了不少安全隐患。由于几乎没有入驻门槛，木马制作者可以通过篡改正常软件的方式，随意将捆绑了木马的应用在Android平台发布。
+	</p>
+	<p>
+		根据最新统计数据显示，2011年下半年Android平台木马程序和恶意软件新增3754个，是上半年新增木马程序和恶意软件的近4倍。从去年8月起，Android平台每月新增木马连续4个月超过Symbian平台，在新增安全威胁的增速与增量上全面居首。
+	</p>
+	<p style="text-align:center;">
+		<img height="314" src="/uploads/allimg/c120716/13424220KT3Z-1B422.png" width="551" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		2011年Android每月恶意软件和木马感染人数
+	</p>
+	<p>
+		Android木马传播者开始直接在水货新机里野蛮地嵌入系统固件木马，普通用户根本无法删除，典型木马如“白卡吸费魔“。木马安装后，会出现自动侦测手机环境、选择锁屏或深夜私自发送短信定制SP（SP指移动互联网服务内容应用服务的直接提供者，负责根据用户的要求开发和提供适合手机用户使用的服务。）业务等，偷偷消耗用户话费。自此，Android平台每月恶意软件和木马感染人数开始暴增。
+	</p>
+	<p>
+		<strong>Android应用混乱状况</strong> 
+	</p>
+	<p>
+		<strong>相关案例</strong> 
+	</p>
+	<p>
+		<strong>案例一：调用通信录</strong> 
+	</p>
+	<p>
+		向通信录中联系人发出邀请
+	</p>
+	<p>
+		1.由机主手动发出邀请，此类应用往往在联系人姓名旁有一邀请按键，促发后将以短信形式发出，但短信内容及发送记录在本机的短信发送列表中无记录。
+	</p>
+	<p>
+		2.由机器在未获得机主允许的情况下，自动调用联系人信息，并向联系人群发邀请短信，短信内容及发送记录在本机的短信发送列表中无记录
+	</p>
+	<p>
+		<strong>案例二：扫描用户信息并上传</strong> 
+	</p>
+	<p>
+		扫描用户通信录、安装应用数量及使用频率等信息，上传至服务器。
+	</p>
+	<p>
+		<strong>案例三：强制用户安装应用</strong> 
+	</p>
+	<p>
+		常见于水货及刷ROM的机器中
+	</p>
+	<p>
+		1.部分应用被列为系统应用，无法删除，开机自动启动。
+	</p>
+	<p>
+		2.系统自动推送某些应用到用户的手机中，并强制安装。
+	</p>
+	<p>
+		<strong>案件四：Android应用程序恶意扣费</strong> 
+	</p>
+	<p>
+		现在有很多用户都在投诉Android一些应用吸费，而且人数呈不断递增趋势。曾经在某网站制作的关于“你是否遇到过Android应用程序吸费问题？”的调查中，数据结果显示遇到过吸费问题的网友比例占73.1%。
+	</p>
+	<p>
+		而此前，公安部治安管理局在其官方微博上也发布了“安全提示”并公布了十款恶意手机软件，称目前安卓系统手机上，恶意软件正在以每月800%的速度快速增加，以提醒广大用户注意。
+	</p>
+	<p>
+		分析人士认为，Android平台相关产业链应该“先天下之忧而忧”，其开放性与免费性虽然有其长处，但如果管理不严格，漏洞百出，加上开发其程序时不得不针对数量众多的终端型号带来的麻烦，则会对其长远发展留下许多障碍。消费者会对Android应用程序有吸费嫌疑产生不良印象，反倒是对苹果应用程序商店的担心远没有那么大，而苹果对外宣传也称通常会对进入应用程序商店的程序进行较严格的审查，以保证相对的安全性。
+	</p>
+	<p>
+		SP（SP指移动互联网服务内容应用服务的直接提供者，负责根据用户的要求开发和提供适合手机用户使用的服务。）或中间渠道商很容易突破层层环节悄悄吸走用户话费：1、发送上行短信帮助用户定制服务，用户投诉时会被运营商告知，你定制了服务，扣费正常；2、利用混淆用户选择的方法，提示用户发送上行短信，一般用户因误操作或者未认真判断而发送上行短信定制服务，最终也是投诉无门。
+	</p>
+	<p>
+		手机吸费软件主要以两种形式出现：第一种是手机厂商在定制手机时已将吸费软件提前植入并设置好吸费软件代码，甚至做好了上行代码和SP公司的计费单；另外一种是智能机软件以正常服务软件的形式安装在手机里，但里面其实包含了恶意扣费代码。
+	</p>
+	<p>
+		第一种形式中，手机厂商、SP和运营商有合作协议，“厂商每生产多少台手机，SP就会按照协议支付多少费用；而运营商和SP也有协议，通过上网产生的流量费用进行分成”。这类恶意扣费软件在联网时没有任何提示，只要一点开图标，SP的后台就开始扣费。
+	</p>
+	<p>
+		第二种形式的扣费同样非常隐秘，一旦智能手机中安装了恶意扣费软件，这些软件就会屏蔽掉运营商发送的收费提示短信，用户的话费就会在不知不觉中被扣掉了。
+	</p>
+	<p>
+		<strong>3，分析Android平台中安全问题严重原因</strong> 
+	</p>
+	<p>
+		<strong>（1），由Android系统自身原因造成目前安全危机严重</strong> 
+	</p>
+	<p>
+		Android 的系统开放给开发者124项权限，但同时也带来很大的安全隐患。籍此，开发者可以自由的读取系统相关资源，并在用户不知情的情况下做恶意处理。
+	</p>
+	<p>
+		现有的Android系统的安全机制很简单，程序一旦安装后，无法改变程序的访问权限。唯一的方法是卸载，重新安装。
+	</p>
+	<p>
+		国内第三方应用市场审核机制不健全，在发展过程中过分关注数量而忽视了对应用质量和安全的把关。
+	</p>
+	<p>
+		<strong>（2），由应用开发者造成的安全问题</strong> 
+	</p>
+	<p>
+		在之前Android身陷恶意扣费门中曝出部分开发者参与其中，还有在第三方应用市场中，很多存有恶意代码盗取用户信息的应用和游戏也是部分开发者所为，无疑，在Android安全性方面，开发者从中作梗，让本身就开发的Android平台雪上加霜。
+	</p>
+	<p>
+		以“恶意扣费”行为为例，一般在用户下载安装相应的Android应用软件的过程中“自动”产生。例如，在一款Android应用软件的下载中，设置短信确认权限，用户点击下一步“安装”，即被扣费，作为用户很难察觉。
+	</p>
+	<p>
+		更有甚者，直接在Android应用程序中加载自动扣费软件，在用户不知情的情况下“自动”扣费。“为了规避运营商针对SP扣费要求多次确认的规则，有的扣费软件设置将运营商的确认程序直接屏蔽。”除非运营商对于所有SP采取“一刀切”的政策，“否则只要留有哪怕一个通道，恶意扣费软件就可以通过 SP‘吸费’”。
+	</p>
+	<p>
+		事实上，Android应用程序存在的恶意扣费现象，与传统的山寨手机内置扣费后门的做法在本质上并无太大差异。但徐威特告诉记者，Android 平台上的恶意扣费，有相当一部分是来自“第三方SP”对原有开发者程序的恶意修改。“内置收费程序必须要有足够的下载量，其扣费牟利才有意义，SP一般会选择成熟的Android应用做加载。”
+	</p>
+	<p>
+		排名最为靠前的热门Android应用往往不会成为违规SP“绑定”目标，“树大招风，SP也担心被投诉”。据其介绍，一般排名并非最靠前但有着一定下载量的应用，最容易成为违规SP觊觎的目标。这也从另一个角度告诉了广大用户，那些排名靠前的应用安全性可能会更大一些，但也并不是百分百可靠的。
+	</p>
+	<p>
+		有手机设计公司人士反映，在Android应用软件的恶意扣费程序中，还存在着开发者与SP运营商之间的“合谋”。一个不容忽视的产业背景是，尽管android市场持续升温，但截至目前在中国市场上，真正能从Android应用程序上获得规模盈利的个人开发者寥寥无几。
+	</p>
+	<p>
+		“正是由于目前Android应用软件市场尚处在培育阶段，通过正常模式很少能赚到钱。部分开发者便开始违规运作。”前述手机设计公司人士透露，通过与SP在扣费软件上合作，开发者可以利用SP的扣费通道，并给予SP一定比例分成。
+	</p>
+	<p>
+		事实上，Android应用软件恶意扣费日趋泛滥的背后，是Android平台开放性带来的不可避免的影响。相比较苹果唯一的官方应用软件程序商店 iTunes Store对于应用软件的严格审核，Android则是平台泛滥，尤其部分Android论坛，对于应用程序的上载几乎是零门槛。
+	</p>
+	<p>
+		<strong>（3），由第三方市场造成的安全问题</strong> 
+	</p>
+	<p>
+		看过了Android系统本身和开发者二者的问题之后，我们再把目光聚焦在第三方应用市场上，上面我们也提到了“相比较苹果唯一的官方应用软件程序商店iTunes Store对于应用软件的严格审核，Android则是平台泛滥。”这里不得不批评一下国内的众多第三方市场，Google的Market（已改名为 Google Play）也不例外，毫无审查规范，各种应用泛滥，山寨、盗版、恶意软件如杂草丛生，就连在Google Play中排名靠上的竟然是色情类应用，官方皆是如此，又耐大众如何！
+	</p>
+	<p>
+		&nbsp;先来看看Google Market改名的事，2012年3月7日，Google宣布将出售应用、视频、音乐、电子图书的在线商店Android Market更名为Google Play Store，Google做出这样的决定，显示出其淡化Android市场，而强化Google品牌的重要性，同时整合原有的GoogleMusic（谷歌音乐）和GoogleBooks（谷歌电子书）频道。这两个频道推出已经有一段时间了，但对于其主要竞争对手苹果iTunes和亚马逊Kindle来说毫无优势可言。虽然AndroidMarket获得了一定的成功，但比起苹果AppStore还有相当大的差距，将这三者整合有利于提高Google应用商店的整体竞争力，并提升品牌形象。
+	</p>
+	<p>
+		具体分析我们就不再给出，主要来看看它更名后用户都发现了哪些问题：美国新版Google应用商店，会发现“音乐”、“电子书”、“电影”、“应用”都已经整合在一起，可以在一个页面直接购买。而中国Google应用商店，“音乐”、“电子书”、“电影”均不可见，实际和原来的Android商店没有任何区别，有可能是谷歌不打算在中国推出这些内容。
+	</p>
+	<p style="text-align:center;">
+		<img height="358" src="/uploads/allimg/c120716/13424220L40030-1M4O.jpg" width="480" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		Play Store
+	</p>
+	<p>
+		最重要的是，中文版Google Play Store市场首页的热门应用，第一个就是部色情小说应用，这点谷歌应该向苹果学习，苹果原则上不允许色情应用上架。如此监管和审查力度让我们对官方抱有极大的质疑态度，Android就这样发展的话，未必是件好事吧！好在，截止到发稿前这一现象已不存在，不过依旧还有大量色情应用充斥着Google Play Store。
+	</p>
+	<p>
+		回到国内第三方应用市场，在去年的时候，我们做过一系列关于Android应用市场安全性的深度调查文章，从中我们便可看出其存在的问题，严重性远远超出了普通用户所能预想的范围，可以这么说，在国内绝大部分安全性遭到侵害、隐私被窃取、无故恶意扣费等恶劣情况均来自于第三方应用市场！
+	</p>
+	<p>
+		<strong>二，产品测试：乐商店携乐安全绿化Android</strong> 
+	</p>
+	<p>
+		通过上面的数据和案例我们可以清楚的了解到目前Android这个炙手可热的平台所具有的发展潜力，不仅得到国内外众厂商追捧，也得到了广大用户的青睐，苹果的iOS平台产品单一这让其他通信厂商无不分食Android这个机器人的大蛋糕，所谓雪球越滚越大，Google的Android操作系统轻松吞噬着市场份额，其过于开放的体制和各种不安全的隐患也随之换来了更多人的关注和担忧，在国内市场对Android用户构成潜在威胁最大的莫过于那些毫无门槛、随意滋生的第三方市场，监管不严、缺乏审查、无规矩条款、参差不齐的开发者等种种原因，让我们不得不先将目光投向这里，这些市场表现到底如何，我们先来做些简单的测试便会略知一二：
+	</p>
+	<p>
+		<strong>1，第三方应用市场安全测试</strong> 
+	</p>
+	<p>
+		&nbsp;国内的第三方应用市场发展到今天已日趋规模，从应用数量、开发者人数、下载量等数据均表现抢眼，同时，这些市场的安全性一直都是业内专家、媒体和用户最关心的问题，由于应用和开发者数量过多增加了审查难度，这给第三方市场带来了许多困扰和隐患，但最终受到侵害的却是广大用户。一切从用户角度出发，我们抛开怜悯和同情心还是要来测试一下国内几家较大的第三方应用市场的安全性，看看到底有没有真的值得让用户放心的市场。
+	</p>
+	<p>
+		&nbsp;在众多第三方市场中，我们选择了机锋、优亿、N多、91和乐商店这五家进行应用抽查，随机批量扫描各市场中的五千款软件及游戏，看看他们的表现到底如何，其中是否含有木马病毒、侵害用户隐私、恶意吸费等情况出现：&nbsp;
+	</p>
+	<p style="text-align:center;">
+		<img height="293" src="/uploads/allimg/c120716/13424220L91K0-1R017.jpg" width="562" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		五家应用市场抽查结果
+	</p>
+	<p style="text-align:left;">
+		从上面的图中可以看到，机锋市场、N多市场和91手机助手表现不好，在五千个应用中均发现了有木马病毒存在的情况。
+	</p>
+	<p>
+		<strong>2，安全防护类应用的安全测试</strong> 
+	</p>
+	<p>
+		来到考验安全的最重要一关，我们选取了360手机卫士、腾讯手机管家、LBE安全大师和联想乐安全这几大目前国内主流的手机杀毒软件进行查杀测试。
+	</p>
+	<p>
+		<strong>测试环境：联想A520手机</strong> 
+	</p>
+	<p>
+		<strong>测试对象：内部工程师提供的100款已知病毒软件</strong> 
+	</p>
+	<p>
+		<strong>参测杀毒软件：360手机卫士、腾讯手机管家、LBE安全大师和联想乐安全。</strong> 
+	</p>
+	<p>
+		<strong>测试方法：将100款已知病毒软件装入安装有360手机卫士、腾讯手机管家、LBE安全大师和乐安全的联想A520手机中，分别用这些杀毒软件升级至当时最新病毒库，并进行全盘扫描杀毒。</strong> 
+	</p>
+	<p>
+		360手机卫士杀毒测试：
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220M54P-193314.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220M96230-204S1.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		360手机卫士杀毒截图
+	</p>
+	<p style="text-align:left;">
+		360手机卫士总共扫描软件数为204，发现恶意软件为64个，查杀率已经超过了一半，总体表现非常不错。
+	</p>
+	<p>
+		腾讯手机管家杀毒测试：
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220N4UF-2142T.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220NW3F-221629.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		腾讯手机管家杀毒截图
+	</p>
+	<p style="text-align:left;">
+		腾讯手机管家总共扫描软件数为204，发现恶意软件为58个，查杀率效果明显，安全性能表现不错。
+	</p>
+	<p>
+		LBE安全大师杀毒测试：
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220O300F-23P08.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220OAJ0-242555.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		LBE安全大师杀毒截图
+	</p>
+	<p style="text-align:left;">
+		LBE安全大师总共扫描软件数为206，发现恶意软件为69个，查杀率超过一半以上，总体表现非常理想。
+	</p>
+	<p>
+		乐安全杀毒测试：&nbsp;
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220P24450-253a4.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220PG410-2DL1.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		乐安全杀毒截图
+	</p>
+	<p style="text-align:left;">
+		联想乐安全，采用了联想、腾讯双重杀毒库进行杀毒扫描，总共扫描软件数为194，发现恶意软件为76个，查杀表现非常不错，联想乐安全显示出其出色的防病毒能力，同时也证明了其可靠的深度扫描特性。
+	</p>
+	<p style="text-align:center;">
+		<img height="180" src="/uploads/allimg/c120716/13424220Q05130-2M033.jpg" width="502" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		四款安全防护类软件杀毒抽查结果
+	</p>
+	<p>
+		<strong>三，与同类手机厂商进行对比</strong> 
+	</p>
+	<p>
+		从上面的内容中我们可以大致了解到应用市场和安全防病毒软件对一款Android手机的重要性，目前市面上受售的Android智能手机大部分使用人群均为非手机发烧友，我们可以称之为“小白用户”，其实他们对手机的要求只不过是打电话、发短信、玩游戏、偶尔拿来上上网安装几个简单的应用，而那些手机发烧友和部分对智能手机感兴趣的用户更多的是自己刷机安装各类软件和应用，不论“小白”还是“手机发烧友”他们最终都逃离不了那些潜在的威胁，如果一款手机中同时内置了丰富安全的应用市场和高效的防病毒软件的话，想必这才是所有用户最渴望得到的产品吧！
+	</p>
+	<p>
+		本次，我们就选取了几款市面上主流Android手机进行对比，看看他们都内置了哪些软件，是否真的能够从根本上帮助用户逃离病毒的侵害、不再担心隐私的泄露。
+	</p>
+	<p>
+		<strong>小米手机：</strong> 
+	</p>
+	<p style="text-align:center;">
+		<img height="445" src="/uploads/allimg/c120716/13424220Q45640-2V624.jpg" width="250" border="0" />&nbsp;<img height="445" src="/uploads/allimg/c120716/13424220Q9460-2a936.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		小米手机界面截图
+	</p>
+	<p style="text-align:center;">
+		<img height="445" src="/uploads/allimg/c120716/13424220R52J0-3024D.jpg" width="250" border="0" />&nbsp;<img height="445" src="/uploads/allimg/c120716/13424220S01460-314024.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		内置了推荐软件和应用商店
+	</p>
+	<p style="text-align:center;">
+		<img height="445" src="/uploads/allimg/c120716/13424220S4630-32Z54.jpg" width="250" border="0" />&nbsp; <img height="445" src="/uploads/allimg/c120716/13424220S93130-333627.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		提供了丰富的系统工具和拦截功能
+	</p>
+	<p style="text-align:left;">
+		小米手机在提供了自家非常优秀的第三方MIUI系统，内置了多款软件工具和应用商店，为了节约更大的存储空间，在推荐中的应用在首次使用时需要进行安装，用户可以根据自己的喜好选择帮助用户节约了下载和挑选应用的时间。内置的应用超市还可以帮助用户省去了从第三方应用市场下载软件的流程，同时还提供了一些拦截功能，不过并未内置优秀的防病毒安全软件，这无疑给病毒的侵入留有空隙。
+	</p>
+	<p style="text-align:left;">
+		<strong>OPPO Find 3</strong> 
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220T395P-34bC.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220TVH0-356413.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		OPPO Find 3内置软件
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220U3O20-3E515.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220UQN0-3N637.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		OPPO提供的工具和OPPO乐园
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220V2C40-3XX2.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220VM940-393105.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		NearMe市场和MearMe音乐
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220W24O0-405429.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220WM450-4164O.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		NearMe游戏中心和NearMe同步
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/13424220X23060-4223W.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220XG460-43F55.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		提供了简单的安全和过滤功能
+	</p>
+	<p style="text-align:left;">
+		OPPO Find 3内置不少自家特色服务，像OPPO乐园、NearMe市场、MearMe音乐、NearMe游戏中心和NearMe同步等都表现了其良好的体验性，但惟独在安全方面仅仅是提供了几个简单短信、来点黑名单和一些隐私保护功能，也并未将更加安全的防病毒保护软件加入到其中。<br />
+<strong>三星S5830</strong> 
+	</p>
+	<p style="text-align:center;">
+		<img height="375" src="/uploads/allimg/c120716/13424220Y10360-442213.jpg" width="250" border="0" />&nbsp;<img height="375" src="/uploads/allimg/c120716/13424220Y59430-45LR.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		三星S5830内置软件
+	</p>
+	<p style="text-align:center;">
+		<img height="375" src="/uploads/allimg/c120716/13424220Z20550-4A941.jpg" width="250" border="0" />&nbsp;<img height="375" src="/uploads/allimg/c120716/13424220Z59610-4GL6.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		我们非常熟悉的Samsung Apps和娱乐共享
+	</p>
+	<p style="text-align:center;">
+		<img height="375" src="/uploads/allimg/c120716/13424220910KF-4T236.jpg" width="250" border="0" />&nbsp;<img height="375" src="/uploads/allimg/c120716/1342422091520-491928.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		特色的动感信息和悦读圈
+	</p>
+	<p style="text-align:left;">
+		&nbsp;三星在Android手机中表现异常抢眼，我们就拿手头上的S5830作比较，除了大家非常熟知的Samsung Apps和悦读圈外，其实再找不出太多特色的内置软件，在安全性方面似乎完全依靠用户自行去下载安装，否则几乎为零设防状态。
+	</p>
+	<p style="text-align:left;">
+		<span><strong>联想A520</strong></span> 
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/134242209195610-50b21.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220925P60-51bG.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		联想A520软件截图
+	</p>
+	<p class="p_img">
+		&nbsp; <img height="418" src="/uploads/allimg/c120716/1342422092c410-5250N.jpg" width="233" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220X23060-4223W.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		联想乐商店
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/134242209362S0-536027.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/134242209391c0-549630.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		乐安全提供了多项安全保护措施
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/134242209422220-55M96.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/134242209461T0-5E1R.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		不仅可以防偷窥还提供了高效的杀毒功能
+	</p>
+	<p style="text-align:center;">
+		<img height="417" src="/uploads/allimg/c120716/134242209492230-5G4c.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/134242209534240-5S061.jpg" width="250" border="0" /> 
+	</p>
+	<p style="text-align:center;">
+		乐服务和省电管理
+	</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp; 联想的乐Phone已经是我们耳熟能详的产品了，其最新搭载的操作系统中提供了乐商店、乐安全、乐服务和省电管理等多款官方软件，通过上面的对比测试我们已大概知道乐商店的突出表现。那么，乐安全的“三防四滤”更是给手机穿上了安全的盔甲，不再惧怕吸费、丢失隐私、病毒侵害，几乎可以保证用户不必再为安全问题发愁了，乐商店配合乐安全这样的双管齐下策略真可谓是用户的定心丸。
+	</p>
+	<p>
+		<strong>四，写在最后：健全的市场+高效的安全防护软件才可换来Android的未来</strong> 
+	</p>
+	<p>
+		智能手机的时代，各种伪命题接踵而至，无休止的讨论着手机能够取代电脑，平板是否能够取代笔记本，回到现实生活中来，我们手中的iPhone、 Android、WP7和那些依旧使用中的Symbian智能手机，依旧无法取代什么，他们秉公职守的完成用户每日的通讯联系，娱乐中满足用户对游戏、音乐、拍照、社交等多种项目，随着移动应用的飞速发展，各类软件和游戏纷纷走进手机中，俨然一种无法被取代的架势。
+	</p>
+	<p>
+		移动操作系统虽开放，但苹果的iOS操作系统仅限在自家的iPhone、iPad等设备上使用，而Android和Windows Phone 7相比较而言更加开放，包容了几乎所有的软、硬件厂商，百花齐放的局面一蹴而就，过于开放直接造成了来之不断的安全隐患。Android市场份额远超其他对手不仅仅是产品优秀，开放协作的功劳，还有那些手机终端制造商和第三方应用市场和广大开发者一起建筑的成果，发展过快、开放性过高带来了各种不安全问题。
+	</p>
+	<p style="text-align:center;">
+		<img height="342" src="/uploads/allimg/c120716/1342422095625F-592118.jpg" width="500" border="0" /> 
+	</p>
+	<p>
+		开发者作为这个生态链最底层的重要一环往往都会受到系统开发商、终端制造商和第三方平台的支持，但如何创收依旧是目前整个移动互联行业的头等大事，不过由于监管不严、审查力度不够、没有规范条例、几乎没有门槛的情况造成了有些开发者恶意传播病毒、盗取用户隐私、甚至为了利益对用户造成经济损失。第三方应用市场作为生态链的中间桥梁把开发者、手机终端制造商和用户联系到了一起，同样因为监管不严、审查力度不够、没有规范条例、人手匮乏导致了许多存在恶意代码和病毒的应用流存于市。而最为最高级的手机终端制造商则开始考虑并尝试将系统开发商和第三方市场、开发者和用户紧密的联系在了一起，可以在提供硬件的同时将软件服务全盘呈献给广大消费者，如果面对以上问题，开发者和第三方应用市场无法有效解决的话，终端制作商则是天降大任，完全可以通过获得最高权限从根本上抵制不良应用，目前大多数终端制作商都内置了自己的应用市场，像三星的Samsung Apps、联想的乐商店等，他们完全可以先从自身着手将市场安全化、监管规范化，从而在帮助开发者和第三方应用市场，最终还给消费者和用户一个绿色健康的 Android生态环境。
+	</p>
+	<p>
+		&nbsp;&nbsp;&nbsp;&nbsp; 纵览历史和行业，不论是计算机还是手机、平板，病毒一直没有离开过我们的视线，即便是市场监管审查极其严格，也有许多漏网之鱼存活在各大平台和论坛中，让用户随时都有可能会遭到病毒的侵害，这也就是为什么安全防护类软件会竞争激烈的客观原因，一款高效的杀毒软件是智能手机的必备品，但是部分智能手机用户还没有意识到这个问题，终端制造商需要为用户做的将高效的杀毒防范类软件内置于产品中方可帮助用户解决难题。于是，一个健全的应用市场和一款高效的安全防护软件是智能手机发展和销售的根本，联想乐Phone带来的乐商店+乐安全组合，在很大程度上符合了以上需求，而且经过我们的测试乐安全+乐商店的表现非常不错，联想作为Android生态链上的手机终端制造商，在移动互联时代承担着还给用户了一片蓝天白云的重大责任。
+	</p>
+	<p>
+		<p>
+			<strong>一，报告背景：纵览市场 看Android突飞猛进</strong> 
+		</p>
+		<p>
+			<strong>1，Android产品呈高速增长趋势</strong> 
+		</p>
+		<p>
+			&nbsp;2008年9月发布的第一版Android（Android 1.1）至今已经历了近四年，其发展速度我们可以从Google高级副总裁Andy Rubin在其官方博客上公布的Android增长数据中得到答案，Android设备的去年增长了250%，全球共有3亿台Android设备。平均每天有85万台新设备被激活，其中圣诞节周激活设备数量就有370万台，而2010年12月中旬平均每天的激活设备还只有70万台。同时Android应用平均每月下载量高达10亿次，Android市场里的应用数量已经超过45万，Android已经成为一个高速增长的生态系统。
+		</p>
+		<p>
+			根据市场调查机构IDC发布的数据，2011年第四季度全球智能手机出货量同比增长54.7%。达到1.578亿部，超过了IDC预期的40%的增幅，也超过第三季度49.2%的增幅。而2011年智能手机全年市场份额，Android手机所占48.8%，出货量约为2.378亿部，苹果iOS系统 2011年所占份额为19.1%，iPhone出货量为9310万部，诺基亚的塞班系统手机去年的总销量为8010万部。虽然相比2010年增幅有所下降，但IDC预计，在可预见的未来智能手机市场仍将保持两位数的增长。
+		</p>
+		<p style="text-align:center;">
+			<img height="152" src="/uploads/allimg/c120716/13424220E94350-105200.png" width="476" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			　　2011年第四季全球前五大手机厂商出货量及市占情况(单位：百万部)
+		</p>
+		<p>
+			IDC手机技术和趋势部门高级研究分析师拉蒙·拉马斯(Ramon Llamas)表示：“在第四季度末，全球每售出的三部手机当中就有一部是智能手机。苹果iPhone4S的推出在智能手机销量增长上起到了关键作用，因为它满足了之前被压抑的需求，其他厂商智能手机的推出也为不同性能喜好和价格偏好的消费者提供了多样化的选择”。
+		</p>
+		<p style="text-align:center;">
+			<img height="150" src="/uploads/allimg/c120716/13424220H3160-119A6.png" width="473" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			　　2011全年全球前五大手机厂商业务情况(单位：百万部)
+		</p>
+		<p>
+			由于智能手机厂商在新兴市场和发达市场都在努力拓展各自的用户群，各种产品之间的差别也在日益缩小。IDC全球手机统计项目的高级研究分析师凯文· 雷斯蒂沃(Kevin Restivo)表示：“包括三星Galaxy Nexus和苹果iPhone 4S等所谓的‘经典设备’都吸引了大量消费者的关注。但是价格低于250美元的Android设备也越来越多，使得Android硬件合作伙伴在提高智能手机销量的同时也进一步扩展了市场份额”。
+		</p>
+		<p style="text-align:center;">
+			<img height="475" src="/uploads/allimg/c120716/13424220I04F-12A47.png" width="518" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			　　2011年全球前五大手机厂商市场份额变化情况
+		</p>
+		<p>
+			而在具体品牌产品方面，苹果在推出了iPhone 4S之后又一次回到了市场的领先地位，其一个季度的销量便打破了该公司自身以及整个智能手机行业的记录。搭载Android操作系统的三星在第四季度完成了一系列重大的成就，首次突破了3000万台的销量大关，成为了各大智能手机企业同期增长最快的企业，同时在2011年成为了智能手机整体市场的领头羊。
+		</p>
+		<p>
+			回到国内，易观国际发布分析报告指出，2011年第四季度Android产品占中国整体智能手机销量的68.4%，Symbian系统市场份额不断下滑，但Symbian系统仍为第二大系统，不过份额仅占18.7%。
+		</p>
+		<p style="text-align:center;">
+			<img height="326" src="/uploads/allimg/c120716/13424220J11450-1332M.jpg" width="514" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			2011年第四季度中国智能手机销售份额
+		</p>
+		<p style="text-align:left;">
+			2011全年，由于搭载Android系统的厂商众多，Android系统市场份额一家独大，全年市场份累计达到51.1%，其他智能操作系统市场份额没有明显变化，与前两大系统（Android和Symbian）份额差距显著。
+		</p>
+		<p>
+			易观智库分析认为，2011年中国手机市场Android系统发展迅速的原因：
+		</p>
+		<p>
+			（1），搭载Android系统的厂商众多，渠道覆盖范围广，其中有国际品牌三星、HTC、索尼爱立信这样的厂商，品牌影响力度大，且机型数量众多；
+		</p>
+		<p>
+			（2），国产品牌中兴、华为、联想与运营商合作紧密，高额的补贴拉动定制终端的销量；
+		</p>
+		<p>
+			（3），类似于iOS的操作体验为消费者提供了高性价比的选择，iPhone的高端定价以及市场铺货能力无法满足中低端市场消费者的需求；
+		</p>
+		<p>
+			（4），运营商加强对终端市场的把控，iPhone4这样的明星机型让消费者对定制机有了更为明确的认知，加之对Android千元智能机的推广，使运营商定制终端份额不断提升。
+		</p>
+		<p>
+			从上面的数据及分析，我们可以确定Android产品不论是在全球还是中国国内都保持着高速增长的态势，凭借着众多厂商和运营商的支持，中低端智能机了很大的市场份额，而中高端机市场中除了iPhone 4和4S外几乎难寻对手，RIM和诺基亚的Symbian早已不见曾日的辉煌，未来几年中应该是Android、iOS和Windows Phone 7三雄割据的盛况。而在中国国内，2011全年Android市场份额达到51.1%，超过半数的市场占有率让我们看到的不仅仅是市场和销量，还有无限的发展空间和希望。
+		</p>
+		<p>
+			<strong>2，Android平台中安全问题严重</strong> 
+		</p>
+		<p>
+			俗话说“报喜不报忧”，但作为客观的报告和评测我们必须要从第三方看清楚Android存在的问题，不用多说，大家都知道Android平台发展迅猛其中一个非常重要的原因是开放平台，但从另一个角度来说这种优势也成为android在发展中遇到的最大困难——安全性。
+		</p>
+		<p>
+			Android备受职责的安全问题早已成为了家常便饭，先不说Android刷机问题，就光凭着“不稳定”这三个字就会给Android日后发展造成巨大的阻碍，iOS移动操作系统仅能够用在Apple的产品中，但微软的Windows Phone 7可不是这样，随着前日正式入驻中国市场，Android平台即将会迎来最为艰巨的挑战，如何剔除自身缺点稳固根基和市场份额，增强安全性应该是其首要任务，下面我们先要看看Android出现的严重安全问题：
+		</p>
+		<p>
+			根据《2011年中国手机安全状况报告》中的统计，2011年，Android木马呈现爆发式增长，相较2010年全年共发现12个木马样本相比，今年1月-12月，360手机云安全中心捕获新增Android木马样本4722个，被感染人数超过498万人次。从去年8月起，Android平台每月新增木马连续4个月超过Symbian平台，在新增安全威胁的增速与增量上全面居首，成为新的移动互联网安全攻防主战场。
+		</p>
+		<p style="text-align:center;">
+			<img height="311" src="/uploads/allimg/c120716/13424220J61320-14QU.png" width="539" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			2011年Android和Symbian新增木马对比
+		</p>
+		<p>
+			根据最新统计数据，随着Android平台“千元智能机”的迅速普及，安全问题“大爆发“也随之而来。2010年的Android平台恶意软件及木马还几乎无迹可寻，而进入2011年，不仅每个月都呈现出“大跃进”的态势，新增恶意软件及木马总数量甚至在一年之中就超过了老牌智能操作系统 Symbian，并仍呈高速增长态势。
+		</p>
+		<p>
+			艾瑞咨询发布的最新研究数据也表明同样的现状，2011年第三季度，全球智能手机操作系统总体销售额为1.15亿美元，比去年同期增长42.0%。其中，Android操作系统排名第一，获得52.5%的市场占有率。
+		</p>
+		<p style="text-align:center;">
+			<img height="319" src="/uploads/allimg/c120716/13424220K233Z-1552H.png" width="549" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			2011年Android每月新增恶意软件及木马数
+		</p>
+		<p>
+			Android平台的开源、开放、免费等特性虽然带来了大量的市场占有率，但是这把双刃剑也给消费者带来了不少安全隐患。由于几乎没有入驻门槛，木马制作者可以通过篡改正常软件的方式，随意将捆绑了木马的应用在Android平台发布。
+		</p>
+		<p>
+			根据最新统计数据显示，2011年下半年Android平台木马程序和恶意软件新增3754个，是上半年新增木马程序和恶意软件的近4倍。从去年8月起，Android平台每月新增木马连续4个月超过Symbian平台，在新增安全威胁的增速与增量上全面居首。
+		</p>
+		<p style="text-align:center;">
+			<img height="314" src="/uploads/allimg/c120716/13424220KT3Z-1B422.png" width="551" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			2011年Android每月恶意软件和木马感染人数
+		</p>
+		<p>
+			Android木马传播者开始直接在水货新机里野蛮地嵌入系统固件木马，普通用户根本无法删除，典型木马如“白卡吸费魔“。木马安装后，会出现自动侦测手机环境、选择锁屏或深夜私自发送短信定制SP（SP指移动互联网服务内容应用服务的直接提供者，负责根据用户的要求开发和提供适合手机用户使用的服务。）业务等，偷偷消耗用户话费。自此，Android平台每月恶意软件和木马感染人数开始暴增。
+		</p>
+		<p>
+			<strong>Android应用混乱状况</strong> 
+		</p>
+		<p>
+			<strong>相关案例</strong> 
+		</p>
+		<p>
+			<strong>案例一：调用通信录</strong> 
+		</p>
+		<p>
+			向通信录中联系人发出邀请
+		</p>
+		<p>
+			1.由机主手动发出邀请，此类应用往往在联系人姓名旁有一邀请按键，促发后将以短信形式发出，但短信内容及发送记录在本机的短信发送列表中无记录。
+		</p>
+		<p>
+			2.由机器在未获得机主允许的情况下，自动调用联系人信息，并向联系人群发邀请短信，短信内容及发送记录在本机的短信发送列表中无记录
+		</p>
+		<p>
+			<strong>案例二：扫描用户信息并上传</strong> 
+		</p>
+		<p>
+			扫描用户通信录、安装应用数量及使用频率等信息，上传至服务器。
+		</p>
+		<p>
+			<strong>案例三：强制用户安装应用</strong> 
+		</p>
+		<p>
+			常见于水货及刷ROM的机器中
+		</p>
+		<p>
+			1.部分应用被列为系统应用，无法删除，开机自动启动。
+		</p>
+		<p>
+			2.系统自动推送某些应用到用户的手机中，并强制安装。
+		</p>
+		<p>
+			<strong>案件四：Android应用程序恶意扣费</strong> 
+		</p>
+		<p>
+			现在有很多用户都在投诉Android一些应用吸费，而且人数呈不断递增趋势。曾经在某网站制作的关于“你是否遇到过Android应用程序吸费问题？”的调查中，数据结果显示遇到过吸费问题的网友比例占73.1%。
+		</p>
+		<p>
+			而此前，公安部治安管理局在其官方微博上也发布了“安全提示”并公布了十款恶意手机软件，称目前安卓系统手机上，恶意软件正在以每月800%的速度快速增加，以提醒广大用户注意。
+		</p>
+		<p>
+			分析人士认为，Android平台相关产业链应该“先天下之忧而忧”，其开放性与免费性虽然有其长处，但如果管理不严格，漏洞百出，加上开发其程序时不得不针对数量众多的终端型号带来的麻烦，则会对其长远发展留下许多障碍。消费者会对Android应用程序有吸费嫌疑产生不良印象，反倒是对苹果应用程序商店的担心远没有那么大，而苹果对外宣传也称通常会对进入应用程序商店的程序进行较严格的审查，以保证相对的安全性。
+		</p>
+		<p>
+			SP（SP指移动互联网服务内容应用服务的直接提供者，负责根据用户的要求开发和提供适合手机用户使用的服务。）或中间渠道商很容易突破层层环节悄悄吸走用户话费：1、发送上行短信帮助用户定制服务，用户投诉时会被运营商告知，你定制了服务，扣费正常；2、利用混淆用户选择的方法，提示用户发送上行短信，一般用户因误操作或者未认真判断而发送上行短信定制服务，最终也是投诉无门。
+		</p>
+		<p>
+			手机吸费软件主要以两种形式出现：第一种是手机厂商在定制手机时已将吸费软件提前植入并设置好吸费软件代码，甚至做好了上行代码和SP公司的计费单；另外一种是智能机软件以正常服务软件的形式安装在手机里，但里面其实包含了恶意扣费代码。
+		</p>
+		<p>
+			第一种形式中，手机厂商、SP和运营商有合作协议，“厂商每生产多少台手机，SP就会按照协议支付多少费用；而运营商和SP也有协议，通过上网产生的流量费用进行分成”。这类恶意扣费软件在联网时没有任何提示，只要一点开图标，SP的后台就开始扣费。
+		</p>
+		<p>
+			第二种形式的扣费同样非常隐秘，一旦智能手机中安装了恶意扣费软件，这些软件就会屏蔽掉运营商发送的收费提示短信，用户的话费就会在不知不觉中被扣掉了。
+		</p>
+		<p>
+			<strong>3，分析Android平台中安全问题严重原因</strong> 
+		</p>
+		<p>
+			<strong>（1），由Android系统自身原因造成目前安全危机严重</strong> 
+		</p>
+		<p>
+			Android 的系统开放给开发者124项权限，但同时也带来很大的安全隐患。籍此，开发者可以自由的读取系统相关资源，并在用户不知情的情况下做恶意处理。
+		</p>
+		<p>
+			现有的Android系统的安全机制很简单，程序一旦安装后，无法改变程序的访问权限。唯一的方法是卸载，重新安装。
+		</p>
+		<p>
+			国内第三方应用市场审核机制不健全，在发展过程中过分关注数量而忽视了对应用质量和安全的把关。
+		</p>
+		<p>
+			<strong>（2），由应用开发者造成的安全问题</strong> 
+		</p>
+		<p>
+			在之前Android身陷恶意扣费门中曝出部分开发者参与其中，还有在第三方应用市场中，很多存有恶意代码盗取用户信息的应用和游戏也是部分开发者所为，无疑，在Android安全性方面，开发者从中作梗，让本身就开发的Android平台雪上加霜。
+		</p>
+		<p>
+			以“恶意扣费”行为为例，一般在用户下载安装相应的Android应用软件的过程中“自动”产生。例如，在一款Android应用软件的下载中，设置短信确认权限，用户点击下一步“安装”，即被扣费，作为用户很难察觉。
+		</p>
+		<p>
+			更有甚者，直接在Android应用程序中加载自动扣费软件，在用户不知情的情况下“自动”扣费。“为了规避运营商针对SP扣费要求多次确认的规则，有的扣费软件设置将运营商的确认程序直接屏蔽。”除非运营商对于所有SP采取“一刀切”的政策，“否则只要留有哪怕一个通道，恶意扣费软件就可以通过 SP‘吸费’”。
+		</p>
+		<p>
+			事实上，Android应用程序存在的恶意扣费现象，与传统的山寨手机内置扣费后门的做法在本质上并无太大差异。但徐威特告诉记者，Android 平台上的恶意扣费，有相当一部分是来自“第三方SP”对原有开发者程序的恶意修改。“内置收费程序必须要有足够的下载量，其扣费牟利才有意义，SP一般会选择成熟的Android应用做加载。”
+		</p>
+		<p>
+			排名最为靠前的热门Android应用往往不会成为违规SP“绑定”目标，“树大招风，SP也担心被投诉”。据其介绍，一般排名并非最靠前但有着一定下载量的应用，最容易成为违规SP觊觎的目标。这也从另一个角度告诉了广大用户，那些排名靠前的应用安全性可能会更大一些，但也并不是百分百可靠的。
+		</p>
+		<p>
+			有手机设计公司人士反映，在Android应用软件的恶意扣费程序中，还存在着开发者与SP运营商之间的“合谋”。一个不容忽视的产业背景是，尽管android市场持续升温，但截至目前在中国市场上，真正能从Android应用程序上获得规模盈利的个人开发者寥寥无几。
+		</p>
+		<p>
+			“正是由于目前Android应用软件市场尚处在培育阶段，通过正常模式很少能赚到钱。部分开发者便开始违规运作。”前述手机设计公司人士透露，通过与SP在扣费软件上合作，开发者可以利用SP的扣费通道，并给予SP一定比例分成。
+		</p>
+		<p>
+			事实上，Android应用软件恶意扣费日趋泛滥的背后，是Android平台开放性带来的不可避免的影响。相比较苹果唯一的官方应用软件程序商店 iTunes Store对于应用软件的严格审核，Android则是平台泛滥，尤其部分Android论坛，对于应用程序的上载几乎是零门槛。
+		</p>
+		<p>
+			<strong>（3），由第三方市场造成的安全问题</strong> 
+		</p>
+		<p>
+			看过了Android系统本身和开发者二者的问题之后，我们再把目光聚焦在第三方应用市场上，上面我们也提到了“相比较苹果唯一的官方应用软件程序商店iTunes Store对于应用软件的严格审核，Android则是平台泛滥。”这里不得不批评一下国内的众多第三方市场，Google的Market（已改名为 Google Play）也不例外，毫无审查规范，各种应用泛滥，山寨、盗版、恶意软件如杂草丛生，就连在Google Play中排名靠上的竟然是色情类应用，官方皆是如此，又耐大众如何！
+		</p>
+		<p>
+			&nbsp;先来看看Google Market改名的事，2012年3月7日，Google宣布将出售应用、视频、音乐、电子图书的在线商店Android Market更名为Google Play Store，Google做出这样的决定，显示出其淡化Android市场，而强化Google品牌的重要性，同时整合原有的GoogleMusic（谷歌音乐）和GoogleBooks（谷歌电子书）频道。这两个频道推出已经有一段时间了，但对于其主要竞争对手苹果iTunes和亚马逊Kindle来说毫无优势可言。虽然AndroidMarket获得了一定的成功，但比起苹果AppStore还有相当大的差距，将这三者整合有利于提高Google应用商店的整体竞争力，并提升品牌形象。
+		</p>
+		<p>
+			具体分析我们就不再给出，主要来看看它更名后用户都发现了哪些问题：美国新版Google应用商店，会发现“音乐”、“电子书”、“电影”、“应用”都已经整合在一起，可以在一个页面直接购买。而中国Google应用商店，“音乐”、“电子书”、“电影”均不可见，实际和原来的Android商店没有任何区别，有可能是谷歌不打算在中国推出这些内容。
+		</p>
+		<p style="text-align:center;">
+			<img height="358" src="/uploads/allimg/c120716/13424220L40030-1M4O.jpg" width="480" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			Play Store
+		</p>
+		<p>
+			最重要的是，中文版Google Play Store市场首页的热门应用，第一个就是部色情小说应用，这点谷歌应该向苹果学习，苹果原则上不允许色情应用上架。如此监管和审查力度让我们对官方抱有极大的质疑态度，Android就这样发展的话，未必是件好事吧！好在，截止到发稿前这一现象已不存在，不过依旧还有大量色情应用充斥着Google Play Store。
+		</p>
+		<p>
+			回到国内第三方应用市场，在去年的时候，我们做过一系列关于Android应用市场安全性的深度调查文章，从中我们便可看出其存在的问题，严重性远远超出了普通用户所能预想的范围，可以这么说，在国内绝大部分安全性遭到侵害、隐私被窃取、无故恶意扣费等恶劣情况均来自于第三方应用市场！
+		</p>
+		<p>
+			<strong>二，产品测试：乐商店携乐安全绿化Android</strong> 
+		</p>
+		<p>
+			通过上面的数据和案例我们可以清楚的了解到目前Android这个炙手可热的平台所具有的发展潜力，不仅得到国内外众厂商追捧，也得到了广大用户的青睐，苹果的iOS平台产品单一这让其他通信厂商无不分食Android这个机器人的大蛋糕，所谓雪球越滚越大，Google的Android操作系统轻松吞噬着市场份额，其过于开放的体制和各种不安全的隐患也随之换来了更多人的关注和担忧，在国内市场对Android用户构成潜在威胁最大的莫过于那些毫无门槛、随意滋生的第三方市场，监管不严、缺乏审查、无规矩条款、参差不齐的开发者等种种原因，让我们不得不先将目光投向这里，这些市场表现到底如何，我们先来做些简单的测试便会略知一二：
+		</p>
+		<p>
+			<strong>1，第三方应用市场安全测试</strong> 
+		</p>
+		<p>
+			&nbsp;国内的第三方应用市场发展到今天已日趋规模，从应用数量、开发者人数、下载量等数据均表现抢眼，同时，这些市场的安全性一直都是业内专家、媒体和用户最关心的问题，由于应用和开发者数量过多增加了审查难度，这给第三方市场带来了许多困扰和隐患，但最终受到侵害的却是广大用户。一切从用户角度出发，我们抛开怜悯和同情心还是要来测试一下国内几家较大的第三方应用市场的安全性，看看到底有没有真的值得让用户放心的市场。
+		</p>
+		<p>
+			&nbsp;在众多第三方市场中，我们选择了机锋、优亿、N多、91和乐商店这五家进行应用抽查，随机批量扫描各市场中的五千款软件及游戏，看看他们的表现到底如何，其中是否含有木马病毒、侵害用户隐私、恶意吸费等情况出现：&nbsp;
+		</p>
+		<p style="text-align:center;">
+			<img height="293" src="/uploads/allimg/c120716/13424220L91K0-1R017.jpg" width="562" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			五家应用市场抽查结果
+		</p>
+		<p style="text-align:left;">
+			从上面的图中可以看到，机锋市场、N多市场和91手机助手表现不好，在五千个应用中均发现了有木马病毒存在的情况。
+		</p>
+		<p>
+			<strong>2，安全防护类应用的安全测试</strong> 
+		</p>
+		<p>
+			来到考验安全的最重要一关，我们选取了360手机卫士、腾讯手机管家、LBE安全大师和联想乐安全这几大目前国内主流的手机杀毒软件进行查杀测试。
+		</p>
+		<p>
+			<strong>测试环境：联想A520手机</strong> 
+		</p>
+		<p>
+			<strong>测试对象：内部工程师提供的100款已知病毒软件</strong> 
+		</p>
+		<p>
+			<strong>参测杀毒软件：360手机卫士、腾讯手机管家、LBE安全大师和联想乐安全。</strong> 
+		</p>
+		<p>
+			<strong>测试方法：将100款已知病毒软件装入安装有360手机卫士、腾讯手机管家、LBE安全大师和乐安全的联想A520手机中，分别用这些杀毒软件升级至当时最新病毒库，并进行全盘扫描杀毒。</strong> 
+		</p>
+		<p>
+			360手机卫士杀毒测试：
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220M54P-193314.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220M96230-204S1.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			360手机卫士杀毒截图
+		</p>
+		<p style="text-align:left;">
+			360手机卫士总共扫描软件数为204，发现恶意软件为64个，查杀率已经超过了一半，总体表现非常不错。
+		</p>
+		<p>
+			腾讯手机管家杀毒测试：
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220N4UF-2142T.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220NW3F-221629.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			腾讯手机管家杀毒截图
+		</p>
+		<p style="text-align:left;">
+			腾讯手机管家总共扫描软件数为204，发现恶意软件为58个，查杀率效果明显，安全性能表现不错。
+		</p>
+		<p>
+			LBE安全大师杀毒测试：
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220O300F-23P08.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220OAJ0-242555.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			LBE安全大师杀毒截图
+		</p>
+		<p style="text-align:left;">
+			LBE安全大师总共扫描软件数为206，发现恶意软件为69个，查杀率超过一半以上，总体表现非常理想。
+		</p>
+		<p>
+			乐安全杀毒测试：&nbsp;
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220P24450-253a4.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220PG410-2DL1.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			乐安全杀毒截图
+		</p>
+		<p style="text-align:left;">
+			联想乐安全，采用了联想、腾讯双重杀毒库进行杀毒扫描，总共扫描软件数为194，发现恶意软件为76个，查杀表现非常不错，联想乐安全显示出其出色的防病毒能力，同时也证明了其可靠的深度扫描特性。
+		</p>
+		<p style="text-align:center;">
+			<img height="180" src="/uploads/allimg/c120716/13424220Q05130-2M033.jpg" width="502" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			四款安全防护类软件杀毒抽查结果
+		</p>
+		<p>
+			<strong>三，与同类手机厂商进行对比</strong> 
+		</p>
+		<p>
+			从上面的内容中我们可以大致了解到应用市场和安全防病毒软件对一款Android手机的重要性，目前市面上受售的Android智能手机大部分使用人群均为非手机发烧友，我们可以称之为“小白用户”，其实他们对手机的要求只不过是打电话、发短信、玩游戏、偶尔拿来上上网安装几个简单的应用，而那些手机发烧友和部分对智能手机感兴趣的用户更多的是自己刷机安装各类软件和应用，不论“小白”还是“手机发烧友”他们最终都逃离不了那些潜在的威胁，如果一款手机中同时内置了丰富安全的应用市场和高效的防病毒软件的话，想必这才是所有用户最渴望得到的产品吧！
+		</p>
+		<p>
+			本次，我们就选取了几款市面上主流Android手机进行对比，看看他们都内置了哪些软件，是否真的能够从根本上帮助用户逃离病毒的侵害、不再担心隐私的泄露。
+		</p>
+		<p>
+			<strong>小米手机：</strong> 
+		</p>
+		<p style="text-align:center;">
+			<img height="445" src="/uploads/allimg/c120716/13424220Q45640-2V624.jpg" width="250" border="0" />&nbsp;<img height="445" src="/uploads/allimg/c120716/13424220Q9460-2a936.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			小米手机界面截图
+		</p>
+		<p style="text-align:center;">
+			<img height="445" src="/uploads/allimg/c120716/13424220R52J0-3024D.jpg" width="250" border="0" />&nbsp;<img height="445" src="/uploads/allimg/c120716/13424220S01460-314024.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			内置了推荐软件和应用商店
+		</p>
+		<p style="text-align:center;">
+			<img height="445" src="/uploads/allimg/c120716/13424220S4630-32Z54.jpg" width="250" border="0" />&nbsp; <img height="445" src="/uploads/allimg/c120716/13424220S93130-333627.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			提供了丰富的系统工具和拦截功能
+		</p>
+		<p style="text-align:left;">
+			小米手机在提供了自家非常优秀的第三方MIUI系统，内置了多款软件工具和应用商店，为了节约更大的存储空间，在推荐中的应用在首次使用时需要进行安装，用户可以根据自己的喜好选择帮助用户节约了下载和挑选应用的时间。内置的应用超市还可以帮助用户省去了从第三方应用市场下载软件的流程，同时还提供了一些拦截功能，不过并未内置优秀的防病毒安全软件，这无疑给病毒的侵入留有空隙。
+		</p>
+		<p style="text-align:left;">
+			<strong>OPPO Find 3</strong> 
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220T395P-34bC.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220TVH0-356413.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			OPPO Find 3内置软件
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220U3O20-3E515.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220UQN0-3N637.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			OPPO提供的工具和OPPO乐园
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220V2C40-3XX2.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220VM940-393105.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			NearMe市场和MearMe音乐
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220W24O0-405429.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220WM450-4164O.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			NearMe游戏中心和NearMe同步
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/13424220X23060-4223W.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220XG460-43F55.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			提供了简单的安全和过滤功能
+		</p>
+		<p style="text-align:left;">
+			OPPO Find 3内置不少自家特色服务，像OPPO乐园、NearMe市场、MearMe音乐、NearMe游戏中心和NearMe同步等都表现了其良好的体验性，但惟独在安全方面仅仅是提供了几个简单短信、来点黑名单和一些隐私保护功能，也并未将更加安全的防病毒保护软件加入到其中。<br />
+<strong>三星S5830</strong> 
+		</p>
+		<p style="text-align:center;">
+			<img height="375" src="/uploads/allimg/c120716/13424220Y10360-442213.jpg" width="250" border="0" />&nbsp;<img height="375" src="/uploads/allimg/c120716/13424220Y59430-45LR.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			三星S5830内置软件
+		</p>
+		<p style="text-align:center;">
+			<img height="375" src="/uploads/allimg/c120716/13424220Z20550-4A941.jpg" width="250" border="0" />&nbsp;<img height="375" src="/uploads/allimg/c120716/13424220Z59610-4GL6.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			我们非常熟悉的Samsung Apps和娱乐共享
+		</p>
+		<p style="text-align:center;">
+			<img height="375" src="/uploads/allimg/c120716/13424220910KF-4T236.jpg" width="250" border="0" />&nbsp;<img height="375" src="/uploads/allimg/c120716/1342422091520-491928.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			特色的动感信息和悦读圈
+		</p>
+		<p style="text-align:left;">
+			&nbsp;三星在Android手机中表现异常抢眼，我们就拿手头上的S5830作比较，除了大家非常熟知的Samsung Apps和悦读圈外，其实再找不出太多特色的内置软件，在安全性方面似乎完全依靠用户自行去下载安装，否则几乎为零设防状态。
+		</p>
+		<p style="text-align:left;">
+			<span><strong>联想A520</strong></span> 
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/134242209195610-50b21.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220925P60-51bG.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			联想A520软件截图
+		</p>
+		<p class="p_img">
+			&nbsp; <img height="418" src="/uploads/allimg/c120716/1342422092c410-5250N.jpg" width="233" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/13424220X23060-4223W.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			联想乐商店
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/134242209362S0-536027.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/134242209391c0-549630.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			乐安全提供了多项安全保护措施
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/134242209422220-55M96.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/134242209461T0-5E1R.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			不仅可以防偷窥还提供了高效的杀毒功能
+		</p>
+		<p style="text-align:center;">
+			<img height="417" src="/uploads/allimg/c120716/134242209492230-5G4c.jpg" width="250" border="0" />&nbsp;<img height="417" src="/uploads/allimg/c120716/134242209534240-5S061.jpg" width="250" border="0" /> 
+		</p>
+		<p style="text-align:center;">
+			乐服务和省电管理
+		</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp; 联想的乐Phone已经是我们耳熟能详的产品了，其最新搭载的操作系统中提供了乐商店、乐安全、乐服务和省电管理等多款官方软件，通过上面的对比测试我们已大概知道乐商店的突出表现。那么，乐安全的“三防四滤”更是给手机穿上了安全的盔甲，不再惧怕吸费、丢失隐私、病毒侵害，几乎可以保证用户不必再为安全问题发愁了，乐商店配合乐安全这样的双管齐下策略真可谓是用户的定心丸。
+		</p>
+		<p>
+			<strong>四，写在最后：健全的市场+高效的安全防护软件才可换来Android的未来</strong> 
+		</p>
+		<p>
+			智能手机的时代，各种伪命题接踵而至，无休止的讨论着手机能够取代电脑，平板是否能够取代笔记本，回到现实生活中来，我们手中的iPhone、 Android、WP7和那些依旧使用中的Symbian智能手机，依旧无法取代什么，他们秉公职守的完成用户每日的通讯联系，娱乐中满足用户对游戏、音乐、拍照、社交等多种项目，随着移动应用的飞速发展，各类软件和游戏纷纷走进手机中，俨然一种无法被取代的架势。
+		</p>
+		<p>
+			移动操作系统虽开放，但苹果的iOS操作系统仅限在自家的iPhone、iPad等设备上使用，而Android和Windows Phone 7相比较而言更加开放，包容了几乎所有的软、硬件厂商，百花齐放的局面一蹴而就，过于开放直接造成了来之不断的安全隐患。Android市场份额远超其他对手不仅仅是产品优秀，开放协作的功劳，还有那些手机终端制造商和第三方应用市场和广大开发者一起建筑的成果，发展过快、开放性过高带来了各种不安全问题。
+		</p>
+		<p style="text-align:center;">
+			<img height="342" src="/uploads/allimg/c120716/1342422095625F-592118.jpg" width="500" border="0" /> 
+		</p>
+		<p>
+			开发者作为这个生态链最底层的重要一环往往都会受到系统开发商、终端制造商和第三方平台的支持，但如何创收依旧是目前整个移动互联行业的头等大事，不过由于监管不严、审查力度不够、没有规范条例、几乎没有门槛的情况造成了有些开发者恶意传播病毒、盗取用户隐私、甚至为了利益对用户造成经济损失。第三方应用市场作为生态链的中间桥梁把开发者、手机终端制造商和用户联系到了一起，同样因为监管不严、审查力度不够、没有规范条例、人手匮乏导致了许多存在恶意代码和病毒的应用流存于市。而最为最高级的手机终端制造商则开始考虑并尝试将系统开发商和第三方市场、开发者和用户紧密的联系在了一起，可以在提供硬件的同时将软件服务全盘呈献给广大消费者，如果面对以上问题，开发者和第三方应用市场无法有效解决的话，终端制作商则是天降大任，完全可以通过获得最高权限从根本上抵制不良应用，目前大多数终端制作商都内置了自己的应用市场，像三星的Samsung Apps、联想的乐商店等，他们完全可以先从自身着手将市场安全化、监管规范化，从而在帮助开发者和第三方应用市场，最终还给消费者和用户一个绿色健康的 Android生态环境。
+		</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp; 纵览历史和行业，不论是计算机还是手机、平板，病毒一直没有离开过我们的视线，即便是市场监管审查极其严格，也有许多漏网之鱼存活在各大平台和论坛中，让用户随时都有可能会遭到病毒的侵害，这也就是为什么安全防护类软件会竞争激烈的客观原因，一款高效的杀毒软件是智能手机的必备品，但是部分智能手机用户还没有意识到这个问题，终端制造商需要为用户做的将高效的杀毒防范类软件内置于产品中方可帮助用户解决难题。于是，一个健全的应用市场和一款高效的安全防护软件是智能手机发展和销售的根本，联想乐Phone带来的乐商店+乐安全组合，在很大程度上符合了以上需求，而且经过我们的测试乐安全+乐商店的表现非常不错，联想作为Android生态链上的手机终端制造商，在移动互联时代承担着还给用户了一片蓝天白云的重大责任。
+		</p>
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>Techweb</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/2987.html">/Article/News/2012/0716/2987.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/2987.html";
+				var wumiiTitle = "Android应用商店及安全问题检测报告";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/2987.html">Android应用商店及安全问题检测报告</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/2986.html'>Google实行新战略 欲夺回Android控制权</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/2988.html'>2012Q1全球手机市场占有率数据：Android占大半 诺基</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',2987)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',2987)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',2987)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(2987);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="2987" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=2987">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=2987&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '2987');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '2987');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:10pt;color:#3ad8a">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:pt;color:#47b54b">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:10pt;color:#89b24e">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:14pt;color:#b51aa5">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:12pt;color:#782e6e">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:12pt;color:#88777e">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:12pt;color:#f9dda">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:10pt;color:#ddb45d">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:10pt;color:#fcb2e3">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:12pt;color:#d32454">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:12pt;color:#177ddf">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:pt;color:#c46632">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:10pt;color:#c07b85">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:12pt;color:#3b2b7">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:12pt;color:#d1706f">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:14pt;color:#7c9dc6">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:12pt;color:#b483bc">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#d9ce4">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:pt;color:#b297bc">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:12pt;color:#49b7b4">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

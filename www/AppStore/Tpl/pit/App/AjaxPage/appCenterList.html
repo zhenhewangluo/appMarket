@@ -1,0 +1,36 @@
+{~$listCount = count($list);}
+<volist name="list" id="vo" mod="2">
+<if condition="$key%2 eq 0">
+	<div class="row">
+</if>
+<div class="item">
+	<div class="icon">
+		<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}">
+			<img src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" style="width:78px; height:78px;" alt="Moon+ Reader Pro" />
+		</a>
+	</div>
+	<div class="datas">
+		<div class="title"><a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}">{$vo['app_name']}</a></div>
+		<div class="sub"><a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}">{$vo['author_name']}</a></div>
+		<div class="intro">{:showCutStr($vo['app_desc'], 65)}</div>
+	</div>
+	<div class="clear"></div>
+	<div class="stars"><div class="RatingStars5 rating-9"></div></div>
+	<a class="button_normal" href="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['apk_path']}" onclick="getApp('{$vo['app_id']}');{$returnFlase}">安装</a>
+	<div class="clear"></div>
+</div>
+<if condition="(($key+1)%2 eq 0) OR (($key+1) eq $listCount)">
+	</div>
+</if>
+</volist>
+<table class="pager" style="width:460px" cellspacing="0">
+	<tr>
+		<td class="cl"></td>
+		<td style="text-align:left;">跳转至:</td>
+		<td style="text-align:left;">
+			{$page}
+		</td>
+		<td class="cr"></td>
+	</tr>
+</table>
+<div class="clear"></div>

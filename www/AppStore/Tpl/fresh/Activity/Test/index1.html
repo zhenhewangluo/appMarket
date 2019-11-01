@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9" />
+		<link type="image/x-icon" href="__PUBLIC__/images/favicon.ico" rel="icon" />
+		<link type="image/x-icon" href="__PUBLIC__/images/favicon.ico" rel="bookmark" />
+		<title>欢聚夺宝</title>
+		<meta name="generator" content="{$meta_generator}" />
+		<meta name="keywords" content="{$meta_keywords}" />
+		<meta name="description" content="{$meta_description}" />
+		<link href="../Public/activity/test.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+		<script type='text/javascript' src="__PUBLIC__/js/artdialog/jquery.artDialog.js?skin=aero"></script>
+		<script type='text/javascript' src="__PUBLIC__/js/common.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.cycle.all.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.vticker-min.js"></script>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+		<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+		<script type='text/javascript' src="../Public/activity/activity.js"></script>
+		<script type="text/javascript">
+			var showLoginForm = false;
+			var showRegForm = false;
+			
+			$(function(){
+				$('.user_dynamic').vTicker({
+					speed: 500,
+					pause: 3000,
+					showItems: 10,
+					animation: 'fade',
+					mousePause: true,
+					height: 170,
+					direction: 'down'
+				});
+				$('.wrapper').cycle({ 
+					speed:       800,
+					timeout:     0,
+					prev:   '.go_activity_home',
+					next:   '.start_btn',
+					pauseOnPagerHover: true,
+					pause:	true,
+					cleartypeNoBg: true,
+					fx: 'scrollHorz',
+//					height:	0,
+//					fit :1
+//					nowrap	:		   true
+					containerResize : 0
+//					
+//					slideResize : 0
+				});
+				$('.show_me_the_money').click(function(){
+					$(this).hide();
+					$.getJSON('{:U("AppStore://Activity-Ajax/getBuddyList")}', {}, function(data){
+						if(data.status == 1)
+						{
+//							$('.wrapper').css('height', '2000px');
+							$('.user_contacts_list').append(data.html);
+							$('.user_contacts').slideDown('slow');
+						}
+					});
+				});
+				
+				$('#loginAct').click(function(){
+					$('.login_info').hide();
+					$('.activity_login_form').slideDown('slow');
+				});
+				$('#regAct').click(function(){
+					$('.login_info').hide();
+					$('.activity_reg_form').slideDown('slow');
+				});
+				$('#activity_login_form').hover(function(){
+					showLoginForm = true;
+				}, function(){
+					showLoginForm = false;
+				});
+				$('#activity_reg_form').hover(function(){
+					showRegForm = true;
+				}, function(){
+					showRegForm = false;
+				});
+				$(document).bind('mousedown', function(){
+					hideNode2('activity_login_form', 'login_info');
+					hideNode2('activity_reg_form', 'login_info');
+//					hideNode ('activity_login_form', 'login_info', showLoginForm);
+//					hideNode ('activity_reg_form', 'login_info', showRegForm);
+				});
+				$('#activity_login_form input:[name="submit"]').click(function(){
+					if(!check_invalid('activity_login_form', {username : 'username', password : 'password'})) return false;
+					$.post(
+						'{:U("Ucenter-Ajax/loginAct")}', 
+						{acttype : 'duobao', username : $('#activity_login_form input:[name="username"]').val(), password : $('#activity_login_form input:[name="password"]').val()},
+						function(data){
+							if(data.status == 1)
+							{
+								if(data.synlogin)$('head').append(data.synlogin);
+								$('#login_info').html(data.html);
+								$('#activity_login_form').remove();
+								$('#activity_reg_form').remove();
+							}
+							getDialog(data.msg);
+						}, 
+						'JSON'
+					);
+					return false;
+				});
+				$('#activity_reg_form input:[name="submit"]').click(function(){
+					if(!check_invalid('activity_reg_form', {mobile : 'mobile', password : 'password', mobileVefiry : 'mobileVefiry'})) return false;
+					$.post(
+						'{:U("Ucenter-Ajax/regAct")}', 
+						{acttype : 'duobao', username : $('#activity_reg_form input:[name="username"]').val(), password : $('#activity_login_form input:[name="password"]').val()},
+						function(data){
+							if(data.status == 1)
+							{
+								$('#login_info').html(data.html);
+								$('#activity_login_form').remove();
+								$('#activity_reg_form').remove();
+							}
+							getDialog(data.msg);
+						}, 
+						'JSON'
+					);
+					return false;
+				});
+				$('input:[name="search"]').click(function() {
+					var keyword = $('input:[name="keyword"]').val();
+					$.ajax({
+						url:'{:U("AppStore://Activity-Ajax/searchBuddyList")}',
+						type:'post',
+						data:{keyword:keyword},
+						dataType:'json',
+						beforeSend: function(){
+							$('.user_contacts_list').html('请稍候...');
+						},
+						success:function(data) {
+							if(data.status == 1)
+							{
+								$('.user_contacts_list').html(data.html);
+								//$('.user_contacts').slideDown('slow');
+							}
+						}
+					});
+				});
+				$('.buddy_edit').live('click',function(){
+					$(this).parent().parent().hide();
+					$(this).parent().parent().next().show();
+				});
+				$('.buddy_cancel').live('click',function(){
+					$(this).parent().parent().hide();
+					$(this).parent().parent().prev().show();
+				});
+				$('.buddy_save').live('click',function(){
+					var _this = $(this);
+					var name = _this.parent().parent().find('input:[name="buddy_name"]').val();
+					var phone = _this.parent().parent().find('input:[name="buddy_phone"]').val();
+					var id = _this.parent().parent().find('input:[name="buddy_id"]').val();
+					$.ajax({
+						url:'{:U("AppStore://Activity-Ajax/editBuddy")}',
+						type:'post',
+						data:{ name : name, phone : phone, buddyid : id },
+						dataType:'json',
+						success:function(data) {
+							if(data.status == 1)
+							{
+								_this.parent().parent().prev().find('.buddy_name_td').html(name);
+								_this.parent().parent().prev().find('.buddy_phone_td').html(phone);
+								_this.parent().parent().hide();
+								_this.parent().parent().prev().show();
+							}
+							alert(data.msg);
+						}
+					});
+				});
+				$('.buddy_dels').live('click', delBuddys);
+				$('.buddy_add').live('click', function(){	
+					var add_invite = $('input:checkbox[name="add_invite"]:checked').val() ? 1 : 0;
+					$.post(
+						'{:U("AppStore://Activity-Ajax/addBuddy")}',
+						{phone : $('input:text[name="add_buddy_phone"]').val(), buddyName : '', add_invite : add_invite},
+						function(data){
+							alert(data.msg);
+						},
+						'JSON'
+					);
+				});
+				$('.buddy_invites').live('click', function(){
+					var flag = 0;
+					var id = [];
+					var idNodes = $('input:checkbox[name="buddy_phone[]"]:checked');
+					idNodes.each(function(i){
+						flag = 1;
+						id.push($(this).val());
+					});
+					if(flag == 0 )
+					{
+						alert('请选择要邀请的好友！');
+						return false;
+					}
+					
+					$.post('{:U("AppStore://Activity-Ajax/adviseBuddy")}', {phone : id}, function(data){
+						alert(data.msg);
+					}, 'JSON');
+				});
+			});
+			
+			function delBuddys(id)
+			{
+				var ids = [];
+				var idNodes = $('input:checkbox[name="buddy_id[]"]:checked');
+				
+				if(isNaN(id))
+				{
+					idNodes.each(function(){
+						ids.push($(this).val());
+					});
+				}
+				else
+				{
+					ids.push(id);
+				}
+				if(ids.length <= 0 )
+				{
+					alert('请选择要删除的数据');
+					return false;
+				}
+				
+				$.dialog.confirm('确定要删除所选中的好友吗？',function(){
+					$.post('{:U("AppStore://Activity-Ajax/delBuddys")}', {id : ids}, function(data){
+						var tips = '';
+						if(data.status == 1)
+						{
+							tips = 'succeed';
+							if(isNaN(id))
+							{
+								idNodes.each(function(i){
+									$('#buddy_id_'+$(this).val()).remove();
+								});
+							}
+							else
+							{
+								$('#buddy_id_'+id).remove();
+							}
+						}
+						getDialog(data.msg, tips);
+					}, 'JSON')},
+					function(){}
+				);
+				return false;
+			}
+
+			function hideNode(hideNodeId, showNodeId, hideNodeFlag)
+			{
+				var t = null;
+				if(t)clearTimeout(t);
+				if($('#' + hideNodeId).css('display') != 'none' && !hideNodeFlag)
+				{
+					$('#' + hideNodeId).slideUp('slow');
+					t = setTimeout(function(){
+						$('#' + showNodeId).show();
+					}, 900);
+				}
+			}
+			function hideNode2(hideNodeId, showNodeId, event)
+			{
+//				alert('123123');
+				var t = null;
+				if(t)clearTimeout(t);
+//				$(document).mousedown(function(event, hideNodeId, showNodeId){
+					var e = event || window.event;
+					var elem = e.srcElement||e.target;
+					while(elem)
+					{
+						if(elem.id == hideNodeId)
+						{
+							return;
+						}
+						elem = elem.parentNode;
+					}
+					$('#' + hideNodeId).slideUp('slow');
+					t = setTimeout(function(){
+						$('#' + showNodeId).show();
+					}, 900);
+//				});
+			}
+			function check_invalid(form_name,mustObj)
+			{
+				//必填数据
+				if(mustObj != '')
+				{
+					for(pro in mustObj)
+					{
+						var val = $('[name="'+form_name+'"] [name="'+mustObj[pro]+'"]').val();
+						if(val == '' || val == undefined)
+						{
+							alert('请填写必要的数据');
+							return false;
+						}
+					}
+				}
+
+				//数据合法性
+				if($('[name="'+form_name+'"] .invalid-msg').length > 0)
+				{
+					alert('您填写的数据不符合规范');
+					return false;
+				}
+				else
+				{
+					return true;
+				}
+			}
+			function page(pageNum, pageSize)
+			{
+				$.ajax({
+					url:'{:U("AppStore://Activity-Ajax/getBuddyList")}',
+					type:'get',
+					data:{pageNum : pageNum, pageSize : pageSize},
+					dataType:'json',
+					beforeSend: function(){
+						$('.user_contacts_list').html('请稍候...');
+					},
+					success:function(data) {
+						if(data.status == 1)
+						{
+							$('.user_contacts_list').html(data.html);
+						}
+					}
+				});
+			}
+			function inviteBuddy(buddyPhone)
+			{
+				var id = [buddyPhone];
+				$.post('{:U("AppStore://Activity-Ajax/adviseBuddy")}', {phone : id}, function(data){
+					alert(data.msg);
+				}, 'JSON');
+			}
+			function selectPhoneBook()
+			{
+				$.dialog.open('{:U("Activity-Test/guestPhoneBook")}',{id:'guest_phone_book',title:'上传好友列表'});
+			}
+		</script>
+	</head>
+	<body class="activity_html_body">
+		<div class="wrapper">
+		<div id="PageOne" style="width:980px;z-index:9999;">
+			<div class="header">
+				<h1 class="logo">
+					<a href="__APP__"><img src="__PUBLIC__/images/logo.png" /></a>
+				</h1>
+				<div class="nav f_l">
+					<ul>
+						<li><a href="">首页</a></li>
+						<li><a href="">软件</a></li>
+						<li><a href="">游戏</a></li>
+						<li><a href="">专题</a></li>
+						<li><a href="">新闻</a></li>
+						<li><a href="">夺宝</a></li>
+						<li><a href="">论坛</a></li>
+					</ul>
+				</div>
+				<ul id="login_info" class="login_info f_r">
+					<compare name="userinfo['uid']" type="lt" value="0">
+					<li id="loginAct">登录</li>
+					<li id="regAct">注册</li>
+					<else/>
+					<li>{$userinfo['mobile']}</li>
+					<li><span onclick="updatePass();">修改密码</span></li>
+					<li><a href="{:U('Ucenter-Index/logout')}">退出</a></li>
+					</compare>
+				</ul>
+				<div id="activity_login_form" class="activity_login_form f_r" style="display:none;">
+					<form method="post" action="{:U('Ucenter-Index/loginAct')}" name="activity_login_form" autocomplete="off">
+						{__NOTOKEN__}
+						<table>
+							<tr>
+								<td>
+									<input type="text" class="normal" name="username" required />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="password" class="normal" name="password" pattern="pass" required />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label><input type="checkbox" name="autoLogin" /> 记住密码</label>
+									<a href="">忘记密码</a>
+									<input type="submit" name="submit" value="登录" />
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div id="activity_reg_form" class="activity_reg_form f_r" style="display:none;">
+					<form method="post" action="{:U('Ucenter-Index/regAct')}" name="activity_reg_form" autocomplete="off">
+						{__NOTOKEN__}
+						<table>
+							<tr>
+								<td>
+									<input type="text" name="mobile" pattern="mobi" required />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" name="mobileVefiry" pattern="verify" required style="width:100px;" />
+									<button onclick="return false;">发送验证码</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="password" name="password" pattern="pass" required />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label><input type="checkbox" name="autoLogin" /> 接受夺宝协议</label>
+									<input type="submit" name="submit" value="注册" />
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="wallPaper">
+				<div class="start_btn">
+					我要夺宝！！！
+				</div>
+			</div>
+			<div class="activity_info">
+			</div>
+			<div class="footer">
+				距离本期夺宝活动结束还剩
+			</div>
+		</div>
+			<div id="PageTwo">
+			<div class="nav_btn">
+				<p class="f_l"><a href="" class="go_activity_home">返回夺宝主页</a></p>
+				<p class="f_r"><a href="">查看夺宝详细说明</a></p>
+			</div>
+			<div class="activity_user_panel">
+				<div class="user_panel_left f_l">
+					<h6 class="user_panel_title">我的名次</h6>
+					<p class="user_panel_info">{$dbUserinfo['voteRanking']|number_format}</p>
+					<p class="user_count">当前玩家总数：<strong>{$activeInfo['partincount']|number_format}</strong> 位</p>
+				</div>
+				<div class="user_panel_list f_l">
+					<h6 class="user_panel_title">与前一位相差</h6>
+					<p class="user_panel_info">{$dbUserinfo['voteBeforeCount']|number_format} 票</p>
+				</div>
+				<div class="user_panel_list f_l">
+					<table class="user_info">
+						<thead>
+							<tr>
+								<td>
+									<img src="" alt="用户头像" />
+								</td>
+								<td>
+									<p>{$userinfo['username']}</p>
+									<p>{$userinfo['mobile']}</p>
+								</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>当前人气</td><td>好友数</td></tr>
+							<tr><td>{$dbUserinfo['voteCount']} 票</td><td>{$dbUserinfo['buddyCount']} 人</td></tr>
+							<tr><td>修改个人资料</td><td><a href="{:U('Ucenter-Index/logout')}">退出登录</a></td></tr>
+						</tbody>
+					</table>
+					<h6>最新动态</h6>
+					<div class="user_dynamic">
+						<ul class="user_dynamic_list" style="text-align:left;">
+							<volist name="voteAllList" id="vo">
+							{~$voteName = isset($vo['vote_name']) && !empty($vo['vote_name']) ? $vo['vote_name'] : deMaskPhone($vo['vote_phone']);}
+							<li>{:isset($vo['partake_name']) && !empty($vo['partake_name']) ? $vo['partake_name'] : deMaskPhone($vo['partake_phone'])} 刚刚给 {$voteName} 进行了投票</li>
+							</volist>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="show_me_the_money">
+				<p>邀请好友给我投票</p>
+			</div>
+			<div class="user_contacts" style="display:none;">
+				<h6 class="f_l">通讯录</h6>
+				<div class="search_contacts f_r">
+					<form method="post" action="">
+						<input type="text" name="keyword" value="输入昵称或手机号进行搜索..." style="width:233px;height:33px;font-size:13px;" />
+						<input type="button" name="search" value="放大镜" />
+					</form>
+				</div>
+				<div class="user_contacts_btns">
+					<label><input type="checkbox" name="selectAll" onclick="selectAll('buddy_id[]');" /> 全选</label>
+					<button class="buddy_invites">邀请选中好友投票</button>
+					<!--<button>上传通讯录</button-->
+					<button class="buddy_dels">删除好友</button>
+					<button class="buddy_phone_book" onclick="selectPhoneBook();">上传好友列表</button>
+					<ul class="f_r">
+						<li><span>10</span> / </li><li>20 / </li><li>30 / </li><li>40</li>
+					</ul>
+				</div>
+				<div class="user_contacts_list"></div>
+				<div class="user_contacts_btns">
+					<label><input type="checkbox" name="selectAll" /> 全选</label>
+					<button class="buddy_invites">邀请选中好友投票</button>
+					<!--<button>上传通讯录</button>-->
+					<button class="buddy_dels">删除好友</button>
+					<ul class="f_r">
+						<li>10 / </li><li>20 / </li><li>30 / </li><li>40</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div style="display: none;">
+			
+		</div>
+	</body>
+</html>

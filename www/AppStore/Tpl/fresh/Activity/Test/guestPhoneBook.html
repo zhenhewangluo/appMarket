@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+		<script type='text/javascript' src="__PUBLIC__/js/artdialog/jquery.artDialog.js?skin=default"></script>
+		<style type="text/css">
+			body{font:12px/1.5 Arial, "微软雅黑", Tahoma, Helvetica, sans-serif;}
+			table{margin-left:20px;}
+			th{text-align: left;font-size:20px;font-weight:bold;color:#767676}
+			button{margin-right:20px;width:44px;height:23px;border:none;background:url(../Public/activity/image/buddy_uploads_submit.png) no-repeat left top;}
+			button span{color:#fff;}
+			td a{color:#757575;text-decoration: underline;}
+			td a:hover{color:#E76A05;}
+		</style>
+	</head>
+	<body style='width:450px'>
+		<div class="content">
+			<form action="{:U('Activity-Test/uploadPhoneBook')}" method="post" enctype="multipart/form-data">
+				<table class='border_table'>
+					<tr>
+						<th>上传好友列表：</th>
+					</tr>
+					<tr>
+						<td><input type='file' class='file' name='guestPhoneBook' /></td>
+					</tr>
+					<tr>
+						<td><button type='submit' class='submit'></button><a href="__PUBLIC__/file/guestPhoneBook.csv">示例文件</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

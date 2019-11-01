@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><![CDATA[
+<div class="login_window">
+	<h6>用户登录</h6>
+	<form id="loginForm">
+		<table>
+			<tbody>
+			<tr>
+				<th class="t_r">账户邮箱：</th>
+				<td><input class="long" type="text" name="email" value=""  pattern="email" alt="请输入账户邮箱" /><label>　</label></td>
+			</tr>
+			<tr>
+				<th class="t_r">密码：</th>
+				<td><input class="long" type="password" name="password" value=""  pattern="pass" alt="请输入密码" /><label>　</label></td>
+			</tr>
+			<tr>
+				<th class="t_r">验证码：</th>
+				<td>
+					<input class="middle" type="text" name="verifyCard" value=""  pattern="verify" alt="请输入验证码" valid-text=" " /><label>　</label>
+					<img style='cursor:pointer' title='刷新验证码' src="{:U('AppStore://App-RegisterUser/verify')}" id='verifyImg' onClick="fleshVerify()" />
+				</td>
+			</tr>
+			<tr>
+				<th class="t_r"></th>
+				<td>
+					<label><input type="checkbox" name="autoLogin" /> 自动登录</label>
+				</td>
+			</tr>
+			<tr>
+				<th class="t_r"></th><td><input type="submit" class="user_submit" value="登 　录" />　<a class="resetPassword" href="javascript:void(0);">忘记密码?</a>　<a class="user_form_reg" href="javascript:void(0);">创建一个账户</a></td>
+			</tr>
+			</tbody>
+		</table>
+	</form>
+	<script type="text/javascript" reload="1">
+		function fleshVerify(){
+			//重载验证码
+			var timenow = new Date().getTime();
+			$('#verifyImg').attr('src', "{:U('AppStore://App-RegisterUser/verify?random=')}"+timenow);
+		}
+		$(function(){
+			$('.user_form_reg').click(function(){
+				window.location = "{:U('AppStore://App-RegisterUser/index')}";
+			});
+			$('.resetPassword').click(function(){
+				window.location = "{:U('AppStore://App-RegisterUser/resetPassword')}";
+			});
+			$('.user_submit').click(function(){
+				var obj = {
+					'email'		: $('[name="email"]').val(),	
+					'password'	: $('[name="password"]').val(),
+					'verifyCard': $('[name="verifyCard"]').val(),
+					'__hash__'	: $('[name="__hash__"]').val()
+				};
+				if($('#loginForm .invalid-msg').length > 0)
+				{
+					return false;
+				}
+				for(pro in obj)
+				{
+					var item = $('[name="'+pro+'"]');
+					if($.trim(obj[pro]) == '')
+					{
+						//alert(pro);
+						item.addClass('invalid-text');
+						item.next('label').html(item.attr('alt'));
+						item.next('label').addClass('invalid-msg');
+						return false;
+					}
+				}
+				sendInfo("{:U('AppStore://App-Ajax/login')}", obj);
+				return false;
+			});
+		});
+	</script>
+</div>
+]]></root>

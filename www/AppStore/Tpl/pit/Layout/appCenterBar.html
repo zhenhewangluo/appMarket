@@ -1,0 +1,61 @@
+<div class="leftAppCol">
+	<div id="leftTab">
+		<div class="top">
+			<ul>
+				<compare name="ACTION_NAME" type="eq" value="appCenterList">
+				<li id="leftTabbtn1" class="btn1"><a href="#" onclick="setTab('leftTab',1,2); return false;">下载排行</a></li>
+				<li id="leftTabbtn2" class="btn2A"><a href="#" onclick="setTab('leftTab',2,2); return false;">分类浏览</a></li>
+				<else/>
+				<li id="leftTabbtn1" class="btn1A"><a href="#" onclick="setTab('leftTab',1,2); return false;">下载排行</a></li>
+				<li id="leftTabbtn2" class="btn2"><a href="#" onclick="setTab('leftTab',2,2); return false;">分类浏览</a></li>
+				</compare>
+			</ul>
+		</div>
+		<div id="leftTabBody1" class="body" <compare name="ACTION_NAME" type="eq" value="appCenterList">style="display:none;"</compare>>
+			<h2>应用排行</h2>
+			<volist name="hotlist" id="vo">
+				<div class="row">
+					<div class="number">{$i}</div>
+					<div class="icon">
+						<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" title="{$vo['app_name']}">
+							<img src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" style="width:48px; height:48px;" alt="{$vo['app_name']}" />
+						</a>
+					</div>
+					<div class="data">
+						<div class="title">
+							<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" title="{$vo['app_name']}">{:showCutStr($vo['app_name'], 10)}</a>
+						</div>
+						<div class="sub">
+							<a href="{:U('App-Apps/detail', array('aid' => $vo['app_id']))}" title="{$vo['author_name']}">{:showCutStr($vo['author_name'], 10)}</a>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</volist>
+		</div>
+		<div id="leftTabBody2" class="body" <compare name="ACTION_NAME" type="neq" value="appCenterList">style="display:none;"</compare>>
+			<h2><a href="{:U('App-Apps/appCenterList', array('cid' => $appCateTree[1]['id']))}">{$appCateTree[1]['name']}</a></h2>
+			<ul class="categories">
+				{~$count = count($appCateTree[1]['_child']);}				
+				<volist name="appCateTree[1]['_child']" id="vo">
+					<compare name="i" type="eq" value="$count">
+						<li class="last"><a href="{:U('App-Apps/appCenterList?cid=' . $vo['id'])}">{$vo['name']}</a></li>
+						<else/>
+						<li><a href="{:U('App-Apps/appCenterList?cid=' . $vo['id'])}">{$vo['name']}</a></li>
+					</compare>
+				</volist>
+			</ul>	
+			<h2><a href="{:U('App-Apps/appCenterList', array('cid' => $appCateTree[2]['id']))}">{$appCateTree[2]['name']}</a></h2>
+			<ul class="categories">
+				{~$count2 = count($appCateTree[2]['_child']);}
+				<volist name="appCateTree[2]['_child']" id="vo">
+					<compare name="i" type="eq" value="$count2">
+						<li class="last"><a href="{:U('App-Apps/appCenterList?cid=' . $vo['id'])}">{$vo['name']}</a></li>
+						<else/>
+						<li ><a href="{:U('App-Apps/appCenterList?cid=' . $vo['id'])}">{$vo['name']}</a></li>
+					</compare>
+				</volist>
+		</div>
+	</div>
+</div>
+<div class="leftAppColBGR"></div>

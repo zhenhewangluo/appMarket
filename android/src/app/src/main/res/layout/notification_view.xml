@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- COPYRIGHT AND PERMISSION NOTICE
+
+     Copyright (c) 
+
+     All rights reserved.
+
+     Permission is NOT granted to any person obtaining a copy of this
+     software and associated documentation files (the "Software"), to
+     deal in the Software, including the rights to use, copy, modify,
+     merge, publish, distribute, and/or sell copies of the Software, and
+     this permission notice appear in all copies of the Software and that
+     both the above copyright notice(s) and this permission notice appear
+     in supporting documentation.
+
+     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+     OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+     HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY
+     SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER
+     RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+     CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+     CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+     Except as contained in this notice, the name of a copyright holder
+     shall not be used in advertising or otherwise to promote the sale,
+     use or other dealings in this Software without prior written
+     authorization of the copyright holder.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal">
+	
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginTop="8dip"
+		android:layout_marginBottom="5dip"
+		android:orientation="vertical"
+		>
+		
+		<ImageView 
+	      android:layout_width="wrap_content"    
+	      android:layout_height="wrap_content" 
+	      android:id="@+id/downloading_icon"
+	      android:src="@drawable/notification_downloading"
+	      />
+	      
+		<TextView 
+	      android:id="@+id/progress_value" 
+	      android:layout_width="wrap_content"    
+	      android:layout_height="wrap_content"
+	      android:textSize="16dip" 
+	      android:textColor="#000000"/>
+	      
+	</LinearLayout>
+	
+    <LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="5dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginTop="8dip"
+		android:layout_marginBottom="5dip"
+		android:orientation="vertical"
+		>
+		  
+		<TextView 
+	      android:id="@+id/app_name" 
+	      android:layout_width="wrap_content"    
+	      android:layout_height="wrap_content" 
+	      android:textSize="18dip" 
+	      android:textColor="#000000"/>
+	      
+		<ProgressBar 
+			android:id="@+id/progress_bar" 
+			android:layout_width="235dip"
+			android:layout_height="wrap_content" 
+	      	android:layout_marginTop="2dip"
+			style="?android:attr/progressBarStyleHorizontal">
+		</ProgressBar>
+	
+    </LinearLayout>
+	
+	
+</LinearLayout> 

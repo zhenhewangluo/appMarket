@@ -1,0 +1,400 @@
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given Dispatcher.class.php 第 58 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead Dispatcher.class.php 第 102 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: returnFalse BaseAction.class.php 第 191 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead DbMysql.class.php 第 62 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_appinfo` [ RunTime:0.001422s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT `app_id` FROM `_v2_android`.`am_appinfo` WHERE app_id = 6055446 and app_visible = 1 LIMIT 1  [ RunTime:0.000602s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_category` [ RunTime:0.000920s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT * FROM `_v2_android`.`am_category` WHERE parent_id = 0 and visible = 1 [ RunTime:0.000763s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT name, description FROM `_v2_android`.`am_category` WHERE id = 6 LIMIT 1  [ RunTime:0.000579s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_category` [ RunTime:0.000939s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT * FROM `_v2_android`.`am_category` ORDER BY `order` ASC [ RunTime:0.001666s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_category` [ RunTime:0.000900s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT * FROM `_v2_android`.`am_category` ORDER BY `order` ASC [ RunTime:0.001553s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_rec_daily_day` [ RunTime:0.001141s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT `_v2_android`.`am_appinfo`.`app_id` FROM `_v2_android`.`am_rec_daily_day` LEFT JOIN `_v2_android`.`am_appinfo` ON `_v2_android`.`am_rec_daily_day`.`typeid` = `_v2_android`.`am_appinfo`.`app_id` WHERE `_v2_android`.`am_rec_daily_day`.`visible`=1 and `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_rec_daily_day`.`edittime`<='2019-10-31 23:59:59' GROUP BY `_v2_android`.`am_appinfo`.`app_id` ORDER BY `_v2_android`.`am_rec_daily_day`.`edittime` desc,`_v2_android`.`am_appinfo`.`app_id` desc LIMIT 400  [ RunTime:0.001627s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT `_v2_android`.`am_appinfo`.`app_id`,`_v2_android`.`am_appinfo`.`app_desc`,`_v2_android`.`am_appinfo`.`app_score_www`,`_v2_android`.`am_appinfo`.`app_starcount`,`_v2_android`.`am_appinfo`.`app_name`, `_v2_android`.`am_app_device_type`.`apk_path`,`_v2_android`.`am_app_device_type`.`icon` FROM `_v2_android`.`am_rec_daily_day` LEFT JOIN `_v2_android`.`am_appinfo` ON `_v2_android`.`am_rec_daily_day`.`typeid` = `_v2_android`.`am_appinfo`.`app_id` LEFT JOIN `_v2_android`.`am_app_device_type` ON `_v2_android`.`am_rec_daily_day`.`typeid` = `_v2_android`.`am_app_device_type`.`app_id` WHERE  `_v2_android`.`am_appinfo`.`app_id` in (6053558,6051314,6046943,6045932,6039053,6037986,6019805,6007193,6006985,6004442,6046943,6045932,6039053,6037986,6019805,6007193,6006985,6004442)  and `_v2_android`.`am_rec_daily_day`.`visible`=1 and `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_rec_daily_day`.`edittime`<='2019-10-31 23:59:59' GROUP BY `_v2_android`.`am_appinfo`.`app_id` ORDER BY `_v2_android`.`am_rec_daily_day`.`edittime` desc,`_v2_android`.`am_appinfo`.`app_id` desc [ RunTime:0.001811s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: SHOW COLUMNS FROM `huanjubao`.`dede_addonarticle` [ RunTime:0.000625s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT `huanjubao`.`dede_addonarticle`.`app_id` FROM `huanjubao`.`dede_addonarticle` LEFT JOIN `huanjubao`.`dede_archives` ON `huanjubao`.`dede_addonarticle`.`aid` = `huanjubao`.`dede_archives`.`id` LEFT JOIN `_v2_android`.`am_appinfo` ON `huanjubao`.`dede_addonarticle`.`app_id` = `_v2_android`.`am_appinfo`.`app_id` LEFT JOIN `_v2_android`.`am_app_device_type` ON `huanjubao`.`dede_addonarticle`.`app_id` = `_v2_android`.`am_app_device_type`.`app_id` WHERE `huanjubao`.`dede_archives`.`ismake` = 1 and `huanjubao`.`dede_archives`.`arcrank` = 0 and `_v2_android`.`am_appinfo`.`app_visible` = 1 GROUP BY `huanjubao`.`dede_addonarticle`.`app_id` ORDER BY `huanjubao`.`dede_archives`.`pubdate` desc,`huanjubao`.`dede_addonarticle`.`app_id` desc LIMIT 400  [ RunTime:0.020135s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT `huanjubao`.`dede_addonarticle`.`app_id`,`_v2_android`.`am_appinfo`.`app_desc`,`_v2_android`.`am_appinfo`.`app_score_www`,`_v2_android`.`am_appinfo`.`app_starcount`,`_v2_android`.`am_appinfo`.`app_name`, `_v2_android`.`am_app_device_type`.`apk_path`, `_v2_android`.`am_app_device_type`.`icon` FROM `huanjubao`.`dede_addonarticle` LEFT JOIN `huanjubao`.`dede_archives` ON `huanjubao`.`dede_addonarticle`.`aid` = `huanjubao`.`dede_archives`.`id` LEFT JOIN `_v2_android`.`am_appinfo` ON `huanjubao`.`dede_addonarticle`.`app_id` = `_v2_android`.`am_appinfo`.`app_id` LEFT JOIN `_v2_android`.`am_app_device_type` ON `huanjubao`.`dede_addonarticle`.`app_id` = `_v2_android`.`am_app_device_type`.`app_id` WHERE  `huanjubao`.`dede_addonarticle`.`app_id` in (512110541,720105221,720105130,720105224,512231018,512231057,720105203,720105145,720105138,511142325,720105220,518235328,511105010,720105205,720105214,614114469,6047928,6055630,6055627,6055626,6028782,511101345,6055604,6055612)  and `huanjubao`.`dede_archives`.`ismake` = 1 and `huanjubao`.`dede_archives`.`arcrank` = 0 and `_v2_android`.`am_appinfo`.`app_visible` = 1 GROUP BY `huanjubao`.`dede_addonarticle`.`app_id` ORDER BY `huanjubao`.`dede_archives`.`pubdate` desc,`huanjubao`.`dede_addonarticle`.`app_id` desc [ RunTime:0.017668s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_appinfo` [ RunTime:0.000951s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_appinfo`.`app_update_date`>'2018-10-31 00:00:00'  and `_v2_android`.`am_appinfo`.`app_id` in  (select `_v2_android`.`am_app_category`.`app_id` from `_v2_android`.`am_app_category` where `_v2_android`.`am_app_category`.`cate_id`=1) group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_downloads` desc,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.000872s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_appinfo`.`app_update_date`>'2018-10-31 00:00:00'  group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_downloads` desc,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.000832s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_appinfo`.`app_update_date`>'2018-10-31 00:00:00'  group by `_v2_android`.`am_appinfo`.`app_id` order by (`_v2_android`.`am_appinfo`.`app_score_www`/(`_v2_android`.`am_appinfo`.`app_starcount`+1e-5)) desc ,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.000809s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_appinfo`.`app_update_date`>'2018-10-31 00:00:00'  group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_starcount` desc,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.001286s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:08+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_update_date` desc,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.029734s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id`,`_v2_android`.`am_appinfo`.`app_desc`,`_v2_android`.`am_appinfo`.`app_score_www`,`_v2_android`.`am_appinfo`.`app_starcount`,`_v2_android`.`am_appinfo`.`app_name`, `_v2_android`.`am_app_device_type`.`apk_path`, `_v2_android`.`am_app_device_type`.`icon` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_device_type` on  `_v2_android`.`am_app_device_type`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_id` in (512230242,512231027,614114432,614114448,614114397,614114416,614114459,614114441,614114464,512231032,513021117,513021329,513021824,513021917,513022501,513022552,614114405,614114394,614114400,614114399,614114398,6055962,614114396,614114395)  group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_update_date` desc,`_v2_android`.`am_appinfo`.`app_id` desc [ RunTime:0.002048s ]
+[ 2019-10-31T14:01:08+08:00 ] SQL: SELECT * FROM `_v2_android`.`am_category` ORDER BY `order` DESC [ RunTime:0.001167s ]
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: sub_title 03949a862e008044c3795dec616087a6.php 第 6 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: page_title 03949a862e008044c3795dec616087a6.php 第 6 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: app_title 03949a862e008044c3795dec616087a6.php 第 6 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: meta_generator 03949a862e008044c3795dec616087a6.php 第 7 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Undefined variable: meta_keywords 03949a862e008044c3795dec616087a6.php 第 8 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:08+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given Dispatcher.class.php 第 58 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead Dispatcher.class.php 第 102 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: returnFalse BaseAction.class.php 第 191 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead DbMysql.class.php 第 62 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_appinfo` [ RunTime:0.001377s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT `app_id` FROM `_v2_android`.`am_appinfo` WHERE app_id = 6055446 and app_visible = 1 LIMIT 1  [ RunTime:0.000523s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_category` [ RunTime:0.001126s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT * FROM `_v2_android`.`am_category` WHERE parent_id = 0 and visible = 1 [ RunTime:0.000786s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT name, description FROM `_v2_android`.`am_category` WHERE id = 6 LIMIT 1  [ RunTime:0.000630s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_category` [ RunTime:0.001705s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT * FROM `_v2_android`.`am_category` ORDER BY `order` ASC [ RunTime:0.001619s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_category` [ RunTime:0.001012s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT * FROM `_v2_android`.`am_category` ORDER BY `order` ASC [ RunTime:0.001769s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined index: pid common.php 第 66 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_rec_daily_day` [ RunTime:0.001346s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT `_v2_android`.`am_appinfo`.`app_id` FROM `_v2_android`.`am_rec_daily_day` LEFT JOIN `_v2_android`.`am_appinfo` ON `_v2_android`.`am_rec_daily_day`.`typeid` = `_v2_android`.`am_appinfo`.`app_id` WHERE `_v2_android`.`am_rec_daily_day`.`visible`=1 and `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_rec_daily_day`.`edittime`<='2019-10-31 23:59:59' GROUP BY `_v2_android`.`am_appinfo`.`app_id` ORDER BY `_v2_android`.`am_rec_daily_day`.`edittime` desc,`_v2_android`.`am_appinfo`.`app_id` desc LIMIT 400  [ RunTime:0.001412s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT `_v2_android`.`am_appinfo`.`app_id`,`_v2_android`.`am_appinfo`.`app_desc`,`_v2_android`.`am_appinfo`.`app_score_www`,`_v2_android`.`am_appinfo`.`app_starcount`,`_v2_android`.`am_appinfo`.`app_name`, `_v2_android`.`am_app_device_type`.`apk_path`,`_v2_android`.`am_app_device_type`.`icon` FROM `_v2_android`.`am_rec_daily_day` LEFT JOIN `_v2_android`.`am_appinfo` ON `_v2_android`.`am_rec_daily_day`.`typeid` = `_v2_android`.`am_appinfo`.`app_id` LEFT JOIN `_v2_android`.`am_app_device_type` ON `_v2_android`.`am_rec_daily_day`.`typeid` = `_v2_android`.`am_app_device_type`.`app_id` WHERE  `_v2_android`.`am_appinfo`.`app_id` in (6053558,6051314,6046943,6045932,6039053,6037986,6019805,6007193,6006985,6004442,6046943,6045932,6039053,6037986,6019805,6007193,6006985,6004442)  and `_v2_android`.`am_rec_daily_day`.`visible`=1 and `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_rec_daily_day`.`edittime`<='2019-10-31 23:59:59' GROUP BY `_v2_android`.`am_appinfo`.`app_id` ORDER BY `_v2_android`.`am_rec_daily_day`.`edittime` desc,`_v2_android`.`am_appinfo`.`app_id` desc [ RunTime:0.001947s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: SHOW COLUMNS FROM `huanjubao`.`dede_addonarticle` [ RunTime:0.001290s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT `huanjubao`.`dede_addonarticle`.`app_id` FROM `huanjubao`.`dede_addonarticle` LEFT JOIN `huanjubao`.`dede_archives` ON `huanjubao`.`dede_addonarticle`.`aid` = `huanjubao`.`dede_archives`.`id` LEFT JOIN `_v2_android`.`am_appinfo` ON `huanjubao`.`dede_addonarticle`.`app_id` = `_v2_android`.`am_appinfo`.`app_id` LEFT JOIN `_v2_android`.`am_app_device_type` ON `huanjubao`.`dede_addonarticle`.`app_id` = `_v2_android`.`am_app_device_type`.`app_id` WHERE `huanjubao`.`dede_archives`.`ismake` = 1 and `huanjubao`.`dede_archives`.`arcrank` = 0 and `_v2_android`.`am_appinfo`.`app_visible` = 1 GROUP BY `huanjubao`.`dede_addonarticle`.`app_id` ORDER BY `huanjubao`.`dede_archives`.`pubdate` desc,`huanjubao`.`dede_addonarticle`.`app_id` desc LIMIT 400  [ RunTime:0.021104s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT `huanjubao`.`dede_addonarticle`.`app_id`,`_v2_android`.`am_appinfo`.`app_desc`,`_v2_android`.`am_appinfo`.`app_score_www`,`_v2_android`.`am_appinfo`.`app_starcount`,`_v2_android`.`am_appinfo`.`app_name`, `_v2_android`.`am_app_device_type`.`apk_path`, `_v2_android`.`am_app_device_type`.`icon` FROM `huanjubao`.`dede_addonarticle` LEFT JOIN `huanjubao`.`dede_archives` ON `huanjubao`.`dede_addonarticle`.`aid` = `huanjubao`.`dede_archives`.`id` LEFT JOIN `_v2_android`.`am_appinfo` ON `huanjubao`.`dede_addonarticle`.`app_id` = `_v2_android`.`am_appinfo`.`app_id` LEFT JOIN `_v2_android`.`am_app_device_type` ON `huanjubao`.`dede_addonarticle`.`app_id` = `_v2_android`.`am_app_device_type`.`app_id` WHERE  `huanjubao`.`dede_addonarticle`.`app_id` in (512110541,720105221,720105130,720105224,512231018,512231057,720105203,720105145,720105138,511142325,720105220,518235328,511105010,720105205,720105214,614114469,6047928,6055630,6055627,6055626,6028782,511101345,6055604,6055612)  and `huanjubao`.`dede_archives`.`ismake` = 1 and `huanjubao`.`dede_archives`.`arcrank` = 0 and `_v2_android`.`am_appinfo`.`app_visible` = 1 GROUP BY `huanjubao`.`dede_addonarticle`.`app_id` ORDER BY `huanjubao`.`dede_archives`.`pubdate` desc,`huanjubao`.`dede_addonarticle`.`app_id` desc [ RunTime:0.017377s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: SHOW COLUMNS FROM `_v2_android`.`am_appinfo` [ RunTime:0.000892s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_appinfo`.`app_update_date`>'2018-10-31 00:00:00'  and `_v2_android`.`am_appinfo`.`app_id` in  (select `_v2_android`.`am_app_category`.`app_id` from `_v2_android`.`am_app_category` where `_v2_android`.`am_app_category`.`cate_id`=1) group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_downloads` desc,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.000867s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_appinfo`.`app_update_date`>'2018-10-31 00:00:00'  group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_downloads` desc,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.000667s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_appinfo`.`app_update_date`>'2018-10-31 00:00:00'  group by `_v2_android`.`am_appinfo`.`app_id` order by (`_v2_android`.`am_appinfo`.`app_score_www`/(`_v2_android`.`am_appinfo`.`app_starcount`+1e-5)) desc ,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.000685s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  and `_v2_android`.`am_appinfo`.`app_update_date`>'2018-10-31 00:00:00'  group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_starcount` desc,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.000719s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Array to string conversion AppBaseAction.class.php 第 588 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadTo AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: whereDownloadFrom AppBaseAction.class.php 第 647 行.
+[ 2019-10-31T14:01:11+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_category` on  `_v2_android`.`am_app_category`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_visible`=1  group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_update_date` desc,`_v2_android`.`am_appinfo`.`app_id` desc limit 400 [ RunTime:0.032191s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: select `_v2_android`.`am_appinfo`.`app_id`,`_v2_android`.`am_appinfo`.`app_desc`,`_v2_android`.`am_appinfo`.`app_score_www`,`_v2_android`.`am_appinfo`.`app_starcount`,`_v2_android`.`am_appinfo`.`app_name`, `_v2_android`.`am_app_device_type`.`apk_path`, `_v2_android`.`am_app_device_type`.`icon` from `_v2_android`.`am_appinfo` left join `_v2_android`.`am_app_device_type` on  `_v2_android`.`am_app_device_type`.`app_id`=`_v2_android`.`am_appinfo`.`app_id` where `_v2_android`.`am_appinfo`.`app_id` in (512230242,512231027,614114432,614114448,614114397,614114416,614114459,614114441,614114464,512231032,513021117,513021329,513021824,513021917,513022501,513022552,614114405,614114394,614114400,614114399,614114398,6055962,614114396,614114395)  group by `_v2_android`.`am_appinfo`.`app_id` order by `_v2_android`.`am_appinfo`.`app_update_date` desc,`_v2_android`.`am_appinfo`.`app_id` desc [ RunTime:0.002236s ]
+[ 2019-10-31T14:01:11+08:00 ] SQL: SELECT * FROM `_v2_android`.`am_category` ORDER BY `order` DESC [ RunTime:0.001213s ]
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: sub_title 03949a862e008044c3795dec616087a6.php 第 6 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: page_title 03949a862e008044c3795dec616087a6.php 第 6 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: app_title 03949a862e008044c3795dec616087a6.php 第 6 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: meta_generator 03949a862e008044c3795dec616087a6.php 第 7 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Undefined variable: meta_keywords 03949a862e008044c3795dec616087a6.php 第 8 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [8] Use of undefined constant name - assumed 'name' f4b9b9356e05c2ddadf769aee0d8a8e8.php 第 52 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.
+[ 2019-10-31T14:01:11+08:00 ] NOTIC: [2] Invalid argument supplied for foreach() functions.php 第 75 行.

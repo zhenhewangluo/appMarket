@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="300dip"
+	android:layout_height="390dip"
+	android:background="#e4e4e4"
+	>
+	
+	<FrameLayout
+		android:layout_width="fill_parent"
+		android:layout_height="37dip"
+		android:layout_marginTop="18dip"
+		android:layout_marginLeft="10dip"
+		>
+		
+		
+		<!-- charge list label -->
+		
+		<LinearLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			>
+			
+			<TextView
+				android:id="@+id/charge_channel"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:layout_marginLeft="20dip"
+				android:text="@string/charge_list_test"
+				android:gravity="center_vertical"
+				android:textColor="#000"
+				android:textSize="16dip"/>
+			
+		</LinearLayout>
+			
+	</FrameLayout>
+	
+		
+	<!-- charge card number -->
+	<!-- charge card number label -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dip"
+		android:layout_marginTop="20dip"
+		android:text="@string/charge_cardnumber"
+		android:textStyle="bold"
+		android:textColor="#fff"
+		android:textSize="16dip"/>
+		
+	<!-- charge card number text editor -->
+	<EditText
+		android:id="@+id/charge_card_number_edit"
+		android:layout_width="fill_parent"
+		android:layout_height="37dip"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginTop="5dip"
+		android:textSize="16dip"
+		android:singleLine="true"/>
+				
+	<!-- charge password -->
+	<!-- charge password label -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dip"
+		android:layout_marginTop="10dip"
+		android:text="@string/charge_password"
+		android:textStyle="bold"
+		android:textColor="#fff"
+		android:textSize="16dip"/>
+		
+	<!-- charge password text editor -->
+	<EditText
+		android:id="@+id/charge_card_pwd_edit"
+		android:layout_width="fill_parent"
+		android:layout_height="37dip"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginTop="5dip"
+		android:textSize="16dip"
+		android:singleLine="true"/>
+		
+	<!-- charge card amount -->
+	<!-- charge card amount label -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dip"
+		android:layout_marginTop="10dip"
+		android:text="@string/charge_amount"
+		android:textStyle="bold"
+		android:textColor="#fff"
+		android:textSize="16dip"/>
+		
+	<!-- charge card amount text editor -->
+	<EditText
+		android:id="@+id/charge_card_amount_edit"
+		android:layout_width="fill_parent"
+		android:layout_height="37dip"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:layout_marginTop="10dip"
+		android:textSize="16dip"
+		android:singleLine="true"/>
+			
+	<!-- charge button -->
+	<include layout="@layout/long_button"
+		android:id="@+id/charge_btn"
+		android:layout_width="220dip"
+		android:layout_height="42dip"
+		android:layout_marginLeft="40dip"
+		android:layout_marginTop="20dip"/>
+	
+		
+</LinearLayout>

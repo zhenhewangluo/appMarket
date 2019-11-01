@@ -1,0 +1,436 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+<script type='text/javascript' src="__PUBLIC__/js/lightbox/jquery.lightbox-0.5.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/lightbox/css/jquery.lightbox-0.5.css" media="screen" />
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a>&nbsp;>&nbsp;
+	<volist name="breadcrumbs" id="vo">
+		<a href ="{:U('AppStore://App-Apps/appList?cid=' . $vo['id'])}">{$vo['name']}</a>&nbsp;>&nbsp;
+	</volist>
+</div>
+<!-- 面包屑导航 -->
+<!-- 左边侧栏 -->
+<div class="appbar f_l">
+	<h6>
+		热门应用
+	</h6>
+	<div class="appbar_content">
+		<volist name="hotlist" id="vo">
+		<dl class="t_l clearfix">
+			<dt>
+				<a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+					<img alt="{$vo['app_name']}" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" />
+				</a>
+			</dt>
+			<dd><a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">{:showCutStr($vo['app_name'], 10)}</a></dd>
+			<dd>下载次数：{$vo['app_downloads']|number_format}</dd>
+		</dl>
+		</volist>
+	</div>
+	<h6>
+		应用下载排行
+	</h6>
+	<div class="appbar_content">
+		<ul class="t_l">
+			<volist name="downloadlist" id="vo">
+			<li>
+				<a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+					<img width="24" height="24" alt ="{$vo['app_name']}" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" />
+					{:showCutStr($vo['app_name'], 17)}
+				</a>
+			</li>
+			</volist>
+		</ul>
+	</div>
+</div>
+<!-- 左边侧栏 -->
+<!-- 右边主体 -->
+<div class="app_detail_box f_r">
+	<!-- 右边顶部 -->
+	<div>
+		<h6>软件概况</h6>
+		<div class="app_content_box clearfix">
+			<p class="app_logo_box f_l">
+				<!-- 应用logo -->
+				<img class="applogo" src="{:C('PICTURE_HOST')}{$approw['AppDeviceType'][0]['icon']}" />
+				<!-- 应用logo -->
+				<span>下载次数：<span id="down_hits">{$approw['app_downloads']}</span></span>
+			</p>
+			<dl class="app_intro_box f_l">
+				<dt>
+					<span>{$approw['app_name']} （{$approw['app_version']}）</span>
+					<span class="grade">
+						<compare name="approw['app_starcount']" value="0" type="gt">
+						<i class="big_score" style="width:{:round($approw['app_score_www']/$approw['app_starcount'], 2) * 35}px;"></i>
+						<else/>
+						<i class="big_score" style="width:0px;"></i>
+						</compare>
+					</span>
+				</dt>
+				<dd>文件大小：{$approw['AppDeviceType'][0]['app_size']/1048576|round=1} MB</dd>
+				<dd>作者：{$approw['author_name']}</dd>
+				<dd>最后更新：{$approw['app_update_date']|strtotime|date='Y-m-d',###}</dd>
+				<dd>评分次数：<span class="score_count">{$approw['app_starcount']|number_format}</span></dd>
+				<dd class="share clearfix">
+					<span class="f_l" style="padding-top:5px;">分享到：</span>
+					<a id="share_sina" href="javascript:void(0)" title="新浪微博" onclick="postShare('xinlang','{$approw['app_name']}');">
+						新浪微博
+					</a>
+					<a id="share_renren" href="javascript:void(0)" title="人人网" onclick="postShare('renren','{$approw['app_name']}');">
+						人人网
+					</a>
+					<a id="share_kaixin" href="javascript:void(0)" title="开心网" onclick="postShare('kaixin','{$approw['app_name']}');">
+						开心网
+					</a>
+					<a id="share_qq" href="javascript:void(0)" title="腾讯微博" onclick="postShare('qq','{$approw['app_name']}');">
+						腾讯微博
+					</a>
+				</dd>
+				<dd><a id="app_download_btn" class="app_download_btn" href="{:C('PICTURE_HOST')}{$approw['AppDeviceType'][0]['apk_path']}"></a></dd>
+			</dl>
+			<p class="prcode_box f_r">
+				<!-- 二维码 -->
+				<img class="prcode" src="http://hjapp.hjapp.com/global/qr/?url={:urlencode('http://m.hjapp.com' . $downloadUrl)}" />
+				<!-- 二维码 -->
+				<a href="{:U('AppStore://App-Apps/detail', array('aid' => 6021810))}">使用二维码下载到手机</a>
+			</p>
+			<div style="clear:both;"></div>
+		</div>
+		<div class="app_content_box_b"></div>
+	</div>
+	<div>
+		<h6>详细介绍</h6>
+		<div class="app_content_box app_desc_box">
+			<p id="app_desc_short" class="clearfix">
+				{:showCutStr($approw['app_desc'], 100)}
+			</p>
+			<p id="app_desc_full" style="display:none;" class="clearfix">
+				{$approw['app_desc']}
+			</p>
+			<hr /> <span class="app_desc_button" id="show_app_desc">展开</span>
+			{~$app_img_list = explode(';', $approw['AppDeviceType'][0]['screenshots'])}
+			<compare name="app_img_list|count" value="1" type="gt">
+			<div class="app_desc_image">
+				<a href="javascript:void(0);" class="slide_b_l"></a>
+				<ul>
+					<volist name="app_img_list" id="vo">
+					<li>
+						<a href="{:C('PICTURE_HOST')}{$vo}">
+							<img src="{:C('PICTURE_HOST')}{$vo}" width="310" />
+						</a>
+					</li>
+					</volist>
+				</ul>
+				<a href="javascript:void(0);" class="slide_b_r"></a>
+			</div>
+			<else/>
+			<div class="app_desc_image">
+				<a class="singlePic" href="{:C('PICTURE_HOST')}{$app_img_list[0]}">
+					<img src="{:C('PICTURE_HOST')}{$app_img_list[0]}" width="310" />
+				</a>
+			</div>
+			</compare>
+		</div>
+		<div class="app_content_box_b"></div>
+	</div>
+	<div>
+		<h6>
+			喜欢{$approw['app_name']}的网友还喜欢
+		</h6>
+		<div class="app_content_box">
+			<ul class="recomment_list clearfix">
+				<volist name="recommenlist" id="vo">
+					<li>
+						<a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+							<img alt ="{$vo['app_name']}" src="{:C('PICTURE_HOST')}{$vo['AppDeviceType'][0]['icon']}" width="50" height="50" />
+						</a>
+						<a href="{:U('AppStore://App-Apps/detail?aid=' . $vo['app_id'])}" title="{$vo['app_name']}">
+							{:showCutStr($vo['app_name'], 4)}
+						</a>
+					</li>
+				</volist>
+			</ul>
+			<div style="clear:both;"></div>
+		</div>
+		<div class="app_content_box_b"></div>
+	</div>
+
+	<!-- 相关推荐 -->
+	<div>
+		<h6>用户评论</h6>
+		<div class="app_content_box">
+			<div class="app_score_detail">
+				<table class="app_score_table f_l t_c">
+					<colgroup>
+						<col width="10px">
+						<col width="15px">
+						<col width="150px">
+						<col width="30px">
+					</colgroup>
+					<volist name="appScore" id="vo">
+						<if condition="$key neq 0">
+							<tr>
+								<td class="point_list">{$key}</td>
+								<td class="point_star"><span></span></td>
+								<td class="point_chart">
+									<span class="green_grade">
+										<if condition="$approw['app_starcount'] gt 0">
+										<i style="width:{:round($appScore[$key]/$approw['app_starcount'], 2) *150}px;"></i>
+										<else/>
+										<i style="width:0px;"></i>
+										</if>
+									</span>
+								</td>
+								<td>{$appScore[$key]}</td>
+							</tr>
+						</if>
+					</volist>
+				</table>
+				<dl class="app_grade_view f_r t_c">
+					<dt>平均评分：</dt>
+					<dd class="app_avg_point">
+						{~$grade_point = ($approw['app_starcount'] > 0 ) ? round($approw['app_score_www']/$approw['app_starcount'], 2) : 0}
+						{:$grade_point}
+					</dd>
+					<dd>
+						<span class="blue_grade">
+							<i style="width:{$grade_point*15}px;"></i>
+						</span>
+					</dd>
+					<dd>{$approw['app_starcount']}</dd>
+				</dl>
+			</div>
+			<div class="user_comment_list clear">
+				<volist name="appComment" id='vo'>
+					<dl>
+						<dd>{$vo['user_name']} 评论日期：{$vo['create_time']|strtotime|date='Y年m月d日',###}</dd>
+						<dd class="comment_grade">
+							<p>
+								<span class="blue_grade">
+									<i style="width:{$vo['score_www']*15}px;"></i>
+								</span>
+							</p>
+						</dd>
+						<dd>
+							{:keyWordFilter($vo['content'])}
+						</dd>
+					</dl>
+				</volist>
+			</div>
+			<div>
+				<eq name="userCommentDone" value="true">
+					<input type="hidden" name="act" id="act" value="2" />
+					此应用您已评过分了！
+				<else/>
+				
+				<form id="comment_form" method="post" action="">
+					<ul class="user_comment_form">
+						<li class="user_comment_el">
+							<script type="text/javascript" src="__PUBLIC__/js/rater/jquery.rater.js"></script>
+							<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/rater/jquery.rater.css" />
+							<span>我来点评：</span><span id="star"></span>
+							<script type="text/javascript">
+								var options = {
+									'max'			: '5',
+									'value'			: '4',
+									'image'			: '__PUBLIC__/js/rater/star.gif',
+									'after_click'	: function(e){
+										$('#score').val(e.number);
+									}
+								};
+								$('#star').rater(options);
+							</script>
+							<input type="hidden" name="score" id="score" value="4" />
+							<input type="hidden" name="active" id="active" value="1" />
+						</li>
+						<li class="user_comment_el">
+							<compare name="webUid" value="0" type="elt">
+								<div class="comment_content_box">
+									<p>您需要登录后才可以评分和评论 <span class="login_window_btn">登录</span>|<a href="{:U('AppStore://App-RegisterUser/index')}">注册</a></p>
+								</div>	
+							<else/>
+								<textarea name="content" id="comment_content" class="comment_content_box"></textarea>
+							</compare>
+						</li>
+						<li class="user_comment_el">
+							<compare name="webUid" value="0" type="elt">
+								<input type="button" id="sub_comment_login" value="提交" />
+							<else/>
+								<input type="button" id="sub_comment" value="提交" />
+							</compare>
+						</li>
+					</ul>
+					<input type="hidden" name="app_id" id="app_id" value="{$approw['app_id']}" />
+				</form>
+				</eq>
+			</div>
+			<p class="show_comment_all">
+				<a href="{:U('AppStore://App-Apps/appCommentList?aid=' . $approw['app_id'])}">阅读所有“用户评论”</a>
+			</p>
+		</div>
+		<div class="app_content_box_b"></div>
+	</div>
+</div>
+<!-- 右边主体 -->
+<script type="text/javascript">
+	$(function(){
+		$('.login_window_btn').click(function(){
+			getWin('{:U("AppStore://UserCenter-Ajax/loginWindow")}', 'loginWin', '用户登录', false);
+			//login_window('{:U("AppStore://RegisterUser/loginWindow")}', "{:U('AppStore://App-Ajax/login')}", '{:U("AppStore://RegisterUser/index")}', '{:U("AppStore://RegisterUser/resetPassword")}');
+		});
+		$('#sub_comment_login').click(function(){
+			getWin('{:U("AppStore://UserCenter-Ajax/loginWindow")}', 'loginWin', '用户登录', false);
+			//login_window('{:U("AppStore://RegisterUser/loginWindow")}', "{:U('AppStore://App-Ajax/login')}", '{:U("AppStore://RegisterUser/index")}', '{:U("AppStore://RegisterUser/resetPassword")}');
+		});
+		$(".user_comment_list dl::nth-child(even)").addClass('even');
+		$(".user_comment_list dl::nth-child(odd)").addClass('odd');
+		//app说明隐藏展开操作
+		$('#show_app_desc').click(function(){
+			var shortNode = $('#app_desc_short');
+			var fullNode = $('#app_desc_full');
+
+			if(shortNode.css('display') == 'none')
+			{
+				fullNode.hide();
+				shortNode.show();
+				$(this).html('展开');
+			}
+			else
+			{
+				shortNode.hide();
+				fullNode.show();
+				$(this).html('收起');
+			}
+		});
+		//图片滚动
+		$li1 = $(".app_desc_image li");
+		$window1 = $(".app_desc_image ul");
+		$left1 = $(".app_desc_image .slide_b_l");
+		$right1 = $(".app_desc_image .slide_b_r");
+		//alert($li1.length);
+
+		//$window1.css("width", $li1.length*166);
+		//alert($window1.attr('class'));
+		var lc1 = 0;
+		var rc1 = $li1.length-1;
+		$left1.click(function() {
+			if (lc1 < 1) {
+				//alert("已经是第一张图片");
+				return;
+			}
+			lc1--;
+			rc1++;
+			$window1.animate({left:'+=320px'}, 1000);
+		});
+
+		$right1.click(function() {
+			if (rc1 < 1) {
+				//alert("已经是最后一张图片");
+				return;
+			}
+			lc1++;
+			rc1--;
+			$window1.animate({left:'-=320px'}, 1000);
+		});
+		//提交评论
+		$('#sub_comment').click(function(){
+			var uid = parseInt('{$webUid}');
+			if(uid <= 0)
+			{
+				
+				return false;
+			}
+			var comment_content = $('#comment_content').val();
+			var score_value = parseInt($('#score').val());
+			var active = parseInt($('#active').val());
+			if($.trim(comment_content) == '')
+			{
+				alert('请填写评论内容');
+				return false;
+			}
+			if(active == 1 && (score_value <=0 || score_value > 5))
+			{
+				alert('评分只能是1-5分');
+				return false;
+			}
+			$.getJSON(
+				"{:U('AppStore://App-Ajax/appComment')}", 
+				{'score':score_value,'comment_content':comment_content, 'app_id':$('#app_id').val(), 'active': active},
+				function(data){
+					alert(data.msg);
+					if(data.status == 1)
+					{
+						$('.user_comment_list').prepend(data.returnhtml);
+						$('.slide' + data.dlflag).slideDown('slow');
+						$('#comment_form').remove();
+						$('.score_count').html(data.score_count);
+						$('.big_score').css('width', data.app_score * 35 + 'px');
+						$('.app_score_detail').html(data.html);
+					}
+				}
+			);
+		});
+		var lightBoxSetting = {
+			imageLoading:			'__PUBLIC__/js/lightbox/images/lightbox-ico-loading.gif',		// (string) Path and the name of the loading icon
+			imageBtnPrev:			'__PUBLIC__/js/lightbox/images/lightbox-btn-prev.gif',			// (string) Path and the name of the prev button image
+			imageBtnNext:			'__PUBLIC__/js/lightbox/images/lightbox-btn-next.gif',			// (string) Path and the name of the next button image
+			imageBtnClose:			'__PUBLIC__/js/lightbox/images/lightbox-btn-close.gif',		// (string) Path and the name of the close btn
+			imageBlank:				'__PUBLIC__/js/lightbox/images/lightbox-blank.gif'
+		};
+		$('.app_desc_image ul li a').lightBox(lightBoxSetting);
+		$('.app_desc_image a.singlePic').lightBox(lightBoxSetting);
+
+		$('#app_download_btn').click(function(){
+			st = setTimeout('getApp', 500);
+		});
+		
+	});
+	function getApp()
+	{
+//		var url = $('.app_download_btn').attr('href');
+		$.getJSON('{:U("AppStore://App-Ajax/setIncDownloadsByAid?aid=" . $approw["app_id"])}',function(data){
+			if(data.status == 1)
+			{
+				$.dialog.open(data.url, {show:false});
+				$('#down_hits').html(parseInt($('#down_hits').html()) + 1);
+			}
+		});
+		return false;
+	}
+function postShare(type,title)
+{
+	title+="很不错哦，分享一下～       ——来自《***》 ";
+	url = location.href;
+	url=url || "";
+	url=encodeURIComponent(url);
+
+	title=title || "";
+	title=encodeURI(title);
+
+	desURL="";
+	switch(type)
+	{
+		case 'qq':
+			desURL='http://v.t.qq.com/share/share.php?url='+url+'&appkey=&site=&pic=&title='+title;
+			break;
+		case 'kaixin':
+			desURL="http://www.kaixin001.com/repaste/share.php?rtitle="+title+"&rurl="+url;
+			break;
+		case 'renren':
+			desURL="http://share.renren.com/share/buttonshare.do?title="+title+"&link="+url;
+			break;
+		case 'douban':
+			desURL="http://www.douban.com/recommend/?url="+url+"&title="+title;
+			break;
+		case 'xinlang':
+			desURL="http://v.t.sina.com.cn/share/share.php?title="+title+"&url="+url;
+			break;
+		default:break;
+	}
+	if(desURL)
+	{
+		window.open(desURL,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes,status=no');
+	}
+}
+</script>

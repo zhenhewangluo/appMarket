@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root><![CDATA[
+<div class="info_form">
+	<table>
+		<col width="100">
+		<col />
+		<tr>
+			<th>手机号：</th>
+			<td>{$dUinfo['mobile']}</td>
+		</tr>
+		<tr>
+			<th>我的人气：</th>
+			<td>{$dUinfo['pageUserActive'][0]['votecount']}</td>
+		</tr>
+		<tr>
+			<th>我的排名：</th>
+			<td>{$dUinfo['pageUserActive'][0]['voteranking']}</td>
+		</tr>
+	</table>
+	<table>
+		<col width="150">
+		<col />
+		<tr>
+			<th><a href="javascript:void(0);" id="logout" class="action_btn">退出</a></th>
+			<td><a href="javascript:void(0);" id="resetPass" class="action_btn">修改密码</a></td>
+		</tr>
+		<tr>
+			<th><a href="javascript:void(0);" id="invite" class="action_btn">邀请好友</a></th>
+			<td><a href="javascript:void(0);" id="supMeList" class="long_btn">支持我的好友列表</a></td>
+		</tr>
+	</table>
+</div>
+]]></root>

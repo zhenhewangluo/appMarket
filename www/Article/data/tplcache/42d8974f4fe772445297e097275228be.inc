@@ -1,0 +1,10 @@
+{dede:field name='keywords'}谷歌,Google Play,云存储{/dede:field}
+{dede:field name='description'}据国外媒体报道，Google 3月7日正式对外宣布推出Google Play，一个帮助用户发现、欣赏、分享数字娱乐内容的平台。Google Play基于云技术，让用户可以将自己的音乐、电影、电子书以及Android应用存储其中。{/dede:field}
+{dede:field name='title'}谷歌推Google Play 借云存储整合各数字平台{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

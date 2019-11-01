@@ -1,0 +1,19 @@
+<table>
+	<tr>
+		<th>邀请号码</th>
+		<th>发送时间</th>
+<!--		<th>当前状态</th>-->
+	</tr>
+	<volist name="infoList['advises']" id="vo">
+	<tr>
+		<td class="win_mobile">{$vo['phone']|deMaskPhone=false}</td>
+		<td class="win_date">{$vo['adviseDate']}</td>
+<!--		<td class="win_status">
+			<compare name="vo['feedbacked']" value="1" type="eq">已支持<else/>等待支持</compare>
+		</td>-->
+	</tr>
+	</volist>
+</table>
+<div class="page">
+	{$infoList['pageShow']}
+</div>

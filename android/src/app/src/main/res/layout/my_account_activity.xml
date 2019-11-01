@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="#e4e4e4"
+    >
+
+    <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+
+    <!-- Content -->
+
+        <!-- android:layout_height="@dimen/simple_title_list_height"  -->
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+         >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="90dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="20dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/usernickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dip"
+                    android:layout_marginTop="10dip"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/user_info_nickname"
+                    android:textColor="#db6607"
+                    android:textSize="16dip"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dip"
+                    android:layout_marginTop="3dip"
+                    android:orientation="horizontal" >
+
+                    <!-- user hello -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/user_info_hello"
+                        android:textColor="#db6607"
+                        android:textSize="16dip"
+                        android:textStyle="bold" />
+
+                    <!-- user name -->
+
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dip"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="@string/user_info_name"
+                        android:textColor="#db6607"
+                        android:textSize="16dip"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dip"
+                    android:layout_marginTop="3dip"
+                    android:orientation="horizontal" >
+
+                    <!-- user phone -->
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/user_info_phone"
+                        android:textColor="#db6607"
+                        android:textSize="16dip"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/phone1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="#db6607"
+                        android:textSize="16dip"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- user nickname -->
+
+            <LinearLayout
+                android:id="@+id/bottomLinearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="@dimen/my_account_bottomLinearLayout_layout_marginTop"
+                android:orientation="vertical" >
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="165dip"
+                    android:layout_gravity="center"
+                    android:orientation="vertical" >
+
+                    <!-- edit user info button -->
+
+                    <include
+                        android:id="@+id/edit_btn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dip"
+                        android:layout_marginRight="45dip"
+                        android:layout_marginTop="30dip"
+                        layout="@layout/long_button" />
+
+                    <include
+                        android:id="@+id/user_info_xiugai"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dip"
+                        android:layout_marginRight="45dip"
+                        android:layout_marginTop="30dip"
+                        layout="@layout/long_button" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Footer Tab -->
+
+    <include layout="@layout/footer_tabs" />
+
+</LinearLayout>

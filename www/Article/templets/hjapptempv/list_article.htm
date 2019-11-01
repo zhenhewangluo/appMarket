@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title> {dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="={dede:field.title/}的第{dede:pagelist listsize='0' listitem='pageno' function='html2text(@me)'/}页,{dede:field name='description' function='html2text(@me)'/}" />
+<link type="text/css" rel="stylesheet" href="{dede:global.cfg_cmsurl/}/templets/style/css.css" />
+<script type="text/javascript" src="{dede:global.cfg_cmsurl/}/templets/js/dedeajax2.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "{dede:global.cfg_templeturl/}/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+{dede:include filename="head2.htm"/}
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：{dede:field name='position'/}</div>
+		<!--place end-->
+		<div class="conList">
+			{dede:list pagesize='15' titlelen='120'}
+			<div class="g">
+				<h2><span>分类：<a href="[field:typeurl/]" target="_blank">[[field:typename/]]</a></span><a href="[field:arcurl/]" target="_blank" title="[field:title  function='html2text(@me)' /]" id="list_title">[field:title function="cn_substr(Html2text(@me),75)" /]</a><em class="list_time">[field:stime/]</em></h2>
+				<p>[field:array runphp='yes']@me = (strpos(@me['litpic'],'defaultpic') ? "" : "<a href='{@me['arcurl']}' class='imgview' target='_blank'><img src='{@me['litpic']}' align='right' alt='{@me['title']}' width='100' height='100'/></a>"); [/field:array] [field:description  function="cn_substr(Html2text(@me),250)"/]... <a href="[field:arcurl/]" target="_blank">阅读全文>></a> <span class="data"><em class="list_view">[field:click/]围观</em><em class="list_tag">标签：[field:id function=GetTags(@me)/] 
+		   </em></span> </p>
+			</div>
+			{/dede:list}
+		</div>
+		<div class="pages">
+			<ul class="pagelist">
+				{dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="4"/}
+			</ul>
+		</div>
+		<!-- /pages -->
+	</div>
+	<div class="mright">
+		<!--<div class="rBox"><script src='{dede:global.cfg_cmsurl/}/plus/ad_js.php?aid=23' language='javascript'></script></div>-->
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">编辑推荐</h2>
+			<ul class="list1">
+				{dede:arclist flag='c' row='8' orderby='pubdate' titlelen=45}
+				  <li><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>
+				{/dede:arclist}
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title"><strong>TOP</strong><span class="diggtab"> <em id="diggnav1" onmouseover="javascript:tabDivcnt('digg',1,3,'cut')" class="cut"><a href="#">最近</a></em> <em id="diggnav2" onmouseover="javascript:tabDivcnt('digg',2,3,'cut')"><a href="#">本周</a></em> <em id="diggnav3" onmouseover="javascript:tabDivcnt('digg',3,3,'cut')"><a href="#">本月</a></em> </span> </h2>
+			<ul id="diggcnt1" class="diggArea">
+				{dede:arclist row=5 titlelen=80 noflag='h' orderby='hot' subday='3' }
+				<li>
+					<div class="diggNum"><a href="[field:arcurl/]" target="_blank">[field:click/]</a></div>
+					<div class="diggLink"><a href="[field:arcurl/]" target="_blank">[field:title/]</a></div>
+				</li>
+				{/dede:arclist}
+			</ul>
+			<ul id="diggcnt2" class="diggArea" style="display:none;">
+				{dede:arclist row=5 titlelen=80 noflag='h' orderby='hot' subday='7' }
+				<li>
+					<div class="diggNum"><a href="[field:arcurl/]" target="_blank">[field:click/]</a></div>
+					<div class="diggLink"><a href="[field:arcurl/]" target="_blank">[field:title/]</a></div>
+				</li>
+				{/dede:arclist}
+			</ul>
+			<ul id="diggcnt3" class="diggArea" style="display:none;">
+				{dede:arclist row=5 titlelen=80 noflag='h' orderby='hot' subday='30' }
+				<li>
+					<div class="diggNum"><a href="[field:arcurl/]" target="_blank">[field:click/]</a></div>
+					<div class="diggLink"><a href="[field:arcurl/]" target="_blank">[field:title/]</a></div>
+				</li>
+				{/dede:arclist}
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<!--pinglun.la-->
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">热门标签</h2>
+			<div class="taglist">{dede:tag row='20' sort='new' getall='0'} <a href='[field:link/]' target="_blank" style="[field:total runphp=yes]@me=getTagStyle();[/field:total]">[field:tag /]</a> {/dede:tag}</div>
+		</div>
+		<!--tag 结束-->
+	</div>
+    <div style="clear:both"></div>
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+{dede:include filename="footer2.htm"/}
+<!-- /footer -->
+</body>
+</html>
+

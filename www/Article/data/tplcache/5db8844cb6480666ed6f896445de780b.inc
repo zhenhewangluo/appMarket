@@ -1,0 +1,10 @@
+{dede:field name='keywords'}MIUI,第80周发布,更新日志{/dede:field}
+{dede:field name='description'}MIUI 2.3.9 已发布！ 本周MIUI 2.3开发版刷机推荐度：89%，查看详情1. 小米手机本周没有 2.3.5 稳定版，电信版目前暂不能刷MIUI 4.02. 小米手机2.3.5k及更高版本升级4.0刷机教程（注意：会清空用户数据），已是4.0版本的可以直接OTA升级3. Galaxy Nexus 今天启动内测；HTC Sensation G14、三星 I9100和华为 Honor今天有内测OTA{/dede:field}
+{dede:field name='title'}MIUI 2.3.9 第80周发布及更新日志{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

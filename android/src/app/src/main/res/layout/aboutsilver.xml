@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="280dip"
+  android:layout_height="wrap_content">
+  <TextView
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:text="@string/about_silver"
+  	android:textColor="#ffffff"
+  	android:textSize="16dip"
+  	android:layout_marginTop="6dip"
+  	android:layout_marginLeft="6dip"
+  	android:layout_marginRight="7dip"/>
+  <TextView
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:text="@string/about_silver_question"
+  	android:textColor="#80C0FF"
+  	android:textSize="16dip"
+  	android:layout_marginTop="9dip"
+  	android:layout_marginLeft="7dip"
+  	android:layout_marginRight="7dip"/>
+  <TextView
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:text="@string/about_silver_answer"
+  	android:textColor="#ffffff"
+  	android:textSize="16dip"
+  	android:layout_marginTop="9dip"
+  	android:layout_marginLeft="7dip"
+  	android:layout_marginRight="7dip"/>
+  <TextView
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:text="@string/about_silver_question2"
+  	android:textColor="#80C0FF"
+  	android:textSize="16dip"
+  	android:layout_marginTop="9dip"
+  	android:layout_marginLeft="7dip"
+  	android:layout_marginRight="7dip"/>
+  <TextView
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:text="@string/about_silver_answer2"
+  	android:textColor="#ffffff"
+  	android:textSize="16dip"
+  	android:layout_marginTop="9dip"
+  	android:layout_marginLeft="7dip"
+  	android:layout_marginRight="7dip"/>
+  <include layout="@layout/long_button"
+  	android:id="@+id/get_it"
+  	android:layout_width="133dip"
+  	android:layout_height="wrap_content"
+  	android:layout_marginTop="12dip"
+  	android:layout_marginBottom="12dip"
+  	android:layout_marginLeft="73dip"/>
+  		
+</LinearLayout>

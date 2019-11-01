@@ -1,0 +1,10 @@
+{dede:field name='keywords'}中国电信,千元智能机,上市{/dede:field}
+{dede:field name='description'}腾讯科技讯（孙实）3月10日消息，今日，有消息称，中国电信计划将推出iPhone 4S之外的其它类型手机，其中以千元智能手机为主，目前首批智能手机已经准备就绪。据了解，中国电信新引入的这批智能机价格将低于千元，操作系统仍是Android，屏幕达到4寸及4寸以上，有的机型可达4.3寸。{/dede:field}
+{dede:field name='title'}中国电信拟推千元智能机 首批上市手机已就绪{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

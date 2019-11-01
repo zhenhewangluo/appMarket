@@ -1,0 +1,797 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>腾讯移动安全实验室 2012年2月手机病毒报告_***</title>
+<meta name="keywords" content="腾讯移动,安全实验室,手机" />
+<meta name="description" content="2012年2月，基于腾讯手机管家（原名QQ手机管家）安全服务的腾讯移动安全实验室一共截获3787个手机病毒软件包，其中Android平台截获2164个，Symbian平台截获1623个。Android平台病毒的增长开" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/WPS/' target="_blank">WPS</a><a href='/Article/tags.php?/%E6%9C%AF%E8%A7%A3%E5%AF%86/' target="_blank">术解密</a><a href='/Article/tags.php?/%E9%9A%8F%E8%BA%AB%E6%90%BA%E5%B8%A6/' target="_blank">随身携带</a><a href='/Article/tags.php?/%E5%8F%A6%E7%B1%BB/' target="_blank">另类</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">腾讯移动安全实验室 2012年2月手机病毒报告</h1>
+			<div class="articleInfo"><small>时间:</small>2012-03-20 23:23<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=3393&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp; &nbsp;2012年2月，基于腾讯手机管家（原名QQ手机管家）安全服务的腾讯移动安全实验室一共截获3787个手机病毒软件包，其中Android平台截获2164个，Symbian平台截获1623个。Android平台病毒的增长开始加速，连续两个月超过了Symbian平台病毒的增量，隐私窃取类病毒开始成群结队出现，不断挑战用户个人信息的安全，加上Android自身权限的开放性和用户在手机端的安全保护意识相对薄弱，手机隐私泄露危机四伏。Symbian平台病毒相对上个月有小幅度增长，主要还是以资费消耗、系统破坏、诱骗欺诈为主，与上个月的病毒差异不大，目前Symbian平台病毒已经进入发展成熟的后期阶段。
+</p>
+<p align="left" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	<strong style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、Android</strong><strong style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;">系统平台</strong> 
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1 主要特点
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2012年2月，Android平台病毒增长继续扩大，在捕获的病毒当中，隐私获取占24%，比例最多，其次是诱骗欺诈占20%、恶意扣费占16%，资费消耗占16%，其他各类病毒比例相对均衡。随着手机移动终端的不断发展，存储在手机上的个人信息也越来越多，各类手机应用程序与用户个人隐私已经是零距离接触。隐私获取类病毒主要通过读取用户的GPS位置信息、短信内容、通话记录、联系人资料等个人信息，并上传到对应的病毒服务器。由于移动网络的无缝对接即时在线，再加上部分手机隐私内容储存数据量较小，非常容易就被病毒或恶意程序迅速传输泄露出去，给用户造成极大困扰。
+</p>
+<p align="center" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	<img alt="" src="/uploads/allimg/c120716/1342422U52R40-31144.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;" /> 
+</p>
+<p align="center" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	图1：2012年2月Android病毒类型分布图
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2 典型病毒
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以下是2012年2月在Android平台发现的一些较为典型的病毒：
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp; （1） a.remote.lbs52loc.[隐秘追踪]
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒安装后会强制开机启动，隐藏桌面图标，同时拦截特定短信，以获取用户GPS位置信息，并上传远程服务器，严重泄漏用户隐私。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）a.remote.mzx.[卧底大盗]
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该软件安装后无图标开机自启动，启动后会监听手机的通话内容、发送短信并使用GPS跟踪您的行踪，同时会拦截短信内容、通话记录、邮件、手机号码等隐私内容上传到服务器，给用户的隐私安全带来严重威胁。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）a.remote.pdaspy
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该软件开机自启动，配置好软件后图标消失，将隐藏在用户的手机中对短信信息、GPS定位、通话记录等隐私信息进行监控，并将这些信息上传到远程病毒服务器，给用户的个人隐私安全造成一定的威胁。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）a.payment.smsspy.[短信间谍]
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒安装后无图标，开机自动启动，启动后会发送扣费短信，并同时会删除短信信息和获取用户GPS位置，给用户的财产安全和个人隐私造成严重威胁。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）a.system.androidbot.[Root狙击手]
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒包含两个可疑的bin程序，并且利用png图片把自身进行伪装；该病毒激活后对部分机型获取root权限，一旦获取成功便静默安装内嵌的病毒子包；给用户手机带来一定的安全威胁。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）a.remote.rootsmart
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒伪装成系统关键程序，启动后申请授予root权限，并在后台私自下载并静默安装其它恶意应用，同时会收集短信、通话记录等隐私信息，给手机用户的安全造成较大威胁。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（7）a.payment.fish.a
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒经常伪装成正常软件诱骗用户下载，启动后私自发送扣费短信，给用户的财产安全造成一定损失。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（8）a.consumption.androidme
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒安装后无启动图标，一旦激活将会对部分号码的短信进行拦截，并且后台私自联网，消耗用户资费，给用户造成一定的经济损失。
+</p>
+<p align="left" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	<strong style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、Symbian</strong><strong style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;">系统平台</strong> 
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1 主要特点：
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2012年2月，Symbian平台手机病毒相对上个月有小幅度的增长，资费消耗、系统破坏“平分秋色”，都占了32%的比例，其次是诱骗欺诈，占比26%。在发现的Symbian平台病毒当中，总的流程特点可以归纳为：首先通过各种伪装方式如借助软件“包中包”模式反复潜伏，骗取用户信任。进入手机之后，病毒需要私自联网调取远程服务器指令、或上传信息或下载恶意插件并安装，造成流量费用持续消耗，又或者偷偷发送订购信息，造成手机恶意扣费。病毒在执行指令、下载安装恶意应用的过程中又给手机造成了内存的大量占用，在配置较低的Symbian系统手机造成破坏变得不稳定甚至是死机，影响正常使用。Symbian手机病毒发展越来越成熟，受到平台自身的局限，在技术上难以有更多的亮点，但仍然给大量的用户带来非常多的安全问题。
+</p>
+<p align="center" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	<img alt="" src="/uploads/allimg/c120716/1342422U5Q140-41X7.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;width:540px;height:341px;" /> 
+</p>
+<p align="center" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	图2：2012年2月Symbian病毒类型分布图
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2 典型病毒：
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以下是2012年2月在Symbian平台发现的一些较为典型的病毒
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）s.privacy.poec
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒伪装成正常软件诱骗用户安装使用，自激活后常驻后台，消耗手机内存资源；无提示获取手机联系人列表并删改手机联系人信息，严重影响手机的正常使用
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）s.privacy.symbianth
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒安装后常驻后台私自联网下载其他恶意软件，消耗用户一定数据流量，还可能将用户手机相关配置信息上传到指定服务器，泄露用户隐私；占用大量系统资源，无法完全关闭，可能影响手机或其他软件的正常运行；还试图终止某些安全杀毒类软件进程，给用户手机安全带来一定威胁。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）s.privacy.signalserver
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒伪装成诺基亚插件，诱导用户下载安装，非官方版本，而是被其他恶意者篡改过的盗版软件，无图标生成；自激活后常驻后台私自联网，可能给用户带来一定流量损失，还有可能在联网的同时泄露用户手机相关配置信息；占用大量系统资源，可能影响手机或其他软件的正常运行。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）s.privacy.netuuguide
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒以网址导航服务类软件“***助手”为名，诱导用户下载安装，非官方版本，而是被其他恶意者篡改过的盗版软件，自激活后常驻后台私自联网，可能泄露用户手机相关配置信息，消耗用户手机一定数据流量；私自修改用户手机桌面快捷方式，占用大量系统资源，无法完全关闭，可能影响手机或其他软件的正常运行。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）s.payment.anvisak.a.[伪杀毒吸费中心]
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒以“杀毒中心”为名诱导用户下载安装，实际无任何杀毒功效，安装后提示手机存在3个病毒BIT.***Plug【盗号木马】，FC.Dow***【恶意扣费】，Sha***Srv【隐私窃取】，需用户支付**元的费用来进行病毒清理，用户一旦确认，病毒便会在后台自动点播SP收费业务，同时屏蔽运营商发送的收费提示短信，给用户带来严重经济损失。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）s.payment. superupdate.[系统辅助包]
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒常伪装成手机系统组件，诱使用户下载安装，无任何图标，自激活后私自联网下载其他恶意软件，消耗用户手机一定数据流量；私自发送短信并屏蔽运营商的反馈信息，有可能在用户毫不知情的情况下订购高额的SP收费业务，给用户带来一定经济损失；无法完全关闭，占用大量系统资源，无法手动删除，可能影响手机或其他软件的正常运行。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（7）s.payment.sysinbestsafe
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该病毒安装后开机自启，无法完全退出，占用手机内存，可能使手机或者软件无法使用；且在没有提示联网的情况下自动联接网络，消耗流量，给用户带来一定的经济损失；同时该病毒静默安装几款恶意插件，可能给用户手机带来一定的安全威胁。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	<strong style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三、传播渠道来源分布</strong> 
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2012年2月，根据腾讯移动安全实验室后台病毒渠道分布的数据分析：电子市场成为病毒来源的最主要渠道，由于各种电子市场用户基数非常大，制毒者或制毒机构往往铤而走险，借助修改的正常软件顺利通过正常审核，待软件安装到用户手机之后，再借助软件版本更新使手机染上病毒并偷偷驻留在手机后台。其次手机论坛是传播二次修改程序的最佳途径，借助论坛附件、网盘存储等提供用户直接下载，通过各类打包形式绕开安全检测，利用用户迫切体验稀缺软件资源的心理，使用户直接染毒又或二次升级产品附带病毒。热门软件游戏捆绑病毒也是比较常见也是比较有直接效果的传播方式。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机病毒主要传播来源比例：
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 电子市场：通过一些没有接入安全检测的电子市场进行传播，占37%；
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 手机论坛：通过上传论坛附件或提供下载网络硬盘下载地址方式，占21%；
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 手机资源站：通过录入或开设手机下载WEB/WAP资源站点，提供直接的软件下载地址，占16%；
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. 软件捆绑：热门软件尤其是游戏软件经常包含病毒或者远程下载，占12%；
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. ROM系统内置：rom制作者因为利益的驱动在rom里预装病毒软件，占8%；
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. 微博、博客：通过发博客、微博附带下载地址链接，占1%；
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. 其他：互联网任何形式的自助发布渠道或合作平台，占5%。
+</p>
+<p align="center" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	<img alt="" src="/uploads/allimg/c120716/1342422U640140-5I22.jpg" style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;" /> 
+</p>
+<p align="center" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	图3：2012年2月手机病毒各传播渠道来源比例
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	<strong style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四、专家支招与建议</strong> 
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建议手机用户需要下载软件的时候，选择口碑不错、评价比较好或者是打分比较高的软件，对于一些知名软件尽可能到其官方网站下载，不要轻易下载安装来历不明的陌生软件；用户还可以到腾讯应用中心、腾讯手机管家自带“软件游戏”功能中下载，或者使用QQ电脑管家的手机管理功能，直接在电脑免费下载上万款手机软件，这些应用都经过腾讯手机管家的安全认证，可以有效保证应用的安全。
+</p>
+<p style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同时在手机端安装如腾讯手机管家一类专业的手机安全软件，及时升级病毒库，定期扫描查杀，可以避免手机中毒等问题而造成的严重损失。关注<u style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;">@</u><u style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;">腾讯移动安全实验室</u>的腾讯微博，可掌握最新的手机安全资讯。
+</p>
+<p align="left" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;腾讯手机管家官方网站： 
+</p>
+<p align="left" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;腾讯手机管家腾讯微博： 
+</p>
+<p align="left" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;腾讯手机管家新浪微博： 
+</p>
+<p align="left" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:initial;border-image:initial;outline-width:0px;outline-style:initial;outline-color:initial;vertical-align:baseline;font-family:Tahoma， simsun;line-height:20px;white-space:normal;background-color:#FFFFFF;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;腾讯移动安全实验室官方微博： 
+</p>
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>腾讯手机管家</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/3393.html">/Article/News/2012/0716/3393.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/3393.html";
+				var wumiiTitle = "腾讯移动安全实验室 2012年2月手机病毒报告";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/3393.html">腾讯移动安全实验室 2012年2月手机病毒报告</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/News/2012/0716/3501.html" target="_blank">小米手机第五轮10万台开放购买 赠送橙色后盖</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3493.html" target="_blank">Google Play升级 主要修复MOTO手机登陆问题</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3488.html" target="_blank">大屏双核Android机 摩托罗拉RAZR超值价</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3487.html" target="_blank">网秦手机浏览器正小范围内测 首选Android平台</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3480.html" target="_blank">金山手机卫士第一时间捕获最新SP扣费病毒</a>(2012-03-10)</li>
+<li><a href="/Article/News/2012/0716/3478.html" target="_blank">中国电信拟推千元智能机 首批上市手机已就绪</a>(2012-03-10)</li>
+<li><a href="/Article/News/2012/0716/3470.html" target="_blank">北京市消协：手机充值卡今年将取消有效期</a>(2012-03-09)</li>
+<li><a href="/Article/News/2012/0716/3458.html" target="_blank">博通推出为Android 4.0而优化的智能手机平台</a>(2012-03-08)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/3392.html'>“追踪大盗” 惊现江湖 手机淘宝被盗版</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/3394.html'>苹果要求谷歌摩托提供Android数据失败</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',3393)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',3393)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',3393)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(3393);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="3393" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=3393">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=3393&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '3393');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '3393');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:pt;color:#9f8ec">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:pt;color:#239edb">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:10pt;color:#15b3c7">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:12pt;color:#5afc3">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:12pt;color:#875ac3">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:10pt;color:#a4b2a">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:14pt;color:#aeb46b">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:12pt;color:#252a3b">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:pt;color:#f0379a">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:10pt;color:#165a15">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:10pt;color:#5ea97b">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:14pt;color:#f0303">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:12pt;color:#b4998d">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:14pt;color:#288d45">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:pt;color:#a28748">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:pt;color:#e8658b">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:pt;color:#cb1dec">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:pt;color:#9b0e">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:pt;color:#dd69b4">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:pt;color:#c88d46">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

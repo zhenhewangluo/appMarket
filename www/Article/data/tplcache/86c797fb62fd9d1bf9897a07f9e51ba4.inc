@@ -1,0 +1,10 @@
+{dede:field name='keywords'}讯飞语音输入法,{/dede:field}
+{dede:field name='description'}2012年3月9日，安徽科大讯飞信息科技股份有限公司发布了讯飞语音输入法（Android）v2.1.1130 beta版。新版在键盘输入上新增对简拼输入联系人姓名功能的全面支持，只要通过词库管理导入联系人词库，就可以方便地输入联系人。另外在手写输入上，增加了对部分特殊符号（如‰ € ℃♀ ♂等）的手写识别支持{/dede:field}
+{dede:field name='title'}讯飞语音输入法v2.1.1130发布：导入联系人词库 输入更方便{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

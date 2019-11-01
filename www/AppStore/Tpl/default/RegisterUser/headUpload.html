@@ -1,0 +1,32 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a> > <a href ="{:U('AppStore://RegisterUser/ucenter')}">用户中心</a> > 个人图像
+</div>
+<!-- 面包屑导航 -->
+<!-- layout::$userbar::0 -->
+<script type="text/javascript">
+	function updateavatar() {
+		window.location.reload();
+	}
+</script>
+<div class="user_box f_r">
+	<div class="user_box_t">
+		<h6>个人资料</h6>
+		<ul class="user_box_nav">
+			<li class="current"><a href="{:U('AppStore://RegisterUser/headUpload')}">个人图像</a></li>
+			<li><a href="{:U('AppStore://RegisterUser/updatePassword')}">修改密码</a></li>
+		</ul>
+	</div>
+	<div class="user_box_c">
+		<h6>个人图像</h6>
+		<div>
+			{$flash}
+		</div>
+		<div>
+			<img src="__ROOT__/{$webUhead[0]}" />&nbsp;
+			<img src="__ROOT__/{$webUhead[1]}" />&nbsp;
+			<img src="__ROOT__/{$webUhead[2]}" />
+		</div>
+	</div>
+	<div class="user_box_b"></div>
+</div>

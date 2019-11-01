@@ -1,0 +1,30 @@
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="{dede:global.cfg_basehost/}">{dede:global.cfg_webname/}</a></div>
+		<div class="search">
+			<form action="{dede:field name='phpurl'/}/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：{dede:tag row='4' getall='1' sort='rand'}<a href='[field:link/]' target="_blank">[field:tag /]</a>{/dede:tag}</div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='{dede:global.cfg_basehost/}'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span>{dede:channel type='top' row='10' currentstyle="<a class='cut' href='~typelink~' ~rel~>~typename~</a>"}<a href='[field:typeurl/]' [field:rel/]>[field:typename/]</a>{/dede:channel}
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="{dede:global.cfg_cmsurl/}/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+

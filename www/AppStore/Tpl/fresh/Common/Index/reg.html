@@ -1,0 +1,322 @@
+<script type='text/javascript' src="__PUBLIC__/js/artdialog/jquery.artDialog.js?skin=idialog"></script>
+<script type='text/javascript' src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#verifyImg').click(function(){
+			var timenow = new Date().getTime();
+			$(this).attr('src', "{:U('AppStore://Base/verify?random=')}"+timenow);
+		});
+		//		$('#viewAgreement').click(function(){
+		//			$('#agreementDetail').toggle();
+		//			return false;
+		//		});
+		$('#sendVerify').click(function(){
+			$.getJSON('{:U("AppStore://Common-Ajax/sendVerify")}', {mobile : $('input:[name="mobile"]').val()}, function(data){
+				if(data.status == 1)
+				{
+					//do something...
+				}
+				alert(data.msg)
+			});
+		});
+		$('input:[name="email"]').blur(function(){
+			if($(this).attr('class').indexOf('invalid-text') == -1 && $(this).next().attr('class').indexOf('invalid-msg') == -1 && $.trim($(this).val().length) > 0)
+				checkUserExisit('email', $(this).val(), $(this));
+		});
+		$('input:[name="mobile"]').blur(function(){
+			if($(this).attr('class').indexOf('invalid-text') == -1 && $(this).next().attr('class').indexOf('invalid-msg') == -1 && $.trim($(this).val().length) > 0)
+				checkUserExisit('phone', $(this).val(), $(this));
+		});
+		$('#common_login input:[name="username"]').blur(function(){
+			if($(this).attr('class').indexOf('invalid-text') == -1 && $(this).next().attr('class').indexOf('invalid-msg') == -1 && $.trim($(this).val().length) > 0)
+				checkUserExisit('username', $(this).val(), $(this));
+		});
+		$('#common_login input:[name="password"]').bind('keyup', function(){
+			pwStrength($(this).val());
+		});
+	});
+	
+	function checkUserExisit(checkType, checkVal, obj)
+	{
+		$.post("{:U('AppStore://Common-Ajax/checkUserExisit')}", {checkType: checkType, checkVal: checkVal},function(data){
+			if(data.isExisit > 0)
+			{
+				obj.next().attr('class', 'invalid-msg');
+				obj.next().html(data.msg);
+			}
+		}, 'JSON');
+	}
+	//CharMode函数
+	//source:www.web2bar.cn  
+	//测试某个字符是属于哪一类.  
+	function CharMode(iN)
+	{  
+		if (iN>=48 && iN <=57) //数字  
+			return 1;  
+		if (iN>=65 && iN <=90) //大写字母  
+			return 2;  
+		if (iN>=97 && iN <=122) //小写  
+			return 4;  
+		else  
+			return 8; //特殊字符  
+	}  
+	//bitTotal函数  
+	//计算出当前密码当中一共有多少种模式  
+	function bitTotal(num)
+	{  
+		modes=0;  
+		for (i=0;i<4;i++)
+		{  
+			if (num & 1) modes++;  
+			num>>>=1;  
+		}  
+		return modes;  
+	}  
+	//checkStrong函数  
+	//返回密码的强度级别  
+	function checkStrong(sPW)
+	{  
+		if (sPW.length<=4)  
+			return 0; //密码太短  
+		Modes=0;  
+		for (i=0;i<sPW.length;i++)
+		{  
+			//测试每一个字符的类别并统计一共有多少种模式.  
+			Modes|=CharMode(sPW.charCodeAt(i));  
+		}  
+		return bitTotal(Modes);  
+	}  
+	//pwStrength函数  
+	//当用户放开键盘或密码输入框失去焦点时,根据不同的级别显示不同的颜色  
+	function pwStrength(pwd)
+	{
+		var strength = '';
+		O_color="#eeeeee";  
+		L_color="#FF0000";  
+		M_color="#FF9900";  
+		H_color="#33CC00";  
+		if (pwd==null||pwd=='')
+		{  
+			strength = 'w0';
+		}  
+		else
+		{  
+			S_level=checkStrong(pwd);
+			switch(S_level)
+			{
+				case 0:  
+					strength = 'w0';
+				case 1:  
+					strength = 'w1';
+				break;  
+				case 2:  
+					strength = 'w2';
+				break;  
+				default:  
+					strength = 'w3';
+			}  
+		}
+		$('#red_password_weight span').attr('class', strength);
+		return;  
+	}  
+</script>
+{~$realType = C('ACTIVITY_NAME');}
+
+<div class="reg_left">
+	<div class="reg_tab reg_tab_big">
+		<span class="tab1"><a href="{:U('AppStore://Common-Index/reg', array('acttype' => 'market'))}">电子邮箱注册</a></span>
+		<span class="tab2"><a href="{:U('AppStore://Common-Index/reg', array('acttype' => C('ACTIVITY_NAME')))}" >手机号码注册</a></span>
+	</div>
+	<form id="common_login" method="post" action="{:U('AppStore://Common-Index/regAct')}" autocomplete="off">
+		<input type="hidden" name='callbackUrl' value="{$callbackUrl}">
+		<input type="hidden" name="acttype" value="{$acttype}">
+		<compare name="acttype" value="$realType" type="eq">
+			<div class="notice1" id="notice_top" style="display:none;"><i></i>海外用户暂不支持手机号注册，请使用<a href="{:U('AppStore://Common-Index/reg', array('acttype' => 'market'))}" target="_blank">电子邮箱注册</a></div>
+			<div class="new_construct">
+				<div class="new_item">
+					<div class="tit"><em>*</em>我的手机号</div>
+					<div class="bdmain">
+						<div positionleft="7" class="jh_yanzheng">
+							<strong>
+								<input type="text" autocomplete="off" class="textinp" id="reg_username" style="width: 230px; color: rgb(153, 153, 153);" name="mobile" pattern="mobi" required /><label class="">　</label>
+							</strong>
+						</div>
+						<p class="noti2">完成注册后，手机号码为你的***登录名</p>
+					</div>
+					<div class="new_plus" id="sendVerify">
+						<p class="plus_a"><a href="javascript:void(0);" class="btn_gray"><em>免费获取验证码</em></a></p>
+					</div>
+				</div>
+				<div class="new_item">
+					<div class="tit"><em>*</em>创建密码</div>
+					<div class="bdmain">
+						<div positionleft="7" class="jh_yanzheng">
+							<strong>
+								<input type="password" class="textinp" id="reg_password" style="width: 230px; color: rgb(153, 153, 153);" name="password" bind="repassword" pattern="pass" required /><label class="">　</label>
+							</strong>
+						</div>
+					</div>
+					<div class="new_plus" id="red_reg_password"></div>
+					<div class="pw_weight" id="red_password_weight"><span class="w0"></span></div>
+				</div>
+				<div class="new_item">
+					<div class="tit"><em>*</em>验证密码</div>
+					<div class="bdmain">
+						<div positionleft="7" class="jh_yanzheng">
+							<strong>
+								<input type="password" class="textinp" id="reg_password" style="width: 230px; color: rgb(153, 153, 153);" name="repassword" bind="password" pattern="pass" required /><label class="">　</label>
+							</strong>
+						</div>
+					</div>
+					<div class="new_plus" id="red_reg_password"></div>
+				</div>
+				<div class="new_item">
+					<div class="tit"><em>*</em>昵称</div>
+					<div class="bdmain">
+						<div positionleft="7" class="jh_yanzheng">
+							<strong>
+								<input type="text" autocomplete="off" class="textinp" id="nickname" style="width: 230px; color: rgb(153, 153, 153);" name="username" pattern="username" required /><label class="">　</label>
+							</strong>
+						</div>
+					</div>
+					<div class="new_plus" id="red_nickname"> </div>
+					<div id="use_name"></div>
+				</div>
+				<div class="new_item">
+					<div class="tit"><em>*</em>手机验证码</div>
+					<div class="bdmain wid_bdmain">
+						<div positionleft="185" class="jh_yanzheng"><strong><input type="text" autocomplete="off" class="textinp" name="mobileVefiry" id="door" style="color: rgb(153, 153, 153);" pattern="verify" required /><label class="">　</label></strong></div>
+						<div class="new_plus" id="red_door"></div>
+						<div class="noti3">
+							<p>1分钟内手机还没有收到验证码，请点击此处<a href="javascript:void(0);" id="resendcode">重发</a></p>
+							<i>尝试多次仍收不到验证码，请使用<a href="{:U('AppStore://Common-Index/reg', array('acttype' => 'market'))}" id="mail_register1">电子邮箱注册</a></i>
+						</div> 
+					</div>
+				</div>
+			</div>
+			<div class="reg_bt"><input type="submit" class="btn2" id="submit" title="立即开通" value="立即开通" style="text-indent:-9999px;border:none;" /><p><a href="http://login.sina.com.cn/regagreement.html" target="_blank">***网络服务使用协议</a></p></div>
+			<div class="notice1" id="notice_bottom" style="display:none;"><i></i>海外用户暂不支持手机号注册，请使用<a href="{:U('AppStore://Common-Index/reg', array('acttype' => 'market'))}" id="mail_register2">电子邮箱注册</a></div>
+
+
+			<else/>
+
+
+
+			<div style="display:none;" id="notice_tommail" class="notice1">
+				<i></i>TOM邮件服务器故障，您有可能收不到来自新浪微博的激活信。
+				<a href="javascript:void(0);" id="changemail">换个邮箱</a>
+			</div>
+			<div class="new_construct">
+				<div class="new_item">
+					<div class="tit"><em>*</em>我的邮箱</div>
+					<div class="bdmain">
+						<div positionleft="7" class="jh_yanzheng">
+							<strong>
+								<input type="text" class="textinp" id="reg_username" style="width: 230px; color: rgb(153, 153, 153);" name="email" autocomplete="off" pattern="email" /><label class="">　</label>
+							</strong>
+						</div>
+					</div>
+				</div>
+				<div class="new_item">
+					<div class="tit"><em>*</em>创建密码</div>
+					<div class="bdmain">
+						<div positionleft="7" class="jh_yanzheng">
+							<strong>
+								<input type="password" class="textinp" id="reg_password" style="width: 230px; color: rgb(153, 153, 153);" name="password" pattern="pass" bind="repassword" /><label class="">　</label>
+							</strong>
+						</div>
+					</div>
+					<div id="red_reg_password" class="new_plus"></div>
+					<div class="new_plus">
+						<div class="pw_weight" id="red_password_weight"><span class="w0"></span></div>
+					</div>
+				</div>
+				<div class="new_item">
+					<div class="tit"><em>*</em>验证密码</div>
+					<div class="bdmain">
+						<div positionleft="7" class="jh_yanzheng">
+							<strong>
+								<input type="password" class="textinp" id="reg_repassword" style="width: 230px; color: rgb(153, 153, 153);" name="repassword" pattern="pass" bind="password" /><label class="">　</label>
+							</strong>
+						</div>
+					</div>
+					<div id="red_reg_password" class="new_plus"></div>
+				</div>
+				<div class="new_item">
+					<div class="tit"><em>*</em>昵称</div>
+					<div class="bdmain">
+						<div positionleft="7" class="jh_yanzheng">
+							<strong>
+								<input type="text" class="textinp" id="nickname" style="width: 230px; color: rgb(153, 153, 153);" name="username" autocomplete="off" pattern="" required /><label class="">　</label>
+							</strong>
+						</div>
+					</div>
+					<div class="new_plus" id="red_nickname"></div>
+					<div id="use_name"></div>
+				</div>
+				<div class="new_item">
+					<div class="tit"><em>*</em>验证码</div>
+					<div class="bdmain">
+						<div positionleft="185" class="jh_yanzheng">
+							<strong>
+								<input type="text" class="textinp" name="verifyCard" id="door" style="color: rgb(153, 153, 153);" autocomplete="off" pattern="verify" required /><label class="">　</label>
+							</strong>
+						</div>
+						<div class="jh_yanzhimg">
+							<img width="100" height="35" src="{:U('AppStore://Base/verify')}" style="" id="verifyImg" />
+							<a href="javascript:;" class="login_voice" id="door_play_voice" title="收听验证码" alt="收听验证码"></a>
+							<span class="noti1"><a onclick="App.refreshCheckCode()" href="javascript:void(0);">换一换</a></span>
+						</div>
+					</div>   
+					<div style="" id="red_door" class="new_plus"></div>
+				</div>
+			</div>
+			<div class="reg_bt">
+				<input type="submit" name="submit" value="立即开通" id="submit" class="btn2" style="text-indent:-9999px;border:none;" />
+				<p><a target="_blank" href="http://login.sina.com.cn/regagreement.html">《***网络使用协议》</a></p>
+			</div>
+		</compare>
+	</form>
+</div>
+
+<div class="reg_right">
+	<div class="reg_title2">已有***帐号？
+		<p>
+			<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"  class="btn_normal btns">
+				<em>登录</em>
+			</a>
+		</p>
+		<div id="light" class="white_content">
+			<a class="white_content_close" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+				<img src="../Public/images/sina/close_hover.gif" />
+			</a>
+			<div class="white_content_left">
+				<h6>已有***邮箱账号，可直接登录</h6>
+				<form method="post" action="{:U('AppStore://Common-Index/loginAct')}" id="windowLogin">
+					<table >
+						<tbody>
+							<tr>
+								<td>邮箱/手机号：<input type="text" name="username" /></td>	
+							</tr>
+							<tr>
+								<td>输入密码：<input type="password" name="password" /></td>	
+							</tr>
+							<tr>
+								<td>
+									<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"  class="btn_normal btns"><em onclick="document.getElementById('windowLogin').submit()">登录</em></a>
+									<label><input type="checkbox" class="next_auto_login" checked="checked" />下次自动登录</label>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<div class="white_content_right">
+				<h6>还未开通？赶快免费注册一个吧！</h6>
+				<p>
+					<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"  class="btn_normal btns"><em>注册***</em></a>
+				</p>	
+			</div>			
+		</div>
+	</div>    
+</div>

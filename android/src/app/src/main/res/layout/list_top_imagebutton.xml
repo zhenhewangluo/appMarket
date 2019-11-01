@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/imagebutton"
+	android:layout_width="fill_parent"
+	android:layout_height="80dip"
+    android:adjustViewBounds="false"
+    android:background="#00000000"
+	android:src="@drawable/duobaolianjie"/>

@@ -1,0 +1,10 @@
+{dede:field name='keywords'}Android 4.1,Flash Player,Nexus{/dede:field}
+{dede:field name='description'}Nexus 7这样高配低价的产品罕见异常，可以预见，消费者将非常欢乐。Nexus 7正炙手可热，在吸引无数人的眼球和口水的当下，Adobe带了一个坏消息：Flash Player支持Android 4.1的更新还为时尚早。{/dede:field}
+{dede:field name='title'}Android 4.1没有Flash Player还需要很长时间{/dede:field}
+{dede:field name='writer'}鹏哥哥{/dede:field}
+{dede:field name='source'}安卓哥{/dede:field}
+{dede:field name='pubdate'}2012-7-2 20:58:37{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

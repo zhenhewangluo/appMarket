@@ -1,0 +1,174 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+
+<title>“{dede:field.title/}”{dede:pagelist listsize='0' listitem='pageno' function='html2text(@me)'/}_{dede:global.cfg_webname/}</title>
+
+<link type="text/css" rel="stylesheet" href="{dede:global.cfg_cmsurl/}/templets/style/css.css" />
+
+<script type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(
+
+function($){
+
+$("img").lazyload({
+
+placeholder : "{dede:global.cfg_templeturl/}/images/grey.gif",
+
+effect      : "fadeIn"
+
+});
+
+});
+
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+
+<body>
+
+{dede:include filename="head2.htm"/}
+
+<!-- /header -->
+
+<div class="mainBox">
+
+	<div class="mleft">
+
+		<div class="place">您的位置：<a href="{dede:global.cfg_cmsurl/}/">首页</a> &gt; 有关{dede:field.title/}的文章</div>
+
+		<div class="conList"><h1 style="font-size:16px; margin:10px 0;">有关<strong>“{dede:field.title/}”</strong>的文章</h1>
+
+			{dede:list orderby='sortrank' pagesize='10' titlelen='120'}
+
+			<div class="g">
+
+				<h2><span>分类：<a href="[field:typeurl/]" target="_blank">[[field:typename/]]</a></span><a href="[field:arcurl/]" target="_blank" title="[field:title  function='html2text(@me)' /]">[field:title function="cn_substr(Html2text(@me),50)" /]</a><em class="list_time">[field:stime/]</em></h2>
+
+				<p>[field:array runphp='yes']@me = (strpos(@me['litpic'],'defaultpic') ? "" : "<a href='{@me['arcurl']}' class='imgview' target='_blank'><img src='{@me['litpic']}' align='right' alt='{@me['title']}' width='160' height='120'/></a>"); [/field:array] [field:description  function="cn_substr(Html2text(@me),250)"/]... <a href="[field:arcurl/]" target="_blank">阅读全文&gt;&gt;</a> <span class="data"><em class="list_view">[field:click/]围观</em><em class="list_tag">标签：[field:id function=GetTags(@me)/] 
+
+		   </em></span> </p>
+
+			</div>
+
+			{/dede:list}
+
+		</div>
+
+		<div class="pages">
+
+			<ul class="pagelist">
+
+				{dede:pagelist listsize='4'/}
+
+			</ul>	
+
+		</div>
+
+		<!-- /pages -->
+
+		<div class="randtag">
+
+			<strong>热门标签：</strong>{dede:tag row='10' sort='month' getall='0'} <a href='[field:link/]'>[field:tag /]</a> {/dede:tag}
+
+		</div>
+
+	</div>
+
+	<!--mleft end-->
+
+	<div class="mright">
+
+		<div class="rBox">{dede:myad name='index'/}</div>
+
+		<!--右边内容 结束-->
+
+		<div class="rBox">
+
+			<h2 class="title">编辑推荐</h2>
+
+			<ul class="list1">
+
+				{dede:arclist flag='c' row='10' orderby='pubdate' titlelen=35}
+
+				<li><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>
+
+				{/dede:arclist}
+
+			</ul>
+
+		</div>
+
+		<!--右边内容 结束-->
+
+	</div>
+
+</div>
+
+<!-- totop BEGIN -->
+
+<div id="totop" class="totop"><span>返回顶部</span></div>
+
+<script type="text/javascript">
+
+	$(window).scroll(function () {
+
+        var dt = $(document).scrollTop();
+
+        var wt = $(window).height();
+
+        if (dt <= 0) {
+
+            $("#totop").hide();
+
+            return;
+
+        }
+
+        $("#totop").show();
+
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+
+            $("#totop").css("top", wt + dt - 110 + "px");
+
+        }
+
+    });
+
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+
+</script>
+
+{dede:include filename="footer2.htm"/}
+
+<!-- /footer -->
+
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,32 @@
+<h2>用户评论</h2>
+<div class="bars">
+	<volist name="appScore" id="vo">
+		<compare name="key" type="neq" value="0">			
+			<div class="row">
+				<div class="stars reviewStars"><div class="ReviewInactiveStars rating-{$key}"></div> </div>
+				<div class="colorBar">
+					<compare name="approw['app_starcount']" type="gt" value="0">
+						<div class="bar" style="width:{:round($appScore[$key]/$approw['app_starcount'], 2) *146}px; background:#8eb528;"></div>
+						<else/>
+						<div class="bar" style="width:0px;"></div>
+					</compare>
+				</div>
+			</div>
+		</compare>
+	</volist>
+</div>
+<div class="average">
+	<div>平均评分</div>
+	{~$grade_point = ($approw['app_starcount'] > 0 ) ? round($approw['app_score_www']/$approw['app_starcount'], 2) : 0}
+	<div class="avgNumber">{$grade_point}</div>
+	<div class="stars darkStars">
+		<div class="RatingStarsDark rating-{:round($grade_point * 2)}"> </div> 
+		<div class="number">({$approw['app_starcount']|number_format})</div>
+	</div>
+</div>
+<div class="rate">
+	<div class="label">您的评分</div>
+
+	<div class="stars darkStars"><div class="RatingStarsDark rating-{~if(isset($userScore))echo $userScore*2; else echo 0;}"></div></div>  
+</div>
+<div class="clear"></div>

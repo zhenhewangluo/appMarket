@@ -1,0 +1,2 @@
+[ 2012-10-03T04:14:55+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/disclaimer.html]
+[ 2012-10-03T07:56:00+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/App/Block/aboutUs.html]

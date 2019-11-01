@@ -1,0 +1,10 @@
+{dede:field name='keywords'}电信,手机UI界面,天翼桌面{/dede:field}
+{dede:field name='description'}近期，记者发现中国电信方面已经开始为用户提供自主UI界面应用的下载，该桌面中还配合以各类云服务功能，用户安装后便可使用相应的天翼云手机服务。目前在Android手机系统环境中已经有众多第三方桌面来配合用户使用，其中很多UI可以允许用户在不必刷机的情况下，便可更换 Android手机中的桌面UI进行{/dede:field}
+{dede:field name='title'}电信推自主手机UI界面天翼桌面 提供手机云服务{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

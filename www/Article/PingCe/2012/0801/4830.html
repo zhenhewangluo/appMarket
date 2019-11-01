@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>《华尔街日报中文版》：掌心的新闻天下_***</title>
+<meta name="keywords" content="华尔街,新闻,中文版" />
+<meta name="description" content="《华尔街日报中文版》是安卓智能手机应用程序，它依托备受尊崇的《华尔街日报》的丰富资源，实现与《华尔街日报》中文版(cn.WSJ.com)在线网络资源的同步更新，方便商务人士即时、便捷地掌" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E5%AD%A6%E5%81%9A%E8%8F%9C/' target="_blank">学做菜</a><a href='/Article/tags.php?/skype/' target="_blank">skype</a><a href='/Article/tags.php?/%E8%8D%AF%E5%93%81%E4%B8%93%E5%AE%B6/' target="_blank">药品专家</a><a href='/Article/tags.php?/i3/' target="_blank">i3</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href=''>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a class='cut' href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href=''>***</a>>><a href='/Article/plus/list.php?tid=2'>评测</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">《华尔街日报中文版》：掌心的新闻天下</h1>
+			<div class="articleInfo"><small>时间:</small>2012-08-02 17:06<small>来源:</small><a href="/" target="_blank">***</a> <small>作者:</small>stefanie <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=4830&mid=18" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<h3>
+	<img src="/Article/uploads/allimg/120801/18-120P1221J63V.png" style="width: 100px; float: left; height: 100px; margin-right: 10px" /></h3>
+<p>
+	《华尔街日报中文版》是安卓智能手机应用程序，它依托备受尊崇的《华尔街日报》的丰富资源，实现与《华尔街日报》中文版(cn.WSJ.com)在线网络资源的同步更新，方便商务人士即时、便捷地掌握最新财经资讯。</p>
+<br />
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>中文名称</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				华尔街日报中文版</td>
+			<td rowspan="9" style="text-align: center; width: 208px; height: 27px">
+				<img alt="" src="/Article/uploads/allimg/120801/18-120P1221RE36.gif" style="width: 136px; height: 136px" /></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>英文名称</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				WSJ China for Android</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>版本</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				1.0.1</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>发布时间</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				2012/6/10</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>开发者</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				Dow Jones</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>所属分类</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				新闻资讯</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>支持语言</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				简体中文</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>程序包大小</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				638KB</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>运行环境</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				Android2.3.7</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>硬件环境</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				HTC Desire G7</td>
+			<td style="text-align: center; width: 208px; height: 27px">
+				二维码下载&nbsp;&nbsp; <a href="/index.php?g=App&amp;m=Apps&amp;a=detail&amp;aid=6021810" target="_blank">下载二维码工具</a>
+</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>硬件参数</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				CPU：1.0GHZ<br />
+				RAM: 512MB<br />
+				ROM: 4GB<br />
+				分辨率：800&times;480</td>
+			<td style="text-align: center; width: 208px; height: 27px">
+				
+<a href="/App/Apps/detail/aid/513021313.html" target="_blank">点击下载</a></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>插件情况</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				无</td>
+			<td style="text-align: center; width: 208px; height: 27px">
+				点击收藏</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 想必大家跟小编一样对&ldquo;华尔街&rdquo;三字并不熟悉，反而是听到这三字时，第一反应是New York。一条举世闻名的金融街。2010年电影《华尔街2》更是让人过目不忘，印象深刻。影片叙述了华尔街如何引发次贷危机及投资银行间的相互斗争。而《华尔街日报》作为美国乃至全世界影响力最大，侧重金融、商业领域报导的日报，创办于1889年。日发行量达200万份。同时出版了亚洲版、欧洲版、网络版，每天的读者大概有2000多万人。《华尔街日报》新闻舆论通过尖利的笔锋净化着商业市场，正是它的舆论监督让商业公司不能为所欲为。
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120801/18-120P12221415a.jpg" style="width: 240px; height: 400px" /><br />
+	应用界面1&nbsp;</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 今天小编带给大家的《华尔街日报中文版》则是Dow Jones开发的《华尔街日报》安卓手机应用程序。为了方便上班族们在上下班地铁、公交、等车时阅读国内外新闻。《华尔街日报中文版》在操作上更是简单易懂，用户之需要打开应用程序进入应用主页面，即可可以查看到今日要闻，关于国内外的新闻大事件。但是想要查看其它栏目信息如热门文章、中国、金融。。。。。。你就需要注册或者登录。你可放心使用，因为它支持免费下载应用程序，用户免费注册登录或使用cn.wsj.com用户名密码登陆后可浏览全部文章内容。</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120801/18-120P122203H93.jpg" style="width: 240px; height: 400px" /><br />
+	界面2<br />
+	<br />
+	<img alt="" src="/Article/uploads/allimg/120801/18-120P122193DE.jpg" style="width: 240px; height: 400px" /><br />
+	界面3</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 《华尔街日报中文版》全面涵盖了十大热门栏目，包括&ldquo;今日要闻、热门文章、中国、金融市场、最新专栏、中国实时报、博客圈、生活休闲、投资、科技、职场&rdquo;。丰富的图片及视频新闻让用户们体验方便快捷的新闻饕餮。字体调整功能。阅读过程中用户可根据自己的需求随时调整字体大小达到最佳阅读效果。让上班族们既可以度过上班路途遥远的煎熬，还可以让上班族们了解国内外大事际不占用上班时间。作为一个新闻平台，它还提供了&ldquo;博客圈&rdquo;方便用户们跟朋友分享自己所关注的国内外新闻。&ldquo;职场&rdquo;更是为用户提供好工作的机会。</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120801/18-120P1222304L3.jpg" style="width: 240px; height: 400px" /><br />
+	设置界面</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总之，《华尔街日报中文版》给用户提供了方便快捷服务，虽然不能像电脑浏览器那样浏览到更加丰富的内容，但是作为手机应用程序它带给大家的体验不亚于互联网的。下载来试试吧，体验新闻饕餮。<br />
+	<br />
+	&nbsp;</p>
+
+				<!--<p>本文链接：<a href="/Article/PingCe/2012/0801/4830.html">/Article/PingCe/2012/0801/4830.html</a>--><br />关键字：<a href='/Article/tags.php?/%E6%96%B0%E9%97%BB/'>新闻</a> <a href='/Article/tags.php?/%E5%8D%8E%E5%B0%94%E8%A1%97/'>华尔街</a> <a href='/Article/tags.php?/%E4%B8%AD%E6%96%87%E7%89%88/'>中文版</a> <br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.***.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/PingCe/2012/0801/4830.html";
+				var wumiiTitle = "《华尔街日报中文版》：掌心的新闻天下";
+				var wumiiTags = "新闻,华尔街,中文版,";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/PingCe/2012/0801/4830.html">《华尔街日报中文版》：掌心的新闻天下</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/PingCe/2012/0625/974.html" target="_blank">《环球时报》：将报纸放在口袋中</a>(2012-06-26)</li>
+<li><a href="/Article/PingCe/2012/0530/913.html" target="_blank">《勇者法则中文版》：消灭恶龙拯救世界</a>(2012-06-01)</li>
+<li><a href="/Article/PingCe/2012/0522/872.html" target="_blank">《会说话的新闻》：新闻也疯狂</a>(2012-05-22)</li>
+<li><a href="/Article/PingCe/2012/0426/770.html" target="_blank">《鲜果联播》：多种媒体于一身的多功能联播</a>(2012-04-26)</li>
+<li><a href="/Article/PingCe/2012/0422/753.html" target="_blank">《3G门户新闻》：最全面的新闻资讯软件</a>(2012-04-22)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：直江兼续</div>
+				<div id="ckepop" class="edi2">关键字：<a href='/Article/tags.php?/%E6%96%B0%E9%97%BB/'>新闻</a> <a href='/Article/tags.php?/%E5%8D%8E%E5%B0%94%E8%A1%97/'>华尔街</a> <a href='/Article/tags.php?/%E4%B8%AD%E6%96%87%E7%89%88/'>中文版</a> </div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/PingCe/2012/0801/4826.html'>《宝石矿工2》：矿工版“怪物猎人”</a> </li>
+					<li>下一篇：没有了 </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',4830)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',4830)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',4830)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(4830);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="4830" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=4830">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=4830&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '4830');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '4830');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/PingCe/2012/0801/4830.html" target="_blank" title="《华尔街日报中文版》：掌心">《华尔街日报中文版》：掌心</a></li>
+<li><a href="/Article/PingCe/2012/0731/4824.html" target="_blank" title="《网上厨房ecook》：让您实现">《网上厨房ecook》：让您实现</a></li>
+<li><a href="/Article/PingCe/2012/0731/4825.html" target="_blank" title="《词语联想2》：有趣的词语游">《词语联想2》：有趣的词语游</a></li>
+<li><a href="/Article/PingCe/2012/0801/4826.html" target="_blank" title="《宝石矿工2》：矿工版“怪物">《宝石矿工2》：矿工版“怪物</a></li>
+<li><a href="/Article/PingCe/2012/0730/4823.html" target="_blank" title="《大乱伦敦交通》：咱也客串">《大乱伦敦交通》：咱也客串</a></li>
+<li><a href="/Article/PingCe/2012/0730/4822.html" target="_blank" title="《i3方块谜题》：超炫的方块">《i3方块谜题》：超炫的方块</a></li>
+<li><a href="/Article/PingCe/2012/0722/4817.html" target="_blank" title="《金山词霸》：英语的百科全">《金山词霸》：英语的百科全</a></li>
+<li><a href="/Article/PingCe/2012/0726/4818.html" target="_blank" title="《跳棋大战》：随身携带的儿">《跳棋大战》：随身携带的儿</a></li>
+<li><a href="/Article/PingCe/2012/0727/4819.html" target="_blank" title="《足球跑酷》：需要刷刷刷的">《足球跑酷》：需要刷刷刷的</a></li>
+<li><a href="/Article/PingCe/2012/0722/4816.html" target="_blank" title="《西瓜侠》:西瓜大战大战来袭">《西瓜侠》:西瓜大战大战来袭</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E5%8A%A8%E4%BD%9C/' target="_blank" style="font-size:14pt;color:#103422">动作</a>  <a href='/Article/tags.php?/%E5%8D%A1%E9%80%9A/' target="_blank" style="font-size:12pt;color:#9718ab">卡通</a>  <a href='/Article/tags.php?/%E6%94%B6%E9%9B%86/' target="_blank" style="font-size:pt;color:#445eec">收集</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#3b4b6a">休闲</a>  <a href='/Article/tags.php?/%E8%9C%A1%E7%AC%94/' target="_blank" style="font-size:14pt;color:#494c68">蜡笔</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:14pt;color:#5eb9a">益智</a>  <a href='/Article/tags.php?/%E7%BA%A6%E4%BC%9A/' target="_blank" style="font-size:10pt;color:#78bba">约会</a>  <a href='/Article/tags.php?/%E6%95%99%E8%82%B2/' target="_blank" style="font-size:pt;color:#e2a73">教育</a>  <a href='/Article/tags.php?/%E5%AD%A6%E4%B9%A0/' target="_blank" style="font-size:10pt;color:#7b739c">学习</a>  <a href='/Article/tags.php?/%E7%94%9F%E6%B4%BB/' target="_blank" style="font-size:10pt;color:#b437f0">生活</a>  <a href='/Article/tags.php?/%E5%B7%A5%E5%85%B7/' target="_blank" style="font-size:pt;color:#c2a9ad">工具</a>  <a href='/Article/tags.php?/%E6%97%A5%E5%B8%B8/' target="_blank" style="font-size:pt;color:#3e1283">日常</a>  <a href='/Article/tags.php?/%E5%AE%9E%E7%94%A8/' target="_blank" style="font-size:14pt;color:#7bb539">实用</a>  <a href='/Article/tags.php?/%E7%AB%96%E7%89%88/' target="_blank" style="font-size:pt;color:#fba3ef">竖版</a>  <a href='/Article/tags.php?/%E7%89%A9%E7%90%86/' target="_blank" style="font-size:12pt;color:#c8c054">物理</a>  <a href='/Article/tags.php?/%E4%B8%AD%E6%96%87%E7%89%88/' target="_blank" style="font-size:pt;color:#3199f5">中文版</a>  <a href='/Article/tags.php?/%E5%8D%8E%E5%B0%94%E8%A1%97/' target="_blank" style="font-size:14pt;color:#5c70bf">华尔街</a>  <a href='/Article/tags.php?/%E6%96%B0%E9%97%BB/' target="_blank" style="font-size:10pt;color:#da87b">新闻</a>  <a href='/Article/tags.php?/%E5%A4%A7%E8%84%91/' target="_blank" style="font-size:14pt;color:#8d8d9b">大脑</a>  <a href='/Article/tags.php?/%E8%BD%BB%E6%9D%BE/' target="_blank" style="font-size:pt;color:#d01854">轻松</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

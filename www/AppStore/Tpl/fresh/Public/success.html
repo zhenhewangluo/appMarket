@@ -1,0 +1,45 @@
+<script type='text/javascript'>
+	$(function(){
+        var time = parseInt('{$waitSecond}');
+        var interval = setInterval(function(){
+            if(time>0){
+                $('#light').html(time--);
+            } else{
+				clearInterval(interval);
+				window.location.href = "{$jumpUrl}";
+            }
+        },1000);
+    });
+</script>
+<div class="message jmpbox_c">
+	<h6>{$msgTitle}</h6>
+	
+<table class="message" cellpadding="0" cellspacing="0" >
+	<tr>
+		<td height='20'  class="topTd" ></td>
+	</tr>
+	<present name="message" >
+	<tr class="row">
+		<td style="color:blue">{$message}</td>
+	</tr>
+	</present>
+	<present name="error" >
+	<tr class="row">
+		<td style="color:red">{$error}</td>
+	</tr>
+	</present>
+	<present name="closeWin" >
+		<tr class="row">
+		<td>系统将在 <span id="light" style="color:blue;font-weight:bold">{$waitSecond}</span> 秒后自动关闭，如果不想等待,直接点击 <a href="{$jumpUrl}">这里</a> 关闭</td>
+	</tr>
+	</present>
+	<notpresent name="closeWin" >
+	<tr class="row">
+		<td>系统将在 <span id="light" style="color:blue;font-weight:bold">{$waitSecond}</span> 秒后自动跳转,如果不想等待,直接点击 <a href="{$jumpUrl}">这里</a> 跳转</td>
+	</tr>
+	</notpresent>
+	<tr>
+		<td height='5' class="bottomTd"></td>
+	</tr>
+	</table>
+</div>

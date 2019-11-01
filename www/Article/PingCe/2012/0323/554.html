@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>《卡卡颂》：诸侯争霸_***</title>
+<meta name="keywords" content="《,卡卡颂,》,评测,诸侯,争霸,卡卡,颂,法语," />
+<meta name="description" content="卡卡颂（法语：Carcassonne，又名卡卡送或卡卡城）是一种适合二到五人玩的德式桌上游戏。这款游戏曾经得过2001年的年度游戏奖。卡卡颂的名字来自于一个位于法国西南，以其城墙闻名的同名小" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E4%B8%96%E7%95%8C%E6%9C%AB%E6%97%A5/' target="_blank">世界末日</a><a href='/Article/tags.php?/%E8%AF%BB%E5%BF%83%E6%9C%AF/' target="_blank">读心术</a><a href='/Article/tags.php?/%E6%9C%AC/' target="_blank">本</a><a href='/Article/tags.php?/%E8%B6%A3%E5%91%B3/' target="_blank">趣味</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href=''>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a class='cut' href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href=''>***</a>>><a href='/Article/plus/list.php?tid=2'>评测</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">《卡卡颂》：诸侯争霸</h1>
+			<div class="articleInfo"><small>时间:</small>2012-03-20 19:34<small>来源:</small><a href="/" target="_blank">未知</a> <small>作者:</small>小漪米 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=554&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p>
+	卡卡颂（法语：Carcassonne，又名卡卡送或卡卡城）是一种适合二到五人玩的德式桌上游戏。这款游戏曾经得过2001年的年度游戏奖。卡卡颂的名字来自于一个位于法国西南，以其城墙闻名的同名小镇：Carcassonne。</p>
+<p>
+	<a class="highslide-image" href="/uploads/allimg/120322/33q2a0z0xog.jpg" onclick="return hs.expand(this);"><img alt="" class="alignnone  wp-image-1004 aligncenter" height="255" src="/uploads/allimg/120322/33q2a0z0xog.jpg" title="卡2" width="172" /></a></p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	游戏玩法<br />
+	游戏过程中以纸牌建构出中古世纪的地景，而玩家扮演诸侯的角色，用7位随从占地以获得分数。基本版的游戏包含72张纸牌，其中一张为开始牌。游戏开始先将开始牌放置在桌子的中央，其余71张洗好背面朝上，玩家在游戏的过程中依序抽牌、放置于适当的位置。</p>
+<p>
+	<a class="highslide-image" href="/uploads/allimg/120322/r4iup5yst45.jpg" onclick="return hs.expand(this);"><img alt="" class="alignnone size-full wp-image-1011 aligncenter" height="238" src="/uploads/allimg/120322/r4iup5yst45.jpg" title="卡9" width="312" /></a></p>
+<p>
+	在每一张纸牌上可能包含下列几种元素：草原、道路、城市、修道院。玩家必须将手上牌的地形衔接于地图上的相同地形。也就是说，草原必须衔接草原，道路必须衔接道路，城市必须衔接城市。</p>
+<p style="text-align: center">
+	&nbsp;<a class="highslide-image" href="/uploads/allimg/120322/s3gracqgubm.jpg" onclick="return hs.expand(this);"><img alt="" class="alignnone size-full wp-image-1012" height="190" src="/uploads/allimg/120322/s3gracqgubm.jpg" title="卡10" width="133" /></a> <a class="highslide-image" href="/uploads/allimg/120322/3015iaa3c4i.jpg" onclick="return hs.expand(this);"><img alt="" height="185" src="/uploads/allimg/120322/3015iaa3c4i.jpg" title="3607" width="169" /></a></p>
+<p>
+	在每一回拼上手中的纸牌之后，玩家可以考虑派出一个随从占领土地。占领草原的是农夫、占领道路的是强盗、占领城市的是骑士、占领修道院的是僧侣。但是要注意的是，如果相连的地形里已有任一玩家的随从（包括自己的），则不可以占领。（同一地形上还是可能同时有两名随从，这是因为原本各自占领的地形后来被接起来了）。</p>
+<p>
+	<a class="highslide-image" href="/uploads/allimg/120322/u3qo214brgs.jpg" onclick="return hs.expand(this);"><img alt="" class="aligncenter" height="205" src="/uploads/allimg/120322/u3qo214brgs.jpg" title="3608" width="294" /></a></p>
+<p>
+	<a class="highslide-image" href="/uploads/allimg/120322/33q2a0z0xog.jpg" onclick="return hs.expand(this);"><img alt="" class="alignnone  wp-image-1004 aligncenter" height="324" src="/uploads/allimg/120322/33q2a0z0xog.jpg" title="卡2" width="223" /></a></p>
+<p>
+	卡卡颂操作步骤：<br />
+	1.轮到你，你抽牌。<br />
+	2.放牌，但万一无地方可放则再抽一张。<br />
+	3.决定是否放随从在这张牌上。<br />
+	4.若有地形完成，把上面的米宝都归回玩家，并移动记分板上的米宝（参见游戏记分）。<br />
+	5.以顺时钟方向换下一个人。<br />
+	依据上述流程，当手上无米宝，就算放牌后可收回米宝，也不能将收回的米宝放在此张牌的另一地形上。当最后一块纸牌被放下之后，则游戏结束。分数最高分者获胜。</p>
+<p>
+	卡卡颂大扩充 (Large Expansions):<br />
+	1.旅馆和大教堂 (Carcassonne: Inns &amp; Cathedrals)<br />
+	第一个大扩充，于2002年发行。</p>
+<p>
+	内容：<br />
+	18片板块、每种颜色1个大随从、第6个玩家（灰色）的配件、6片记分块。</p>
+<p>
+	简介：<br />
+	增加这个扩充后，可以支持6人游戏。<br />
+	增加了河边的旅馆和城市中的大教堂两种板块。完成时，有旅馆的道路每块2分，有大教堂的城市每块和每个三角旗增加1分。游戏结束时，未完成的有旅馆的道路不得分，未完成的有大教堂的城市也不得分。<br />
+	增加了大随从。大随从和普通随从一样放置，在有多个玩家争抢同一目标时，大随从按两个随从计算。<br />
+	2. 卡卡颂：商人和建筑师 (Carcassonne: Traders &amp; Builders)<br />
+	第二个大扩充，于2003年发行。</p>
+<p>
+	内容：<br />
+	24片板块、每种颜色1个小猪和1个建筑师、三种商品token。</p>
+<p>
+	简介：<br />
+	增加了商品token。板块的城市中有布匹、稻谷和葡萄酒的商品标志。完成城市的玩家能够得到城市中商品标志所对应的相应商品token。游戏结束时，拥有某种商品最多的玩家获得10分。<br />
+	增加了建筑师。建筑师能放在你已经拥有小人的未完成的道路或城市上。当建筑师所在的道路或城市被扩展时，可以再抽一个板块（每回合最多1次）。<br />
+	增加了小猪。小猪能放在你已经拥有小人的草地上。当游戏结束草地计分时，可以从每个完成的城市多获得1分。</p>
+<p>
+	3. 卡卡颂：公主与龙 (Carcassonne: The Princess &amp; the Dragon)。<br />
+	第三个大扩充，于2005年发行。</p>
+<p>
+	内容：<br />
+	30片板块、1个仙女、1条龙。</p>
+<p>
+	简介：<br />
+	增加了仙女和龙。<br />
+	在每回合，可以移动仙女代替放置随从的行动。龙不会移动到仙女保护的板块上。<br />
+	在自己的回合开始时，如果仙女所在的板块上有自己的随从，就获得1分。当仙女所在的板块上的随从计分时，可以另外获得3分。<br />
+	板块上增加了火山标志、龙标志、传送门标志和公主标志。<br />
+	放置带有火山标志的板块后，龙直接移动到这个板块。<br />
+	放置带有龙标志的板块后，玩家依次移动龙6次（6次中途径的板块不能再移到上面），龙途径板块上的随从返还各自玩家。<br />
+	放置带有传送门标志的板块后，可以把一个自己的随从放到任何没有人占有的地方。<br />
+	放置带有公主标志的板块扩大一个城市后，必须把城市中的一个随从拿走。</p>
+<p>
+	4. 卡卡颂：高塔 (Carcassonne: The Tower)<br />
+	第四个大扩充，于2006年发行。</p>
+<p>
+	内容：<br />
+	18片板块、30个塔块、1个用于抽板块的塔。</p>
+<p>
+	简介：<br />
+	增加了塔块。游戏开始前玩家平分这些塔块。<br />
+	每回合，可以在一个塔上放一个塔块代替放置随从的行动。你可以捕获一个在塔的水平或垂直方向、离开塔的板块距离小等于塔的高度的、其他玩家的随从作为俘虏。双方都拥有对方的俘虏时，自动交换。<br />
+	为了保护自己的随从避免其他玩家再加高塔，你可以放置一个随从在塔上。</p>
+<p>
+	开箱照：<br />
+	卡卡颂：高塔扩充（Carcassonne: The Tower） 开箱照。</p>
+<p>
+	5. 卡卡颂：大修道院和市长 (Carcassonne: Abbey &amp; Mayor)<br />
+	第五个大扩充，于2007年发行。</p>
+<p style="text-align: center">
+	&nbsp;<a class="highslide-image" href="/uploads/allimg/120322/udf5wp0hbf0.jpg" onclick="return hs.expand(this);"><img alt="" height="480" src="/uploads/allimg/120322/udf5wp0hbf0.jpg" title="卡6" width="288" /></a></p>
+<p>
+	内容：<br />
+	12片板块、6片大修道院块、每种颜色1个市长和1个谷仓和1个货车。</p>
+<p>
+	简介：<br />
+	增加了大修道院块。游戏开始时，每个玩家获得1片。在游戏中可以将你的大修道院块放置在四面都有板块的&ldquo;洞&rdquo;中，代替抽板块的行动。如果在大修道院块上放置随从，按修道院计分。大修道院放置后四周作为对应的地形特征连接。<br />
+	增加了市长。市长可以放置在无人占有的城市中。在计算多人争夺的城市中随从的人数时，按城市中三角旗的数量作为市长的人数计数。<br />
+	增加了谷仓。谷仓放置在4片草地的交接处。这片草地立即计分。在这片草地上不能再放置随从。<br />
+	增加了货车。货车可以放置在道路、城市或修道院上，不能放在草地上。当完成计分时，货车可以立即移动到无人拥有的、与当前完成地形特征直接相连的道路、城市或修道院上。</p>
+<p>
+	6. 卡卡颂：投石机 (Carcassonne: The Catapult)<br />
+	第六个大扩充，于2008年发行。</p>
+<p>
+	内容：<br />
+	12片板块、1个投石机、四种投掷token。</p>
+<p>
+	简介：<br />
+	这是卡卡颂系列第一次引入动作和技巧元素。新增了木制的投石机和投掷token，板块上增加了马戏团。<br />
+	当放置了一片马戏团板块，投石机回合就开始了。放置马戏团板块玩家选择使用哪掷token。<br />
+	击倒(knock out)token碰到的随从被返还各自玩家。<br />
+	诱惑(seduction)token允许当前玩家用自己的随从交换离token最近对手的随从。<br />
+	目标(target)token可以让玩家获得5分，如果token紧靠刚放置的那片马戏团板块。<br />
+	抓住(catch)token可以让投掷玩家获得5分，如果投掷玩家左边的玩家没有接住投出的token；如果被接住了，那么接住的玩家获得5分。</p>
+<p>
+	7. 卡卡颂：命运之轮 (Carcassonne: Wheel of Fortune)<br />
+	第七个大扩充，于2009年发行，也能作为独立游戏使用。</p>
+<p>
+	内容：<br />
+	72片板块、1个4*4大小的起始块（命运之轮）、1个粉色小猪、5种颜色各8个随从（与基本版相同）、1块记分板（与基本版相同）。</p>
+<p>
+	简介：<br />
+	增加了命运之轮起始块和粉色小猪。<br />
+	在游戏开始前，使用命运之轮起始块代替原来的起始块，并把粉色小猪放在命运之轮上。<br />
+	当玩家在自己回合没有放置随从，他可以放置一个随从在命运之轮的空位上。当粉色小猪位于这格上，每个随从获得3分（当这一格上有两个位置但只有一个位置有随从占据，这个随从获得6分）。<br />
+	板块上增加了转轮标志。如果带有转轮标志的板块被抽到，粉色小猪按转轮上的数字顺时针移动格数，命运之轮计分，然后获得分数的随从返还各自玩家。</p>
+<p>
+	命运之轮计分：<br />
+	命运格(fortune)：只有移动粉色小猪的玩家获得3分；<br />
+	税收格(tax)：每个骑士得1分+每个三角旗得1分；<br />
+	饥荒格(famine)：农夫从每个对应的完成城市获得1分；<br />
+	风暴格(storm)：每个未使用的随从得1分；<br />
+	审理格(inquisition)：每个僧侣获得2分；<br />
+	瘟疫格(plague)：从游戏版图上返还一个随从（命运之轮上的随从除外）。</p>
+<p>
+	8. 卡卡颂：桥、城堡和集市 (Carcassonne: Bridges, Castles &amp; Bazaars)<br />
+	第八个大扩充，于2010年发行。</p>
+<p>
+	内容：<br />
+	12片板块、12个城堡token、12个桥。</p>
+<p>
+	简介：<br />
+	增加了桥。桥可以用来越过草地板块连接一条道路，因此一条未完成的道路可以连接一块草地。桥象道路一样计分。<br />
+	增加了城堡token。城堡token可以放置在小城市（2段大小的）上，并按下一个完成的相邻地形计分。<br />
+	板块上增加了集市。集市允许玩家拍卖板块换取分数。&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	总结</p>
+<p>
+	国外的桌上游戏内容常常涉及战争、贸易、文化、艺术、城市建设、历史等多个方面，大多使用纸质材料加上精美的模型辅助。它是一种面对面的游戏，非常强调交流。因此，桌面游戏是家庭休闲、朋友聚会、甚至商务闲暇等多种场合的最佳沟通方式，后来这种游戏也渐渐开始流入中国。对桌游感兴趣的亲们，可以试试这款《卡卡颂》。</p>
+
+				<!--<p>本文链接：<a href="/Article/PingCe/2012/0323/554.html">/Article/PingCe/2012/0323/554.html</a>--><br />关键字：<a href='/Article/tags.php?/%E5%8D%A1%E5%8D%A1%E9%A2%82/'>卡卡颂</a> <a href='/Article/tags.php?/%E8%AF%B8%E4%BE%AF%E4%BA%89%E9%9C%B8/'>诸侯争霸</a> <br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.***.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/PingCe/2012/0323/554.html";
+				var wumiiTitle = "《卡卡颂》：诸侯争霸";
+				var wumiiTags = "卡卡颂,诸侯争霸,";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/PingCe/2012/0323/554.html">《卡卡颂》：诸侯争霸</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/PingCe/2012/0716/4801.html" target="_blank">《谷歌翻译》：功能强大的在线翻译软件</a>(2012-07-16)</li>
+<li><a href="/Article/PingCe/2012/0713/2481.html" target="_blank">《变色龙的午餐时间》：用舌头荡秋千的可爱变色龙</a>(2012-07-13)</li>
+<li><a href="/Article/PingCe/2012/0712/2479.html" target="_blank">《大脑魔方》：不可小窥的电子版立体魔方</a>(2012-07-12)</li>
+<li><a href="/Article/PingCe/2012/0712/2478.html" target="_blank">《星宝石》：需要快速反应和战略思维的消除类脑力游戏</a>(2012-07-12)</li>
+<li><a href="/Article/PingCe/2012/0712/2477.html" target="_blank">《地铁背单词》：轻松背单词增加词汇量</a>(2012-07-12)</li>
+<li><a href="/Article/PingCe/2012/0711/2476.html" target="_blank">《3D趣味夹娃娃机》：讨好女友的必备软件</a>(2012-07-11)</li>
+<li><a href="/Article/PingCe/2012/0711/2475.html" target="_blank">《小鸡快跑》：考验惯性和节奏感的跑酷游戏</a>(2012-07-11)</li>
+<li><a href="/Article/PingCe/2012/0710/2474.html" target="_blank">《接蛋高手》：美式乡村风格浓厚的趣味游戏</a>(2012-07-10)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：Estelle</div>
+				<div id="ckepop" class="edi2">关键字：<a href='/Article/tags.php?/%E5%8D%A1%E5%8D%A1%E9%A2%82/'>卡卡颂</a> <a href='/Article/tags.php?/%E8%AF%B8%E4%BE%AF%E4%BA%89%E9%9C%B8/'>诸侯争霸</a> </div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/PingCe/2012/0323/553.html'>《小羊快跑》：羊团队的合作之旅</a> </li>
+					<li>下一篇：<a href='/Article/PingCe/2012/0323/555.html'>《猴子岛闯关Tiki Towers》：为香蕉而疯狂</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',554)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',554)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',554)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(554);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="554" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=554">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=554&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '554');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '554');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/PingCe/2012/0715/2424.html" target="_blank" title="《生气的妈妈》：小朋友们好">《生气的妈妈》：小朋友们好</a></li>
+<li><a href="/Article/PingCe/2012/0715/2423.html" target="_blank" title="《狂热力学》：挑战智力的物">《狂热力学》：挑战智力的物</a></li>
+<li><a href="/Article/PingCe/2012/0713/1112.html" target="_blank" title="《儿童趣味触屏》：针对幼儿">《儿童趣味触屏》：针对幼儿</a></li>
+<li><a href="/Article/PingCe/2012/0716/4801.html" target="_blank" title="《谷歌翻译》：功能强大的在">《谷歌翻译》：功能强大的在</a></li>
+<li><a href="/Article/PingCe/2012/0713/2481.html" target="_blank" title="《变色龙的午餐时间》：用舌">《变色龙的午餐时间》：用舌</a></li>
+<li><a href="/Article/PingCe/2012/0712/2479.html" target="_blank" title="《大脑魔方》：不可小窥的电">《大脑魔方》：不可小窥的电</a></li>
+<li><a href="/Article/PingCe/2012/0712/2478.html" target="_blank" title="《星宝石》：需要快速反应和">《星宝石》：需要快速反应和</a></li>
+<li><a href="/Article/PingCe/2012/0712/2477.html" target="_blank" title="《地铁背单词》：轻松背单词">《地铁背单词》：轻松背单词</a></li>
+<li><a href="/Article/PingCe/2012/0711/2476.html" target="_blank" title="《3D趣味夹娃娃机》：讨好女">《3D趣味夹娃娃机》：讨好女</a></li>
+<li><a href="/Article/PingCe/2012/0711/2475.html" target="_blank" title="《小鸡快跑》：考验惯性和节">《小鸡快跑》：考验惯性和节</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:14pt;color:#184d4c">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:14pt;color:#d79979">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:12pt;color:#96d8b">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:12pt;color:#37621d">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:14pt;color:#47389c">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:12pt;color:#6e52f">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:14pt;color:#ee406d">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:10pt;color:#416fd6">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:12pt;color:#f61bf1">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:pt;color:#ea5222">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:pt;color:#f98668">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:10pt;color:#2e66ba">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:12pt;color:#cf42c4">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:10pt;color:#c1a3cc">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:14pt;color:#282dca">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:12pt;color:#cb7cc4">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:pt;color:#c58b8f">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:14pt;color:#2089a4">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:10pt;color:#60a4a">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:14pt;color:#9245">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

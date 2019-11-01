@@ -1,0 +1,15 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a> > 专题
+</div>
+<!-- 面包屑导航 -->
+<script type="text/javascript">
+document.domain='hjapp.com';
+$(function(){
+	$("#main_content").load(function(){       
+        var height = $(this).contents().find("#container").height() + 40;  
+        $(this).height( height < 400 ? 400 : height );
+    });
+});
+</script>  
+<iframe src="http://press.hjapp.com" id="main_content" name="main_content" style="border:none;overflow: hidden;width:960px;" scrolling="no" ></iframe>

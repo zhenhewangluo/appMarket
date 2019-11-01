@@ -1,0 +1,1 @@
+ <a href='[field:link/]' target="_blank" style="[field:total runphp=yes]@me=getTagStyle();[/field:total]">[field:tag /]</a> 

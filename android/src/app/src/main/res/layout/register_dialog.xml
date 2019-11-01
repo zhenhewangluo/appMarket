@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dip"
+    android:paddingRight="20dip"
+    android:paddingTop="30dip"
+    android:orientation="vertical" 
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_title_bg"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <!-- user name -->
+        <!-- user name label -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/zhucezhanghu"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_content_bg"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="30dip"
+            android:text="@string/input_username"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <!-- user name text editor -->
+
+        <EditText
+            android:id="@+id/username_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="37dip"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="8dip"
+            android:singleLine="true"
+            android:textSize="18sp" />
+
+        <!-- nickname -->
+        <!-- nickname label -->
+
+
+        <!--
+    LinearLayout
+	    android:layout_width="300dip"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    
+	    
+	    <TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dip"
+		android:layout_marginTop="10dip"
+		android:text="@string/input_telephone"
+		android:textStyle="bold"
+		android:textColor="#078ac0"
+		android:textSize="16dip"/>
+		
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="5dip"
+		android:layout_marginTop="10dip"
+		android:text="@string/input_telephone_text"
+		android:textStyle="bold"
+		android:textColor="#e73d08"
+		android:textSize="12dip"/>
+	    
+	    </LinearLayout
+        -->
+
+
+        <!-- nickname text editor -->
+        <!--
+        EditText
+		android:id="@+id/nickname_edit"
+		android:layout_width="280dip"
+		android:layout_height="37dip"
+		android:layout_marginLeft="8dip"
+		android:layout_marginTop="5dip"
+		android:textSize="16dip" 
+		android:singleLine="true"/
+        -->
+
+
+        <!-- user password -->
+        <!-- user password label -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="@string/input_password"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- user password text editor -->
+
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="37dip"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="8dip"
+            android:password="true"
+            android:singleLine="true"
+            android:textSize="16sp" />
+
+        <!-- repeat password -->
+        <!-- repeat password label -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="@string/repeat_password"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- user password text editor -->
+
+        <EditText
+            android:id="@+id/repeat_password_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="37dip"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="8dip"
+            android:password="true"
+            android:singleLine="true"
+            android:textSize="18sp" />
+
+        <!-- confirm -->
+
+        <include
+            android:id="@+id/confirm_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dip"
+            android:layout_marginRight="35dip"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="10dip"
+            layout="@layout/long_button" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#e8e8e8">
+    
+    <include  layout="@layout/title_notext"/>
+    <ScrollView
+		android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+		android:scrollbars="none"
+		android:layout_weight="1">
+		
+	
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        >
+	        
+	        <ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="40dip"
+				android:src="@drawable/loading_100" 
+				android:layout_gravity="center"/>
+				
+			<TextView
+			    android:orientation="vertical"
+				android:layout_width="fill_parent"
+				android:layout_gravity="center"
+				android:layout_height="wrap_content" 
+				android:layout_marginTop="40dip"
+				android:id="@+id/version"
+				android:textSize="18sp"
+				android:text="版本：1.0.0beta"
+				android:textColor="@color/gray"
+				android:gravity="center"/>
+				
+				
+			<TextView
+			    android:orientation="vertical"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text="@string/corporate_name"
+				android:textSize="18sp"
+				android:textColor="@color/gray"
+				android:gravity="center"/>
+		
+			<TextView
+			    android:orientation="vertical"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:text="@string/service_hotline"
+				android:textSize="18sp"
+				android:textColor="@color/gray"
+				android:gravity="center"/>
+   
+   		</LinearLayout>
+    
+    </ScrollView>
+    
+	<include layout="@layout/long_button" 
+	    android:id="@+id/btn"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dip"
+		android:layout_marginBottom="10dip"
+		android:layout_marginLeft="30dip"
+		android:layout_marginRight="30dip"
+		
+        android:layout_gravity="center"	/>
+    
+</LinearLayout>

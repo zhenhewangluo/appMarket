@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dip"
+    android:orientation="vertical" >
+
+     <FrameLayout
+            android:id="@+id/frameLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/logotypes"
+                android:layout_width="90dip"
+                android:layout_height="90dip"
+                
+                android:src="@drawable/default_recommend_img" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:shadowRadius="3.0" >
+
+                <TextView
+                    android:id="@+id/yidui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/already_exchange" />
+
+                <TextView
+                    android:id="@+id/shengyu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/yidui"
+                    android:text="@string/surplus" />
+            </RelativeLayout>
+        </FrameLayout>
+
+</LinearLayout>

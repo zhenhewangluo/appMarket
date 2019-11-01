@@ -1,0 +1,10 @@
+{dede:field name='keywords'}大屏双核,Android手机,摩托{/dede:field}
+{dede:field name='description'}摩托罗拉Droid RAZR（XT910）是摩托罗拉最新推出的一款机型，该机机身厚度仅有7.1毫米，非常纤薄。目前该机在经销商“星座科技”处最新报价为2999元，感兴趣的朋友可以关注一下。{/dede:field}
+{dede:field name='title'}大屏双核Android机 摩托罗拉RAZR超值价{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

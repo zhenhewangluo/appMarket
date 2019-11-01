@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>《网上厨房ecook》：让您实现大厨之梦_***</title>
+<meta name="keywords" content="美食,厨房,食谱,分享" />
+<meta name="description" content="《网上厨房ecook》是专为美食爱好者提供菜谱分享、厨艺交流的美食社区。有几万个美食菜谱供厨友查阅，并且每日都有更新和推荐。《网上厨房》致力于打造国内一流的移动端美食菜谱应用，" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E5%90%83%E5%8F%8B/' target="_blank">吃友</a><a href='/Article/tags.php?/%E6%9D%BE%E9%A5%BC%E9%AA%91%E5%A3%AB/' target="_blank">松饼骑士</a><a href='/Article/tags.php?/%E4%B8%AD%E5%8C%BB%E5%85%BB%E7%94%9F/' target="_blank">中医养生</a><a href='/Article/tags.php?/3D%EF%BC%8C%E6%95%B2%E7%A0%96%E5%9D%97/' target="_blank">3D，敲砖块</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href=''>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a class='cut' href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href=''>***</a>>><a href='/Article/plus/list.php?tid=2'>评测</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">《网上厨房ecook》：让您实现大厨之梦</h1>
+			<div class="articleInfo"><small>时间:</small>2012-08-01 13:42<small>来源:</small><a href="/" target="_blank">***</a> <small>作者:</small>stefanie <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=4824&mid=18" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<h3>
+	<img src="/Article/uploads/allimg/120731/18-120I1215435B1.png" style="width: 100px; float: left; height: 100px; margin-right: 10px" /></h3>
+<p>
+	《网上厨房ecook》是专为美食爱好者提供菜谱分享、厨艺交流的美食社区。有几万个美食菜谱供厨友查阅，并且每日都有更新和推荐。《网上厨房》致力于打造国内一流的移动端美食菜谱应用，让美食爱好者们真正随时随地享受美食分享的乐趣。</p>
+<br />
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>中文名称</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				网上厨房</td>
+			<td rowspan="9" style="text-align: center; width: 208px; height: 27px">
+				<img alt="" src="/Article/uploads/allimg/120731/18-120I122012Q91.gif" style="width: 136px; height: 136px" /></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>英文名称</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				ecook</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>版本</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				7.4</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>发布时间</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				2012/7/30</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>开发者</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				lizhlin</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>所属分类</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				日常工具</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>支持语言</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				英文</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>程序包大小</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				1.84MB</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>运行环境</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				Android2.3.7</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>硬件环境</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				HTC Desire G7</td>
+			<td style="text-align: center; width: 208px; height: 27px">
+				二维码下载&nbsp;&nbsp; <a href="/index.php?g=App&amp;m=Apps&amp;a=detail&amp;aid=6021810" target="_blank">下载二维码工具</a>
+</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>硬件参数</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				CPU：1.0GHZ<br />
+				RAM: 512MB<br />
+				ROM: 4GB<br />
+				分辨率：800&times;480</td>
+			<td style="text-align: center; width: 208px; height: 27px">
+				
+<a href="/App/Apps/detail/aid/512081522.html" target="_blank">点击下载</a></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; width: 111px; height: 27px">
+				<strong>插件情况</strong></td>
+			<td style="text-align: center; width: 227px; height: 27px">
+				无</td>
+			<td style="text-align: center; width: 208px; height: 27px">
+				点击收藏</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 亲们是不是还在冥思苦想着下班回家晚上吃什么啊？感觉吃来吃去怎么就是那么几个菜，自己也就会那么些个菜，久了吃腻了也烦了。有些家庭主妇做饭是这样的，痛苦地思考今晚吃什么菜，翻开菜谱查看怎么做，然后去市场买相应的食材，按菜谱步骤做饭。而《网上厨房》软件的做法恰是相反的。您只需要打开冰箱看看家里有什么食材，把它们的关键字输入《网上厨房》，即刻搜索。这样是不是更加省事啦！上班族们，每天临下班时只要打开《网上厨房》搜索看看就ok啦。
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120731/18-120I1220251107.jpg" style="width: 240px; height: 400px" /><br />
+	应用首页</p>
+<p>
+	<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 《网上厨房》在操作上简易明了，进入应用主页面，在《网上厨房》提供的&ldquo;智能选菜&rdquo;功能中选择你拥有的食材，提交给《网上厨房》，在搜索了超过几万份菜谱后，你马上知道今天该吃什么菜、怎么做！这种方法能把冰箱里快过期的食物做成美味佳肴，经济实用之余还能减轻烹饪者的脑力劳动！厨友可以通过&ldquo;选菜&rdquo;，选择自己想要烹饪的菜肴，如素食、煲汤、粥、美容等等。从最基本的三餐温饱到养生美食。数万条菜谱任您查找，帮您烹制任何您想要的菜肴。还有专业小编为您推荐时令鲜美，让您遍尝四季；神奇智慧搭配饕餮盛宴,让您轻松享受美味。<br />
+	&nbsp;</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120731/18-120I122040H31.jpg" style="width: 240px; height: 400px" /><br />
+	查询菜谱</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 您可通过《网上厨房》各种途径查阅自己喜爱的菜谱，并依据详细的步骤完成菜肴的烹饪。该应用增加了厨友汇板块，您可以将自己动手完成的美食上传发表烹饪美食心情到社区与其他美丽的厨娘分享、讨论美食的点点滴滴。《网上厨娘》支持离线操作，让你在下班闲暇时远离网络的烦恼，随时浏览菜谱。还支持微信朋友圈分享菜谱。&nbsp;《网上厨房》致力于打造国内一流的移动端美食菜谱应用，让美食爱好者们真正随时随地享受美食分享的乐趣。<br />
+	&nbsp;</p>
+<p style="text-align: center">
+	<img alt="" src="/Article/uploads/allimg/120731/18-120I1220525W1.jpg" style="width: 240px; height: 400px" /><br />
+	菜谱介绍<br />
+	<img alt="" src="/Article/uploads/allimg/120731/18-120I1220553F8.jpg" style="width: 240px; height: 400px" /><br />
+	分享到厨友汇</p>
+<p>
+	<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 总之《网上厨房》全心全意地为您解决&ldquo;今天吃什么，怎么做&rdquo;的困惑。 您只要轻松注册，即刻跨越各大平台，随时随地掌握数万菜谱，让你成为真正的大厨。快来试试看吧！<br />
+	<br />
+	<br />
+	&nbsp;</p>
+
+				<!--<p>本文链接：<a href="/Article/PingCe/2012/0731/4824.html">/Article/PingCe/2012/0731/4824.html</a>--><br />关键字：<a href='/Article/tags.php?/%E7%BE%8E%E9%A3%9F/'>美食</a> <a href='/Article/tags.php?/%E5%8E%A8%E6%88%BF/'>厨房</a> <a href='/Article/tags.php?/%E9%A3%9F%E8%B0%B1/'>食谱</a> <a href='/Article/tags.php?/%E5%88%86%E4%BA%AB/'>分享</a> <br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.***.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/PingCe/2012/0731/4824.html";
+				var wumiiTitle = "《网上厨房ecook》：让您实现大厨之梦";
+				var wumiiTags = "美食,厨房,食谱,分享,";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/PingCe/2012/0731/4824.html">《网上厨房ecook》：让您实现大厨之梦</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/PingCe/2012/0614/964.html" target="_blank">《加菲猫总动员》：跟加菲猫一起保卫厨房</a>(2012-06-14)</li>
+<li><a href="/Article/PingCe/2012/0613/956.html" target="_blank">《去哪吃》：美食集结地 吃货大联盟！</a>(2012-06-13)</li>
+<li><a href="/Article/PingCe/2012/0522/880.html" target="_blank">《8684外卖》：足不出门，即可享受美食</a>(2012-05-22)</li>
+<li><a href="/Article/PingCe/2012/0326/660.html" target="_blank">《奶酪老鼠：皮草齿轮》：为保护奶酪食谱而战</a>(2012-03-26)</li>
+<li><a href="/Article/PingCe/2012/0323/552.html" target="_blank">《好拍》：把美食晒出来</a>(2012-03-19)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：直江兼续</div>
+				<div id="ckepop" class="edi2">关键字：<a href='/Article/tags.php?/%E7%BE%8E%E9%A3%9F/'>美食</a> <a href='/Article/tags.php?/%E5%8E%A8%E6%88%BF/'>厨房</a> <a href='/Article/tags.php?/%E9%A3%9F%E8%B0%B1/'>食谱</a> <a href='/Article/tags.php?/%E5%88%86%E4%BA%AB/'>分享</a> </div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/PingCe/2012/0730/4823.html'>《大乱伦敦交通》：咱也客串一把“伦敦交警”</a> </li>
+					<li>下一篇：<a href='/Article/PingCe/2012/0731/4825.html'>《词语联想2》：有趣的词语游戏</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',4824)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',4824)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',4824)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(4824);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="4824" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=4824">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=4824&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '4824');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '4824');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/PingCe/2012/0731/4825.html" target="_blank" title="《词语联想2》：有趣的词语游">《词语联想2》：有趣的词语游</a></li>
+<li><a href="/Article/PingCe/2012/0801/4826.html" target="_blank" title="《宝石矿工2》：矿工版“怪物">《宝石矿工2》：矿工版“怪物</a></li>
+<li><a href="/Article/PingCe/2012/0730/4823.html" target="_blank" title="《大乱伦敦交通》：咱也客串">《大乱伦敦交通》：咱也客串</a></li>
+<li><a href="/Article/PingCe/2012/0730/4822.html" target="_blank" title="《i3方块谜题》：超炫的方块">《i3方块谜题》：超炫的方块</a></li>
+<li><a href="/Article/PingCe/2012/0727/4821.html" target="_blank" title="《我要当学霸》：有手机依赖">《我要当学霸》：有手机依赖</a></li>
+<li><a href="/Article/PingCe/2012/0727/4820.html" target="_blank" title="《机器人大冒险》：小机器人">《机器人大冒险》：小机器人</a></li>
+<li><a href="/Article/PingCe/2012/0722/4817.html" target="_blank" title="《金山词霸》：英语的百科全">《金山词霸》：英语的百科全</a></li>
+<li><a href="/Article/PingCe/2012/0726/4818.html" target="_blank" title="《跳棋大战》：随身携带的儿">《跳棋大战》：随身携带的儿</a></li>
+<li><a href="/Article/PingCe/2012/0727/4819.html" target="_blank" title="《足球跑酷》：需要刷刷刷的">《足球跑酷》：需要刷刷刷的</a></li>
+<li><a href="/Article/PingCe/2012/0722/4816.html" target="_blank" title="《西瓜侠》:西瓜大战大战来袭">《西瓜侠》:西瓜大战大战来袭</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:pt;color:#94a72">益智</a>  <a href='/Article/tags.php?/%E7%9F%BF%E5%B7%A5/' target="_blank" style="font-size:14pt;color:#f44a3a">矿工</a>  <a href='/Article/tags.php?/%E5%8A%A8%E4%BD%9C/' target="_blank" style="font-size:12pt;color:#59bdfd">动作</a>  <a href='/Article/tags.php?/%E8%8B%B1%E8%AF%AD/' target="_blank" style="font-size:14pt;color:#6dde4">英语</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:10pt;color:#a67e9">休闲</a>  <a href='/Article/tags.php?/%E5%AD%A6%E4%B9%A0/' target="_blank" style="font-size:pt;color:#39877">学习</a>  <a href='/Article/tags.php?/%E8%81%94%E6%83%B3/' target="_blank" style="font-size:14pt;color:#6e3f3">联想</a>  <a href='/Article/tags.php?/%E5%8E%A8%E6%88%BF/' target="_blank" style="font-size:14pt;color:#613675">厨房</a>  <a href='/Article/tags.php?/%E9%A3%9F%E8%B0%B1/' target="_blank" style="font-size:12pt;color:#a7b220">食谱</a>  <a href='/Article/tags.php?/%E5%88%86%E4%BA%AB/' target="_blank" style="font-size:14pt;color:#484616">分享</a>  <a href='/Article/tags.php?/%E7%BE%8E%E9%A3%9F/' target="_blank" style="font-size:14pt;color:#50f5e">美食</a>  <a href='/Article/tags.php?/%E4%BC%A6%E6%95%A6/' target="_blank" style="font-size:14pt;color:#2533ca">伦敦</a>  <a href='/Article/tags.php?/%E6%8C%87%E6%8C%A5/' target="_blank" style="font-size:pt;color:#4c8ac4">指挥</a>  <a href='/Article/tags.php?/%E4%BA%A4%E9%80%9A/' target="_blank" style="font-size:14pt;color:#bf2d2f">交通</a>  <a href='/Article/tags.php?/%E6%96%B9%E5%9D%97/' target="_blank" style="font-size:10pt;color:#8d27bc">方块</a>  <a href='/Article/tags.php?/i3/' target="_blank" style="font-size:pt;color:#79265a">i3</a>  <a href='/Article/tags.php?/%E8%B0%9C%E9%A2%98/' target="_blank" style="font-size:10pt;color:#1a5ebc">谜题</a>  <a href='/Article/tags.php?/%E8%B6%85%E7%82%AB/' target="_blank" style="font-size:12pt;color:#d5a25">超炫</a>  <a href='/Article/tags.php?/%E6%95%99%E8%82%B2%E8%BD%AF%E4%BB%B6/' target="_blank" style="font-size:10pt;color:#e64de5">教育软件</a>  <a href='/Article/tags.php?/%E7%AB%96%E7%89%88/' target="_blank" style="font-size:10pt;color:#a687d8">竖版</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

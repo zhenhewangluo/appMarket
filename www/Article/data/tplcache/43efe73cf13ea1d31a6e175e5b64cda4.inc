@@ -1,0 +1,10 @@
+{dede:field name='keywords'}谷歌地图,地图服务收费{/dede:field}
+{dede:field name='description'}谷歌已开始对谷歌地图（Google Maps)等产品收费，并计划让这些产品自负盈亏。美国科技博客网站TechCrunch今日便撰文指出，谷歌的这种做法是一种短视行为，将不利于其长期发展。{/dede:field}
+{dede:field name='title'}谷歌对地图服务收费被指短视：不利长期发展{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

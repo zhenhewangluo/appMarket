@@ -1,0 +1,38 @@
+[ 2012-11-30T00:00:13+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:00:13+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:00:13+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:00:13+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:00:13+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:00:13+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:00:13+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:00:13+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:03:00+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/App/Developer//register.html]
+[ 2012-11-30T00:07:48+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:02+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:04+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:05+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:14+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:19+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:21+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:33+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:39+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:08:50+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:09:07+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:09:07+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:09:17+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:09:19+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:09:20+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:09:27+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:09:32+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:09:39+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:10:07+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2012-11-30T00:10:08+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:10:08+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T00:10:08+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T01:30:41+08:00 ] ERR: (ThinkException) Action:forum.php%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2bResult您所请求的方法不存在！
+[ 2012-11-30T01:30:42+08:00 ] ERR: (ThinkException) Action:forum.php%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2bResult您所请求的方法不存在！
+[ 2012-11-30T02:20:58+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T02:21:28+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading authorization packet', system error: 0
+[ 2012-11-30T05:43:07+08:00 ] ERR: (ThinkException) Action:\"http您所请求的方法不存在！
+[ 2012-11-30T11:47:20+08:00 ] ERR: (ThinkException) 模板不存在[./AppStore/Tpl/pit/Activity/Test/guestPhoneBook.html]
+[ 2012-11-30T17:49:02+08:00 ] ERR: (ThinkException) Action:index.php%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2b%2bResult您所请求的方法不存在！

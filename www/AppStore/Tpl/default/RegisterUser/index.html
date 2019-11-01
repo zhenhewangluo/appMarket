@@ -1,0 +1,108 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a> > 用户注册
+</div>
+<script type="text/javascript">
+    //清空内容
+    function clearInput(){
+        $("input:text").attr('value','');
+	$("input:password").attr('value','');
+ 	var radio_oj = document.registerUser.email_ispublic;
+	for(var i=0;i<radio_oj.length;i++) //循环
+	{
+	    if(radio_oj[i].value=='1') //比较值
+	     { 
+		radio_oj[i].checked=true; //修改选中状态
+		break; //停止循环
+	    }
+	}
+	
+    }
+    //判断用户是否重复
+   function validate(){
+        $("#btRegister").attr('disabled','disabled');
+		var nameVal = $("#name").val();
+		var emailVal = $('[name="email"]').val();
+        $.post("{:U('AppStore://Ajax/validName')}", { "name": nameVal,"email":  emailVal},
+        function(data){
+			//alert($.trim($('#name').val()) !== '');
+             if(data.user == 1 && $.trim(nameVal) !== ''){
+                //alert("此用户已经使用！");
+				$('#name').removeClass('valid-text');
+				$('#unique').removeClass('valid-msg');
+				$('#name').addClass('invalid-text');
+				$('#unique').addClass('invalid-msg');
+				$('#unique').html('此用户已经使用！');
+				return false;
+            }
+            else if(data.email == 1 && $.trim(emailVal) !== ''){
+                //alert("此邮箱已经使用！");
+				$('#email').removeClass('valid-text');
+				$('#uniqueemail').removeClass('valid-msg');
+				$('#email').addClass('invalid-text');
+				$('#uniqueemail').addClass('invalid-msg');
+				$('#uniqueemail').html('此邮箱已经使用！');				
+                return false;
+            }
+            if(data.email == 0 && data.user == 0){               
+                 $("#btRegister").attr('disabled',false);
+			}                
+        }, "json");
+ 
+		return true;
+   }
+	function fleshVerify(){
+	//重载验证码
+	var timenow = new Date().getTime();
+	document.getElementById('verifyImg').src= "{:U('AppStore://RegisterUser/verify?random=')}"+timenow;
+	}  
+	
+</script>
+<div class="simple_box">
+	<div class="user_box_t">
+		<h6>用户注册</h6>
+	</div>
+	<div class="user_box_c">
+		<form method="post" action="{:U('AppStore://RegisterUser/register')}" id="registerUser" name ="registerUser">
+			<table class="list_table">
+				<col width="100px" />
+				<col />
+				<tr>
+					<th class="t_r">昵称：</th>
+					<td><input class="normal" type="text"  id="name" name="name" value=""  onblur="validate()" pattern="required" alt="昵称必填！"  /> <label id="unique"> 昵称必填！</label></td>
+				</tr>
+				<tr>
+					<th class="t_r">账户邮箱：</th>
+					<td><input class="normal" type="text" name="email" value=""  onblur="validate()" pattern="email" alt="请输入正确的邮箱地址"/> <label id="uniqueemail"> 请输入正确的邮箱地址</label></td>
+				</tr>
+				<tr>
+					<th class="t_r" >邮箱是否公开：</th>
+					<td ><label><input type="radio" name="email_ispublic" value="1" checked="true" />是</label>
+					    <label><input type="radio" name="email_ispublic" value="0" />否</label>
+					</td>
+				</tr>	
+				<tr>
+					<th class="t_r">密码：</th>
+					<td><input class="normal" type="password" name="password1" value=""  pattern="^\S{6,32}$" alt="密码必填且至少6位" bind ="password2" /><label></label></td>
+				</tr>
+				<tr>
+					<th class="t_r">密码确认：</th>
+					<td><input class="normal" type="password" name="password2" value=""  pattern="^\S{6,32}$" alt="密码必填且至少6位" bind ="password1" /><label></label></td>
+				</tr>				
+				<tr>
+					<th class="t_r">验证码：</th>
+					<td><input class="normal" type="text" name="verifyCard" value=""  pattern="required" alt="请输入验证码" />
+							  <img style='cursor:pointer' title='刷新验证码' src="{:U('AppStore://RegisterUser/verify')}" id='verifyImg' onClick="fleshVerify()" /><label></label></td>
+				</tr>
+				<tr>
+					<th class="t_r"></th><td><label><input type="submit" id="btRegister" class="user_submit"  value="注 册"/>&nbsp;
+						<input type="button" class="user_clearinput" value="清 空"  onclick="clearInput()"/> </label></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="user_box_b"></div>
+</div>
+ 
+
+

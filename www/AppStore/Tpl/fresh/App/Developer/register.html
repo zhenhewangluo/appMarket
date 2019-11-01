@@ -1,0 +1,111 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css">
+<script type="text/javascript" src="__PUBLIC__/js/autovalidate/validate.js"></script>
+<div class="position">
+	<a href ="__APP__">首页</a>&nbsp;>&nbsp;开发者注册&nbsp;>&nbsp;
+</div>
+<div class="simple_box">
+	<div class="simple_box_t"></div>
+	<div class="simple_box_c">
+		<div class="pencil"></div>
+		<h6>开发者注册流程</h6>
+		<div class="steps">
+			<div class="dev_reg_box_title">
+				<img src="../Public/images/dev_reg_step_1.png" />
+			</div>
+		</div>
+		<div class="reg_form" id="step1" style="display:{$step[1]}">
+			<form action="{:U('AppStore://App-Developer/registerAction')}" method="post">
+				<table>
+					<col width="150px">
+					<col />
+					<tr>
+						<th class="t_r">
+							邮箱：
+						</th>
+						<td>
+							<input class="long" type="text" pattern="email" name="email"  alt="请输入正确的邮箱地址" /><label>　</label>
+						</td>
+					</tr>
+					<tr>
+						<th></th>
+						<td>
+							<input class="user_submit" type="submit" value="发送" /> 
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div class="reg_form" id="step2" style="display:{$step[2]}">
+			邮件已经发送至您填写的邮箱，请查收，并根据提示完成注册………<br /><br /><br /><br />
+		</div>
+		<div id="step4" style="display:{$step[4]}">
+			<div class="complete">
+				您的资料已经成功提交，工作人员会在1-2个工作日内完成审核，审核结果会以邮件形式通知您，请注意查收！<br />
+				如有任何问题或需要帮助，请发邮件至：<a>kefu@hjapp.com</a>
+			</div>
+		</div>
+
+		<div class="reg_form"  id="step3" style="display:{$step[3]}">
+			<form action="{:U('AppStore://App-Developer/registerinfoAction')}" method="post">
+				<div id="dev_person">
+					<input type="hidden" name="action" value="dev_person" />
+					<input type="hidden" name="email" value="zxg19821204@163.com"/>
+					<table  class="table" cellpadding="12" cellspacing="0" border=0>
+						<tr>
+							<td class="left"><span>*</span>密码：</td>
+							<td><input class="long" name="password" type="password" class="input input_box"/></td>
+						</tr>
+						<tr>
+							<td class="left"><span>*</span>确认密码：</td>
+							<td><input class="long" name="password" type="password" class="input input_box"/></td>
+						</tr>
+						<tr>
+							<td class="left"><span>*</span>昵称：</td>
+							<td><input class="long" name="name" type="text" class="input input_box"/></td>
+						</tr>
+						<tr>
+							<td class="left"><span>*</span>身份证号：</td>
+							<td><input class="long" name="card" type="text" class="input input_box"/></td>
+						</tr>
+						<tr>
+							<td class="left"><span>*</span>联系电话：</td>
+							<td><input class="long" name="txtPhone" type="text"  class="input input_box"/></td>
+						</tr>
+						<tr>
+							<td class="left"><span>*</span>所在城市：</td>
+							<td>
+								<select id="person_province"  name="person_province" onchange="loadCity(this,'person_city');">
+								</select>-<select name="person_city"  id="person_city" >
+									<option >请选择城市</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="left"><span>*</span>详细地址：</td>
+							<td><input class="long" name="addres" type="text"  class="input input_box"/></td>
+						</tr>
+						<tr>
+							<td class="left"><span>*</span>QQ：</td>
+							<td><input class="long" name="qq" type="text"  class="input input_box"/></td>
+						</tr>
+						<tr>
+							<td class="left">个人网站：</td>
+							<td><input class="long" name="web" type="text"  class="input input_box"/></td>
+						</tr>
+						<tr>
+							<td class="left"></td>
+							<td>
+								<input type="checkbox" name="gre" />我已经阅读并接受《<a href="xieyi2.html" target="_blank">开发者协议</a>》
+							</td>
+						</tr>
+						<tr>
+							<td class="left"></td>
+							<td><input type="submit" value="提交申请" /></td>
+						</tr>
+					</table>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="simple_box_b"></div>
+</div>

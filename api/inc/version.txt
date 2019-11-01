@@ -1,0 +1,10 @@
+############################################
+# Version information for client updating. #	 		
+# Plz be very careful when you need update #
+# this file                                #   
+############################################
+#the current/latest version of the client application
+current_version=v1.0.0
+
+#the location of the latest application, use full url.
+location=http://www.ministore.com/apps/appname.apk

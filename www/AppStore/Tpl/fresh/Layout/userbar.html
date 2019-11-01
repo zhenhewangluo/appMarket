@@ -1,0 +1,40 @@
+<div class="userbar f_l">
+	<div class="user_bar_t"></div>
+	<div class="user_bar_c">
+		<dl class="user_info_box">
+			<dt class="user_avatar_box">
+				<img src="__ROOT__/{$webUhead[1]}" />
+			</dt>
+			<dt class="user_name_box">{$webUname}</dt>
+			<dd><p class="myhj"><a href="{:U('AppStore://Ucenter-Panel/userinfo')}"><em> > </em>我的欢聚</a></p></dd>
+			<dd><p class="myavatar"><a href="{:U('AppStore://Ucenter-Panel/headUpload')}"><em> > </em>修改图像</a></p></dd>
+			<dd><p class="mypwd"><a href="{:U('AppStore://Ucenter-Panel/updatePassword')}"><em> > </em>修改密码</a></p></dd>
+		</dl>
+		<dl class="user_forum_box">
+			<dt class="user_forum_title">分类导航</dt>
+			<dd><a href="{:U('AppStore://App-Apps/appList?type=latest')}">最新更新</a></dd>
+			<dd><a href="{:U('AppStore://App-Apps/appList?cid=4')}">必备应用</a></dd>
+			<dd><a href="{:U('AppStore://App-Apps/appList?cid=1')}">编辑推荐</a></dd>
+			<dd><a href="{:U('AppStore://App-Apps/appList?cid=2&order=download')}">热门应用</a></dd>
+		</dl>
+	</div>
+	<div class="user_bar_b"></div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('.user_box_nav > li').each(function(e){
+			var thisNode = $(this);
+			thisNode.hover(function(){
+				if(thisNode.attr('class') != 'current')
+				{
+					thisNode.addClass('current_hover');
+				}
+			}, function(){
+				if(thisNode.attr('class') != 'current')
+				{
+					thisNode.removeClass('current_hover');
+				}
+			});
+		});
+	});
+</script>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:text="" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="180dip"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="5dip" >
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address1"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/receiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/receiver"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="normal" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tel"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="normal" >
+        </TextView>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/modify_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6px"
+        android:focusable="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:src="@drawable/modify0" >
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/delete_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6px"
+        android:focusable="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:src="@drawable/delete0" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/transparent"
+        android:textSize="0px" >
+    </TextView>
+
+</LinearLayout>

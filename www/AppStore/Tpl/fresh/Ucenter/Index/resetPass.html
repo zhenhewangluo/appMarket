@@ -1,0 +1,43 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a> > 密码重置
+</div>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/autovalidate/style.css" />
+<script type='text/javascript' src="__PUBLIC__/js/autovalidate/validate.js"></script>
+<script type="text/javascript">
+	function fleshVerify(){
+	//重载验证码
+	var timenow = new Date().getTime();
+	document.getElementById('verifyImg').src= "{:U('AppStore://App-RegisterUser/verify?random=')}"+timenow;
+	}  
+	
+</script>
+<div class="simple_box">
+	<div class="simple_box_t"></div>
+	<div class="simple_box_c">
+		<div class="pencil"></div>
+		<h6>密码重置</h6>
+		<form method="post" action="{:U('Ucenter-Index/resetPassAct')}" id="updatePasswordReset">
+		    <input type="hidden" name="resetcode" value="{$resetcode}" />
+			<input type="hidden" name='callbackUrl' value="{$callbackUrl}">
+			<table>
+				<tr>
+					<th class="t_r">新密码：</th>
+					<td><input class="long" type="password" name="password" value="" alt="密码必填且至少6位" /><label>　</label></td>
+				</tr>
+				<tr>
+					<th class="t_r">密码确认：</th>
+					<td><input class="long" type="password" name="repassword" value="" alt="密码必填且至少6位" /><label>　</label></td>
+				</tr>				<tr>
+					<th class="t_r">验证码：</th>
+					<td><input class="long" type="text" name="verifyCard" value="" alt="请输入验证码" /><label>　</label>
+							  <img style='cursor:pointer' title='刷新验证码' src="{:U('AppStore://App-RegisterUser/verify')}" id='verifyImg' onClick="fleshVerify()" /></label></td>
+				</tr>
+				<tr>
+					<th class="t_r"></th><td><input type="submit" class="user_submit"  value="重 　置"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="simple_box_b"></div>
+</div>

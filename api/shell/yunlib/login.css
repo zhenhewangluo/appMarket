@@ -1,0 +1,45 @@
+body { margin:5px;
+       font-family: Verdana, Arial, Helvetica, sans-serif;
+	scrollbar-face-color:#E5EDF5; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+	scrollbar-shadow-color: #9EBACA; SCROLLBAR-3DLIGHT-COLOR: #9EBACA;
+	scrollbar-arrow-color: #9EBACA; SCROLLBAR-TRACK-COLOR: #ffffff; 
+	SCROLLBAR-DARKSHADOW-COLOR: #E5EDF5
+ 	  }
+
+img { border:0; }
+
+input { border:#aaaaaa 1px solid; font-size: 12px; color:5a5a5a; background: url(bg_input.gif);  }
+
+input.btn { background: url(BtnBg.jpg);
+            height:22px; 
+			border:#7789AA 1px solid;
+            font-size:12px; 
+			cursor: pointer; 
+			color: #174b73;
+		}
+input.no { border-width:0px }
+
+.hr1
+{
+	border:#cccccc 1px dashed;
+	width:90%;
+}
+
+
+#loginbody {
+	MARGIN: 80px
+}
+.lbody {
+	FLOAT: left; WIDTH: 40%; TEXT-ALIGN: right
+}
+.rbody {
+	PADDING-LEFT: 20px; FLOAT: left; MARGIN-LEFT: 20px; BORDER-LEFT: #cccccc 1px solid; WIDTH: 50%
+}
+
+.inputs {
+	WIDTH: 150px; HEIGHT: 18px
+}
+
+p {
+font-size:14px;
+}

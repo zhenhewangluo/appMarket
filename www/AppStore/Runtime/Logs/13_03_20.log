@@ -1,0 +1,4 @@
+[ 2013-03-20T02:18:29+08:00 ] ERR: (ThinkException) Lost connection to MySQL server at 'reading initial communication packet', system error: 110
+[ 2013-03-20T02:18:33+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-03-20T04:52:31+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)
+[ 2013-03-20T05:39:22+08:00 ] ERR: (ThinkException) Can't connect to MySQL server on '192.168.1.145' (4)

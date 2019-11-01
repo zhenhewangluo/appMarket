@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Title Bar -->
+
+    <include layout="@layout/title_notext" />
+
+    <!--
+         com.viewpagerindicator.TitlePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#1800FF00"
+        app:footerColor="#FF22AA22"
+        app:footerIndicatorHeight="3dp"
+        app:footerIndicatorStyle="underline"
+        app:footerLineHeight="2dp"
+        android:padding="10dip"
+        app:selectedBold="true"
+        app:selectedColor="#FFFFFFFF"
+        app:textColor="#FF777777"
+
+    -->
+    <com.viewpagerindicator.TitlePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/move_bg"
+        android:padding="0dip"
+        app:footerColor="#17b5f3"
+        app:footerIndicatorHeight="0dp"
+        app:footerIndicatorStyle="oval"
+        app:footerLineHeight="0dp"
+        app:textBackground="@drawable/move"
+        app:selectedBold="false"
+        app:selectedColor="#FFFFFFFF"
+        app:textColor="#FFeeeeee"
+        app:textSize="18sp" />
+
+    <!-- android:layout_height="@dimen/has_title_list_layout_height" -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vPager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:persistentDrawingCache="all" />
+
+</LinearLayout>

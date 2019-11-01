@@ -1,0 +1,10 @@
+{dede:field name='keywords'}三星,Galaxy S II,升级Androi{/dede:field}
+{dede:field name='description'}据报道，三星已经准备好了于10号开始的Galaxy S II升级Android 4.0的工作，从10号起，Galaxy S II的用户便可通过OTA或是连接三星kies的方式来进行升级。虽然此次三星并未透露Galaxy S II升级后的具体变化，但据称此次升级将提供Android 4.0所拥有的全部功能，包括新的多任务操作系统、人脸识别以及三星的TouchWiz用户{/dede:field}
+{dede:field name='title'}三星Galaxy S II今日升级Android 4.0{/dede:field}
+{dede:field name='writer'}{/dede:field}
+{dede:field name='source'}{/dede:field}
+{dede:field name='pubdate'}{/dede:field}
+{dede:field name='body'}{/dede:field}
+{dede:field name='download_url'}{/dede:field}
+{dede:field name='app_id'}{/dede:field}
+{dede:field name='litpic'}{/dede:field}

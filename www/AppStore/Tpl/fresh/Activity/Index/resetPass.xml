@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><![CDATA[
+<div class="popWin">
+	<form id="act_rp" autocomplete="off">
+		<input type="hidden" name="sign" value="2" />
+		<table>
+			<col width="90px">
+			<col />
+			<col width="100px">
+			<tr>
+				<th>手机号：</th>
+				<td><input type="text" class="win_input" name="mobile" value="" /><label>　</label></td>
+				<td><input type="button" name="sendVerify" value="发送验证码" class="verify_btn" /><span id="countDown" style="display:none;"><span id="cdtime">60</span>秒后重新发送</span></td>
+			</tr>
+			<tr>
+				<th>手机验证码：</th>
+				<td colspan="2"><input type="text" class="win_input" name="verifyCode" value="" pattern="verify" /><label>　</label></td>
+			</tr>
+			<tr>
+				<th>新密码：</th>
+				<td colspan="2"><input type="password" class="win_input" name="password" value="" pattern="pass" /><label>　</label></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td colspan="2"><input type="submit" name="submit" value="提 交" class="win_submit_btn" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<script type="text/javascript">
+	clearcdt();
+	$(function(){
+		$('#act_rp input:[name="sendVerify"]').click(function(){
+			var sendObj = {
+				'mobile' : $('#act_rp input:[name="mobile"]').val(),
+				'sign' : $('#act_rp input:[name="sign"]').val()
+			};
+			if(checkInfo({'sign' : $('#act_rp input:[name="sign"]').val()}, 'act_rp') == true)
+			{
+				sendShort('{:U("AppStore://Activity-Index/sendVerify")}', sendObj);
+				$('.verify_btn').hide();
+				$('#countDown').show();
+				cdt();
+			}
+		});
+		$('#act_rp input:[name="submit"]').click(function(){
+			var sendObj = {
+				mobile : $('#act_rp input:[name="mobile"]').val(),	
+				verifyCode : $('#act_rp input:[name="verifyCode"]').val(),
+				password : $('#act_rp input:[name="password"]').val(),
+				__hash__ : $('#act_rp input:[name="__hash__"]').val()
+			};
+			if(checkInfo(sendObj, 'act_rp') == true)
+			{
+				sendInfo('{:U("AppStore://Activity-Index/resetPassAct")}', sendObj, false);
+			}
+			return false;
+		});
+		$('#act_login input:[name="__hash__"]').val($('#act_rp input:[name="__hash__"]').val());
+		$('.win_submit_btn').hover(function(){
+			$(this).addClass('win_submit_btn_hover');
+		}, function(){
+			$(this).removeClass('win_submit_btn_hover');
+		});
+		$('.verify_btn').hover(function(){
+			$(this).addClass('verify_btn_hover');
+		},function(){
+			$(this).removeClass('verify_btn_hover');
+		});
+	});
+</script>]]></root>

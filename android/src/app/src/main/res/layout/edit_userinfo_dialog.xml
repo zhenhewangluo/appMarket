@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dip"
+    android:layout_height="280dip"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_title_bg"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <!-- phone -->
+        <!-- phone label -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/user_info_editphone"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_content_bg"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center_vertical"
+            android:text="@string/input_phone"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <!-- user name text editor -->
+
+        <EditText
+            android:id="@+id/phone_edit"
+            android:layout_width="280dip"
+            android:layout_height="37dip"
+            android:layout_marginLeft="7dip"
+            android:layout_marginTop="5dip"
+            android:numeric="integer"
+            android:singleLine="true"
+            android:textSize="18sp" />
+        <!-- nickname -->
+        <!-- nickname label -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:gravity="center_vertical"
+            android:text="@string/input_nickname"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+        <!-- nickname text editor -->
+
+        <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="280dip"
+            android:layout_height="37dip"
+            android:layout_marginLeft="7dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="15dip"
+            android:singleLine="true"
+            android:textSize="18sp" />
+
+        <!-- confirm -->
+
+        <include
+            android:id="@+id/confirm_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dip"
+            android:layout_marginRight="35dip"
+            android:layout_marginBottom="10dip"
+            layout="@layout/long_button" />
+    </LinearLayout>
+
+</LinearLayout>

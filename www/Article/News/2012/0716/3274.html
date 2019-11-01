@@ -1,0 +1,867 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>苹果对决Android：发端于乔布斯的专利核战争_***</title>
+<meta name="keywords" content="苹果,Android,乔布斯,专利" />
+<meta name="description" content="国外媒体今天撰文称，由于Android在智能手机市场异军突起，而且采用了与苹果截然相反的开源模式，导致苹果心生杀念，一心想要通过专利诉讼铲除异己。但在一系列复杂的诉讼过程中" />
+<link type="text/css" rel="stylesheet" href="/Article/templets/style/css.css" />
+<style type="text/css">
+/* digg */
+.newdigg {height:110px;clear:both;padding-left:8px; background-color:#FFF; padding-left:87px; padding-top:114px;}
+.diggbox {width:100px;float:left;margin-right:8px;cursor:pointer;}
+.diggbox .digg_act {font-size:14px;float:left;line-height:31px;height:29px;font-weight:bold; width:60px; text-align:center; overflow:hidden; display:inline-block;}
+.diggbox .digg_num {line-height:29px; text-align:center;}
+.diggbox .digg_percent {width:100px;clear:both; position:relative;}
+.diggbox .digg_percent .digg_percent_bar {width:20px; position:absolute; left:0; bottom:0; height:auto;margin-top:3px; margin-left:20px;}
+.diggbox .digg_percent .digg_percent_num {font-size:10px;float:left;padding-left:10px;}
+.diggbox .digg_percent .digg_percent_bar span{display:inline-block;width:20px;overflow:hidden;background:#000;}
+.newdigg .digg_actimg { margin-top:5px;}
+.newdigg .digg_like .digg_act{color:#CC3300;}
+.newdigg .digg_like .digg_num {color:#CC3300;}
+.newdigg .digg_good .digg_act {color:#C30;}
+.newdigg .digg_good .digg_num {color:#C63;}
+.newdigg .digg_bad .digg_act{color:#36C;}
+.newdigg .digg_bad .digg_num {color:#39C;}
+.newdigg .digg_passing .digg_act{color:#36C;}
+.newdigg .digg_passing .digg_num {color:#39C;}
+.newdigg .digg_cheat .digg_act{color:#CC3300;}
+.newdigg .digg_cheat .digg_num {color:#CC3300;}
+.newdigg .digg_like .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_good .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+.newdigg .digg_bad .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_passing .digg_percent .digg_percent_bar span{border:1px solid #689ACC;background:#94C0E4;}
+.newdigg .digg_cheat .digg_percent .digg_percent_bar span{border:1px solid #E37F24;background:#FFC535;}
+/* handle */
+.handle {clear:both;height:59px;text-align:left;padding:12px 0 0 10px;}
+.handle .context ul li{line-height:29px;color:#888;}
+.actbox{float:right;width:260px;text-align:center;padding-top:20px;padding-right:10px;}
+.actbox ul li{display:inline;padding-left:22px;background:url(http://www.cuu.cc/templets/images/actbox-ico.gif) no-repeat;margin-right:10px;}
+.actbox ul li a{color:#777;}
+.actbox ul li#act-fav{background-position:4px 0px;}
+.actbox ul li#act-err{background-position:4px -37px;}
+.actbox ul li#act-pus{background-position:4px -73px;}
+.actbox ul li#act-pnt{background-position:4px -109px;}
+</style>
+<script language="javascript" type="text/javascript" src="/Article/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+ function CheckLogin(){
+   var taget_obj = document.getElementById('_ajax_feedback');
+   myajax = new DedeAjax(taget_obj,false,false,'','','');
+   myajax.SendGet2("/Article/member/ajax_feedback.php");
+   DedeXHTTP = null;
+ }
+ function checkSubmit(){
+  if(document.feedback.msg.value!='') document.feedback.submit();
+  else alert("评论内容不能为空！");
+ }
+function postBadGood(ftype,fid)
+{
+ var taget_obj = document.getElementById(ftype+fid);
+ var saveid = GetCookie('badgoodid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==fid && hasid) continue;
+   else {
+    if(saveids[i]==fid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==10 && hasid) break;
+    if(j==9 && !hasid) break;
+   }
+  }
+  if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+  else saveid += ','+fid;
+  SetCookie('badgoodid',saveid,1);
+ }
+ else
+ {
+  SetCookie('badgoodid',fid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+ DedeXHTTP = null;
+}
+function postDigg(ftype,aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ var saveid = GetCookie('diggid');
+ if(saveid != null)
+ {
+  var saveids = saveid.split(',');
+  var hasid = false;
+  saveid = '';
+  j = 1;
+  for(i=saveids.length-1;i>=0;i--)
+  {
+   if(saveids[i]==aid && hasid) continue;
+   else {
+    if(saveids[i]==aid && !hasid) hasid = true;
+    saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+    j++;
+    if(j==20 && hasid) break;
+    if(j==19 && !hasid) break;
+   }
+  }
+  if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+  else saveid += ','+aid;
+  SetCookie('diggid',saveid,1);
+ }
+ else
+ {
+  SetCookie('diggid',aid,1);
+ }
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ var url = "/Article/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+ myajax.SendGet2(url);
+ DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+ var taget_obj = document.getElementById('newdigg');
+ myajax = new DedeAjax(taget_obj,false,false,'','','');
+ myajax.SendGet2("/Article/plus/digg_ajax.php?id="+aid);
+ DedeXHTTP = null;
+}
+
+-->
+</script>
+<script type="text/javascript">
+jQuery(document).ready(
+function($){
+$("img").lazyload({
+placeholder : "/Article/templets/images/grey.gif",
+effect      : "fadeIn"
+});
+});
+</script>
+<script type="text/javascript">
+function addFavorite(){
+    if (document.all){
+        try{
+            window.external.addFavorite(window.location.href,document.title);
+        }catch(e){
+            alert( "请使用Ctrl+D进行添加" );
+        }
+        
+    }else if (window.sidebar){
+        window.sidebar.addPanel(document.title, window.location.href, "");
+     }else{
+        alert( "请使用Ctrl+D进行添加" );
+    }
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+  DD_belatedPNG.fix('.search');
+</script>
+<div class="header">
+	<div class="headBox">
+		<div class="logo"><a href="http://www.hjapp.com">***</a></div>
+		<div class="search">
+			<form action="/Article/plus/search.php" name="formsearch">
+				<select name="searchtype" style="display:none;"  id="search-option">
+					<option value="titlekeyword" selected='1'>智能模糊搜索</option>
+					<option value="title">仅搜索标题</option>
+				</select>
+				<input type="hidden" name="kwtype" value="0" />
+				<input name="keyword" type="text" class="keyword" id="search-keyword" value="请输入搜索关键词" /><input name="" type="submit" class="search-submit" value="" title="搜索" />
+			</form>
+			<!--<div class="hottag">热门关键字：<a href='/Article/tags.php?/%E5%BB%BA%E9%80%A0/' target="_blank">建造</a><a href='/Article/tags.php?/camera360/' target="_blank">camera360</a><a href='/Article/tags.php?/%E6%BB%91%E9%9B%AA%E8%BF%90%E5%8A%A8/' target="_blank">滑雪运动</a><a href='/Article/tags.php?/%E5%B9%BB%E6%83%B3/' target="_blank">幻想</a></div>-->
+		</div>
+	</div>
+	<div class="navbar">
+		<div class="menu"><a href='http://www.hjapp.com'>聚应用</a><span>|</span><a href='/index.php?s=/App/Apps/index'>应用中心</a><span>|</span><a href='/Article/plus/list.php?tid=2' >评测</a><a class='cut' href='/Article/plus/list.php?tid=1' >新闻</a>
+		</div>
+        <div id="register"><a href="/index.php?s=/Ucenter/Index/reg/acttype/market">现在注册</a></div>
+	<!--	<div class="user">
+		<a href="/Article/data/rssmap.html" target="_blank" class="a3">RSS订阅</a>
+		<a href="http://down.hjapk.com/6055446/apk/market.apk" class="a4">下载客户端</a>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="mainBox">
+	<div class="mleft">
+		<div class="place">您的位置：<a href='http://www.hjapp.com'>***</a>>><a href='/Article/plus/list.php?tid=1'>新闻</a>>></div>
+		<div class="articleCont">
+			<h1 class="articleTitle">苹果对决Android：发端于乔布斯的专利核战争</h1>
+			<div class="articleInfo"><small>时间:</small>2012-03-30 19:58<small>来源:</small><a href="/" target="_blank">安卓哥</a> <small>作者:</small>鹏哥哥 <small>围观:</small>
+				<script src="/Article/plus/count.php?view=yes&aid=3274&mid=1" type='text/javascript' language="javascript"></script>
+				次</div>
+			<div class="articleContent">
+			<p style="text-align:center;">
+	<img title="苹果近些年的强势，使其成为专利核战争的中心地带" alt="苹果近些年的强势，使其成为专利核战争的中心地带" src="/uploads/allimg/c120716/1342422B563F-55618.jpg" /> 
+</p>
+<p style="text-align:center;">
+	<span class="img_descr">苹果近些年的强势，使其成为专利核战争的中心地带</span> 
+</p>
+<p style="text-align:center;">
+	<span class="img_descr"><br />
+</span> 
+</p>
+<p style="text-align:center;">
+	<span class="img_descr"> </span> 
+</p>
+<p style="text-align:left;">
+	<strong>亦敌亦友</strong> 
+</p>
+<p style="text-align:left;">
+	露西·科赫(Lucy 
+Koh)身着一袭黑色长袍，戴着一串白色珍珠项链，举止端庄大方，非常符合一位美国地区法院法官的身份。这位哈佛毕业生曾经担任美国联邦检察官，目前在加州当法官。作为硅谷一家律师事务所的合伙人，她曾负责科技专利诉讼。在去年6月的一次听证会上，出于真诚的态度，43岁的科赫忍不住打断了控辩双方律师的激烈辩论。
+</p>
+<p style="text-align:left;">
+	“上次你们说彼此之间有业务联系。我记不清具体数字了，是800万美元，还是80亿美元？”她问。
+</p>
+<p style="text-align:left;">
+	“我认为应该超过70亿美元。”哈罗德·迈克尔黑尼(Harold McElhinny)回答道。这是他的客户苹果每年支付给三星(微博)的零部件采购费，后者在本案中被控侵犯苹果专利。苹果是三星的最大客户，在其2011年总额1090亿美元的收入中占比达7.6%。但这种依赖关系却是双向的：倘若没有三星的零部件，苹果也无法继续生产利润丰厚的iPad和iPhone。然而，在科赫的法庭上，这两家公司却争得不可开交。
+</p>
+<p style="text-align:left;">
+	“70亿美元，”科赫沉思道，“我们能不能在这里和解？我能否给你们发一份ADR？”她问。她所说的ADR是“非诉纠纷解决方案”(alternative 
+dispute resolution)的简称，这是一种私下调解方式。“我会给你们送几盒巧克力，”科赫说，“随便什么都可以。”
+</p>
+<p style="text-align:left;">
+	如今，9个月过去了，“苹果诉三星案”丝毫没有缓和的迹象。非但没有和解，苹果甚至还于今年2月再次向圣何塞联邦法院起诉三星，指控这家韩国厂商“奴隶般地抄袭”苹果。苹果将三星描述为一个不可救药的惯偷，并指出三星“不断向市场推出大量山寨产品，包括过去8个月推出的至少18款全新的侵权产品”。
+</p>
+<p style="text-align:left;">
+	<strong> 行业缩影</strong> 
+</p>
+<p style="text-align:left;">
+	这场纠纷是科技行业现状的一个缩影：苹果严厉地警告一家强大的竞争对手，让他们不要忘记谁才是真正的老板。与此同时，苹果与三星之间的法律纠纷也因为庞大的规模备受瞩目。为了赢得诉讼，对战双方都不惜投入巨资打击对方，以期赢得这场世纪对决的胜利。但对于他们之间高达数十亿美元的共生关系而言，这无疑是一场考验。
+</p>
+<p style="text-align:left;">
+	这场斗争也反映了苹果与多家移动设备制造商之间的广泛矛盾，并因此在10个国家引发了数十起官司。除了三星外，苹果的主要打击目标还包括摩托罗拉移动和HTC。然而，正如硅谷观察人士所说，这些手机和平板电脑厂商只是替罪羊，苹果的真正对手是Android。这款操作系统由谷歌开发，并免费提供给各大移动设备厂商使用。谷歌的这种“共荣”商业模式与苹果格格不入。在已故苹果联合创始人史蒂夫·乔布斯(Steve 
+Jobs)看来，此举会对他的公司产生巨大威胁。
+</p>
+<p style="text-align:left;">
+	乔布斯2010年10月5日辞世，享年56岁。在人生旅程的最后18个月，他始终在奋力打压Android。他对自己的传记作家沃尔特·艾萨克森(Walter 
+Isaacson)说，针对硬件厂商发起的诉讼意在传递一个明确的信息：“谷歌，你剽窃了iPhone，彻底剽窃了我们的创意。你是个大盗。”乔布斯发誓会“用尽最后一口气”和苹果现金储备中的“每一分钱”，来“纠正这个错误”。“我要摧毁Android，因为这是偷来的产品。我要发动一场热核战争。”他说。
+</p>
+<p style="text-align:left;">
+	尽管这只是一个比喻，但要发动核打击却不得不面临一个问题：对方也可能利用核武器报复苹果。事实上，事态的确在向着这个方向发展。苹果每发起一场诉讼，对手都会反击，称苹果并不像乔布斯所鼓吹的那样拥有独特的创意。三星、摩托罗拉移动和其他企业都坚称，苹果最有价值的一些专利——例如iPhone和iPad的简约设计——本身就是无效专利。
+</p>
+<p style="text-align:left;">
+	由于在全球发动了法律大战，乔布斯给他的继任者留下了巨大的隐患。苹果或许成功迫使竞争对手取消了几项手机功能，甚至逼迫一两款产品彻底退出了重要市场。但苹果的竞争对手却为数众多，前赴后继。三星的网站列出了超过134款手机，而苹果的专利大战仅涉及两款设备：iPhone和iPad。虽然有些难以置信，但倘若竞争对手成功说服某个国家的法官或贸易监管部门，让他们相信苹果的专利是无效的，苹果的声誉就将遭受巨大损失。而对于股东而言，更重要的在于，它的市场份额也可能会被侵蚀。
+</p>
+<p style="text-align:left;">
+	<strong> 来龙去脉</strong> 
+</p>
+<p style="text-align:left;">
+	在旁观者看来，这场移动设备专利大战简直就像是一场疯狂的混战，但并非毫无头绪：源头可以追溯至2010年初的加州库珀蒂诺。彼时iPhone需求旺盛，而乔布斯也在同年1月发布了外形纤薄的iPad平板电脑。这两款产品都采用苹果自主开发的iOS操作系统，该系统可以运行各种软件，并在苹果设备之间实现通讯。
+</p>
+<p style="text-align:left;">
+	众所周知，乔布斯一直以来都不允许竞争对手使用苹果的操作系统，并且努力与苹果自家的硬件密切整合。相反，谷歌开发的Android系统则采用开源模式，并向众多硬件厂商免费提供，因此被大量手机和平板电脑采用。虽然无法通过硬件创收，但谷歌却可以借助Android系统赚取网络广告收入。谷歌最著名的网络搜索服务也采用了同样的战略。
+</p>
+<p style="text-align:left;">
+	Android的崛起激怒了乔布斯。据艾萨克森的《乔布斯传》记载，他在苹果总部的一次会议上对公司员工说：“我们没有进军搜索业务，他们却进军了手机业务。别搞错了，他们想干掉iPhone。”
+</p>
+<p style="text-align:left;">
+	乔布斯的愤怒源于上世纪80年代的一些经历，彼时，他拒绝将苹果电脑使用的时尚操作系统Macintosh授权给其他厂商使用。他的宿敌比尔·盖茨(Bill 
+GAtes)却将微软的Windows系统(以及之前的DOS)授权给大量PC厂商。乔布斯蔑视Windows，认为那是一款二流产品。但得益于强大的吸引力，微软还是在桌面操作系统市场击败了苹果。同样的一幕是否会在iOS和Android之间重演？
+</p>
+<p style="text-align:left;">
+	尤其令乔布斯恼怒的是，Android手机提供了很多在他看来属于苹果原创的功能，包括设备的整体外观以及多点触控功能。2008年，乔布斯造访谷歌总部，对该公司的两名联合创始人拉里·佩奇(Larry 
+Page)和塞吉·布林(Sergey 
+Brin)说，如果谷歌退让，苹果或许可以授权其使用iPhone主屏上的一些图标。但如果Android执意与iOS竞争，那就只能法庭上见了。(尽管苹果仍是全球市值最高的企业，iPad也仍然占据平板电脑市场的主导地位，但Android已经在手机操作系统领域超过苹果。据市场研究公司Canalys测算，Android手机去年第四季度约占全球智能手机出货量的51.6%，iPhone仅为23.4%。)
+</p>
+<p style="text-align:left;">
+	但乔布斯诉诸法律的决定仍然面临一些障碍。从实际来看，由于谷歌并未销售手机，所以法官不会命令谷歌停售“山寨”手机。同样，谷歌也不可能因为其他公司生产并销售的手机而支付赔偿。从象征意义来看，打击谷歌可能招致消费者和硅谷精英对苹果的反感。
+</p>
+<p style="text-align:left;">
+	<strong> 选准目标</strong> 
+</p>
+<p style="text-align:left;">
+	于是，苹果2010年3月对Android的“代理人”发起攻击，指控中国台湾的HTC在Nexus One、Touch Pro和Droid 
+Eris等产品中侵犯其10余项专利。“我们可以对竞争对手剽窃我们的专利坐视不理，”乔布斯当时说，“或者，也可以做点什么。”
+</p>
+<p style="text-align:left;">
+	创立于1997年的HTC凭借2007年与谷歌建立的Android合作关系，从一家代工厂商发展为拥有自主品牌的大型智能手机企业。但它仍在广告中强调了一句口号：Quietly 
+Brilliant(低调卓越)。苹果选择在美国国际贸易委员会(以下简称“ITC”)起诉HTC，这是一家位于华盛顿的准司法机构，其案件审理速度快于美国联邦法院，而且有权禁止侵权产品进口。“苹果似乎挑了一个软柿子。”知识产权学者、哈佛商学院教授维利·史(Willy 
+Shih)说。起诉HTC其实是在向Android阵营的其他企业发出警告。
+</p>
+<p style="text-align:left;">
+	但HTC比预想的更加顽强。该公司聘请了一流的法律顾问，包括加州律师事务所Quinn Emanuel Urquhart &amp; 
+Sullivan——该公司也曾经为谷歌代理官司，这并非巧合。HTC在法律文件中表示，该公司并无任何过错，苹果的诉讼目的是削弱竞争对手的实力。在开庭前，苹果明显退缩了，撤消了一些诉讼。ITC的一名行政法官在初步裁决中裁定HTC仅侵犯了苹果两项专利，从而进一步缩小了该案的诉讼范围。2011年12月，苹果再度受挫，ITC全体委员一致裁决，HTC仅侵犯苹果的一项专利。该专利使得智能手机能够自动识别短信和电子邮件中的电话号码，方便用户直接拨打。
+</p>
+<p style="text-align:left;">
+	该消息宣布后，HTC表示，已经设计了一项措施，绕过该技术，导致苹果禁售HTC手机的希望落空。得益于ITC的最终裁决和HTC的股票回购计划，该公司股价当天大涨7%，触及台湾股票交易所的涨停板。
+</p>
+<p style="text-align:left;">
+	苹果也因为这个结果付出了代价：HTC和其他手机厂商开始向苹果发起专利诉讼。没等乔布斯动手，摩托罗拉移动就先发制人，于2010年10月向苹果发起三起诉讼，并向ITC提交了一起投诉，指控苹果侵犯其专利。摩托罗拉移动的代理律师也来自Quinn 
+Emanuel Urquhart &amp; Sullivan。苹果也不甘示弱，向ITC投诉摩托罗拉移动的Droid、Droid 2和Droid 
+X三款Android手机抄袭iPhone。由于程序问题，苹果的主张率先得到回应：ITC的行政法官今年1月裁决，苹果未能证明摩托罗拉移动侵权。3月16日，ITC委员最终认定摩托罗拉移动胜诉。
+</p>
+<p style="text-align:left;">
+	在这场以牙还牙的斗争中，专利战火从华盛顿烧到芝加哥，又烧到特拉华，随后还蔓延到英国、法国、德国、荷兰、意大利和澳大利亚。几乎每天都会出现新的动议、听证会和上诉。德国曼海姆法院今年2月作出裁决，认定苹果侵犯摩托罗拉移动的信息推送技术专利。几天后，德国慕尼黑法院又裁决，苹果在与摩托罗拉移动的“滑动解锁”专利纠纷中胜诉。但双方都已提起上诉，丝毫没有罢手的迹象。
+</p>
+<p style="text-align:left;">
+	作为手机市场的先驱，摩托罗拉移动数十年来积累了大量基础专利，很多都已经成为数字设备的核心技术，这就使得摩托罗拉移动的知识产权拥有了巨大的价值。因此，谷歌2011年8月宣布斥资125亿美元收购该公司的手机业务及其1.7万项专利。谷歌CEO佩奇表示，此举“将使我们更好地保护Android免受微软、苹果和其他企业的反竞争威胁。”换句话说：人若犯我，我必犯人。今年2月，苹果向欧盟委员会投诉摩托罗拉移动，指控其使用所谓的“标准要素专利”打压竞争对手——当然，摩托罗拉移动已经积极应诉。
+</p>
+<p style="text-align:left;">
+	<strong> 转攻三星</strong> 
+</p>
+<p style="text-align:left;">
+	2011年3月，乔布斯在iPad 2的发布会上将注意力转向了三星。他调侃了Galaxy Tab，在一张幻灯片中将2011年称作是“山寨年”(Year 
+of the Copycats)，并把三星列在首位。一个月后，苹果在加州圣何塞起诉三星。
+</p>
+<p style="text-align:left;">
+	直到21世纪初，三星和其他韩国家族式财团还被普遍视为天生的模仿者：他们生产的电子产品、厨房家电和汽车都缺乏想象力。但三星却在不知不觉间成长为全球收入最高的科技企业，并且成为了全球最大的存储芯片、微处理器和智能手机屏幕供应商。如今，它在韩国出口额中的占比几乎达到五分之一，在本土市场拥有无与伦比的影响力。2008年，三星董事长、韩国首富李健熙被控逃税并违反信托责任。虽然两项罪名都成立，但他仍然免于牢狱之灾，获得了总统特赦，重新执掌公司帅印。
+</p>
+<p style="text-align:left;">
+	与HTC不同，三星并未在2007年就急于投靠Android阵营，而是在几年后才推出了Galaxy系列Android手机。根据苹果提交的法律文件，三星跳过了艰巨的初期研发阶段，直接模仿了“苹果的创新技术、与众不同的用户界面，以及优雅而独特的产品和包装设计。”苹果称，三星2010年3月发布的Galaxy 
+i9000手机抄袭了“苹果iPhone 
+3G所有独特而简约的设计元素：长方形外观、四个圆角、光滑平整的正面，以及透明玻璃下的大屏幕。”苹果发言人史蒂夫·多灵(Steve 
+Dowling)说：“这种公然抄袭是不对的，当其他公司剽窃我们的创意时，我们要保护苹果的知识产权。”
+</p>
+<p style="text-align:left;">
+	三星并不否认其智能手机的外观和功能在某些方面与苹果类似，但该公司却在法律文件中坚称，无论是微波炉还是最新、最酷的手机，相互竞争的产品经常会彼此模仿。更何况，一个配有圆角的正方形算得上什么了不起的创新吗？三星认为，苹果是希望借助诉讼获得任何一个竞争者都不应有的待遇：“永远统治智能手机和移动电脑市场。”三星发言人詹姆斯·钟(James 
+Chung)补充道：“三星将继续捍卫我们的知识产权，以便服务于我们的用户，并确保我们在移动通讯行业的持续创新力和领导力。”
+</p>
+<p style="text-align:left;">
+	事实上，早在iPhone面市前，就有多家亚洲厂商设计了类似的长方形智能手机。三星指出，在iPhone发布前1年，也就是2006年，其本土竞争对手LG便发布了一款名为“巧克力”的圆角手机，该产品“几乎包含了苹果主张的所有设计元素”。2006年12月，在苹果发布iPhone图片前，三星也在韩国提交了一项名为F700的长方形手机设计专利。虽然苹果自认为拥有这种设计的独家使用权，但三星认为，智能手机和平板电脑的设计是向着这一方向“自然进化的”。倘若果真如此，苹果便会损失惨重，因为按照《专利法》的基本精神，如果一项创意在发明时对普通人而言是“显而易见的”，便会失去专利保护。因此，苹果有可能因为打击三星而引火烧身。
+</p>
+<p style="text-align:left;">
+	<strong> 深层原因</strong> 
+</p>
+<p style="text-align:left;">
+	“专利诉讼是一把双刃剑。”哈佛商学院的维利·史说。如果有人怀疑这种说法，只要回顾一下历史上最著名的专利纠纷便可了解个中缘由。2009年，强生旗下的Centocor部门在一起官司中胜诉，被告雅培被判赔偿16.7亿美元。但是强生却得意忘形。去年，一家上诉法院做出裁决，认定强生在关节炎药物中使用的人源抗体专利无效。上诉法院甚至认为，强生的这项专利最多不过是“一份资产愿望清单”。这也为雅培的竞争性药品修美乐(Humira)提供了关键的法律保护。
+</p>
+<p style="text-align:left;">
+	维利·史曾经长期在IBM、DEC、SGI和柯达担任高管，他本人也曾亲身经历过专利大战的创伤。自从5年前进入哈佛商学院以来，他已经将满是书香的大学办公室变成了一个小型的数字产品博物馆。他的书架和展示柜上摆放着各种各样的电脑主板、复杂的电话芯片组(有真品，也有中国的仿品)、过时的口袋相机，以及一个与整体环境格格不入的F-18战斗机引擎模型。
+</p>
+<p style="text-align:left;">
+	“多数现代技术都存在于我所说的创新金字塔顶端。”他说。智能手机由很多零部件构成，每个零部件都采用了很多早期专利，因此可能会引发数不尽的诉讼。“从金字塔顶端向下看，很难看到每一块砖……这便是诉讼的来源。”
+</p>
+<p style="text-align:left;">
+	自十七世纪早期以来，英美法系一直都认定发明人只能暂时拥有专利独家权益。通过现代美国专利系统披露专利的人，通常可以获得20年的独家使用权。从理论上讲，公开披露专利相当于告知那些想要使用专利的人，应该为此支付专利费。这种理论也的确经常被应用于实践——电脑技术行业尤其如此——但并非一帆风顺。
+</p>
+<p style="text-align:left;">
+	首先，授权谈判有时会破裂。苹果在起诉书中称，该公司曾在2010年与三星就授权费展开接触，但最终未能达成一致。三星律师也向法院证实了这一点，但并未披露细节。
+</p>
+<p style="text-align:left;">
+	维利·史认为，移动设备的专利大战或许已经不可避免。众多财大气粗的企业从四面八方进军这一领域：苹果和微软来自电脑行业，谷歌来自搜索引擎和广告行业，亚洲制造商则来自通讯行业。与营销和定价一样，专利诉讼也是一项斗争武器。
+</p>
+<p style="text-align:left;">
+	科技行业诉讼频发还源于另外一个因素：从上世纪90年代起，美国专利和商标局便推出了一系列政策，鼓励企业申请专利。其中一项政策要求审查官在拒绝专利申请后提交书面说明。自1990年以来，全美每年批准的专利数量已经增长了150%，从9.9077万项增长到24.7713万项。
+</p>
+<p style="text-align:left;">
+	维利·史表示，令外界困惑的是：尽管在法庭上剑拔弩张，但苹果和三星很可能将继续维持供应链合作关系。虽然这两家公司通常都拒绝讨论彼此的关系，但在去年的诉讼高发期，三星仍然为苹果的iPhone和iPad供应核心A5逻辑芯片。该产品由三星在美国德克萨斯州奥斯汀市的新工厂生产，处理速度达到A4的两倍，后者同样由三星生产。
+</p>
+<p style="text-align:left;">
+	除此之外，三星还为苹果第三代iPad供应重要的Retina屏幕。市场研究公司iSuppli分析师维尼塔·杰克汉瓦尔(Vinita 
+Jakhanwal)本月透露，在LG 
+Display和夏普无法满足苹果的苛刻要求后，苹果最终还是选择三星为其供应屏幕。“新iPad的屏幕对分辨率的要求极高。”杰克汉瓦尔说。无论苹果多么蔑视三星的追随战略，它仍然极度依赖三星。
+</p>
+<p style="text-align:left;">
+	<strong> 激烈对峙</strong> 
+</p>
+<p style="text-align:left;">
+	就在科赫法官开玩笑说要给原被告律师送巧克力后的4个月，她又主持了另外一次听证会，原因是苹果提出一项动议，希望在美国对三星的三款手机(Galaxy S 
+4G、Infuse 4G和Droid Charge)和Galaxy Tab 
+10.1平板电脑下达初步禁令。苹果声称，如果不禁售这些产品，该公司将遭受“不可挽回的损失”。
+</p>
+<p style="text-align:left;">
+	“Android操作系统与iOS之间爆发了一场大战，”苹果首席代理律师、律师事务所Morrison &amp; 
+Foerster合伙人迈克尔黑尼说，“有相当一部分美国人还没有选购智能手机。一旦人们做出选择，他们就会忠于这个生态系统，今后还将继续在这一生态系统内选择其他手机。”(根据市场研究公司IDC的统计，苹果去年第四季度智能手机出货量位居全球之首，达到3700万部，较2010年增长128%；三星智能手机出货量为3600万部，增幅达到更为惊人的275%。)
+</p>
+<p style="text-align:left;">
+	在初步禁令的听证会上，苹果通过4项专利来证明该公司的手机“绝对新颖”。除此之外，迈克尔黑尼还表示，iPad平板电脑已经“创造了一个全新的产品类别”。
+</p>
+<p style="text-align:left;">
+	其中有两项专利涉及iPhone的外观。文件中涉及的专利都用专利号的最后三位数来代替，而这两项专利则是D’087和D’677。D’087涵盖了“一款电子设备的装饰设计”，并附带了48个示意图。第三项专利是D’889，涵盖了一款平板电脑的视觉特性，同样只用了一些草图说明。
+</p>
+<p style="text-align:left;">
+	第四项专利为’381，2008年12月23日获得，但并没有使用前缀“D”，因为该专利涉及的是功能，而非设计。该专利可以简称为“恢复原状”(bounce 
+back)：当用户用手指将一张图片或一个文档拖出屏幕边框时，如果松开手指，该图片或文档便会恢复原状，重新填满屏幕。上文提到的三款三星手机和Galaxy Tab 
+10.1都拥有“恢复原状”功能。
+</p>
+<p style="text-align:left;">
+	Quinn Emanuel Urquhart &amp; Sullivan合伙人、三星代理律师凯瑟琳·沙利文(Kathleen M. 
+Sullivan)指出，在苹果的设备诞生前，就出现了各种各样与iPhone和iPad外观甚至使用方式相似的产品。她认为，苹果想将配备平滑表面和圆角的长方形智能手机和平板电脑设计据为己有，这不公平。
+</p>
+<p style="text-align:left;">
+	科赫法官打断了沙利文的阐述，手拿着一台三星平板电脑和一台iPad，问沙利文能否区分这两款产品。
+</p>
+<p style="text-align:left;">
+	“在这个距离上分不出来，法官阁下。”沙利文坦承。他们二人当时相距约10步。
+</p>
+<p style="text-align:left;">
+	“好吧，我拿高一些。”法官说，“哪个是哪个？”
+</p>
+<p style="text-align:left;">
+	最终，沙利文正确地辨认出iPad。
+</p>
+<p style="text-align:left;">
+	“区分这两款产品花了很长时间。”法官说。她的意思是说，粗心的消费者可能会混淆三星与苹果的产品。是否会导致消费者混淆是判断专利是否被侵犯的重要标准。
+</p>
+<p style="text-align:left;">
+	“法官阁下，”沙利文抗议道，“我无意冒犯，但我们俩站得很远，而且你遮住了商标……D’889专利涉及整个产品，但你并没有给我们展示背面。”
+</p>
+<p style="text-align:left;">
+	科赫并没有下结论。但她认为，三星或许模仿了苹果，但苹果可能也模仿了一款由报业公司Knight-Ridder 
+1994年推出的产品，但该产品并未获得商业上的成功。
+</p>
+<p style="text-align:left;">
+	“好吧，我接受这一点，法官阁下。”沙利文回答道。她是一个非常聪明的人，知道应当适时停止争辩。
+</p>
+<p style="text-align:left;">
+	<strong> 法官态度</strong> 
+</p>
+<p style="text-align:left;">
+	去年12月2日，科赫发布了65页的判决书，表意十分明确，完全可以当做法学院专利课程的教科书。“在担任法官前，科赫法官曾是一名知识产权诉讼律师，所以她非常了解这些问题。”斯坦福法学院教授兼该校法律、科学和技术项目总监马克·莱姆利(Mark 
+Lemley)说。
+</p>
+<p style="text-align:left;">
+	科赫的判决只是临时的，她的中心意思是：苹果希望针对三星设备在美国下达临时禁令的申请，要等到今年7月对本案开庭审理并做出最终判决后再做决定。科赫既没有放任苹果的自以为是，也没有帮助三星打破苹果的光环。
+</p>
+<p style="text-align:left;">
+	首先，科赫重申，尽管产品设计可以申请专利，但“受功能所限的”设计不能申请专利。尽管苹果拥有专利，但并不表示通过缩小智能手机的体积来提升握感的创意归属于该公司。如果他们能够获得这种专利，其他企业就无法出售实用的智能手机了。与之类似，苹果也不能阻止竞争对手为了方便触控操作而采用大屏幕，或是为了方便贴近耳朵而将听筒设计到设备的上半部分。
+</p>
+<p style="text-align:left;">
+	在谈到“显而易见”的概念时，科赫对三星表达了同情，认为苹果所谓“震惊世界”的创新言过其实。她分析了日本夏普2005年6月6日获得的一项日本专利，该专利比苹果的相关专利早很多。根据美国法律，国外专利可以被视为“先有技术”，从而否决美国专利。科赫用美国专利和商标局档案中的一些示意图对自己的观点进行了阐述，她表示，夏普的专利与苹果的D’087相似，也有圆角，屏幕与边框的比例以及扬声器的形状都很类似。她补充道，夏普的专利是一项非常简洁的设计，普通人很有可能认为苹果的D’087基本与夏普的专利相同。
+</p>
+<p style="text-align:left;">
+	科赫总结道：“三星承担了足够的举证责任，对D’087专利的有效性提出了实质性的质疑。”但最终结论需要等到今年7月的庭审时宣布。在这起官司中，苹果有可能丧失一项最重要的知识产权。从实践来讲，该公司可能因为自己的好斗而付出代价，在今后的诉讼或交叉许可谈判中丧失筹码。
+</p>
+<p style="text-align:left;">
+	判决书中的冗长专利法律分析可能会令外行感到头痛。科赫法官表示，假设法庭发现苹果的另外一项设计专利有效，三星的Galaxy S 4G和Infuse 
+4手机便有可能侵犯该专利。但她不会因此禁售这些手机，部分原因在于她认为侵权问题是一个“封闭式问题”，需要更多证据。她继续说道，将三星的两款手机逐出市场将面临很高的误判概率。因此，她驳回了苹果的请求，允许三星继续在美国销售这两款手机。
+</p>
+<p style="text-align:left;">
+	科赫对iPad的设计发表的评论令苹果更加失望。她仍然用了手绘的草图展示了1994年的一款外形粗糙的Fidler/Knight 
+Ridder平板电脑，该产品是专为数字报纸设计的阅读器，与苹果iPad的D’889专利给人“基本相同的视觉印象”。“因此，法院认为，三星以‘显而易见’为立场对苹果D’889专利的有效性提出了实质性的质疑。”她写道。所以，iPad的设计或许人人都可使用。科赫同样没有批准禁售三星Galaxy 
+Tab 10.1平板电脑。
+</p>
+<p style="text-align:left;">
+	<strong> 或现转机</strong> 
+</p>
+<p style="text-align:left;">
+	但苹果并未气馁，而是又聘请了洛杉矶的Gibson， Dunn &amp; Crutcher律师事务所，与Morrison &amp; 
+Foerster一同于今年2月发起了新的诉讼，指控三星最新产品侵犯了苹果的更多专利。此举随即引发了众多反诉和对反诉的反诉。科赫接手的智能手机和平板电脑侵权官司越来越多，其他城市和国家的法院受理的官司同样如此。
+</p>
+<p style="text-align:left;">
+	然而知情人士透露，苹果和三星高管最近就潜在和解展开了沟通。苹果CEO蒂姆·库克(Tim 
+Cook)似乎并不像乔布斯那样一心想把敌人逼上死路。在库克看来，诉讼似乎是一种必然的邪恶，而非复仇之道。
+</p>
+<p style="text-align:left;">
+	不过，苹果与谷歌之间的更大分歧远未解决，而且不仅仅事关智能手机和平板电脑。尽管二者都在努力争夺移动设备领域的霸主地位，但却都在防范微软。而由于数字枢纽有可能将互联网和电视整合到一起，因此他们还有可能在这个新兴领域展开斗争。
+</p>
+<p style="text-align:left;">
+	从短期来看，如果这些科技巨头能够坐到一起，起草一系列全面的交叉许可协议，最终交给会议室外等候的律师审核，那就可以节省大量的费用和精力。桌面领域也曾经历过类似的法律大战，但最终也是凭借这种方法解决的。这种方案“仍然很有可能在这一市场实现，”斯坦福的莱姆利说，“但与此同时，这些企业过去几年已经支付给律师4亿多美元。不知道他们花的这些钱能带来什么回报。”
+</p>
+<p>
+	<br />
+</p>
+                <span id="Lb_laiyuan" class="hs"><br/>来源：<strong>新浪科技</strong></span>
+				<!--<p>本文链接：<a href="/Article/News/2012/0716/3274.html">/Article/News/2012/0716/3274.html</a>--><br />关键字：<br /><!--<span style="color:#F00">本文版权归作者本人所有，转载请注明原文出处。</span>--></p>
+				<div style="text-align:center"><a href="www.hjapp.com">hjapp</a>原创文章，转载请注明出处</div>
+		  </div>
+			<div class="pages">
+				<ul class="pagelist">
+					
+				</ul>	
+			</div>
+			<div class="shoucang">
+<!-- //分享代码开始 -->
+  <script src='/Article/plus/bshare.php' type='text/javascript'></script>
+<!-- //分享代码结束 -->
+			</div>
+			<div>
+			<script type="text/javascript">
+				var wumiiPermaLink = "/Article/News/2012/0716/3274.html";
+				var wumiiTitle = "苹果对决Android：发端于乔布斯的专利核战争";
+				var wumiiTags = "";
+				var wumiiSitePrefix = "/";
+			</script>
+			<script type="text/javascript" id="wumiiRelatedItems" src="http://widget.wumii.com/ext/relatedItemsWidget.htm?type=1&amp;mode=2&amp;num=5"></script>
+			<a href="http://www.wumii.com/widget/relatedItems.htm" style="border:0;">
+				<img src="http://static.wumii.com/images/pixel.png" alt="无觅相关文章插件" style="border:0;padding:0;margin:0;" />
+			</a>
+			</div>
+			<div class="likeart">
+				<h2><strong>和<a href="/Article/News/2012/0716/3274.html">苹果对决Android：发端于乔布斯的专利核战争</a>相关的文章：</strong></h2>
+				<ul class="mt10">
+					<li><a href="/Article/News/2012/0716/3502.html" target="_blank">苹果和摩托罗拉移动曾经专利授权和解谈判</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3499.html" target="_blank">Android开发资源免费横溢 开发商利润不足5%</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3498.html" target="_blank">Sony（索尼）是否被Android完全Hold住了？</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3497.html" target="_blank">2012第10周国内Android应用下载排行榜</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3496.html" target="_blank">著名游戏开发商称将放弃Android平台</a>(2012-03-13)</li>
+<li><a href="/Article/News/2012/0716/3495.html" target="_blank">报告称65%的Android反病毒软件不可靠</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3494.html" target="_blank">点评：Android系统优化重于升级</a>(2012-03-12)</li>
+<li><a href="/Article/News/2012/0716/3490.html" target="_blank">卡巴斯基再掀起Android市场安全狂潮</a>(2012-03-12)</li>
+
+				</ul>
+			</div>
+			<div class="arteditor">
+				<div class="edi1">责任编辑：admin</div>
+				<div id="ckepop" class="edi2">关键字：</div>
+                
+			</div>
+			<div class="context">
+				<ul>
+					<li>上一篇：<a href='/Article/News/2012/0716/3273.html'>高德软件发布Android 3D版地图</a> </li>
+					<li>下一篇：<a href='/Article/News/2012/0716/3275.html'>技嘉 第二季度推联发科双SIM卡Android手机</a> </li>
+				</ul>
+			</div>
+		</div>
+		<!-- //AJAX评论区 -->
+		 <!--//AJAX顶贴-->
+        <div class="newdigg" id="newdigg">
+   <div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';" onmouseout="this.style.backgroundPosition='left top';" onclick="javascript:postDigg('good',3274)">
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">顶一下</div>    
+   </div>
+   <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';" onmouseout="this.style.backgroundPosition='right top';" onclick="javascript:postDigg('bad',3274)">
+    
+    <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:0%"></span></div>
+     <div class="digg_percent_num">0%</div>
+    </div>
+    <div class="digg_act">踩一下</div>
+   </div>
+   <div class="diggbox digg_passing" onmousemove="this.style.backgroundPosition='190px bottom';" onmouseout="this.style.backgroundPosition='190px top';" onclick="javascript:postDigg('passing',3274)">
+      <div class="digg_num">(0)</div>
+    <div class="digg_percent">
+     <div class="digg_percent_bar"><span style="width:%"></span></div>
+     <div class="digg_percent_num">%</div>
+    </div>
+     <div class="digg_act">顶一下2</div>
+   </div>
+  </div>
+  <script language="javascript" type="text/javascript" >getDigg(3274);</script>
+  <!-- //顶踩部份的源码结束 -->
+		<!-- //AJAX评论区 -->
+		<!-- //主模板必须要引入/Article/include/dedeajax2.js -->
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>发表评论</strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="3274" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title"> <small>请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。</small> </div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" />
+            <label for="dcmp-stand-neu"><img src="/Article/templets/hjapptempv/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" />
+            <label for="dcmp-stand-good"><img src="/Article/templets/hjapptempv/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" />
+            <label for="dcmp-stand-bad"><img src="/Article/templets/hjapptempv/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/Article/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/Article/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/Article\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback">
+             <!--用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase;"/>
+              -->
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;"/>
+              <img src= "/Article/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest"  checked="checked"/>
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit">
+              <button type="button" onClick='PostComment()'>发表评论</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong>最新评论</strong> <span class="more"><!--<a href="/Article/plus/feedback.php?aid=3274">进入详细评论页&gt;&gt;</a>--></span> </dt>
+    <!-- //这两个ID的区块必须存在，否则JS会出错 -->
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/Article/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/Article/plus/feedback_ajax.php?dopost=getlist&aid=3274&page="+page);
+		DedeXHTTP = null;
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'utf-8';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '3274');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/Article/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/Article/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/Article/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/Article/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'utf-8';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '3274');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/Article/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+
+		
+		<div class="quemenu"> <strong>快捷导航：</strong><a href='/Article/plus/list.php?tid=2' >评测</a><a href='/Article/plus/list.php?tid=1' >新闻</a> </div>
+	</div>
+	<!--left end-->
+	<div class="mright">
+		<!--<div class="rBox">
+<script src='/Article/plus/ad_js.php?aid=22' language='javascript'></script>
+		</div>-->
+		<!--<div class="rBox">
+			以下是QQ邮件列表订阅嵌入代码
+		</div> -->
+		<div class="rBox">
+			<h2 class="title">最新文章</h2>
+			<ul class="list1">
+				<li><a href="/Article/News/2012/0716/3084.html" target="_blank" title="华硕：下半年要成为头号And">华硕：下半年要成为头号And</a></li>
+<li><a href="/Article/News/2012/0716/3085.html" target="_blank" title="创意安卓手机盘点">创意安卓手机盘点</a></li>
+<li><a href="/Article/News/2012/0716/3095.html" target="_blank" title="恶意吸费软件充斥应用市场">恶意吸费软件充斥应用市场</a></li>
+<li><a href="/Article/News/2012/0716/3096.html" target="_blank" title="谷歌公布Android各个版本市场占">谷歌公布Android各个版本市场占</a></li>
+<li><a href="/Article/News/2012/0716/2952.html" target="_blank" title="三星机海战术追赶苹果 智能手">三星机海战术追赶苹果 智能手</a></li>
+<li><a href="/Article/News/2012/0716/2953.html" target="_blank" title="3G上网超流量运营商未提醒 用">3G上网超流量运营商未提醒 用</a></li>
+<li><a href="/Article/News/2012/0716/2919.html" target="_blank" title="小米“米吧”上线公测 打造手">小米“米吧”上线公测 打造手</a></li>
+<li><a href="/Article/News/2012/0716/2920.html" target="_blank" title="联通机构再改革:电子渠道中心">联通机构再改革:电子渠道中心</a></li>
+<li><a href="/Article/News/2012/0716/2500.html" target="_blank" title="8684公交安装量突破500万，7月">8684公交安装量突破500万，7月</a></li>
+<li><a href="/Article/News/2012/0716/2499.html" target="_blank" title="将一台电视变成一部Android平板">将一台电视变成一部Android平板</a></li>
+
+			</ul>
+		</div>
+		<!--右边内容 结束-->
+		<div class="rBox">
+			<h2 class="title">最新标签</h2>
+			<div class="taglist"> <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA%EF%BC%8C%E7%89%A9%E7%90%86/' target="_blank" style="font-size:10pt;color:#7a9e75">益智，物理</a>  <a href='/Article/tags.php?/%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:14pt;color:#3640e">翻译</a>  <a href='/Article/tags.php?/%E5%9C%A8%E7%BA%BF%E7%BF%BB%E8%AF%91/' target="_blank" style="font-size:pt;color:#2c83c0">在线翻译</a>  <a href='/Article/tags.php?/google/' target="_blank" style="font-size:12pt;color:#4b15bc">google</a>  <a href='/Article/tags.php?/%E8%B0%B7%E6%AD%8C/' target="_blank" style="font-size:12pt;color:#f6927c">谷歌</a>  <a href='/Article/tags.php?/%E5%89%B2%E7%BB%B3%E5%AD%90/' target="_blank" style="font-size:12pt;color:#e04eb5">割绳子</a>  <a href='/Article/tags.php?/%E5%8F%98%E8%89%B2%E9%BE%99/' target="_blank" style="font-size:14pt;color:#191db5">变色龙</a>  <a href='/Article/tags.php?/%E5%8D%88%E9%A4%90/' target="_blank" style="font-size:10pt;color:#521251">午餐</a>  <a href='/Article/tags.php?/%E5%8F%AF%E7%88%B1/' target="_blank" style="font-size:pt;color:#e4987c">可爱</a>  <a href='/Article/tags.php?/%E8%8D%A1%E7%A7%8B%E5%8D%83/' target="_blank" style="font-size:10pt;color:#1a6af0">荡秋千</a>  <a href='/Article/tags.php?/%E5%AE%9D%E5%AE%9D/' target="_blank" style="font-size:12pt;color:#3588aa">宝宝</a>  <a href='/Article/tags.php?/%E5%90%AF%E8%92%99/' target="_blank" style="font-size:14pt;color:#cd4ed6">启蒙</a>  <a href='/Article/tags.php?/%E8%A7%A6%E5%B1%8F/' target="_blank" style="font-size:pt;color:#253f3d">触屏</a>  <a href='/Article/tags.php?/%E5%B9%BC%E5%84%BF/' target="_blank" style="font-size:10pt;color:#b9bbc1">幼儿</a>  <a href='/Article/tags.php?/%E5%84%BF%E7%AB%A5/' target="_blank" style="font-size:pt;color:#195cd">儿童</a>  <a href='/Article/tags.php?/%E6%B8%B8%E6%88%8F/' target="_blank" style="font-size:12pt;color:#8f4838">游戏</a>  <a href='/Article/tags.php?/%E7%9B%8A%E6%99%BA/' target="_blank" style="font-size:12pt;color:#258b8f">益智</a>  <a href='/Article/tags.php?/%E4%BC%91%E9%97%B2/' target="_blank" style="font-size:10pt;color:#3f6286">休闲</a>  <a href='/Article/tags.php?/%E6%B6%88%E9%99%A4/' target="_blank" style="font-size:12pt;color:#3125f6">消除</a>  <a href='/Article/tags.php?/%E6%80%9D%E7%BB%B4/' target="_blank" style="font-size:pt;color:#979ec2">思维</a> </div>
+		</div>
+		<!--tag 结束-->
+	</div>
+	<!--右边内容 结束-->
+</div>
+<!-- totop BEGIN -->
+<div id="totop" class="totop"><span>返回顶部</span></div>
+<script type="text/javascript">
+	$(window).scroll(function () {
+        var dt = $(document).scrollTop();
+        var wt = $(window).height();
+        if (dt <= 0) {
+            $("#totop").hide();
+            return;
+        }
+        $("#totop").show();
+        if ($.browser.msie && $.browser.version == 6.0) {//IE6返回顶部
+            $("#totop").css("top", wt + dt - 110 + "px");
+        }
+    });
+    $("#totop").click(function () { $("html,body").animate({ scrollTop: 0 }, 200) });
+</script>
+<div class="footer">
+	<div class="footercontent">
+    <span><a href="http://www.hjapp.com" target="_blank"><img src="/Article/templets/hjapptempv/images/logoFooter.jpg"/></a></span>
+	<p><a href='/'>网站首页</a>|<a href="/index.php?s=/Block/Index/aboutUs">关于我们</a>|<a href="/index.php?s=/Block/Index/agreement">服务条款</a>|<a href="/index.php?s=/Block/Index/devNotes">开发者须知</a>|<a href="/index.php?s=/Block/Index/disclaimer" target="_blank">免费声明</a></p>
+	<p>Copyright © 2010-2012 SkyXLink Ltd. Rights Reserved</p>
+	<p></p>
+    </div>
+</div>
+
+
+<!-- /footer -->
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!-- 面包屑导航 -->
+<div class="position">
+	<a href ="__APP__">首页</a> > 用户中心
+</div>
+<!-- 面包屑导航 -->
+<!-- layout::$userbar::0 -->
+<div class="user_box f_r">
+	<div class="user_box_t">
+		<h6>用户中心</h6>
+		<ul class="user_box_nav">
+			<li><a href="{:U('AppStore://RegisterUser/userinfo')}">我的欢聚</a></li>
+			<li class="current"><a href="javascript:void(0);">我的更新</a></li>
+			<li><a href="{:U('AppStore://RegisterUser/downloadHistory')}">我的下载</a></li>
+			<li><a href="javascript:void(0);">我的收藏</a></li>
+			<li><a href="{:U('AppStore://RegisterUser/commentHistory')}">我的评分</a></li>
+			<li><a href="javascript:void(0);">我的点评</a></li>
+		</ul>
+	</div>
+	<div class="user_box_c">
+		<h6>恭喜你，{$webUname}，你的更新列表里的软件都是最新的</h6>
+		<table class="table_app_list">
+			<col />
+			<col width="150px" />
+			<col width="150px" />
+			<col width="150px" />
+			<thead>
+				<tr>
+					<th class="t_c">名称</th>
+					<th class="t_c">下载时间</th>
+					<th class="t_c">更新时间</th>
+					<th class="t_c">最新版本</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="list" id="vo">
+				<tr>
+					<td class="t_l"><a href="{:U('AppStore://Apps/detail?aid=' . $vo['app_id'])}" target="_blank"  title="{$vo['app_name']}">{$vo['app_name']|mb_substr=0,20,'UTF-8'}</a></td>
+					<td class="t_l">{$vo['create_time']}</td>
+					<td class="t_l">{$vo['app_update_date']}</td>
+					<td class="t_l">{$vo['app_version']}</td>
+				</tr>
+				</volist>
+			</tbody>
+		</table>
+		<div class="page" style="clear:both;">
+		{$page}
+		</div>
+	</div>
+	<div class="user_box_b"></div>
+</div>

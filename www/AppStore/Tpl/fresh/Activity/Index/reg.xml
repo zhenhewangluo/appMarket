@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><![CDATA[
+<div class="popWin">
+	<form id="act_reg" autocomplete="off">
+		<input type="hidden" name="sign" value="1" />
+		<table>
+			<col width="90px">
+			<col />
+			<col width="100px">
+			<tr>
+				<th>手机号：</th>
+				<td><input class="win_input" type="text" name="mobile" value="" alt="" /><label>　</label></td>
+				<td><input type="button" name="sendVerify" value="发送验证码" class="verify_btn" /><span id="countDown" style="display:none;"><span id="cdtime">60</span>秒后重新发送</span></td>
+			</tr>
+			<tr>
+				<th>手机验证码：</th>
+				<td colspan="2"><input class="win_input" type="text" name="verifyCode" value="" pattern="verify" alt="" /><label>　</label></td>
+			</tr>
+			<tr>
+				<th>密　码：</th>
+				<td colspan="2"><input class="win_input" type="password" name="password" value="" pattern="pass" alt="" /><label>　</label></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td colspan="2"><input type="submit" name="submit" value="注 册" class="win_submit_btn" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<script type="text/javascript">
+	clearcdt();
+	$(function(){
+		$('#act_reg input:[name="sendVerify"]').click(function(){
+			var sendObj = {
+				'mobile' : $('#act_reg input:[name="mobile"]').val(),
+				'sign' : $('#act_reg input:[name="sign"]').val()
+			};
+			if(checkInfo(sendObj, 'act_reg') == true)
+			{
+				var rt = sendShort('{:U("AppStore://Activity-Index/sendVerify")}', sendObj);
+				if(rt == 1)cdt();
+			}
+		});
+		$('#act_reg input:[name="submit"]').click(function(){
+			var sendObj = {
+				mobile : $('#act_reg input:[name="mobile"]').val(),
+				verifyCode : $('#act_reg input:[name="verifyCode"]').val(),
+				password : $('#act_reg input:[name="password"]').val(),
+				__hash__ : $('#act_reg input:[name="__hash__"]').val()
+			};
+			if(checkInfo(sendObj, 'act_reg') == true)
+			{
+				//sendInfo('{:U("AppStore://Activity-Index/regAct")}', sendObj, 'reg');
+				sendInfo('{:U("AppStore://Activity-Index/regAct")}', sendObj, false);
+			}
+			return false;
+		});
+		$('#act_login input:[name="__hash__"]').val($('#act_reg input:[name="__hash__"]').val());
+		$('.win_submit_btn').hover(function(){
+			$(this).addClass('win_submit_btn_hover');
+		}, function(){
+			$(this).removeClass('win_submit_btn_hover');
+		});
+		$('.verify_btn').hover(function(){
+			$(this).addClass('verify_btn_hover');
+		},function(){
+			$(this).removeClass('verify_btn_hover');
+		});
+	});
+</script>]]></root>
