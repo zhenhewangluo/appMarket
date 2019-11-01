@@ -46,13 +46,13 @@ server {
         include fastcgi.conf;
 	    fastcgi_param DB_HOST "172.18.0.1";
         fastcgi_param DB_USER "root";
-        fastcgi_param DB_PASSWORD "Qq7731226!@#";
+        fastcgi_param DB_PASSWORD "123456";
         fastcgi_param DB_NAME "_v2_android";
         fastcgi_param COMMON_DB_HOST "172.18.0.1";
         fastcgi_param COMMON_DB_USER "root";
-        fastcgi_param COMMON_DB_PASSWORD "Qq7731226!@#";
+        fastcgi_param COMMON_DB_PASSWORD "123456";
         fastcgi_param COMMON_DB_NAME "_v2_common";
-        fastcgi_param AM_SITE_ROOT "/var//www/html/api.oi3g.com/";
+        fastcgi_param AM_SITE_ROOT "/var//www/html/api.market.com/";
         fastcgi_param AM_SITE_URL "http://down.market.com/";
         fastcgi_param AM_SITE_DOWN_URL "http://down.market.com/";
         fastcgi_param REPO_ROOT "http://down.market.com/repo/";
